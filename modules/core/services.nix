@@ -47,11 +47,11 @@
       };
     };
 
+    ## Auto-Login Setup that starts niri-session
     # displayManager.autoLogin = {
     #   enable = true;
     #   user = "${username}";
     # };
-
     # greetd =
     #   let
     #     niri-pkg = config.programs.niri.package;

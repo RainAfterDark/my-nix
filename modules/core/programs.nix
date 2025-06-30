@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     nix-output-monitor
     nvd
+    pciutils
   ];
 
   programs.nix-ld.enable = true;
