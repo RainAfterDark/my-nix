@@ -4,8 +4,8 @@
     ./gnome
 
     ./cli.nix
-    ./dev.nix
     ./gui.nix
+    ./mpv.nix
     ./xdg-mimes.nix
   ];
 }

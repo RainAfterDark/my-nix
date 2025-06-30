@@ -3,7 +3,7 @@
   imports = [
     ./audio.nix
     ./bootloader.nix
-    ./display.nix
+    ./desktop.nix
     ./locale.nix
     ./network.nix
     ./programs.nix

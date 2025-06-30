@@ -1,0 +1,8 @@
+{ ... }:
+{
+  imports = [
+    ./vscodium
+
+    ./environment.nix
+  ];
+}

@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    ## Lsp
+    ## lsp
     nixd # nix
+    qt6.full # qt
 
     ## formating
     shfmt

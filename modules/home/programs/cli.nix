@@ -64,11 +64,10 @@
     # ani-cli
     imv
     # lowfi
-    mpv
 
     ## Utilities
     entr # perform action when file change
-    ffmpeg
+    ffmpeg-full
     file # Show file information
     jq # JSON processor
     killall

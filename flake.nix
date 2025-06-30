@@ -1,5 +1,5 @@
 {
-  description = "The Nix";
+  description = "My Nix";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -9,8 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    milk-grub-theme.url = "github:gemakfy/MilkGrub";
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -23,6 +21,9 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    milk-grub-theme.url = "github:gemakfy/MilkGrub";
+    sddm-stray-nixos.url = "github:RainAfterDark/sddm-stray-nixos";
   };
 
   outputs =
@@ -30,8 +31,8 @@
       self,
       nixpkgs,
       chaotic,
-      milk-grub-theme,
       niri,
+      milk-grub-theme,
       ...
     }@inputs:
     let
@@ -82,9 +83,8 @@
           modules = [
             universal
             chaotic.nixosModules.default
-            milk-grub-theme.nixosModule
             niri.nixosModules.niri
-            #home-manager.nixosModules.home-manager
+            milk-grub-theme.nixosModule
             ./hosts/${host}
             ./modules/core
           ];

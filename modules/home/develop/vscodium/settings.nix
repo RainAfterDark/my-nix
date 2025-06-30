@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.vscode.profiles.default = {
     userSettings = {
@@ -9,7 +9,7 @@
       "window.menuBarVisibility" = "toggle";
       "editor.fontFamily" = "'Maple Mono', 'SymbolsNerdFont', 'monospace', monospace";
       "terminal.integrated.fontFamily" = "'Maple Mono', 'SymbolsNerdFont'";
-      "editor.fontSize" = 14;
+      "editor.fontSize" = 13;
       "workbench.colorTheme" = "Gruvbox Dark Hard";
       "workbench.iconTheme" = "gruvbox-material-icon-theme";
       "material-icon-theme.folders.theme" = "classic";
@@ -30,15 +30,15 @@
       "workbench.editor.limit.perEditorGroup" = true;
       "workbench.editor.showTabs" = "multiple";
       "files.autoSave" = "onWindowChange";
-      #"explorer.openEditors.visible" = 0;
+      # "explorer.openEditors.visible" = 0;
       # "breadcrumbs.enabled" = false;
       "editor.renderControlCharacters" = false;
-      #"workbench.activityBar.location" = "hidden";
+      # "workbench.activityBar.location" = "hidden";
       "workbench.statusBar.visible" = false;
       # "editor.scrollbar.verticalScrollbarSize" = 2;
       # "editor.scrollbar.horizontalScrollbarSize" = 2;
-      #"editor.scrollbar.vertical" = "hidden";
-      #"editor.scrollbar.horizontal" = "hidden";
+      # "editor.scrollbar.vertical" = "hidden";
+      # "editor.scrollbar.horizontal" = "hidden";
       "workbench.layoutControl.enabled" = false;
 
       "editor.mouseWheelZoom" = true;
@@ -54,12 +54,13 @@
 
       # Zig
       # "zig.initialSetupDone" = true;
-      "zig.checkForUpdate" = false;
-      "zig.zls.path" = "zls";
-      "zig.path" = "zig";
-      "zig.revealOutputChannelOnFormattingError" = false;
-      "zig.zls.enableInlayHints" = false;
+      # "zig.checkForUpdate" = false;
+      # "zig.zls.path" = "zls";
+      # "zig.path" = "zig";
+      # "zig.revealOutputChannelOnFormattingError" = false;
+      # "zig.zls.enableInlayHints" = false;
 
+      # Nix
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
       "nix.serverSettings" = {
@@ -69,6 +70,14 @@
           };
         };
       };
+
+      # Qt
+      "qt-qml.doNotAskForQmllsDownload" = true;
+      "qt-qml.qmlls.customExePath" = "qmlls";
+      "qt-qml.qmlls.additionalImportPaths" = [
+        "${pkgs.kdePackages.qtdeclarative}/lib/qt-6/qml"
+        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
+      ];
     };
   };
 }

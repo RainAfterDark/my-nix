@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    coreutils
+  ];
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -15,7 +19,7 @@
       milk-theme.enable = true;
 
       extraInstallCommands = ''
-        cat << EOF >> /boot/grub/grub.cfg
+         ${pkgs.coreutils}/bin/cat << EOF >> /boot/grub/grub.cfg
         # Reboot
         menuentry "Reboot" --class restart{
           reboot
