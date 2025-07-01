@@ -1,13 +1,12 @@
-{ ... }:
+{ host, ... }:
 {
   programs.zsh = {
     shellAliases = {
-      # Utils
+      ## Utils
       c = "clear";
       cd = "z";
       tt = "gtrash put";
       cat = "bat";
-      # nano = "micro";
       code = "codium";
       diff = "delta --diff-so-fancy --side-by-side";
       less = "bat";
@@ -19,27 +18,25 @@
       pdf = "tdf";
       open = "xdg-open";
       space = "ncdu";
-      # man = "BAT_THEME='default' batman";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
       tree = "eza --icons --tree --group-directories-first";
 
-      # Nixos
-      cdnix = "cd ~/nixos-config && codium ~/nixos-config";
-      ns = "nom-shell --run zsh";
-      nd = "nom develop --command zsh";
-      nb = "nom build";
-      nc = "nh clean all --keep 5";
-      nft = "nh os test";
-      nfb = "nh os boot";
-      nfs = "nh os switch";
-      nfu = "nh os switch --update";
-      # nix-search = "nh search";
+      ## Nixos
+      myx = "cd ~/my-nix && codium ~/my-nix";
+      nos = "nom-shell --run zsh";
+      nod = "nom develop --command zsh";
+      nob = "nom build";
+      nhc = "nh clean all --keep 5";
+      nht = "nh os test -H ${host}";
+      nhb = "nh os boot -H ${host}";
+      nhs = "nh os switch -H ${host}";
+      nhp = "nh search";
 
-      # python
-      # piv = "python -m venv .venv";
-      # psv = "source .venv/bin/activate";
+      ## Shutdown
+      off = "poweroff --no-wall";
+      rbt = "reboot --no-wall";
     };
   };
 }

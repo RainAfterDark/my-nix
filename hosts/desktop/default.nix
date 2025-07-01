@@ -5,8 +5,11 @@
   ];
 
   powerManagement.cpuFreqGovernor = "performance";
-
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  ## Necessary for silent boot, don't think this is
+  ## used because this is just a 750 Ti anyway
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   hardware = {
     nvidia = {

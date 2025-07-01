@@ -18,9 +18,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    nix-output-monitor
-    nvd
-    pciutils
+    coreutils # essentials
+    nix-output-monitor # nom
+    nvd # nix diff tool
+    pciutils # lspci, etc.
   ];
 
   programs.nix-ld.enable = true;
