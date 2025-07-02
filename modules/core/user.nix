@@ -1,8 +1,9 @@
 {
   pkgs,
+  host,
   inputs,
   username,
-  host,
+  flakeRoot,
   ...
 }:
 {
@@ -11,7 +12,14 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
+    extraSpecialArgs = {
+      inherit
+        host
+        inputs
+        username
+        flakeRoot
+        ;
+    };
     users.${username} = {
       imports = [ ./../home ];
       home.username = "${username}";

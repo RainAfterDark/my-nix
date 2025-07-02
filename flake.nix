@@ -36,6 +36,10 @@
       ...
     }@inputs:
     let
+      username = "ame";
+      system = "x86_64-linux";
+      flakeRoot = "~/my-nix";
+
       universal = {
         nix = {
           settings = {
@@ -66,9 +70,6 @@
         };
       };
 
-      username = "ame";
-      system = "x86_64-linux";
-
       mkHostConfig =
         host:
         nixpkgs.lib.nixosSystem {
@@ -79,6 +80,7 @@
               self
               inputs
               username
+              flakeRoot
               ;
           };
           modules = [

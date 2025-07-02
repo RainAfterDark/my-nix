@@ -1,4 +1,4 @@
-{ host, ... }:
+{ host, flakeRoot, ... }:
 {
   programs.zsh = {
     shellAliases = {
@@ -17,26 +17,25 @@
       dsize = "du -hs";
       pdf = "tdf";
       open = "xdg-open";
-      space = "ncdu";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
       tree = "eza --icons --tree --group-directories-first";
 
       ## Nixos
-      myx = "cd ~/my-nix && codium ~/my-nix";
-      nos = "nom-shell --run zsh";
-      nod = "nom develop --command zsh";
-      nob = "nom build";
-      nhc = "nh clean all --keep 5";
-      nht = "nh os test -H ${host}";
-      nhb = "nh os boot -H ${host}";
-      nhs = "nh os switch -H ${host}";
-      nhp = "nh search";
+      cx = "cd ${flakeRoot} && codium ${flakeRoot}";
+      nz = "nom-shell --run zsh";
+      nd = "nom develop --command zsh";
+      nb = "nom build";
+      ns = "nh search";
+      nc = "nh clean all --keep 5";
+      not = "sudo nh os test -H ${host} -R ${flakeRoot}";
+      nob = "sudo nh os boot -H ${host} -R ${flakeRoot}";
+      nos = "sudo nh os switch -H ${host} -R ${flakeRoot}";
 
       ## Shutdown
-      off = "poweroff --no-wall";
-      rbt = "reboot --no-wall";
+      off = "systemctl poweroff --no-wall";
+      rbt = "systemctl reboot --no-wall";
     };
   };
 }
