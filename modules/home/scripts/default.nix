@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./fast-rebuild.nix
+  ];
+}

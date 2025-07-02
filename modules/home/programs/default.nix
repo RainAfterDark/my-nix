@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./browser
     ./gnome
 
     ./cli.nix

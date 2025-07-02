@@ -41,7 +41,13 @@
                 "nix"
                 "nixos-rebuild"
               ]
-            );
+            )
+            ++ [
+              {
+                command = "/nix/store/*/bin/switch-to-configuration";
+                options = [ "NOPASSWD" ];
+              }
+            ];
         }
       ];
     };

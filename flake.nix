@@ -38,12 +38,15 @@
     let
       username = "ame";
       system = "x86_64-linux";
-      flakeRoot = "~/my-nix";
+      flakeRoot = "$HOME/my-nix";
 
       universal = {
         nix = {
           settings = {
-            auto-optimise-store = true;
+            sandbox = false;
+            auto-optimise-store = false;
+            trusted-users = [ username ];
+            allowed-users = [ username ];
             experimental-features = [
               "nix-command"
               "flakes"
