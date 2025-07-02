@@ -1,4 +1,8 @@
-{ host, flakeRoot, ... }:
+{
+  host,
+  flakeRoot,
+  ...
+}:
 {
   programs.zsh = {
     shellAliases = {
@@ -32,6 +36,7 @@
       not = "sudo nh os test -H ${host} -R ${flakeRoot}";
       nob = "sudo nh os boot -H ${host} -R ${flakeRoot}";
       nos = "sudo nh os switch -H ${host} -R ${flakeRoot}";
+      nhs = "nh home switch";
 
       ## Shutdown
       off = "systemctl poweroff --no-wall";

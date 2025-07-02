@@ -17,8 +17,6 @@
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -36,10 +34,16 @@
       ...
     }@inputs:
     let
+      # --------------------------------------------------------------------------
+      # Global constants
+      # --------------------------------------------------------------------------
       username = "ame";
       system = "x86_64-linux";
       flakeRoot = "$HOME/my-nix";
 
+      # --------------------------------------------------------------------------
+      # Common nix / nixpkgs settings
+      # --------------------------------------------------------------------------
       universal = {
         nix = {
           settings = {
@@ -47,10 +51,12 @@
             auto-optimise-store = false;
             trusted-users = [ username ];
             allowed-users = [ username ];
+
             experimental-features = [
               "nix-command"
               "flakes"
             ];
+
             substituters = [
               "https://cache.nixos.org?priority=10"
               "https://nix-community.cachix.org"
@@ -73,7 +79,18 @@
         };
       };
 
-      mkHostConfig =
+      # Helper: import nixpkgs with the same overlay / config as universal
+      mkPkgs =
+        system:
+        import nixpkgs {
+          inherit system;
+          inherit (universal.nixpkgs) overlays config;
+        };
+
+      # --------------------------------------------------------------------------
+      # System Builder
+      # --------------------------------------------------------------------------
+      mkSystemConfig =
         host:
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -87,19 +104,67 @@
               ;
           };
           modules = [
-            universal
+            universal # common nix + nixpkgs settings
             chaotic.nixosModules.default
             niri.nixosModules.niri
             milk-grub-theme.nixosModule
-            ./hosts/${host}
-            ./modules/core
+            ./hosts/${host} # host‑specific modules
+            ./modules/core # shared NixOS modules
           ];
         };
+
+      # --------------------------------------------------------------------------
+      # Home‑Manager Builder (stand‑alone)
+      # --------------------------------------------------------------------------
+      mkHomeConfig =
+        host:
+        inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = mkPkgs system;
+
+          extraSpecialArgs = {
+            inherit
+              host
+              self
+              inputs
+              username
+              flakeRoot
+              ;
+          };
+
+          modules = [
+            niri.homeModules.config
+            ./modules/home
+          ];
+        };
+
+      # --------------------------------------------------------------------------
+      # ---------- Combined Derivation (linkFarm) --------------------------------
+      # --------------------------------------------------------------------------
+      mkCombined =
+        host:
+        (mkPkgs system).linkFarm "combined-${host}" [
+          {
+            name = "system";
+            path = self.nixosConfigurations.${host}.config.system.build.toplevel;
+          }
+          {
+            name = "home";
+            path = self.homeConfigurations."${username}@${host}".activationPackage;
+          }
+        ];
     in
     {
+      # ------------------------------------------------------------------------
+      # Outputs
+      # ------------------------------------------------------------------------
       nixosConfigurations = {
-        desktop = mkHostConfig "desktop";
-        # laptop = mkHostConfig "laptop";
+        desktop = mkSystemConfig "desktop";
+      };
+      homeConfigurations = {
+        "${username}@desktop" = mkHomeConfig "desktop";
+      };
+      combined = {
+        desktop = mkCombined "desktop";
       };
     };
 }
