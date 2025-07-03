@@ -21,7 +21,6 @@
     coreutils # essentials
     nix-output-monitor # nom
     nvd # nix diff tool
-    nix-fast-build
     pciutils # lspci, etc.
   ];
 
