@@ -1,14 +1,5 @@
 { username, ... }:
 {
-  imports = [
-    ./desktop
-    ./develop
-    ./programs
-    ./scripts
-    ./terminal
-    ./theme
-  ];
-
   programs.home-manager.enable = true;
 
   home = {

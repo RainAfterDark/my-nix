@@ -16,6 +16,14 @@ let
       inherit (universal.nixpkgs) overlays config;
     };
 
+  findModules =
+    let
+      inherit (nixpkgs.lib) filter strings filesystem;
+      inherit (strings) hasSuffix;
+      inherit (filesystem) listFilesRecursive;
+    in
+    path: filter (n: hasSuffix ".nix" n) (listFilesRecursive path);
+
   mkSystemConfig =
     host:
     nixpkgs.lib.nixosSystem {
@@ -29,11 +37,12 @@ let
           flakeRoot
           ;
       };
-      modules = [
-        universal
-        ./hosts/${host}
-        ./modules/core
-      ];
+      modules =
+        let
+          hostModules = findModules ./hosts/${host};
+          coreModules = findModules ./modules/core;
+        in
+        [ universal ] ++ hostModules ++ coreModules;
     };
 
   mkHomeConfig =
@@ -49,7 +58,7 @@ let
           flakeRoot
           ;
       };
-      modules = [ ./modules/home ];
+      modules = findModules ./modules/home;
     };
 
   mkCombined =

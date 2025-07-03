@@ -11,21 +11,18 @@ excludes = [
     "*.css",
     "*.json",
     "*.zsh",
-    "*/packages/*",
-    "*/home/default.nix",
-    "treefmt.toml",
 ]
 
 [formatter.nix]
 command = "nixfmt"
-options = [ "-sv", "-w" ,"80" ]
-includes = [ "*.nix" ]
-excludes = [ ]
+options = ["-sv", "-w", "80"]
+includes = ["*.nix"]
+excludes = []
 
 [formatter.sh]
 command = "shfmt"
-options = [ "-l", "-w", "-ci", "-sr", "-i", "4" ]
-includes = [ "*.sh" ]
+options = ["-l", "-w", "-ci", "-sr", "-i", "4"]
+includes = ["*.sh"]
 excludes = []
 
 
