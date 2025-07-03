@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  host,
+  username,
+  flakeRoot,
+  ...
+}:
 {
   programs.vscode.profiles.default = {
     userSettings = {
@@ -64,11 +70,26 @@
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
       "nix.serverSettings" = {
-        "nixd" = {
-          "formatting" = {
-            "command" = [ "nixfmt" ];
+        "nixd" =
+          let
+            flake = "(builtins.getFlake \"${flakeRoot}\")";
+          in
+          {
+            "nixpkgs" = {
+              "expr" = "${flake}.inputs.nixpkgs { }";
+            };
+            "formatting" = {
+              "command" = [ "nixfmt" ];
+            };
+            "options" = {
+              "nixos" = {
+                "expr" = "${flake}.nixosConfigurations.${host}.options";
+              };
+              "home-manager" = {
+                "expr" = "${flake}.homeConfigurations.\"${username}@${host}\".options";
+              };
+            };
           };
-        };
       };
 
       # Qt

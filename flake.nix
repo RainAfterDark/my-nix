@@ -30,7 +30,7 @@
     let
       system = "x86_64-linux";
       username = "ame";
-      flakeRoot = "$HOME/my-nix";
+      flakeRoot = "/home/${username}/my-nix";
       hosts = [ "desktop" ];
 
       universal = {
