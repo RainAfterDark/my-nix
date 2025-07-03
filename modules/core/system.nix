@@ -8,13 +8,14 @@
 }:
 {
   ## Use the CachyOS patched kernel
+  imports = [ inputs.chaotic.nixosModules.default ];
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   ## Enable ZRAM (amount of mem should be configured per host)
   zramSwap.enable = true;
 
   security = {
-    # Use sudo rust rewrite
+    ## Use sudo rust rewrite
     sudo.enable = false;
     sudo-rs = {
       enable = true;

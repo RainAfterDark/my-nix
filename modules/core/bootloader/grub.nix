@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [ inputs.milk-grub-theme.nixosModule ];
   boot = {
     loader = {
       efi = {

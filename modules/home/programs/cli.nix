@@ -41,8 +41,7 @@
     # programmer-calculator
 
     ## Monitoring / fetch
-    # htop
-    btop-cuda
+    btop-cuda # btop for NVIDIA gpu
     nitch # systhem fetch util
     onefetch # fetch utility for git repo
     wavemon # monitoring for wireless network devices

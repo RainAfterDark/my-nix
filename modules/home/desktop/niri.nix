@@ -1,8 +1,10 @@
 {
   config,
+  inputs,
   ...
 }:
 {
+  imports = [ inputs.niri.homeModules.config ];
   programs.niri = {
     settings = {
       spawn-at-startup = [
