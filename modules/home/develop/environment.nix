@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     ## lsp
     nixd # nix
-    qt6.full # qt
 
     ## formating
     shfmt

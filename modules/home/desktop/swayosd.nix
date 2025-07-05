@@ -12,11 +12,11 @@
       in
       {
         "XF86AudioRaiseVolume" = {
-          action = sh "swayosd-client --output-volume +2 --max-volume=100";
+          action = sh "swayosd-client --output-volume +5 --max-volume=100";
           allow-when-locked = true;
         };
         "XF86AudioLowerVolume" = {
-          action = sh "swayosd-client --output-volume -2";
+          action = sh "swayosd-client --output-volume -5";
           allow-when-locked = true;
         };
       };

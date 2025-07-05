@@ -39,8 +39,8 @@
       nhs = "nh home switch";
 
       ## Shutdown
-      off = "systemctl poweroff --no-wall";
-      rbt = "systemctl reboot --no-wall";
+      off = "systemctl poweroff";
+      rbt = "systemctl reboot";
     };
   };
 }

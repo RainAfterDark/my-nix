@@ -15,6 +15,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     milk-grub-theme.url = "github:gemakfy/MilkGrub";
     sddm-stray-nixos.url = "github:RainAfterDark/sddm-stray-nixos";
 
