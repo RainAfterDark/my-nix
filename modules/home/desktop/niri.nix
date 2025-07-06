@@ -39,8 +39,8 @@
       struts = {
         left = 24;
         right = 24;
-        top = 24;
-        bottom = 24;
+        top = 0;
+        bottom = 0;
       };
     };
 
@@ -86,6 +86,13 @@
       "Mod+Alt+E".action = expel-window-from-column;
     };
 
+    workspaces = {
+      a = { };
+      b = { };
+      c = { };
+      d = { };
+    };
+
     window-rules = [
       {
         draw-border-with-background = false;
@@ -94,6 +101,5 @@
 
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
-
   };
 }

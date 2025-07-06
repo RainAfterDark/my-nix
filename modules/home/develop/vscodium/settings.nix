@@ -92,15 +92,15 @@
           };
       };
 
-      # Qt
-      "qt-qml.doNotAskForQmllsDownload" = true;
-      "qt-qml.qmlls.customExePath" = "qmlls";
-      "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
-      "qt-qml.qmlls.additionalImportPaths" = [
-        "${pkgs.qt6.full}/lib/qt-6/qml"
-        "${pkgs.kdePackages.qtdeclarative}/lib/qt-6/qml"
-        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
-      ];
+      # Qt (TODO: remove; the LSP is so bad)
+      # "qt-qml.doNotAskForQmllsDownload" = true;
+      # "qt-qml.qmlls.customExePath" = "qmlls";
+      # "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
+      # "qt-qml.qmlls.additionalImportPaths" = [
+      #   "${pkgs.qt6.full}/lib/qt-6/qml"
+      #   "${pkgs.kdePackages.qtdeclarative}/lib/qt-6/qml"
+      #   "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
+      # ];
     };
   };
 }
