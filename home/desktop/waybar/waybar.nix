@@ -5,7 +5,7 @@
   ...
 }:
 let
-  waybarDir = "${flakeRoot}/modules/home/desktop/waybar";
+  waybarDir = "${flakeRoot}/home/desktop/waybar";
   waybarSym = config.lib.file.mkOutOfStoreSymlink waybarDir;
   waybarHr = pkgs.writeShellScriptBin "waybar-hr" ''
     #!/usr/bin/env bash

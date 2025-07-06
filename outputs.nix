@@ -40,7 +40,7 @@ let
       modules =
         let
           hostModules = findModules ./hosts/${host};
-          coreModules = findModules ./modules/core;
+          coreModules = findModules ./core;
         in
         [ universal ] ++ hostModules ++ coreModules;
     };
@@ -58,7 +58,7 @@ let
           flakeRoot
           ;
       };
-      modules = findModules ./modules/home;
+      modules = findModules ./home;
     };
 
   mkCombined =

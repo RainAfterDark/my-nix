@@ -4,7 +4,7 @@
   ...
 }:
 let
-  quickshellDir = "${flakeRoot}/modules/home/desktop/quickshell";
+  quickshellDir = "${flakeRoot}/home/desktop/quickshell";
   quickshellSym = config.lib.file.mkOutOfStoreSymlink quickshellDir;
 in
 {
