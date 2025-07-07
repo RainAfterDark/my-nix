@@ -20,6 +20,13 @@
       };
     };
 
+    layer-rules = [
+      {
+        matches = [ { namespace = "mpvpaper"; } ];
+        place-within-backdrop = true;
+      }
+    ];
+
     layout = {
       preset-column-widths = [
         { proportion = 2.0 / 3.0; }
@@ -31,17 +38,28 @@
         proportion = 0.9 / 2.0;
       };
 
-      always-center-single-column = true;
-      center-focused-column = "never";
-      shadow.enable = true;
-
       gaps = 12;
       struts = {
         left = 24;
         right = 24;
         top = 0;
-        bottom = 0;
+        bottom = 12;
       };
+
+      always-center-single-column = true;
+      center-focused-column = "never";
+      background-color = "transparent";
+      shadow.enable = true;
+
+      focus-ring = {
+        enable = true;
+        width = 3;
+        active.color = "white";
+      };
+    };
+
+    overview = {
+      workspace-shadow.enable = false;
     };
 
     input = {
@@ -71,15 +89,16 @@
       "Mod+X".action = switch-preset-column-width;
       "Mod+C".action = switch-preset-window-height;
 
-      "Mod+W".action = focus-window-up-or-bottom;
-      "Mod+S".action = focus-window-down-or-top;
-      "Mod+A".action = focus-column-left-or-last;
-      "Mod+D".action = focus-column-right-or-first;
+      "Mod+W".action = focus-window-or-workspace-up;
+      "Mod+S".action = focus-window-or-workspace-down;
+      "Mod+A".action = focus-column-or-monitor-left;
+      "Mod+D".action = focus-column-or-monitor-right;
       "Mod+Q".action = consume-or-expel-window-left;
       "Mod+E".action = consume-or-expel-window-right;
+      "Mod+Space".action = toggle-overview;
 
-      "Mod+Alt+W".action = move-window-up;
-      "Mod+Alt+S".action = move-window-down;
+      "Mod+Alt+W".action = move-window-up-or-to-workspace-up;
+      "Mod+Alt+S".action = move-window-down-or-to-workspace-down;
       "Mod+Alt+A".action = swap-window-left;
       "Mod+Alt+D".action = swap-window-right;
       "Mod+Alt+Q".action = consume-window-into-column;

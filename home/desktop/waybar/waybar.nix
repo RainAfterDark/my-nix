@@ -21,7 +21,9 @@ in
 
   home.packages = [ waybarHr ];
 
-  programs.waybar.enable = true;
+  programs.waybar = {
+    enable = true;
+  };
 
   programs.niri.settings.spawn-at-startup = [
     { command = [ "waybar" ]; }
