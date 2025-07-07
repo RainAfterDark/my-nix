@@ -2,6 +2,11 @@
 {
   programs.mpv = {
     enable = true;
+    config = {
+      hwdec = "yes";
+      cache = "yes";
+      demuxer-max-back-bytes = 4000000;
+    };
     scripts = [
       pkgs.mpvScripts.videoclip
     ];
