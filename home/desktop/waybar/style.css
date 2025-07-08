@@ -6,29 +6,49 @@
     padding: 0px;
     box-shadow: none;
     text-shadow: none;
-    transition:
-        background-position 0s,
-        background-size 0.3s ease;
+    transition: background-size 0.3s ease;
 }
 
-#custom-nixos,
-window#waybar,
-#taskbar {
+.horizontal {
+    margin-top: 2px;
+}
+
+.modules-left {
+    padding: 0px 22px;
+    border-color: white;
+    border-style: solid;
+    border-width: 4px 0px 0px;
+}
+
+.modules-center {
+    margin: 2px;
+}
+
+.modules-right {
+    padding: 0px 22px;
+    border-color: white;
+    border-style: solid;
+    border-width: 4px 0px 0px;
+}
+
+#waybar {
     background: transparent;
 }
 
 #custom-nixos {
-    font-family: "Hurmit Nerd Font";
-    font-size: 24px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 22px;
     color: white;
-    padding-left: 12px;
-    padding-right: 20px;
 
-    background: linear-gradient(to left,
+    margin: 4px 4px 0px 4px;
+    padding-left: 6px;
+    padding-right: 16px;
+
+    background: linear-gradient(to top,
             white 0%,
             white 100%) no-repeat;
-    background-size: 0% 100%;
-    background-position: right center;
+    background-size: 100% 0%;
+    background-position: bottom center;
 }
 
 #custom-nixos:hover {
@@ -37,23 +57,23 @@ window#waybar,
 }
 
 #custom-nixos:not(:hover) {
-    background-position: left center;
+    background-position: top center;
 }
 
 #workspaces {
-    /* min-width: 122px; */
     font-family: "Stray";
-    padding: 0px 6px;
+    padding: 0px 4px;
     border-color: white;
-    border-style: solid;
-    border-width: 0px 3px;
+    border-style: dashed;
+    border-width: 0px 4px;
 }
 
 #workspaces button {
     font-size: 12px;
     min-width: 13px;
     min-height: 32px;
-    padding: 0px 4px;
+    margin-top: 2px;
+    padding: 0px 5px;
     color: white;
 
     background: linear-gradient(to top,
@@ -65,7 +85,7 @@ window#waybar,
 
 #workspaces button.focused {
     font-size: 18px;
-    min-width: 32px;
+    min-width: 26px;
     color: black;
     background-size: 100% 100%;
 }
@@ -75,13 +95,14 @@ window#waybar,
 }
 
 #taskbar {
-    font-family: "Hurmit Nerd Font";
-    padding-left: 12px;
+    font-family: "JetBrainsMono Nerd Font";
+    padding-left: 6px;
 }
 
 #taskbar button {
     font-size: 14px;
     color: white;
+    margin-top: 2px;
     padding: 0px;
     background: linear-gradient(to top,
             white 0%,
@@ -93,9 +114,9 @@ window#waybar,
 #taskbar button.active,
 #taskbar button:hover {
     font-size: 20px;
-    padding-left: 6px;
-    padding-right: 2px;
-    margin-right: 4px;
+    padding-left: 8px;
+    padding-right: 4px;
+    margin-right: 6px;
     color: black;
     background-size: 100% 100%;
 }
@@ -105,11 +126,24 @@ window#waybar,
 }
 
 #clock {
-    font-family: "Hurmit Nerd Font";
+    font-family: "Maple Mono";
     font-weight: bold;
-    font-size: 18px;
-    margin-top: 6px;
+    font-size: 24px;
+    margin-top: 2px;
     padding: 0px 6px;
+    color: black;
+    background: white;
+}
+
+#cpu,
+#memory,
+#custom-ping,
+#upower {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    margin: 6px 6px 4px 0px;
+    padding: 0px 4px;
     color: black;
     background: white;
 }

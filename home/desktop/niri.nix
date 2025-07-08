@@ -22,7 +22,10 @@
 
     layer-rules = [
       {
-        matches = [ { namespace = "mpvpaper"; } ];
+        matches = [
+          { namespace = "mpvpaper"; }
+          { namespace = "swww-daemon"; }
+        ];
         place-within-backdrop = true;
       }
     ];
@@ -38,12 +41,12 @@
         proportion = 0.9 / 2.0;
       };
 
-      gaps = 12;
+      gaps = 20;
       struts = {
-        left = 24;
-        right = 24;
+        left = 10;
+        right = 10;
         top = 0;
-        bottom = 12;
+        bottom = 5;
       };
 
       always-center-single-column = true;
@@ -53,7 +56,7 @@
 
       focus-ring = {
         enable = true;
-        width = 3;
+        width = 4;
         active.color = "white";
       };
     };
