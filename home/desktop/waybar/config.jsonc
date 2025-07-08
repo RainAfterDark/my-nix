@@ -15,7 +15,9 @@
         "clock"
     ],
     "modules-right": [
-        "tray",
+        "cpu",
+        "memory",
+        "custom/ping",
         "upower"
     ],
     // Modules
@@ -37,12 +39,15 @@
     "wlr/taskbar": {
         "on-click": "activate",
         "on-click-middle": "close",
-        "format": "{app_id} ",
+        "format": "{app_id}",
         "app_ids-mapping": {
             "codium": "",
+            "imv": "",
             "kitty": "",
+            "mpv": "",
             "nemo": "󰷏",
-            "zen-beta": ""
+            "zen-beta": "",
+            "{app_id}": " {app_id} "
         }
     },
     "clock": {
@@ -68,10 +73,23 @@
             "on-scroll-down": "shift_down"
         }
     },
+    "cpu": {
+        "interval": 1,
+        "format": " {usage:0>2}% @{avg_frequency:0>4}GHz"
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {percentage:0>2}%  {swapPercentage:0>2}%"
+    },
+    "custom/ping": {
+        "interval": 2,
+        "exec": "ping -c1 8.8.8.8 | awk -F'[= ]' '/time=/{print $10}'",
+        "format": " {:0>4}ms"
+    },
     "upower": {
-        "icon-size": 20,
+        "show-icon": false,
         "hide-if-empty": false,
         "tooltip": true,
-        "tooltip-spacing": 20
+        "format": " {percentage:0>3}"
     }
 }

@@ -28,9 +28,9 @@
     with config.lib.niri.actions;
     let
       sh = spawn "sh" "-c";
-      onlyOne = f: sh "flock -n /tmp/${f}.lock ${f}";
+      onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
     in
     {
-      "Mod+Escape".action = onlyOne "wlogout";
+      "Mod+Escape".action = onlyOne "wlogout" "-s";
     };
 }

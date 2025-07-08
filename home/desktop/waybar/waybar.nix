@@ -10,7 +10,8 @@ let
   waybarHr = pkgs.writeShellScriptBin "waybar-hr" ''
     #!/usr/bin/env bash
     pkill -SIGUSR2 waybar || waybar &
-    fd . ${waybarDir} -tf | entr -s 'pkill -SIGUSR2 waybar || waybar &'
+    fd . ${waybarDir} -tf |
+    entr -s 'pkill -SIGUSR2 waybar || waybar &'
   '';
 in
 {

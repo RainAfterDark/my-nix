@@ -2,14 +2,40 @@
 {
   programs.mpv = {
     enable = true;
+
     config = {
-      hwdec = "yes";
-      cache = "yes";
-      demuxer-max-back-bytes = 4000000;
+      hwdec = "auto";
     };
+
+    profiles = {
+      mpvpaper = {
+        audio = "no";
+        loop = "inf";
+
+        cache = "no";
+        demuxer-max-bytes = "10M";
+        demuxer-max-back-bytes = "10M";
+
+        deband = "no";
+        interpolation = "no";
+
+        hwdec = "auto";
+        gpu-api = "vulkan";
+
+        vd-lavc-fast = true;
+        vd-lavc-threads = 1;
+        vd-lavc-skiploopfilter = "all";
+
+        no-embeddedfonts = "";
+        sub-shaper = "simple";
+        sub-auto = "fuzzy";
+      };
+    };
+
     scripts = [
       pkgs.mpvScripts.videoclip
     ];
+
     scriptOpts = {
       videoclip = {
         # https://aegisub.org/docs/3.2/ASS_Tags/#\an
