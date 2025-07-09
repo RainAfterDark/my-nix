@@ -39,7 +39,10 @@
       system = "x86_64-linux";
       username = "ame";
       flakeRoot = "/home/${username}/my-nix";
-      hosts = [ "desktop" ];
+      hosts = [
+        "desktop"
+        "xps7590"
+      ];
 
       universal = {
         nix = {
