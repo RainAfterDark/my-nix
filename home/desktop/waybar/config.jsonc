@@ -16,6 +16,7 @@
     ],
     "modules-right": [
         "cpu",
+        "temperature",
         "memory",
         "custom/ping",
         "upower"
@@ -75,16 +76,23 @@
     },
     "cpu": {
         "interval": 1,
-        "format": " {usage:0>2}% @{avg_frequency:0>4}GHz"
+        "format": " {usage:0>2}%"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "interval": 1,
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input",
+        // "critical-threshold": 80,
+        "format": "{temperatureC:0>2}°C"
     },
     "memory": {
         "interval": 1,
-        "format": " {percentage:0>2}%  {swapPercentage:0>2}%"
+        "format": " {percentage:0>2}%"
     },
     "custom/ping": {
         "interval": 2,
-        "exec": "ping -c1 8.8.8.8 | awk -F'[= ]' '/time=/{print $10}'",
-        "format": " {:0>4}ms"
+        "exec": "ping -c1 -w1 8.8.8.8 | awk -F'[= ]' '/time=/{print $10; found=1} END{if (!found) print 999}'",
+        "format": "󰖩 {:0>4}ms"
     },
     "upower": {
         "show-icon": false,
