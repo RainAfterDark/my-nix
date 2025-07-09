@@ -6,7 +6,6 @@
     disk = {
       main = {
         type = "disk";
-        # <-- change this to your NVMe
         device = "/dev/nvme0n1";
         content = {
           type = "gpt";
