@@ -135,6 +135,7 @@
     background: white;
 }
 
+#temperature,
 #cpu,
 #memory,
 #custom-ping,
@@ -146,4 +147,8 @@
     padding: 0px 4px;
     color: black;
     background: white;
+}
+
+#cpu {
+    margin-right: 0px;
 }
