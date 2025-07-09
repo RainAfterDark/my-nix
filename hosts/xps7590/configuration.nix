@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   ...
 }:
@@ -14,15 +13,6 @@
   ];
   hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-    home-manager
-    curl
-    nano
-    iw
-    wpa_supplicant
-  ];
 
   system.stateVersion = "25.11";
 }
