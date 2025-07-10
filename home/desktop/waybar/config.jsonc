@@ -19,7 +19,7 @@
         "temperature",
         "memory",
         "custom/ping",
-        "upower"
+        "battery"
     ],
     // Modules
     "custom/nixos": {
@@ -48,6 +48,7 @@
             "mpv": "",
             "nemo": "󰷏",
             "zen-beta": "",
+            "moe.launcher.the-honkers-railway-launcher": "",
             "{app_id}": " {app_id} "
         }
     },
@@ -91,13 +92,26 @@
     },
     "custom/ping": {
         "interval": 2,
-        "exec": "ping -c1 -w1 8.8.8.8 | awk -F'[= ]' '/time=/{print $10; found=1} END{if (!found) print 999}'",
+        "exec": "ping -c1 -w1 8.8.8.8 | awk -F'[= ]' '/time=/{print $10; found=1} END{if (!found) print 9999}'",
         "format": "󰖩 {:0>4}ms"
     },
-    "upower": {
-        "show-icon": false,
-        "hide-if-empty": false,
-        "tooltip": true,
-        "format": " {percentage:0>3}"
+    "battery": {
+        "states": {
+            "95": 95,
+            "75": 75,
+            "50": 50,
+            "25": 25,
+            "10": 10
+        },
+        "format-charging-95": "󰂅 {capacity:0>2}%",
+        "format-charging-75": "󰢞 {capacity:0>2}%",
+        "format-charging-50": "󰢝 {capacity:0>2}%",
+        "format-charging-25": "󰂇 {capacity:0>2}%",
+        "format-charging-10": "󰢜 {capacity:0>2}%",
+        "format-discharging-95": "󰁹 {capacity:0>2}%",
+        "format-discharging-75": "󰂀 {capacity:0>2}%",
+        "format-discharging-50": "󰁾 {capacity:0>2}%",
+        "format-discharging-25": "󰁼 {capacity:0>2}%",
+        "format-discharging-10": "󰁺 {capacity:0>2}%"
     }
 }

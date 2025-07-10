@@ -22,6 +22,7 @@
     nix-output-monitor # nom
     nvd # nix diff tool
     pciutils # lspci, etc.
+    wev # input tester
   ];
 
   programs.nix-ld.enable = true;
