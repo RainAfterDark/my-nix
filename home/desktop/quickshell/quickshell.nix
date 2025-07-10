@@ -13,9 +13,9 @@ in
     force = true;
   };
 
-  programs.niri.settings = {
-    spawn-at-startup = [
-      { command = [ "qs" ]; }
-    ];
-  };
+  # programs.niri.settings = {
+  #   spawn-at-startup = [
+  #     { command = [ "qs" ]; }
+  #   ];
+  # };
 }

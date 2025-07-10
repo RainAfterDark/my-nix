@@ -65,11 +65,6 @@
                       ];
                     };
 
-                    # Swap file inside a subvolume
-                    swap = {
-                      mountpoint = "/.swap";
-                      swap.swapfile.size = "36G"; # 32GB RAM
-                    };
                   };
                 };
 

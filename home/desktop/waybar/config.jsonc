@@ -49,6 +49,9 @@
             "nemo": "󰷏",
             "zen-beta": "",
             "moe.launcher.the-honkers-railway-launcher": "",
+            "The Honkers Railway Launcher": "",
+            "starrail.exe": "",
+            "unknown": "",
             "{app_id}": " {app_id} "
         }
     },
@@ -97,18 +100,18 @@
     },
     "battery": {
         "states": {
-            "95": 95,
+            "100": 100,
             "75": 75,
             "50": 50,
             "25": 25,
             "10": 10
         },
-        "format-charging-95": "󰂅 {capacity:0>2}%",
+        "format-charging-100": "󰂅 {capacity:0>2}%",
         "format-charging-75": "󰢞 {capacity:0>2}%",
         "format-charging-50": "󰢝 {capacity:0>2}%",
         "format-charging-25": "󰂇 {capacity:0>2}%",
         "format-charging-10": "󰢜 {capacity:0>2}%",
-        "format-discharging-95": "󰁹 {capacity:0>2}%",
+        "format-discharging-100": "󰁹 {capacity:0>2}%",
         "format-discharging-75": "󰂀 {capacity:0>2}%",
         "format-discharging-50": "󰁾 {capacity:0>2}%",
         "format-discharging-25": "󰁼 {capacity:0>2}%",
