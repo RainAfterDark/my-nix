@@ -11,9 +11,6 @@
   imports = [ inputs.chaotic.nixosModules.default ];
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
-  ## Enable ZRAM (amount of mem should be configured per host)
-  zramSwap.enable = true;
-
   ## SDDM Stray theme
   environment.systemPackages = [
     inputs.sddm-stray-nixos.packages.${pkgs.system}.default
