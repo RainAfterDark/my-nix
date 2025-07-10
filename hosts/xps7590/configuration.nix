@@ -37,31 +37,18 @@
     ];
   };
 
-  # Swap
-  swapDevices = [
-    { device = "/.swap/swapfile"; }
-  ];
-
-  # Hibernation
-  boot.resumeDevice = "/dev/mapper/cryptroot";
-  boot.kernelParams = [
-    # sudo btrfs inspect-internal map-swapfile -r /.swap/swapfile
-    "resume_offset=533760"
-  ];
-
   # CPU Undervolt
   services.undervolt = {
     enable = true;
-    coreOffset = -150; # limit
-    uncoreOffset = -100; # limit
+    coreOffset = -125; # 150 limit
+    uncoreOffset = -75; # 100 limit
     gpuOffset = 0; # doesn't do much
     analogioOffset = 0; # should be left 0
-    temp = 85; # above 85 throttles (?)
-    turbo = 0; # 0 enabled, 1 disabled
+    temp = 75; # above 85 throttles (?)
     useTimer = true; # periodically reapply settings
   };
 
-  # Benchmarking Tools
+  ## Utility
   environment.systemPackages =
     with pkgs;
     let
@@ -73,11 +60,31 @@
       '';
     in
     [
+      # GPU Test
       unigine-superposition
       superposWrapper
+      # GPU Control
+      lact
+      # CPU Test
       geekbench
       stress-ng
     ];
+
+  systemd.services.lact = {
+    description = "GPU Control Daemon";
+    after = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
+
+  ## Swap
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25; # 8GB
+  };
 
   ## Anime Games
   nix.settings = inputs.aagl.nixConfig;

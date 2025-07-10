@@ -1,14 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     ## Multimedia
     # audacity
     # gimp
-    obs-studio
     pavucontrol
-    # soundwireserver
-    # video-trimmer
-    # vlc
+
+    ## Social
+    inputs.zen-browser.packages."${system}".default
+    vesktop
 
     ## Utility
     libreoffice
