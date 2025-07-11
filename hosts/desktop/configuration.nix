@@ -42,8 +42,11 @@
     ntfs3g
   ];
 
-  ## Enable ZRAM
-  zramSwap.enable = true;
+  ## Swap
+  zramSwap = {
+    enable = true;
+    memoryPercent = 8;
+  };
 
   ## HDD Mount
   boot.supportedFilesystems = [ "ntfs" ];
