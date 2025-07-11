@@ -11,12 +11,14 @@
         "custom/border",
         "niri/workspaces",
         "custom/border",
-        "wlr/taskbar"
+        "wlr/taskbar",
+        "custom/border"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
+        "custom/border",
         "custom/cpu",
         "custom/gpu",
         "memory",
@@ -25,8 +27,15 @@
         "custom/pipewire",
         "battery",
         "custom/border",
+        "custom/notification"
     ],
     // Modules
+    "custom/border": {
+        "format": "<span></span>"
+    },
+    "custom/dashes": {
+        "format": "<span></span>"
+    },
     "custom/nixos": {
         "format": "",
         "tooltip": false
@@ -133,7 +142,24 @@
         "format-discharging-10": "-󰁺{capacity:0>2}%",
         "tooltip-format": "{time:<11} {power:>04.1f}W"
     },
-    "custom/border": {
-        "format": "<span></span>"
-    }
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "󰂞",
+            "inhibited-none": "󱏧",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
 }

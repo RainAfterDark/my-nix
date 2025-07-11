@@ -14,7 +14,8 @@
 }
 
 .modules-left {
-    padding: 0px 22px;
+    padding-left: 26px;
+    padding-right: 22px;
     border-color: white;
     border-style: solid;
     border-width: 4px 0px 0px;
@@ -25,7 +26,8 @@
 }
 
 .modules-right {
-    padding: 0px 22px;
+    padding-right: 22px;
+    padding-left: 22px;
     border-color: white;
     border-style: solid;
     border-width: 4px 0px 0px;
@@ -35,28 +37,37 @@
     background: transparent;
 }
 
-#custom-nixos {
+#custom-border {
+    margin-right: 4px;
+    border-left: dashed white 4px;
+}
+
+#custom-nixos,
+#custom-notification {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 22px;
+    font-size: 20px;
     color: black;
 
-    margin: 4px 4px 0px 4px;
+    margin: 4px 4px 0px 0px;
     padding-left: 6px;
-    padding-right: 16px;
+    padding-right: 12px;
 
     background: linear-gradient(to top,
             white 0%,
             white 100%) no-repeat;
     background-size: 100% 100%;
     background-position: top center;
+    border: solid white 2px;
 }
 
-#custom-nixos:hover {
+#custom-nixos:hover,
+#custom-notification:hover {
     color: white;
     background-size: 100% 0%;
 }
 
-#custom-nixos:not(:hover) {
+#custom-nixos:not(:hover),
+#custom-notification:not(:hover) {
     background-position: bottom center;
 }
 
@@ -144,9 +155,4 @@
     padding: 0px 4px;
     color: black;
     background: white;
-}
-
-#custom-border {
-    margin-right: 4px;
-    border-left: dashed white 4px;
 }
