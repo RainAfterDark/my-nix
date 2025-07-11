@@ -107,7 +107,7 @@
 }
 
 #taskbar button {
-    font-size: 14px;
+    font-size: 18px;
     color: white;
     margin-top: 2px;
     padding-left: 4px;
@@ -120,7 +120,7 @@
 
 #taskbar button.active,
 #taskbar button:hover {
-    font-size: 20px;
+    font-size: 22px;
     padding-left: 8px;
     padding-right: 4px;
     margin-right: 6px;

@@ -9,13 +9,6 @@ let
   waybarDir = "${flakeRoot}/home/desktop/waybar";
   waybarSym = config.lib.file.mkOutOfStoreSymlink waybarDir;
 
-  waybarHr = pkgs.writeShellScriptBin "waybar-hr" ''
-    #!/usr/bin/env bash
-    pkill -SIGUSR2 waybar || waybar &
-    fd . ${waybarDir} -tf |
-    entr -s 'pkill -SIGUSR2 waybar || waybar &'
-  '';
-
   waybarCpu =
     let
       cpuTempPath =
@@ -84,18 +77,18 @@ let
   waybarGpu = pkgs.writeShellScriptBin "waybar-gpu" ''
     #!/usr/bin/env bash
 
-    # Query GPU stats
+    # Query GPU Stats
     IFS=',' read -r usage clock temp power <<< "$(
       nvidia-smi --query-gpu=utilization.gpu,clocks.gr,temperature.gpu,power.draw \
         --format=csv,noheader,nounits 2>/dev/null
     )"
 
-    # Trim whitespace
+    # Trim Whitespace
     usage=$(echo "$usage" | xargs)
     clock=$(echo "$clock" | xargs)
     temp=$(echo "$temp" | xargs)
 
-    # Format power
+    # Format Power
     watts=$(awk -v p="$power" 'BEGIN { printf "%04.1f", p }')
 
     # JSON Output
@@ -156,7 +149,6 @@ in
   };
 
   home.packages = [
-    waybarHr
     waybarCpu
     waybarGpu
     waybarPipewire
@@ -166,7 +158,43 @@ in
     enable = true;
   };
 
-  programs.niri.settings.spawn-at-startup = [
-    { command = [ "waybar" ]; }
-  ];
+  # programs.niri.settings.spawn-at-startup = [
+  #   { command = [ "waybar" ]; }
+  # ];
+
+  systemd.user.services.waybar = {
+    Unit = {
+      Description = "Waybar status bar";
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.waybar}/bin/waybar";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
+  systemd.user.services.waybar-reload = {
+    Unit = {
+      Description = "Fully restart Waybar on config change";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.systemd}/bin/systemctl --user restart waybar.service";
+    };
+  };
+
+  systemd.user.paths.waybar-reload = {
+    Unit = {
+      Description = "Watch Waybar config folder for changes";
+    };
+    Path = {
+      PathModified = waybarDir;
+      Recursive = true;
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
 }
