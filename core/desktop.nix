@@ -10,8 +10,6 @@
 
   environment.systemPackages = with pkgs; [
     # Display Manager stuff
-    cage
-    gamescope
     wayland-utils
     wl-clipboard
     xwayland-satellite-unstable

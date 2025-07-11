@@ -5,12 +5,9 @@
 }:
 {
   # Default config with NVIDIA Prime
-  imports = [
-    inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia
-    inputs.aagl.nixosModules.default
-  ];
+  imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
 
-  # Hardware Acceleration for Intel CPU
+  # Hardware Acceleration for Intel iGPU
   hardware.graphics.extraPackages = with pkgs; [
     vaapiIntel
     vaapiVdpau
@@ -48,36 +45,15 @@
     useTimer = true; # periodically reapply settings
   };
 
-  ## Utility
-  environment.systemPackages =
-    with pkgs;
-    let
-      superposWrapper = pkgs.writeShellScriptBin "superpos" ''
-        env -u WAYLAND_DISPLAY \
-        -u QT_QPA_PLATFORM -u QT_PLUGIN_PATH \
-        -u QML2_IMPORT_PATH -u QML_IMPORT_PATH \
-        nvidia-offload mangohud unigine-superposition
-      '';
-    in
-    [
-      # GPU Test
-      unigine-superposition
-      superposWrapper
-      # GPU Control
-      lact
-      # CPU Test
-      geekbench
-      stress-ng
-    ];
-
-  systemd.services.lact = {
-    description = "GPU Control Daemon";
-    after = [ "multi-user.target" ];
+  # Make CPU power stats readable
+  systemd.services.fix-rapl-perms = {
+    description = "Fix permissions on intel_rapl energy_uj";
     wantedBy = [ "multi-user.target" ];
+    after = [ "sysinit.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.lact}/bin/lact daemon";
+      Type = "oneshot";
+      ExecStart = "${pkgs.coreutils}/bin/chmod 444 /sys/class/powercap/intel-rapl:0/energy_uj";
     };
-    enable = true;
   };
 
   ## Swap
@@ -85,15 +61,6 @@
     enable = true;
     memoryPercent = 25; # 8GB
   };
-
-  ## Anime Games
-  nix.settings = inputs.aagl.nixConfig;
-  # programs.anime-game-launcher.enable = true;
-  # programs.anime-games-launcher.enable = true;
-  programs.honkers-railway-launcher.enable = true;
-  # programs.honkers-launcher.enable = true;
-  # programs.wavey-launcher.enable = true;
-  # programs.sleepy-launcher.enable = true;
 
   system.stateVersion = "25.11";
 }

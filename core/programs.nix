@@ -23,7 +23,19 @@
     nvd # nix diff tool
     pciutils # lspci, etc.
     wev # input tester
+    lact # GPU OC/UV
   ];
+
+  # Init start LACT
+  systemd.services.lact = {
+    description = "GPU Control Daemon";
+    after = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];

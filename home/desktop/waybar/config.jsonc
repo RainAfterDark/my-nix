@@ -8,18 +8,23 @@
     // Layout
     "modules-left": [
         "custom/nixos",
+        "custom/border",
         "niri/workspaces",
+        "custom/border",
         "wlr/taskbar"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "cpu",
-        "temperature",
+        "custom/cpu",
+        "custom/gpu",
         "memory",
+        "custom/border",
         "custom/ping",
-        "battery"
+        "custom/pipewire",
+        "battery",
+        "custom/border",
     ],
     // Modules
     "custom/nixos": {
@@ -52,7 +57,7 @@
             "The Honkers Railway Launcher": "",
             "starrail.exe": "",
             "unknown": "",
-            "{app_id}": " {app_id} "
+            "{app_id}": " {app_id}"
         }
     },
     "clock": {
@@ -78,27 +83,36 @@
             "on-scroll-down": "shift_down"
         }
     },
-    "cpu": {
-        "interval": 1,
-        "format": " {usage:0>2}%"
+    "custom/cpu": {
+        "interval": 2,
+        "exec": "waybar-cpu",
+        "return-type": "json",
+        "format": "<span bgcolor='black' fgcolor='white'>┇ </span> {percentage:0>2}%"
     },
-    "temperature": {
-        // "thermal-zone": 2,
-        "interval": 1,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input",
-        // "critical-threshold": 80,
-        "format": "{temperatureC:0>2}°C"
+    "custom/gpu": {
+        "interval": 2,
+        "exec": "waybar-gpu",
+        "return-type": "json",
+        "format": "<span bgcolor='black' fgcolor='white'>┇󰮄 </span> {percentage:0>2}%"
     },
     "memory": {
-        "interval": 1,
-        "format": " {percentage:0>2}%"
+        "interval": 2,
+        "format": "<span bgcolor='black' fgcolor='white'>┇ </span> {percentage:0>2}%"
     },
     "custom/ping": {
         "interval": 2,
-        "exec": "ping -c1 -w1 8.8.8.8 | awk -F'[= ]' '/time=/{print $10; found=1} END{if (!found) print 9999}'",
-        "format": "󰖩 {:0>4}ms"
+        "exec": "ping -c1 -w1 8.8.8.8 | awk -F'[= ]' '/time=/{print int($10); found=1} END{if (!found) print -1}'",
+        "format": "󰖩 {:>2}ms",
+        "tooltip": false
+    },
+    "custom/pipewire": {
+        "tooltip": false,
+        "max-length": 6,
+        "exec": "waybar-pipewire",
+        "on-click": "pavucontrol"
     },
     "battery": {
+        "interval": 2,
         "states": {
             "100": 100,
             "75": 75,
@@ -106,15 +120,20 @@
             "25": 25,
             "10": 10
         },
-        "format-charging-100": "󰂅 {capacity:0>2}%",
-        "format-charging-75": "󰢞 {capacity:0>2}%",
-        "format-charging-50": "󰢝 {capacity:0>2}%",
-        "format-charging-25": "󰂇 {capacity:0>2}%",
-        "format-charging-10": "󰢜 {capacity:0>2}%",
-        "format-discharging-100": "󰁹 {capacity:0>2}%",
-        "format-discharging-75": "󰂀 {capacity:0>2}%",
-        "format-discharging-50": "󰁾 {capacity:0>2}%",
-        "format-discharging-25": "󰁼 {capacity:0>2}%",
-        "format-discharging-10": "󰁺 {capacity:0>2}%"
+        "format": "~󰂑{capacity:0>2}%",
+        "format-charging-100": "+󰁹{capacity:0>2}%",
+        "format-charging-75": "+󰂀{capacity:0>2}%",
+        "format-charging-50": "+󰁾{capacity:0>2}%",
+        "format-charging-25": "+󰁼{capacity:0>2}%",
+        "format-charging-10": "+󰁺{capacity:0>2}%",
+        "format-discharging-100": "-󰁹{capacity:0>2}%",
+        "format-discharging-50": "-󰁾{capacity:0>2}%",
+        "format-discharging-75": "-󰂀{capacity:0>2}%",
+        "format-discharging-25": "-󰁼{capacity:0>2}%",
+        "format-discharging-10": "-󰁺{capacity:0>2}%",
+        "tooltip-format": "{time:<11} {power:>04.1f}W"
+    },
+    "custom/border": {
+        "format": "<span></span>"
     }
 }

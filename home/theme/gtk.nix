@@ -18,15 +18,9 @@
         ];
       };
     };
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.papirus-icon-theme.override { color = "black"; };
-    # };
     iconTheme = {
-      name = "Tela-Circle";
-      package = pkgs.tela-circle-icon-theme.override {
-        colorVariants = [ "black" ];
-      };
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme.override { color = "black"; };
     };
     cursorTheme = {
       name = "Bibata-Modern-Ice";

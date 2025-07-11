@@ -38,7 +38,7 @@
 #custom-nixos {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 22px;
-    color: white;
+    color: black;
 
     margin: 4px 4px 0px 4px;
     padding-left: 6px;
@@ -47,25 +47,22 @@
     background: linear-gradient(to top,
             white 0%,
             white 100%) no-repeat;
-    background-size: 100% 0%;
-    background-position: bottom center;
+    background-size: 100% 100%;
+    background-position: top center;
 }
 
 #custom-nixos:hover {
-    color: black;
-    background-size: 100% 100%;
+    color: white;
+    background-size: 100% 0%;
 }
 
 #custom-nixos:not(:hover) {
-    background-position: top center;
+    background-position: bottom center;
 }
 
 #workspaces {
     font-family: "Stray";
-    padding: 0px 4px;
-    border-color: white;
-    border-style: dashed;
-    border-width: 0px 4px;
+    padding-right: 4px;
 }
 
 #workspaces button {
@@ -96,14 +93,13 @@
 
 #taskbar {
     font-family: "JetBrainsMono Nerd Font";
-    padding-left: 6px;
 }
 
 #taskbar button {
     font-size: 14px;
     color: white;
     margin-top: 2px;
-    padding: 0px;
+    padding-left: 4px;
     background: linear-gradient(to top,
             white 0%,
             white 100%) no-repeat;
@@ -135,20 +131,22 @@
     background: white;
 }
 
-#temperature,
-#cpu,
+#custom-cpu,
+#custom-gpu,
 #memory,
 #custom-ping,
+#custom-pipewire,
 #battery {
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
     font-size: 16px;
-    margin: 6px 6px 4px 0px;
+    margin: 4px 4px 0px 0px;
     padding: 0px 4px;
     color: black;
     background: white;
 }
 
-#cpu {
-    margin-right: 0px;
+#custom-border {
+    margin-right: 4px;
+    border-left: dashed white 4px;
 }
