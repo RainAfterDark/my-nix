@@ -10,6 +10,21 @@
       { command = [ "xwayland-satellite" ]; }
     ];
 
+    environment = {
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland,x11";
+      MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      ELECTRON_ENABLE_HARDWARE_ACCELERATION = "1";
+
+      XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "niri";
+      DISPLAY = ":0";
+    };
+
     outputs = {
       "Acer Technologies KA252Q G0 24280AC703W01" = {
         mode = {

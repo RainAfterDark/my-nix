@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    ### TUI
     ## Better core utils
     duf # disk information
     eza # ls replacement
@@ -41,7 +42,6 @@
     # programmer-calculator
 
     ## Monitoring / fetch
-    btop-cuda # btop for NVIDIA gpu
     nitch # systhem fetch util
     onefetch # fetch utility for git repo
     wavemon # monitoring for wireless network devices
@@ -72,11 +72,17 @@
     jq # JSON processor
     killall
     libnotify
+    libcanberra-gtk3
     openssl
     pamixer # pulseaudio command line mixer
     playerctl # controller for media players
     poweralertd
     unzip
     wget
+
+    ### GUI
+    pavucontrol # Audio control
+    libreoffice # Documents etc.
+    mission-center # GUI resources monitor
   ];
 }

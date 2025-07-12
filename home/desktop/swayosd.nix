@@ -21,10 +21,10 @@
         };
       in
       {
-        "XF86AudioRaiseVolume" = mkVolumeAction "+5";
-        "XF86AudioLowerVolume" = mkVolumeAction "-5";
-        "Mod+TouchpadScrollDown" = mkVolumeAction "+5";
-        "Mod+TouchpadScrollUp" = mkVolumeAction "-5";
+        "XF86AudioRaiseVolume" = mkVolumeAction "+10";
+        "XF86AudioLowerVolume" = mkVolumeAction "-10";
+        "Mod+TouchpadScrollDown" = mkVolumeAction "+10";
+        "Mod+TouchpadScrollUp" = mkVolumeAction "-10";
 
         "XF86MonBrightnessUp" = mkBrightnessAction "raise";
         "XF86MonBrightnessDown" = mkBrightnessAction "lower";

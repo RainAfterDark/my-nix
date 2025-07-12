@@ -24,6 +24,7 @@
     pciutils # lspci, etc.
     wev # input tester
     lact # GPU OC/UV
+    freetype # font engine
   ];
 
   # Init start LACT

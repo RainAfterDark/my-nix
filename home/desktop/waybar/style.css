@@ -104,6 +104,7 @@
 
 #taskbar {
     font-family: "JetBrainsMono Nerd Font";
+    padding-right: 4px;
 }
 
 #taskbar button {
@@ -123,7 +124,6 @@
     font-size: 22px;
     padding-left: 8px;
     padding-right: 4px;
-    margin-right: 6px;
     color: black;
     background-size: 100% 100%;
 }
