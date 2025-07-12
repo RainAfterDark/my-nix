@@ -3,24 +3,23 @@
     "positionY": "top",
     "positionX": "right",
     "layer": "top",
-    "control-center-margin-top": 18,
-    "control-center-margin-right": 26,
+    "control-center-margin-top": 4,
+    "control-center-margin-right": 4,
     "notification-2fa-action": false,
     "notification-inline-replies": true,
-    "timeout": 1,
+    "timeout": 5,
+    "timeout-low": 2,
     "control-center-width": 400,
     "control-center-height": 600,
     "fit-to-screen": false,
     "notification-window-width": 400,
-    "transition-time": 250,
+    "transition-time": 500,
     "hide-on-clear": true,
     "widgets": [
         "inhibitors",
         "title",
         "dnd",
-        "notifications",
-        "volume",
-        "backlight"
+        "notifications"
     ],
     "widget-config": {
         "inhibitors": {
@@ -35,12 +34,6 @@
         },
         "dnd": {
             "text": "Do Not Disturb"
-        },
-        "volume": {
-            "label": " "
-        },
-        "backlight": {
-            "label": " "
         }
     }
 }

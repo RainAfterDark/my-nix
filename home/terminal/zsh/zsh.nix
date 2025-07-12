@@ -159,6 +159,25 @@
         zle -N zle-line-init
         zle -N zle-line-finish
       fi
+
+      # Notification Wrapper
+      notifywrap() {
+        local cmd="$1"
+        local description="''${2:-$cmd}"
+
+        eval "$cmd"
+        local exit_code=$?
+
+        if [ $exit_code -eq 0 ]; then
+          notify-send -u normal "✅ Success" "$description"
+          canberra-gtk-play -i service-login &!
+        else
+          notify-send -u critical "❌ Failed (exit $exit_code)" "$description"
+          canberra-gtk-play -i service-logout &!
+        fi
+
+        return $exit_code
+      }
     '';
   };
 

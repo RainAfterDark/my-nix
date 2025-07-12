@@ -32,15 +32,15 @@
       nd = "nom develop --command zsh";
       nb = "nom build";
       ns = "nh search";
-      nc = "nh clean all --keep 5";
-      not = "sudo nh os test -H ${host} -R ${flakeRoot}";
-      nob = "sudo nh os boot -H ${host} -R ${flakeRoot}";
-      nos = "sudo nh os switch -H ${host} -R ${flakeRoot}";
-      nhs = "nh home switch";
+      nc = "notifywrap 'nh clean all --keep 5 && nix-store --optimise' '🧹 Nix Store Clean'";
+      not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot}' '❄️ NixOS Test'";
+      nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot}' '❄️ NixOS Boot'";
+      nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot}' '❄️ NixOS Switch'";
+      nhs = "notifywrap 'nh home switch' '🏠 Home Manager Switch'";
 
       ## Shutdown
-      off = "systemctl poweroff";
-      rbt = "systemctl reboot";
+      off = "systemctl poweroff --no-wall";
+      rbt = "systemctl reboot --no-wall";
     };
   };
 }

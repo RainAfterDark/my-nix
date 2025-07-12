@@ -158,20 +158,16 @@ in
     enable = true;
   };
 
-  # programs.niri.settings.spawn-at-startup = [
-  #   { command = [ "waybar" ]; }
-  # ];
-
   systemd.user.services.waybar = {
     Unit = {
       Description = "Waybar status bar";
-      After = [ "graphical-session.target" ];
+      After = [ "niri.service" ];
     };
     Service = {
       ExecStart = "${pkgs.waybar}/bin/waybar";
     };
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = [ "niri.service" ];
     };
   };
 

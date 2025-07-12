@@ -19,5 +19,8 @@
       stress-ng
       # Monitoring
       powerstat
+      # Gaming
+      gamescope
+      gamemode
     ];
 }

@@ -29,19 +29,6 @@
 
   qt.enable = true;
 
-  environment.sessionVariables = {
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    ELECTRON_ENABLE_HARDWARE_ACCELERATION = "1";
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-
-    CLUTTER_BACKEND = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-    GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-  };
-
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
