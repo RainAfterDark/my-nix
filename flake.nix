@@ -49,6 +49,7 @@
       system = "x86_64-linux";
       username = "ame";
       flakeRoot = "/home/${username}/my-nix";
+      stateVersion = "25.11";
       hosts = [
         "desktop"
         "xps7590"
@@ -103,6 +104,7 @@
         system
         username
         flakeRoot
+        stateVersion
         hosts
         ;
     };

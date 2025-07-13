@@ -1,9 +1,8 @@
 {
-  # config,
   inputs,
   lib,
   pkgs,
-  username,
+  stateVersion,
   ...
 }:
 {
@@ -96,4 +95,6 @@
 
   # To prevent getting stuck at shutdown
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+
+  system.stateVersion = stateVersion;
 }

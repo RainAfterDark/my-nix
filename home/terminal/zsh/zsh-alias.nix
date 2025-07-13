@@ -36,11 +36,6 @@
       not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot}' '❄️ NixOS Test'";
       nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot}' '❄️ NixOS Boot'";
       nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot}' '❄️ NixOS Switch'";
-      nhs = "notifywrap 'nh home switch' '🏠 Home Manager Switch'";
-
-      ## Shutdown
-      off = "systemctl poweroff --no-wall";
-      rbt = "systemctl reboot --no-wall";
     };
   };
 }

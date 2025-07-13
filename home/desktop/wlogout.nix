@@ -11,13 +11,13 @@
       }
       {
         label = "reboot";
-        action = "systemctl reboot";
+        action = "systemctl reboot --no-wall";
         text = "Reboot";
         keybind = "r";
       }
       {
         label = "shutdown";
-        action = "systemctl poweroff";
+        action = "systemctl poweroff --no-wall";
         text = "Shutdown";
         keybind = "s";
       }

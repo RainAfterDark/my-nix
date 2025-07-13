@@ -1,10 +1,12 @@
 {
   config,
-  inputs,
   ...
 }:
 {
-  imports = [ inputs.niri.homeModules.config ];
+  ## IMPORTANT NOTE! Only import niri.homeModule
+  ## when using home-manager as a standalone
+  # imports = [ inputs.niri.homeModules.config ];
+
   programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "xwayland-satellite" ]; }

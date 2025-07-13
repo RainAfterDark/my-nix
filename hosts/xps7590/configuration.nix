@@ -61,6 +61,4 @@
     enable = true;
     memoryPercent = 25; # 8GB
   };
-
-  system.stateVersion = "25.11";
 }

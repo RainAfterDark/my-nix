@@ -2,6 +2,11 @@
 {
   time.timeZone = "Asia/Manila";
   i18n.defaultLocale = "en_PH.UTF-8";
+  i18n.supportedLocales = [
+    "en_PH.UTF-8/UTF-8"
+    "tl_PH.UTF-8/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+  ];
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_PH.UTF-8";
     LC_IDENTIFICATION = "en_PH.UTF-8";

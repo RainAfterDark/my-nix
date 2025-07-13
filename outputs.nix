@@ -6,16 +6,10 @@
   system,
   username,
   flakeRoot,
+  stateVersion,
   hosts,
 }:
 let
-  mkPkgs =
-    system:
-    import nixpkgs {
-      inherit system;
-      inherit (universal.nixpkgs) overlays config;
-    };
-
   findModules =
     let
       inherit (nixpkgs.lib) filter strings filesystem;
@@ -35,64 +29,23 @@ let
           host
           username
           flakeRoot
+          stateVersion
           ;
+        homeModules = findModules ./home;
       };
       modules =
         let
-          hostModules = findModules ./hosts/${host};
           coreModules = findModules ./core;
+          hostModules = findModules ./hosts/${host};
         in
-        [ universal ] ++ hostModules ++ coreModules;
+        [ universal ] ++ coreModules ++ hostModules;
     };
-
-  mkHomeConfig =
-    host:
-    inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = mkPkgs system;
-      extraSpecialArgs = {
-        inherit
-          self
-          inputs
-          host
-          username
-          flakeRoot
-          ;
-      };
-      modules = findModules ./home;
-    };
-
-  mkCombined =
-    host:
-    (mkPkgs system).linkFarm "combined-${host}" [
-      {
-        name = "system";
-        path = self.nixosConfigurations.${host}.config.system.build.toplevel;
-      }
-      {
-        name = "home";
-        path = self.homeConfigurations."${username}@${host}".activationPackage;
-      }
-    ];
 in
 {
   nixosConfigurations = builtins.listToAttrs (
     map (host: {
       name = host;
       value = mkSystemConfig host;
-    }) hosts
-  );
-
-  homeConfigurations = builtins.listToAttrs (
-    map (host: {
-      name = "${username}@${host}";
-      value = mkHomeConfig host;
-    }) hosts
-  );
-
-  combined = builtins.listToAttrs (
-    map (host: {
-      name = host;
-      value = mkCombined host;
     }) hosts
   );
 }

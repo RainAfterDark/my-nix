@@ -58,6 +58,4 @@
       "uid=1000"
     ];
   };
-
-  system.stateVersion = "25.11";
 }
