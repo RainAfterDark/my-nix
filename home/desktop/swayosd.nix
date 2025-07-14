@@ -12,12 +12,12 @@
         mkVolumeAction = v: {
           action = sh "swayosd-client --output-volume ${v} --max-volume=100";
           allow-when-locked = true;
-          cooldown-ms = 100;
+          cooldown-ms = 25;
         };
         mkBrightnessAction = v: {
           action = sh "swayosd-client --brightness ${v}";
           allow-when-locked = true;
-          cooldown-ms = 100;
+          cooldown-ms = 25;
         };
       in
       {

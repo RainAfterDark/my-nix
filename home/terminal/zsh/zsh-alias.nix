@@ -14,12 +14,8 @@
       code = "codium";
       diff = "delta --diff-so-fancy --side-by-side";
       less = "bat";
-      f = "superfile";
-      py = "python";
-      ipy = "ipython";
       icat = "kitten icat";
-      dsize = "du -hs";
-      pdf = "tdf";
+      size = "du -hs";
       open = "xdg-open";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2

@@ -25,6 +25,7 @@
     wev # input tester
     lact # GPU OC/UV
     freetype # font engine
+    compsize # compute BTRFS compression ratio
   ];
 
   # Init start LACT
