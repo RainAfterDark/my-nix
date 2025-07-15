@@ -49,13 +49,13 @@
 
     layout = {
       preset-column-widths = [
-        { proportion = 2.0 / 3.0; }
+        { proportion = 0.5; }
+        { proportion = 0.75; }
         { proportion = 1.0; }
-        { proportion = 1.0 / 3.0; }
-        { proportion = 0.9 / 2.0; }
+        { proportion = 0.25; }
       ];
       default-column-width = {
-        proportion = 0.9 / 2.0;
+        proportion = 0.25;
       };
 
       gaps = 20;
