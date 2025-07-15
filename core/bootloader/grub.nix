@@ -35,5 +35,15 @@
 
       timeout = 10;
     };
+
+    plymouth = {
+      enable = true;
+      theme = "square_hud";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "square_hud" ];
+        })
+      ];
+    };
   };
 }

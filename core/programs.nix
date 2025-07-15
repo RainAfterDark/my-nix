@@ -26,6 +26,7 @@
     lact # GPU OC/UV
     freetype # font engine
     compsize # compute BTRFS compression ratio
+    lm_sensors # motherboard sensors
   ];
 
   # Init start LACT
