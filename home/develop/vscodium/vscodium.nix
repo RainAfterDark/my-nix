@@ -16,4 +16,15 @@
         '';
     });
   };
+
+  programs.niri.settings = {
+    window-rules = [
+      {
+        matches = [ { app-id = "codium"; } ];
+        default-column-width = {
+          proportion = 0.75;
+        };
+      }
+    ];
+  };
 }

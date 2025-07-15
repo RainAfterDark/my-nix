@@ -14,8 +14,8 @@
 
 /* The main notification box that contains actions and content. */
 .notification {
-    border-radius: 3px;
-    border: 2px solid #c7ab7a;
+    border-radius: 0px;
+    border: 2px solid white;
     margin-top: 1px;
     margin-right: 12px;
     margin-left: 12px;
@@ -35,7 +35,7 @@
 /* The main content area for notification text (like messages). */
 .notification-content {
     background: transparent;
-    border-radius: 12px;
+    border-radius: 0px;
     padding: 10px;
 }
 
@@ -61,7 +61,7 @@
     color: rgb(212, 190, 152);
     border: none;
     border-top: 1px solid rgb(80, 73, 69);
-    border-radius: 0;
+    border-radius: 0px;
     border-right: 1px solid rgb(80, 73, 69);
 }
 
@@ -95,7 +95,7 @@
     color: rgb(212, 190, 152);
     caret-color: rgb(212, 190, 152);
     border: transparent;
-    border-radius: 12px;
+    border-radius: 0px;
 }
 
 /* Button for sending inline replies. */
@@ -103,7 +103,7 @@
     margin-left: 4px;
     background: transparent;
     border: 1px solid rgba(124, 111, 100, 0.95);
-    border-radius: 12px;
+    border-radius: 0px;
     color: rgb(212, 190, 152);
 }
 
@@ -183,7 +183,7 @@
 .body-image {
     margin-top: 4px;
     background-color: white;
-    border-radius: 12px;
+    border-radius: 0px;
     -gtk-icon-effect: none;
 }
 
@@ -195,8 +195,8 @@
 .control-center {
     background: #282828;
     color: rgb(212, 190, 152);
-    border-radius: 3px;
-    border: 3px solid #ddc7a1;
+    border-radius: 0px;
+    border: 3px solid white;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, .3);
     margin-left: 6px;
 }
@@ -238,7 +238,7 @@
 /* Title widget styling. */
 .widget-title {
     color: rgb(212, 190, 152);
-    margin: 8px;
+    margin: 8px 8px 0px;
     font-size: 20px;
 }
 
@@ -248,7 +248,7 @@
     text-shadow: none;
     background: rgba(37, 36, 35, 0.9);
     border: 1px solid rgba(124, 111, 100, 0.95);
-    border-radius: 12px;
+    border-radius: 0px;
 }
 
 .widget-title>button:hover {
@@ -258,13 +258,13 @@
 /* DND (Do Not Disturb) widget styling. */
 .widget-dnd {
     color: rgb(212, 190, 152);
-    margin: 8px;
+    margin: 0px 8px;
     font-size: 1.1rem;
 }
 
 .widget-dnd>switch {
     font-size: initial;
-    border-radius: 12px;
+    border-radius: 0px;
     background: rgba(37, 36, 35, 0.9);
     border: 1px solid rgba(124, 111, 100, 0.95);
     box-shadow: none;
@@ -276,7 +276,7 @@
 
 .widget-dnd>switch slider {
     background: rgba(50, 48, 47, 0.95);
-    border-radius: 12px;
+    border-radius: 0px;
 }
 
 /* Volume widget styling. */
@@ -285,7 +285,7 @@
     background-color: rgba(60, 56, 54, 0.95);
     padding: 8px;
     margin: 8px;
-    border-radius: 12px;
+    border-radius: 0px;
 }
 
 /* Backlight widget styling. */
@@ -294,5 +294,5 @@
     background-color: rgba(60, 56, 54, 0.95);
     padding: 8px;
     margin: 8px;
-    border-radius: 12px;
+    border-radius: 0px;
 }
