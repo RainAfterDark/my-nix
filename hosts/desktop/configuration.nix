@@ -4,9 +4,11 @@
   ...
 }:
 {
+  ## CPU
   powerManagement.cpuFreqGovernor = "performance";
-  services.xserver.videoDrivers = [ "nvidia" ];
 
+  ## GPU
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     nvidia = {
       forceFullCompositionPipeline = true;
@@ -28,27 +30,14 @@
     enableRedistributableFirmware = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    egl-wayland
-    libGL
-    libglvnd
-    libva-utils
-    mesa
-    nvitop
-    vdpauinfo
-    vulkan-tools
-    vulkan-validation-layers
-    wgpu-utils
-    ntfs3g
-  ];
-
   ## Swap
   zramSwap = {
     enable = true;
-    memoryPercent = 8;
+    memoryPercent = 25; # 4GB
   };
 
   ## HDD Mount
+  environment.systemPackages = with pkgs; [ ntfs3g ];
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems."/mnt/hdd" = {
     device = "/dev/disk/by-uuid/01DB3464A12349E0";
