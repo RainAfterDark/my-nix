@@ -8,25 +8,6 @@
   # imports = [ inputs.niri.homeModules.config ];
 
   programs.niri.settings = {
-    spawn-at-startup = [
-      { command = [ "xwayland-satellite" ]; }
-    ];
-
-    environment = {
-      CLUTTER_BACKEND = "wayland";
-      GDK_BACKEND = "wayland,x11";
-      MOZ_ENABLE_WAYLAND = "1";
-      NIXOS_OZONE_WL = "1";
-      QT_QPA_PLATFORM = "wayland";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      ELECTRON_ENABLE_HARDWARE_ACCELERATION = "1";
-
-      XDG_SESSION_TYPE = "wayland";
-      XDG_CURRENT_DESKTOP = "niri";
-      DISPLAY = ":0";
-    };
-
     outputs = {
       "Acer Technologies KA252Q G0 24280AC703W01" = {
         mode = {
@@ -35,51 +16,6 @@
           refresh = 119.997;
         };
       };
-    };
-
-    layer-rules = [
-      {
-        matches = [
-          { namespace = "mpvpaper"; }
-          { namespace = "swww-daemon"; }
-        ];
-        place-within-backdrop = true;
-      }
-    ];
-
-    layout = {
-      preset-column-widths = [
-        { proportion = 0.5; }
-        { proportion = 0.75; }
-        { proportion = 1.0; }
-        { proportion = 0.25; }
-      ];
-      default-column-width = {
-        proportion = 0.25;
-      };
-
-      gaps = 20;
-      struts = {
-        left = 10;
-        right = 10;
-        top = 0;
-        bottom = 5;
-      };
-
-      always-center-single-column = true;
-      center-focused-column = "never";
-      background-color = "transparent";
-      shadow.enable = true;
-
-      focus-ring = {
-        enable = true;
-        width = 4;
-        active.color = "white";
-      };
-    };
-
-    overview = {
-      workspace-shadow.enable = false;
     };
 
     input = {
@@ -125,6 +61,53 @@
       "Mod+Alt+E".action = expel-window-from-column;
     };
 
+    window-rules = [
+      {
+        draw-border-with-background = false;
+      }
+    ];
+
+    layer-rules = [
+      {
+        matches = [
+          { namespace = "mpvpaper"; }
+          { namespace = "swww-daemon"; }
+        ];
+        place-within-backdrop = true;
+      }
+    ];
+
+    layout = {
+      preset-column-widths = [
+        { proportion = 0.5; }
+        { proportion = 0.75; }
+        { proportion = 1.0; }
+        { proportion = 0.25; }
+      ];
+      default-column-width = {
+        proportion = 0.25;
+      };
+
+      gaps = 20;
+      struts = {
+        left = 10;
+        right = 10;
+        top = 0;
+        bottom = 5;
+      };
+
+      always-center-single-column = true;
+      center-focused-column = "never";
+      background-color = "transparent";
+      shadow.enable = true;
+
+      focus-ring = {
+        enable = true;
+        width = 4;
+        active.color = "white";
+      };
+    };
+
     workspaces = {
       a = { };
       b = { };
@@ -132,13 +115,30 @@
       d = { };
     };
 
-    window-rules = [
-      {
-        draw-border-with-background = false;
-      }
+    overview = {
+      workspace-shadow.enable = false;
+    };
+
+    spawn-at-startup = [
+      { command = [ "xwayland-satellite" ]; }
     ];
 
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
+
+    environment = {
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland,x11";
+      MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      ELECTRON_ENABLE_HARDWARE_ACCELERATION = "1";
+
+      XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "niri";
+      DISPLAY = ":0";
+    };
   };
 }

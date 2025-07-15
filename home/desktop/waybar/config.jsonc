@@ -61,14 +61,15 @@
             "kitty": "",
             "mpv": "",
             "nemo": "󰷏",
+            "vesktop": "",
             "zen-beta": "",
+            "com.obsproject.Studio": "",
             "org.gnome.TextEditor": "󱩼",
             "org.pulseaudio.pavucontrol": "",
             "moe.launcher.the-honkers-railway-launcher": "",
             "The Honkers Railway Launcher": "",
             "starrail.exe": "",
-            "unknown": "",
-            "{app_id}": " {app_id}"
+            "unknown": ""
         }
     },
     "clock": {
