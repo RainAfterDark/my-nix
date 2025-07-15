@@ -16,6 +16,25 @@ let
           "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"
         else
           "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input";
+      cpuPowerQuery =
+        if host == "xps7590" then
+          ''
+            rapl_path="/sys/class/powercap/intel-rapl:0/energy_uj"
+            if [[ -r "$rapl_path" ]]; then
+              e1=$(<"$rapl_path")
+              sleep 0.1
+              e2=$(<"$rapl_path")
+              delta=$((e2 - e1))
+              # µJ to Watts over 0.1s → W = (µJ / 1_000_000) / seconds
+              watts=$(awk -v d="$delta" 'BEGIN { printf "%04.1f", d / 1000000 / 0.1 }')
+            else
+              watts="N/A"
+            fi
+          ''
+        else
+          ''
+            watts="N/A"
+          '';
     in
     pkgs.writeShellScriptBin "waybar-cpu" ''
       #!/usr/bin/env bash
@@ -54,17 +73,7 @@ let
       fi
 
       # CPU Power (Watts)
-      rapl_path="/sys/class/powercap/intel-rapl:0/energy_uj"
-      if [[ -r "$rapl_path" ]]; then
-        e1=$(<"$rapl_path")
-        sleep 0.1
-        e2=$(<"$rapl_path")
-        delta=$((e2 - e1))
-        # µJ to Watts over 0.1s → W = (µJ / 1_000_000) / seconds
-        watts=$(awk -v d="$delta" 'BEGIN { printf "%04.1f", d / 1000000 / 0.1 }')
-      else
-        watts="N/A"
-      fi
+      ${cpuPowerQuery}
 
       # JSON Output
       jq --unbuffered --compact-output -n \
