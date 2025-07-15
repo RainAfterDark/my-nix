@@ -73,6 +73,7 @@
         "nixd" =
           let
             flake = "(builtins.getFlake \"${flakeRoot}\")";
+            nixosOptions = "${flake}.nixosConfigurations.${host}.options";
           in
           {
             "nixpkgs" = {
@@ -83,10 +84,10 @@
             };
             "options" = {
               "nixos" = {
-                "expr" = "${flake}.nixosConfigurations.${host}.options";
+                "expr" = nixosOptions;
               };
               "home-manager" = {
-                "expr" = "${flake}.homeConfigurations.\"${username}@${host}\".options";
+                "expr" = "${nixosOptions}.home-manager.users.type.getSubOptions []";
               };
             };
           };
