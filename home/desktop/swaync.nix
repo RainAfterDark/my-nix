@@ -258,6 +258,7 @@
         }
 
         .notification-group-header {
+          font-size: 16px;
           color: #${base05};
         }
 
