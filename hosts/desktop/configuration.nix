@@ -4,6 +4,12 @@
   ...
 }:
 {
+  ## Packages
+  environment.systemPackages = with pkgs; [
+    ntfs3g # for HDD mount
+    compose2nix # docker yml to nix
+  ];
+
   ## CPU
   powerManagement.cpuFreqGovernor = "performance";
 
@@ -37,7 +43,6 @@
   };
 
   ## HDD Mount
-  environment.systemPackages = with pkgs; [ ntfs3g ];
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems."/mnt/hdd" = {
     device = "/dev/disk/by-uuid/01DB3464A12349E0";
