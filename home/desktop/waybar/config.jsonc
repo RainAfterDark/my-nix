@@ -99,17 +99,17 @@
         "interval": 2,
         "exec": "waybar-cpu",
         "return-type": "json",
-        "format": "<span bgcolor='black' fgcolor='white'>┇ </span> {percentage:0>2}%"
+        "format": "<span bgcolor='#202020' fgcolor='#fbf1c7'>┇ </span> {percentage:0>2}%"
     },
     "custom/gpu": {
         "interval": 2,
         "exec": "waybar-gpu",
         "return-type": "json",
-        "format": "<span bgcolor='black' fgcolor='white'>┇󰮄 </span> {percentage:0>2}%"
+        "format": "<span bgcolor='#202020' fgcolor='#fbf1c7'>┇󰮄 </span> {percentage:0>2}%"
     },
     "memory": {
         "interval": 2,
-        "format": "<span bgcolor='black' fgcolor='white'>┇ </span> {percentage:0>2}%"
+        "format": "<span bgcolor='#202020' fgcolor='#fbf1c7'>┇ </span> {percentage:0>2}%"
     },
     "custom/ping": {
         "interval": 2,

@@ -104,7 +104,7 @@
       focus-ring = {
         enable = true;
         width = 4;
-        active.color = "white";
+        active.color = config.lib.stylix.colors.base07;
       };
     };
 

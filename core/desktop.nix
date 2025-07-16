@@ -1,11 +1,21 @@
 { inputs, pkgs, ... }:
 {
   ## System-wide installs for desktop programs
-  # Niri
-  imports = [ inputs.niri.nixosModules.niri ];
+  imports = [
+    inputs.niri.nixosModules.niri
+    inputs.stylix.nixosModules.stylix
+  ];
+
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
+  };
+
+  stylix = {
+    enable = true;
+    autoEnable = false;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
   };
 
   environment.systemPackages = with pkgs; [

@@ -22,7 +22,7 @@ in
       # golang.go
 
       ## Color scheme
-      jdinhlife.gruvbox
+      # jdinhlife.gruvbox
       jonathanharty.gruvbox-material-icon-theme
     ];
   };

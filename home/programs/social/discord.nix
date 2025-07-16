@@ -12,6 +12,8 @@ let
 in
 {
   imports = [ inputs.nixcord.homeModules.nixcord ];
+  # stylix.targets.nixcord.enable = true;
+
   programs.nixcord = {
     enable = true;
     discord.enable = false;
