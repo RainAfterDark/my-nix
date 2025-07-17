@@ -43,5 +43,7 @@
     rtkit.enable = true;
     # Unlock GPG keyring on login for greetd
     pam.services.greetd.enableGnomeKeyring = true;
+    # For swaylock login
+    pam.services.swaylock = { };
   };
 }
