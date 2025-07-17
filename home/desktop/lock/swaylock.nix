@@ -13,7 +13,7 @@
       ignore-empty-password = true;
       datestr = "lock tf in";
       font = "Maple Mono";
-      font-size = 96;
+      font-size = 80;
 
       screenshots = true;
       clock = true;
