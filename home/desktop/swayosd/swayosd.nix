@@ -2,7 +2,7 @@
 {
   services.swayosd = {
     enable = true;
-    stylePath = "${flakeRoot}/home/desktop/swayosd/style.css";
+    stylePath = "${flakeRoot}/home/desktop/swayosd/swayosd-style.css";
   };
 
   programs.niri.settings = with config.lib.niri.actions; {

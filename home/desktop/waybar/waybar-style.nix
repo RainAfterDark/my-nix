@@ -1,0 +1,191 @@
+{ colors, ... }:
+{
+  programs.waybar.style = with colors; ''
+    * {
+      border: none;
+      border-radius: 0px;
+      min-height: 0px;
+      margin: 0px;
+      padding: 0px;
+      box-shadow: none;
+      text-shadow: none;
+      transition:
+        margin 0.25s ease,
+        background-size 0.25s ease;
+    }
+
+    .modules-left {
+      margin-left: 12px;
+      padding: 0px 10px 0px 14px;
+      border-color: ${base07};
+      border-style: solid;
+      border-width: 0px 0px 4px;
+    }
+
+    .modules-center {
+      padding: 0px 14px;
+      border-color: ${base07};
+      border-style: solid;
+      border-width: 0px 0px 4px;
+    }
+
+    .modules-right {
+      margin-right: 12px;
+      padding: 0px 10px 0px 14px;
+      border-color: ${base07};
+      border-style: solid;
+      border-width: 0px 0px 4px;
+    }
+
+    #waybar {
+      background: transparent;
+    }
+
+    #custom-border {
+      margin-right: 4px;
+      border-left: dashed ${base07} 4px;
+    }
+
+    #custom-border2 {
+      border-left: dashed ${base07} 4px;
+    }
+
+    #custom-nixos,
+    #custom-notification {
+      font-family: "JetBrainsMono Nerd Font";
+      font-size: 28px;
+      color: ${base00};
+      margin: 0px 4px 0px 0px;
+      background: linear-gradient(to top,
+              ${base07} 0%,
+              ${base07} 100%) no-repeat;
+      background-size: 100% 100%;
+      background-position: top center;
+      border: solid ${base07} 2px;
+    }
+
+    #custom-nixos {
+      padding: 0px 16px 0px 6px;
+    }
+
+    #custom-notification {
+      padding: 0px 16px 0px 8px;
+    }
+
+    #custom-nixos:hover,
+    #custom-notification:hover {
+      color: ${base07};
+      background-size: 100% 0%;
+    }
+
+    #custom-nixos:not(:hover),
+    #custom-notification:not(:hover) {
+      background-position: bottom center;
+    }
+
+    #workspaces {
+      font-family: "Stray";
+      padding-right: 4px;
+    }
+
+    #workspaces button {
+      font-size: 12px;
+      min-width: 13px;
+      min-height: 32px;
+      padding: 0px 5px;
+      margin: 4px 0px -4px 0px;
+      color: ${base07};
+      background: linear-gradient(to top,
+              ${base07} 0%,
+              ${base07} 100%) no-repeat;
+      background-size: 100% 0%;
+      background-position: bottom center;
+    }
+
+    #workspaces button.focused {
+      font-size: 18px;
+      min-width: 26px;
+      margin: 4px 0px 4px 0px;
+      color: ${base00};
+      background-size: 100% 100%;
+    }
+
+    #workspaces button:not(.focused) {
+      background-position: top center;
+    }
+
+    #taskbar {
+      font-family: "JetBrainsMono Nerd Font";
+      padding-right: 4px;
+    }
+
+    #taskbar button {
+      font-size: 18px;
+      color: ${base07};
+      padding: 0px 4px;
+      margin: 4px 0px -6px 0px;
+      background: linear-gradient(to top,
+              ${base07} 0%,
+              ${base07} 100%) no-repeat;
+      background-size: 100% 0%;
+      background-position: bottom center;
+    }
+
+    #taskbar button.active,
+    #taskbar button:hover {
+      font-size: 22px;
+      margin: 4px 0px 4px 2px;
+      padding-left: 4px;
+      padding-right: 10px;
+      color: ${base00};
+      background-size: 100% 100%;
+    }
+
+    #taskbar button:not(.active) {
+      background-position: top center;
+    }
+
+    #clock {
+      font-family: "Maple Mono";
+      font-weight: bold;
+      font-size: 24px;
+      padding: 0px 6px;
+      color: ${base00};
+      background: ${base07};
+    }
+
+    #custom-date,
+    #custom-day {
+      font-family: "M PLUS 1 Code";
+      font-size: 16px;
+      margin: 6px 4px 4px;
+      padding: 0px 6px;
+      color: ${base07};
+      background: ${base00};
+      border: 2px solid ${base07};
+    }
+
+    #custom-cpu,
+    #custom-gpu,
+    #memory,
+    #custom-ping,
+    #custom-pipewire,
+    #battery {
+      font-family: "JetBrainsMono Nerd Font";
+      font-weight: bold;
+      font-size: 16px;
+      margin: 4px 4px 4px 0px;
+      padding: 0px 4px;
+      color: ${base00};
+      background: ${base07};
+    }
+
+    #custom-cpu,
+    #memory,
+    #custom-pipewire {
+      color: ${base07};
+      background: ${base00};
+      border: 2px solid ${base07};
+    }
+  '';
+}

@@ -1,14 +1,5 @@
-{
-  pkgs,
-  config,
-  host,
-  flakeRoot,
-  ...
-}:
+{ pkgs, host, ... }:
 let
-  waybarDir = "${flakeRoot}/home/desktop/waybar";
-  waybarSym = config.lib.file.mkOutOfStoreSymlink waybarDir;
-
   waybarCpu =
     let
       cpuTempPath =
@@ -152,55 +143,9 @@ let
   '';
 in
 {
-  xdg.configFile."waybar" = {
-    source = waybarSym;
-    force = true;
-  };
-
   home.packages = [
     waybarCpu
     waybarGpu
     waybarPipewire
   ];
-
-  programs.waybar = {
-    enable = true;
-  };
-
-  systemd.user.services.waybar = {
-    Unit = {
-      Description = "Waybar status bar";
-      After = [ "niri.service" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
-    };
-    Install = {
-      WantedBy = [ "niri.service" ];
-    };
-  };
-
-  systemd.user.services.waybar-reload = {
-    Unit = {
-      Description = "Fully restart Waybar on config change";
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.systemd}/bin/systemctl --user restart waybar.service";
-      Restart = "on-failure";
-    };
-  };
-
-  systemd.user.paths.waybar-reload = {
-    Unit = {
-      Description = "Watch Waybar config folder for changes";
-    };
-    Path = {
-      PathModified = waybarDir;
-      Recursive = true;
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
 }
