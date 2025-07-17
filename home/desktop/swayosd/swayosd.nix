@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, flakeRoot, ... }:
 {
-  home.packages = with pkgs; [ swayosd ];
+  services.swayosd = {
+    enable = true;
+    stylePath = "${flakeRoot}/home/desktop/swayosd/style.css";
+  };
 
   programs.niri.settings = with config.lib.niri.actions; {
-    spawn-at-startup = [
-      { command = [ "swayosd-server" ]; }
-    ];
     binds =
       let
         sh = spawn "sh" "-c";
