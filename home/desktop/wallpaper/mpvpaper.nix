@@ -5,6 +5,7 @@ let
   initMem = toString (100 * 1024); # ~100MB
   maxMem = toString (1024 * 1024); # ~1GB
 
+  # This script is a hacky fix to the memory leak
   mpvpaperLoop = pkgs.writeShellScriptBin "mpvpaper-loop" ''
     #!/usr/bin/env bash
     set -euo pipefail
