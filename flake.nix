@@ -92,7 +92,9 @@
         };
 
         nixpkgs = {
-          overlays = [ inputs.niri.overlays.niri ];
+          overlays = [
+            inputs.niri.overlays.niri
+          ] ++ import ./overlays;
           config.allowUnfree = true;
           config.nvidia.acceptLicense = true;
         };
