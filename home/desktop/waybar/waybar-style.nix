@@ -92,8 +92,8 @@
       font-size: 12px;
       min-width: 13px;
       min-height: 32px;
-      padding: 0px 5px;
-      margin: 4px 0px -4px 0px;
+      padding: 0px 4px;
+      margin: 6px 0px -4px 0px;
       color: ${base07};
       background: linear-gradient(to top,
               ${base07} 0%,
@@ -105,7 +105,7 @@
     #workspaces button.focused {
       font-size: 18px;
       min-width: 26px;
-      margin: 4px 0px 4px 0px;
+      margin: 6px 0px 4px 0px;
       color: ${base00};
       background-size: 100% 100%;
     }
@@ -123,7 +123,7 @@
       font-size: 18px;
       color: ${base07};
       padding: 0px 4px;
-      margin: 4px 0px -6px 0px;
+      margin: 6px 0px -6px 0px;
       background: linear-gradient(to top,
               ${base07} 0%,
               ${base07} 100%) no-repeat;
@@ -134,9 +134,9 @@
     #taskbar button.active,
     #taskbar button:hover {
       font-size: 22px;
-      margin: 4px 0px 4px 2px;
-      padding-left: 4px;
-      padding-right: 10px;
+      padding-left: 5px;
+      padding-right: 11px;
+      margin: 6px 0px 4px 2px;
       color: ${base00};
       background-size: 100% 100%;
     }
@@ -157,8 +157,8 @@
     #custom-date,
     #custom-day {
       font-family: "M PLUS 1 Code";
-      font-size: 16px;
-      margin: 6px 4px 4px;
+      font-size: 20px;
+      margin: 4px 4px 4px;
       padding: 0px 6px;
       color: ${base07};
       background: ${base00};
@@ -174,7 +174,7 @@
       font-family: "JetBrainsMono Nerd Font";
       font-weight: bold;
       font-size: 16px;
-      margin: 4px 4px 4px 0px;
+      margin: 6px 4px 4px 0px;
       padding: 0px 4px;
       color: ${base00};
       background: ${base07};

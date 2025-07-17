@@ -11,9 +11,9 @@
     settings = {
       daemonize = true;
       ignore-empty-password = true;
-      datestr = "賽は投げられた";
-      font = "M PLUS 1 Code";
-      font-size = 108;
+      datestr = "lock tf in";
+      font = "Maple Mono";
+      font-size = 96;
 
       screenshots = true;
       clock = true;
