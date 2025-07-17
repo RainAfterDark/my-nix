@@ -42,7 +42,10 @@
     # programmer-calculator
 
     ## Monitoring / fetch
-    nitch # systhem fetch util
+    nitch
+    pfetch-rs
+    fastfetch
+    hyfetch
     onefetch # fetch utility for git repo
     wavemon # monitoring for wireless network devices
 

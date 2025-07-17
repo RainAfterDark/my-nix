@@ -1,13 +1,19 @@
 {
+  lib,
   pkgs,
+  config,
   inputs,
   host,
   username,
   flakeRoot,
   stateVersion,
-  homeModules,
   ...
 }:
+let
+  inherit (lib) findModules extendedColors;
+  fromStylix = config.lib.stylix.colors.withHashtag;
+  colors = extendedColors fromStylix;
+in
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
@@ -20,11 +26,12 @@
         host
         username
         flakeRoot
+        colors
         ;
     };
 
     users.${username} = {
-      imports = homeModules;
+      imports = findModules ./../home;
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = stateVersion;
@@ -36,8 +43,9 @@
     isNormalUser = true;
     description = "${username}";
     extraGroups = [
-      "networkmanager"
       "wheel"
+      "docker"
+      "networkmanager"
     ];
     shell = pkgs.zsh;
   };

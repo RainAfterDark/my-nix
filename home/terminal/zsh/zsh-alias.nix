@@ -29,7 +29,7 @@
       nb = "nom build";
       ns = "nh search";
       nc = "notifywrap 'nh clean all --keep 5 && nix-store --optimise' '🧹 Nix Store Clean'";
-      not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} --no-reexec --offline' '❄️ NixOS Test'";
+      not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} -- --offline' '❄️ NixOS Test'";
       nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot}' '❄️ NixOS Boot'";
       nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot}' '❄️ NixOS Switch'";
     };

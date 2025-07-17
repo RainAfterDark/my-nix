@@ -187,6 +187,7 @@ in
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.systemd}/bin/systemctl --user restart waybar.service";
+      Restart = "on-failure";
     };
   };
 

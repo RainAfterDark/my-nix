@@ -15,7 +15,11 @@
         "custom/border"
     ],
     "modules-center": [
-        "clock"
+        "custom/border2",
+        "custom/date",
+        "clock",
+        "custom/day",
+        "custom/border2"
     ],
     "modules-right": [
         "custom/border",
@@ -31,6 +35,9 @@
     ],
     // Modules
     "custom/border": {
+        "format": "<span></span>"
+    },
+    "custom/border2": {
         "format": "<span></span>"
     },
     "custom/dashes": {
@@ -54,6 +61,7 @@
     "wlr/taskbar": {
         "on-click": "activate",
         "on-click-middle": "close",
+        "sort-by-app-id": true,
         "format": "{app_id}",
         "app_ids-mapping": {
             "codium": "",
@@ -71,6 +79,10 @@
             "starrail.exe": "",
             "unknown": ""
         }
+    },
+    "custom/date": {
+        "interval": 1,
+        "exec": "LC_TIME=ja_JP.UTF-8 date +%m月%d"
     },
     "clock": {
         "interval": 1,
@@ -95,11 +107,15 @@
             "on-scroll-down": "shift_down"
         }
     },
+    "custom/day": {
+        "interval": 1,
+        "exec": "LC_TIME=ja_JP.UTF-8 date +%A"
+    },
     "custom/cpu": {
         "interval": 2,
         "exec": "waybar-cpu",
         "return-type": "json",
-        "format": "<span bgcolor='#202020' fgcolor='#fbf1c7'>┇ </span> {percentage:0>2}%"
+        "format": "<span fgcolor='#202020' bgcolor='#fbf1c7'>┇ </span> {percentage:0>2}%"
     },
     "custom/gpu": {
         "interval": 2,
@@ -109,7 +125,7 @@
     },
     "memory": {
         "interval": 2,
-        "format": "<span bgcolor='#202020' fgcolor='#fbf1c7'>┇ </span> {percentage:0>2}%"
+        "format": "<span fgcolor='#202020' bgcolor='#fbf1c7'>┇ </span> {percentage:0>2}%"
     },
     "custom/ping": {
         "interval": 2,

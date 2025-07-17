@@ -93,7 +93,7 @@
         left = 10;
         right = 10;
         top = 0;
-        bottom = 5;
+        bottom = 0;
       };
 
       always-center-single-column = true;
