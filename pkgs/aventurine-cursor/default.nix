@@ -1,12 +1,13 @@
-{ stdenv, lib, ... }:
-stdenv.mkDerivation {
+{ stdenvNoCC, lib, ... }:
+stdenvNoCC.mkDerivation {
   pname = "aventurine-cursor";
   version = "1.0";
   src = ./Aventurine.tar.gz;
+  dontBuild = true;
 
   installPhase = ''
     mkdir -p $out/share/icons/Aventurine
-    tar -xzf $src -C $out/share/icons/Aventurine --strip-components=1
+    cp -r * $out/share/icons/Aventurine/
   '';
 
   meta = with lib; {
