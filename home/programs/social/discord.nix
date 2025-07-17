@@ -1,18 +1,33 @@
-{ inputs, ... }:
+{
+  inputs,
+  config,
+  colors,
+  ...
+}:
 let
-  customTheme = ''
+  fontName = config.stylix.fonts.monospace.name;
+  customTheme = with colors; ''
     :root {
-      --bg-4: #282828BB;
+      --bg-1: ${base01};
+      --bg-2: ${base02};
+      --bg-3: ${base03};
+      --bg-4: ${base00-rgba 0.75};
+
+      --text-1: ${base07};
+      --text-2: ${base07};
+      --text-3: ${base06};
+      --text-4: ${base05};
+      --text-5: ${base05}66;
     }
     body {
-      --font: 'Maple Mono';
-      --code-font: 'Maple Mono';
+      --font: '${fontName}';
+      --code-font: '${fontName}';
+      --transparency-tweaks: on;
     }
   '';
 in
 {
   imports = [ inputs.nixcord.homeModules.nixcord ];
-  # stylix.targets.nixcord.enable = true;
 
   programs.nixcord = {
     enable = true;

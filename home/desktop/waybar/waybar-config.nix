@@ -82,6 +82,7 @@
           kitty = "";
           mpv = "";
           nemo = "󰷏";
+          Spotify = "";
           vesktop = "";
           zen-beta = "";
           "com.obsproject.Studio" = "";

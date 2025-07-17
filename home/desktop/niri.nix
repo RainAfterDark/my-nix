@@ -59,6 +59,9 @@
       "Mod+Alt+D".action = swap-window-right;
       "Mod+Alt+Q".action = consume-window-into-column;
       "Mod+Alt+E".action = expel-window-from-column;
+
+      "Print".action = screenshot { show-pointer = true; };
+      "Alt+Print".action = screenshot-window { write-to-disk = true; };
     };
 
     window-rules = [

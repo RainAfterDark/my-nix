@@ -24,6 +24,7 @@
         default-column-width = {
           proportion = 0.75;
         };
+        opacity = 0.95;
       }
     ];
   };
