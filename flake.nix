@@ -83,7 +83,6 @@
         nix = {
           settings = {
             sandbox = true;
-            accept-flake-config = true;
             auto-optimise-store = true;
             trusted-users = [ username ];
             allowed-users = [ username ];
