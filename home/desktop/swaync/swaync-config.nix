@@ -7,8 +7,8 @@
       positionX = "right";
       layer = "top";
 
-      control-center-margin-top = 4;
-      control-center-margin-right = 8;
+      control-center-margin-top = 8;
+      control-center-margin-right = 12;
       control-center-width = 400;
       control-center-height = 600;
       notification-window-width = 400;

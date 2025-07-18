@@ -19,10 +19,7 @@
     };
 
     input = {
-      # Moves mouse to the focused window
-      warp-mouse-to-focus.enable = true;
-
-      # Mouse can change window focus
+      warp-mouse-to-focus.enable = false;
       focus-follows-mouse = {
         enable = true;
         max-scroll-amount = "100%";
@@ -32,37 +29,43 @@
       keyboard.xkb.options = "caps:super";
     };
 
-    binds = with config.lib.niri.actions; {
-      "Mod+T".action = spawn "kitty";
-      "Mod+B".action = spawn "zen-beta";
-      "Mod+G".action = spawn "nemo";
+    binds =
+      with config.lib.niri.actions;
+      let
+        sh = spawn "sh" "-c";
+      in
+      {
+        "Mod+T".action = spawn "kitty";
+        "Mod+G".action = spawn "nemo";
+        "Mod+F".action = spawn "walker";
+        "Mod+V".action = sh "walker -m clipboard";
 
-      "Mod+Z".action = close-window;
-      "Alt+F4".action = close-window;
-      "Alt+Tab".action = focus-window-down-or-column-right;
-      "Alt+Shift+Tab".action = focus-window-up-or-column-left;
-      "Mod+F".action = fullscreen-window;
-      "Mod+X".action = switch-preset-column-width;
-      "Mod+C".action = switch-preset-window-height;
+        "Mod+Z".action = close-window;
+        "Alt+F4".action = close-window;
+        "Alt+Tab".action = focus-window-down-or-column-right;
+        "Alt+Shift+Tab".action = focus-window-up-or-column-left;
+        "Mod+X".action = switch-preset-column-width;
+        "Mod+C".action = switch-preset-window-height;
 
-      "Mod+W".action = focus-window-or-workspace-up;
-      "Mod+S".action = focus-window-or-workspace-down;
-      "Mod+A".action = focus-column-or-monitor-left;
-      "Mod+D".action = focus-column-or-monitor-right;
-      "Mod+Q".action = consume-or-expel-window-left;
-      "Mod+E".action = consume-or-expel-window-right;
-      "Mod+Space".action = toggle-overview;
+        "Mod+W".action = focus-window-or-workspace-up;
+        "Mod+S".action = focus-window-or-workspace-down;
+        "Mod+A".action = focus-column-or-monitor-left;
+        "Mod+D".action = focus-column-or-monitor-right;
+        "Mod+Q".action = consume-or-expel-window-left;
+        "Mod+E".action = consume-or-expel-window-right;
+        "Mod+Tab".action = toggle-windowed-fullscreen;
+        "Mod+Space".action = toggle-overview;
 
-      "Mod+Alt+W".action = move-window-up-or-to-workspace-up;
-      "Mod+Alt+S".action = move-window-down-or-to-workspace-down;
-      "Mod+Alt+A".action = swap-window-left;
-      "Mod+Alt+D".action = swap-window-right;
-      "Mod+Alt+Q".action = consume-window-into-column;
-      "Mod+Alt+E".action = expel-window-from-column;
+        "Mod+Alt+W".action = move-window-up-or-to-workspace-up;
+        "Mod+Alt+S".action = move-window-down-or-to-workspace-down;
+        "Mod+Alt+A".action = swap-window-left;
+        "Mod+Alt+D".action = swap-window-right;
+        "Mod+Alt+Q".action = consume-window-into-column;
+        "Mod+Alt+E".action = expel-window-from-column;
 
-      "Print".action = screenshot { show-pointer = true; };
-      "Alt+Print".action = screenshot-window { write-to-disk = true; };
-    };
+        "Print".action = screenshot { show-pointer = true; };
+        "Alt+Print".action = screenshot-window { write-to-disk = true; };
+      };
 
     window-rules = [
       {

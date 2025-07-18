@@ -178,6 +178,8 @@
 
         return $exit_code
       }
+
+      pfetch
     '';
   };
 

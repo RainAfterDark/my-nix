@@ -57,6 +57,7 @@
       "custom/nixos" = {
         format = "";
         tooltip = false;
+        on-click = "walker";
       };
 
       "niri/workspaces" = {
@@ -93,6 +94,10 @@
           "starrail.exe" = "";
           unknown = "";
         };
+        ignore-list = [
+          "walker"
+          "dev.benz.walker"
+        ];
       };
 
       "custom/date" = {

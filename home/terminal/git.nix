@@ -66,9 +66,9 @@
     glols = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat";
   };
 
+  stylix.targets.lazygit.enable = true;
   programs.lazygit = {
     enable = true;
-
     settings = {
       gui.border = "single";
     };
