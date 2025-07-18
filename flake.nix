@@ -47,6 +47,26 @@
     };
   };
 
+  nixConfig = {
+    substituters = [
+      "https://cache.nixos.org?priority=10"
+      "https://nix-community.cachix.org"
+      "https://chaotic-nyx.cachix.org/"
+      "https://niri.cachix.org"
+      "https://walker.cachix.org"
+      "https://walker-git.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
+      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+    ];
+  };
+
   outputs =
     { self, nixpkgs, ... }@inputs:
     let
@@ -62,35 +82,14 @@
       universal = {
         nix = {
           settings = {
-            # These speed-up builds somewhat
-            # Probably better to turn back on down the line
-            sandbox = false;
-            auto-optimise-store = false;
-
+            sandbox = true;
+            accept-flake-config = true;
+            auto-optimise-store = true;
             trusted-users = [ username ];
             allowed-users = [ username ];
-
             experimental-features = [
               "nix-command"
               "flakes"
-            ];
-
-            substituters = [
-              "https://cache.nixos.org?priority=10"
-              "https://nix-community.cachix.org"
-              "https://chaotic-nyx.cachix.org/"
-              "https://niri.cachix.org"
-              "https://walker.cachix.org"
-              "https://walker-git.cachix.org"
-            ];
-
-            trusted-public-keys = [
-              "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-              "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-              "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-              "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
-              "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
             ];
           };
         };
