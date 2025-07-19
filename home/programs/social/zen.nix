@@ -12,13 +12,20 @@
 
   programs.niri.settings = {
     spawn-at-startup = [
-      { command = [ "zen" ]; }
+      { command = [ "zen-beta" ]; }
     ];
     window-rules = [
       {
-        matches = [ { app-id = "zen"; } ];
+        matches = [ { app-id = "zen-beta"; } ];
         open-maximized = true;
         open-on-workspace = "a";
+      }
+      {
+        matches = [
+          { app-id = "zen-beta"; }
+          { title = "^Extension: \(Bitwarden Password Manager\).*"; }
+        ];
+        open-floating = true;
       }
     ];
   };
