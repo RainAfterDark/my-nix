@@ -1,4 +1,24 @@
-{ colors, ... }:
+{ config, colors, ... }:
+let
+  mainFont = config.stylix.fonts.monospace.name;
+  appMapping = {
+    codium = "";
+    imv = "";
+    kitty = "";
+    mpv = "";
+    nemo = "󰷏";
+    Spotify = "";
+    vesktop = "";
+    zen-beta = "";
+    "com.obsproject.Studio" = "";
+    "org.gnome.TextEditor" = "󱩼";
+    "org.pulseaudio.pavucontrol" = "";
+    "moe.launcher.the-honkers-railway-launcher" = "";
+    "The Honkers Railway Launcher" = "";
+    "starrail.exe" = "";
+    unknown = "";
+  };
+in
 {
   programs.waybar = {
     enable = true;
@@ -77,26 +97,11 @@
         on-click-middle = "close";
         sort-by-app-id = true;
         format = "{app_id}";
-        app_ids-mapping = {
-          codium = "";
-          imv = "";
-          kitty = "";
-          mpv = "";
-          nemo = "󰷏";
-          Spotify = "";
-          vesktop = "";
-          zen-beta = "";
-          "com.obsproject.Studio" = "";
-          "org.gnome.TextEditor" = "󱩼";
-          "org.pulseaudio.pavucontrol" = "";
-          "moe.launcher.the-honkers-railway-launcher" = "";
-          "The Honkers Railway Launcher" = "";
-          "starrail.exe" = "";
-          unknown = "";
-        };
+        app_ids-mapping = appMapping;
         ignore-list = [
           "walker"
           "dev.benz.walker"
+          "swaync"
         ];
       };
 
@@ -109,7 +114,7 @@
         interval = 1;
         locale = "ja_JP.utf8";
         format = "󰥔 {:%H:%M:%S}";
-        tooltip-format = "<span font='M PLUS 1 Code'>{calendar}</span>";
+        tooltip-format = "<span font='${mainFont}' size='large'>{calendar}</span>";
         calendar = {
           mode = "month";
           mode-mon-col = 3;
@@ -138,19 +143,19 @@
         interval = 2;
         exec = "waybar-cpu";
         return-type = "json";
-        format = ''<span fgcolor='${base00}' bgcolor='${base07}'>┇ </span> {percentage:0>2}%'';
+        format = ''<span bgcolor='${base00}' fgcolor='${base07}'>┇ </span> {percentage:0>2}%'';
       };
 
       "custom/gpu" = {
         interval = 2;
         exec = "waybar-gpu";
         return-type = "json";
-        format = ''<span bgcolor='${base00}' fgcolor='${base07}'>┇󰮄 </span> {percentage:0>2}%'';
+        format = ''<span fgcolor='${base00}' bgcolor='${base07}'>┇󰮄 </span> {percentage:0>2}%'';
       };
 
       memory = {
         interval = 2;
-        format = ''<span fgcolor='${base00}' bgcolor='${base07}'>┇ </span> {percentage:0>2}%'';
+        format = ''<span bgcolor='${base00}' fgcolor='${base07}'>┇ </span> {percentage:0>2}%'';
       };
 
       "custom/ping" = {

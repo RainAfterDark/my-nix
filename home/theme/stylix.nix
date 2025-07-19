@@ -16,18 +16,6 @@ in
       qt.enable = true;
     };
 
-    fonts = rec {
-      monospace = {
-        package = pkgs.maple-mono.truetype-autohint;
-        name = "Maple Mono";
-      };
-      serif = monospace;
-      sansSerif = monospace;
-      sizes = {
-        terminal = 11;
-      };
-    };
-
     iconTheme = {
       enable = true;
       dark = "Papirus-Dark";

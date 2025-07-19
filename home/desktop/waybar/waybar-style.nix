@@ -1,4 +1,7 @@
-{ colors, ... }:
+{ config, colors, ... }:
+let
+  mainFont = config.stylix.fonts.monospace.name;
+in
 {
   programs.waybar.style = with colors; ''
     * {
@@ -146,7 +149,7 @@
     }
 
     #clock {
-      font-family: "Maple Mono";
+      font-family: "${mainFont}";
       font-weight: bold;
       font-size: 24px;
       padding: 0px 6px;
@@ -156,7 +159,7 @@
 
     #custom-date,
     #custom-day {
-      font-family: "M PLUS 1 Code";
+      font-family: "${mainFont}";
       font-size: 20px;
       margin: 4px 4px 4px;
       padding: 0px 6px;
@@ -171,7 +174,7 @@
     #custom-ping,
     #custom-pipewire,
     #battery {
-      font-family: "JetBrainsMono Nerd Font";
+      font-family: "${mainFont}";
       font-weight: bold;
       font-size: 16px;
       margin: 6px 4px 4px 0px;
@@ -180,9 +183,9 @@
       background: ${base07};
     }
 
-    #custom-cpu,
-    #memory,
-    #custom-pipewire {
+    #custom-gpu,
+    #custom-ping,
+    #battery {
       color: ${base07};
       background: ${base00};
       border: 2px solid ${base07};

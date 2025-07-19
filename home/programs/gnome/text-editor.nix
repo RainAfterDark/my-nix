@@ -1,8 +1,11 @@
-{ ... }:
+{ config, ... }:
+let
+  mainFont = config.stylix.fonts.monospace.name;
+in
 {
   dconf.settings = {
     "org/gnome/TextEditor" = {
-      custom-font = "Maple Mono 15";
+      custom-font = "${mainFont}";
       highlight-current-line = true;
       indent-style = "space";
       restore-session = false;

@@ -23,7 +23,7 @@
         theme = "nixos"; # set to the custom theme
         monitor = "";
         hotreload_theme = true;
-        as_window = true;
+        as_window = false;
         timeout = 0;
         disable_click_to_close = false;
         force_keyboard_focus = false;

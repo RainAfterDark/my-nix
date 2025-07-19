@@ -1,5 +1,23 @@
 { pkgs, ... }:
+let
+  mainFont = {
+    package = pkgs.maple-mono.Normal-NF-CN;
+    name = "Maple Mono Normal NF CN";
+  };
+in
 {
+  stylix.fonts = {
+    monospace = mainFont;
+    serif = mainFont;
+    sansSerif = mainFont;
+    sizes = {
+      applications = 11;
+      terminal = 11;
+      desktop = 11;
+      popups = 11;
+    };
+  };
+
   home.packages =
     with pkgs;
     let
@@ -31,8 +49,8 @@
       noto-fonts-emoji
 
       # Mono
+      mainFont.package
       fantasque-sans-mono
-      maple-mono.truetype-autohint
 
       # CJK
       mplus-outline-fonts.githubRelease

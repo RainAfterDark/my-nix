@@ -7,7 +7,7 @@
       positionX = "right";
       layer = "top";
 
-      control-center-margin-top = 8;
+      control-center-margin-top = 6;
       control-center-margin-right = 12;
       control-center-width = 400;
       control-center-height = 600;

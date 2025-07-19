@@ -1,4 +1,7 @@
-{ colors, ... }:
+{ config, colors, ... }:
+let
+  fontFamily = config.stylix.fonts.monospace.name;
+in
 {
   programs.walker.theme.style = with colors; ''
     @define-color foreground ${base06};
@@ -26,6 +29,8 @@
     #sub,
     #activationlabel {
       all: unset;
+      font-family: "${fontFamily}";
+      transition: all 0.3s ease;
     }
 
     #cfgerr {
@@ -43,10 +48,10 @@
       border-radius: 0px;
       background: @background;
       padding: 32px;
-      /* border: 4px solid ${base07};
+      border: 4px solid ${base07};
       box-shadow:
         0 19px 38px rgba(0, 0, 0, 0.3),
-        0 15px 12px rgba(0, 0, 0, 0.22); */
+        0 15px 12px rgba(0, 0, 0, 0.22);
     }
 
     #search {
@@ -102,7 +107,6 @@
     child {
       padding: 8px;
       border-radius: 0px;
-      transition: all 0.3s ease;
     }
 
     child:selected,

@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  fontFamily = config.stylix.fonts.monospace.name;
+in
 {
   stylix.targets.swaylock = {
     enable = true;
@@ -12,7 +15,7 @@
       daemonize = true;
       ignore-empty-password = true;
       datestr = "lock tf in";
-      font = "Maple Mono";
+      font = fontFamily;
       font-size = 80;
 
       screenshots = true;

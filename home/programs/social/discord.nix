@@ -5,7 +5,7 @@
   ...
 }:
 let
-  fontName = config.stylix.fonts.monospace.name;
+  fontFamily = config.stylix.fonts.monospace.name;
   customTheme = with colors; ''
     :root {
       --bg-1: ${base01};
@@ -14,14 +14,14 @@ let
       --bg-4: ${base00-rgba 0.75};
 
       --text-1: ${base07};
-      --text-2: ${base07};
-      --text-3: ${base06};
-      --text-4: ${base05};
-      --text-5: ${base05}66;
+      --text-2: ${base06};
+      --text-3: ${base05};
+      --text-4: ${base04};
+      --text-5: ${base04}66;
     }
     body {
-      --font: '${fontName}';
-      --code-font: '${fontName}';
+      --font: '${fontFamily}';
+      --code-font: '${fontFamily}';
       --transparency-tweaks: on;
     }
   '';

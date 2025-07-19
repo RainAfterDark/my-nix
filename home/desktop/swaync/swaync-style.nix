@@ -1,8 +1,12 @@
-{ colors, ... }:
+{ config, colors, ... }:
+let
+  fontFamily = config.stylix.fonts.monospace.name;
+in
 {
   services.swaync.style = with colors; ''
     * {
      border-radius: 0px;
+     font-family: "${fontFamily}";
     }
 
     /* -----------------------------
@@ -26,7 +30,7 @@
       margin-right: 12px;
       margin-left: 12px;
       padding: 0;
-      background: ${base02-rgba 0.85};
+      background: ${base02-rgba 0.95};
       box-shadow:
         0 0 0 1px ${base01-rgba 0.3},
         0 1px 3px 1px ${base01-rgba 0.7},
@@ -218,7 +222,7 @@
     }
 
     .widget-title > button {
-      font-size: 16px;
+      font-size: 14px;
       color: ${base05};
       text-shadow: none;
       background: ${base01-rgba 0.85};
@@ -232,7 +236,7 @@
     .widget-dnd {
       color: ${base05};
       margin: 0px 12px;
-      font-size: 1.1rem;
+      font-size: 16px;
     }
 
     .widget-dnd > switch {

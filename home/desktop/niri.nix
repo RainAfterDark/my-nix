@@ -39,6 +39,8 @@
         "Mod+G".action = spawn "nemo";
         "Mod+F".action = spawn "walker";
         "Mod+V".action = sh "walker -m clipboard";
+        "Mod+R".action = sh "swaync-client -t";
+        "Mod+Shift+R".action = sh "swaync-client -C";
 
         "Mod+Z".action = close-window;
         "Alt+F4".action = close-window;

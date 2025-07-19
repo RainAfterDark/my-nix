@@ -4,6 +4,7 @@ let
   width = 450;
 in
 {
+  # Only applied in windowed mode (not used atm)
   programs.niri.settings = {
     window-rules = [
       {
@@ -28,19 +29,25 @@ in
   programs.walker.theme.layout = with colors; {
     ui = {
       anchors = {
-        bottom = true;
+        bottom = false;
         left = true;
-        right = true;
+        right = false;
         top = true;
       };
+
       window = {
         h_align = "fill";
         v_align = "fill";
 
         box = {
           h_align = "center";
-          height = height;
           width = width;
+
+          # Comment this out in windowed mode
+          margins = {
+            top = 52;
+            start = 12;
+          };
 
           bar = {
             orientation = "horizontal";
@@ -58,11 +65,6 @@ in
               };
             };
           };
-
-          ## No top margin on window mode
-          # margins = {
-          #   top = 200;
-          # };
 
           ai_scroll = {
             name = "aiScroll";
