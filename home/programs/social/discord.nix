@@ -11,7 +11,7 @@ let
       --bg-1: ${base01};
       --bg-2: ${base02};
       --bg-3: ${base03};
-      --bg-4: ${base00-rgba 0.75};
+      --bg-4: ${base00-rgba 0.8};
 
       --text-1: ${base07};
       --text-2: ${base06};
