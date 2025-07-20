@@ -15,13 +15,28 @@
     intel-media-driver
   ];
 
-  # For WiFi
+  # WiFi/Bluetooth
   boot.kernelModules = [
     "iwlwifi"
     "iwlmvm"
   ];
-  hardware.enableAllFirmware = true;
-  hardware.enableRedistributableFirmware = true;
+  hardware = {
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+        };
+      };
+    };
+  };
+  services.blueman.enable = true;
+  environment.systemPackages = with pkgs; [
+    networkmanager_dmenu
+    bzmenu
+  ];
 
   # CPU Undervolt
   services.undervolt = {

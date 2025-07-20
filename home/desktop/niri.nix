@@ -1,5 +1,7 @@
 {
+  lib,
   config,
+  host,
   ...
 }:
 {
@@ -42,12 +44,15 @@
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
 
-        "Mod+Z".action = close-window;
         "Alt+F4".action = close-window;
         "Alt+Tab".action = focus-window-down-or-column-right;
         "Alt+Shift+Tab".action = focus-window-up-or-column-left;
+
+        "Mod+Z".action = close-window;
         "Mod+X".action = switch-preset-column-width;
         "Mod+C".action = switch-preset-window-height;
+        "Mod+Tab".action = fullscreen-window;
+        "Mod+Space".action = toggle-overview;
 
         "Mod+W".action = focus-window-or-workspace-up;
         "Mod+S".action = focus-window-or-workspace-down;
@@ -55,8 +60,6 @@
         "Mod+D".action = focus-column-or-monitor-right;
         "Mod+Q".action = consume-or-expel-window-left;
         "Mod+E".action = consume-or-expel-window-right;
-        "Mod+Tab".action = toggle-windowed-fullscreen;
-        "Mod+Space".action = toggle-overview;
 
         "Mod+Alt+W".action = move-window-up-or-to-workspace-up;
         "Mod+Alt+S".action = move-window-down-or-to-workspace-down;
@@ -67,10 +70,20 @@
 
         "Print".action = screenshot { show-pointer = true; };
         "Alt+Print".action = screenshot-window { write-to-disk = true; };
+      }
+      // lib.optionalAttrs (host == "xps7590") {
+        "Mod+B".action = sh "bzmenu -l walker";
+        "Mod+N".action = spawn "networkmanager_dmenu";
       };
 
     window-rules = [
       { draw-border-with-background = false; }
+      {
+        matches = [
+          { app-id = "org.pulseaudio.pavucontrol"; }
+        ];
+        open-floating = true;
+      }
     ];
 
     layout = {
