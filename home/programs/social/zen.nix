@@ -20,13 +20,6 @@
         open-maximized = true;
         open-on-workspace = "a";
       }
-      {
-        matches = [
-          { app-id = "zen-beta"; }
-          { title = "^Extension: \(Bitwarden Password Manager\).*"; }
-        ];
-        open-floating = true;
-      }
     ];
   };
 }

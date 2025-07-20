@@ -70,19 +70,7 @@
       };
 
     window-rules = [
-      {
-        draw-border-with-background = false;
-      }
-    ];
-
-    layer-rules = [
-      {
-        matches = [
-          { namespace = "mpvpaper"; }
-          { namespace = "swww-daemon"; }
-        ];
-        place-within-backdrop = true;
-      }
+      { draw-border-with-background = false; }
     ];
 
     layout = {

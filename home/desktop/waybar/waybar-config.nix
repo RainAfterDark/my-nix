@@ -13,6 +13,7 @@ let
     "com.obsproject.Studio" = "";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
+    "polkit-gnome-authentication-agent-1" = "󰒃";
     "moe.launcher.the-honkers-railway-launcher" = "";
     "The Honkers Railway Launcher" = "";
     "starrail.exe" = "";
@@ -114,7 +115,7 @@ in
         interval = 1;
         locale = "ja_JP.utf8";
         format = "󰥔 {:%H:%M:%S}";
-        tooltip-format = "<span font='${mainFont}' size='large'>{calendar}</span>";
+        tooltip-format = "<span font='${mainFont}' size='13pt'>{calendar}</span>";
         calendar = {
           mode = "month";
           mode-mon-col = 3;

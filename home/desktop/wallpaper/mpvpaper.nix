@@ -81,9 +81,15 @@ in
     mpvpaperLoop
   ];
 
-  # programs.niri.settings = {
-  #   spawn-at-startup = [
-  #     { command = [ "mpvpaper-loop" ]; }
-  #   ];
-  # };
+  programs.niri.settings = {
+    # spawn-at-startup = [
+    #   { command = [ "mpvpaper-loop" ]; }
+    # ];
+    layer-rules = [
+      {
+        matches = [ { namespace = "mpvpaper"; } ];
+        place-within-backdrop = true;
+      }
+    ];
+  };
 }

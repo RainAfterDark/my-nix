@@ -1,4 +1,9 @@
-{ pkgs, username, ... }:
+{
+  lib,
+  pkgs,
+  username,
+  ...
+}:
 {
   security = {
     ## Use sudo rust rewrite
@@ -45,5 +50,10 @@
     pam.services.greetd.enableGnomeKeyring = true;
     # For swaylock login
     pam.services.swaylock = { };
+  };
+
+  # Replace polkit-kde-agent set by niri-flake with polkit-gnome
+  systemd.user.services.niri-flake-polkit = {
+    serviceConfig.ExecStart = lib.mkForce "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 }
