@@ -26,7 +26,15 @@
         sectionMarker
       ];
 
-      theme = spicePkgs.themes.text;
+      theme = spicePkgs.themes.text // {
+        additionalCss = ''
+          :root {
+            --font-family: "${config.stylix.fonts.monospace.name}", monospace;
+            --border-width: 2px;
+          }
+        '';
+      };
+
       colorScheme = "custom";
       customColorScheme = with config.lib.stylix.colors; {
         accent = base0B;

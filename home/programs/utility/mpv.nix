@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  stylix.targets.mpv.enable = true;
+
   programs.mpv = {
     enable = true;
 
@@ -46,5 +48,14 @@
         video_quality = 18;
       };
     };
+  };
+
+  programs.niri.settings = {
+    window-rules = [
+      {
+        matches = [ { app-id = "mpv"; } ];
+        open-maximized = true;
+      }
+    ];
   };
 }

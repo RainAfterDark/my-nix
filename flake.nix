@@ -38,6 +38,7 @@
     };
     nixcord.url = "github:kaylorben/nixcord";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    textfox.url = "github:adriankarlen/textfox";
     walker.url = "github:abenz1267/walker";
 
     ## Certain Anime Game

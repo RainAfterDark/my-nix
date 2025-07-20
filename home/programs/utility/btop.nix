@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   stylix.targets.btop.enable = true;
+
   programs.btop = {
     enable = true;
     package = pkgs.btop-cuda;
