@@ -2,6 +2,7 @@
 stdenvNoCC.mkDerivation {
   pname = "aventurine-cursor";
   version = "1.0";
+
   src = ./Aventurine.tar.gz;
   dontBuild = true;
 

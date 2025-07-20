@@ -97,7 +97,8 @@
         nixpkgs = {
           overlays = [
             inputs.niri.overlays.niri
-          ] ++ import ./overlays;
+            (import ./pkgs/overlays.nix)
+          ];
           config.allowUnfree = true;
           config.nvidia.acceptLicense = true;
         };

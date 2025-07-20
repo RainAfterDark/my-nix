@@ -15,16 +15,16 @@
         mode = {
           width = 1920;
           height = 1080;
-          refresh = 119.997;
+          refresh = 120.0;
         };
       };
     };
 
     input = {
-      warp-mouse-to-focus.enable = false;
+      warp-mouse-to-focus.enable = true;
       focus-follows-mouse = {
         enable = true;
-        max-scroll-amount = "100%";
+        max-scroll-amount = "50%";
       };
 
       # Make caps lock an additional Mod key
@@ -97,10 +97,10 @@
         proportion = 0.25;
       };
 
-      gaps = 20;
+      gaps = 16;
       struts = {
-        left = 10;
-        right = 10;
+        left = 14;
+        right = 14;
         top = 0;
         bottom = 0;
       };
