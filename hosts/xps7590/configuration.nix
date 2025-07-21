@@ -13,7 +13,9 @@
     vaapiVdpau
     libvdpau-va-gl
     intel-media-driver
+    nvidia-vaapi-driver
   ];
+  hardware.graphics.enable32Bit = true;
 
   # WiFi/Bluetooth
   boot.kernelModules = [

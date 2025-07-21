@@ -4,6 +4,8 @@ let
   appMapping = {
     codium = "";
     imv = "";
+    jetbrains-idea = "";
+    jetbrains-toolbox = "";
     kitty = "";
     mpv = "";
     nemo = "󰷏";
@@ -11,6 +13,7 @@ let
     vesktop = "";
     zen-beta = "";
     "com.obsproject.Studio" = "";
+    "io.github.ilya_zlobintsev.LACT" = "󰾲";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
     "polkit-gnome-authentication-agent-1" = "󰒃";

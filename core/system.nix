@@ -42,7 +42,7 @@
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
 
-    ## SDDM w/ custome theme
+    ## SDDM w/ custom theme
     displayManager = {
       defaultSession = "niri";
       sddm = {
@@ -61,9 +61,6 @@
     upower = {
       enable = true;
     };
-
-    ## Bluetooth
-    blueman.enable = true;
 
     ## Auto-login setup w/ greetd that starts niri-session
     # displayManager.autoLogin = {

@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    ## lsp
+    ## LSP
     nixd # nix
 
-    ## formating
+    ## Formating
     shfmt
     treefmt
     nixfmt-rfc-style

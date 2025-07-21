@@ -20,7 +20,12 @@
   programs.niri.settings = {
     window-rules = [
       {
-        matches = [ { app-id = "codium"; } ];
+        matches = [
+          {
+            app-id = "codium";
+            is-floating = false;
+          }
+        ];
         default-column-width = {
           proportion = 0.75;
         };
