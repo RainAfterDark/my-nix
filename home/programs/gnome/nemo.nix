@@ -3,9 +3,12 @@
   home.packages = with pkgs; [ nemo ];
 
   dconf.settings = {
+    "org/cinnamon/desktop/applications/terminal" = {
+      exec = "${pkgs.kitty}/bin/kitty";
+    };
     "org/nemo/preferences" = {
       always-use-browser = true;
-      # click-double-parent-folder = true;
+      click-double-parent-folder = true;
       close-device-view-on-device-eject = true;
       date-font-choice = "auto-mono";
       date-format = "iso";
@@ -16,15 +19,19 @@
       show-hidden-files = true;
       show-home-icon-toolbar = true;
       show-new-folder-icon-toolbar = true;
-      show-open-in-terminal-toolbar = false;
+      show-open-in-terminal-toolbar = true;
       show-search-icon-toolbar = false;
       show-show-thumbnails-toolbar = false;
-      thumbnail-limit = 10485760;
+      thumbnail-limit = 68719476736;
+      tooltips-in-icon-view = true;
+      tooltips-in-list-view = true;
+      tooltips-show-file-type = true;
+      tooltips-show-mod-date = true;
     };
     "org/nemo/preferences/menu-config" = {
       background-menu-open-as-root = false;
       selection-menu-open-as-root = false;
-      selection-menu-open-in-terminal = false;
+      selection-menu-open-in-terminal = true;
       selection-menu-scripts = false;
     };
     "org/nemo/search" = {

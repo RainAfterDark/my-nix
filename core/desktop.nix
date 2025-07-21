@@ -1,4 +1,7 @@
 { inputs, pkgs, ... }:
+let
+  systemTheme = "gruvbox-material-dark-medium";
+in
 {
   ## System-wide installs for desktop programs
   imports = [
@@ -15,7 +18,7 @@
     enable = true;
     autoEnable = false;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${systemTheme}.yaml";
   };
 
   environment.systemPackages = with pkgs; [

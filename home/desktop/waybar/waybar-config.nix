@@ -11,6 +11,7 @@ let
     nemo = "󰷏";
     Spotify = "";
     vesktop = "";
+    VSCodium = "";
     zen-beta = "";
     "com.obsproject.Studio" = "";
     "io.github.ilya_zlobintsev.LACT" = "󰾲";

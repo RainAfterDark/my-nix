@@ -25,6 +25,10 @@
             app-id = "codium";
             is-floating = false;
           }
+          {
+            app-id = "VSCodium";
+            is-floating = false;
+          }
         ];
         default-column-width = {
           proportion = 0.75;
