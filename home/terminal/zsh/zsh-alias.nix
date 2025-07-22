@@ -33,6 +33,7 @@
       not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} -- --offline' '❄️ NixOS Test'";
       nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot}' '❄️ NixOS Boot'";
       nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot}' '❄️ NixOS Switch'";
+      nou = "notifywrap 'sudo nh os switch -u -H ${host} -R ${flakeRoot}' '❄️ NixOS Update'";
     };
   };
 }
