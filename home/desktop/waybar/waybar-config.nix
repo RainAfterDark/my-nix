@@ -16,11 +16,14 @@ let
     vesktop = "";
     zen-beta = "";
 
+    polkit-gnome-authentication-agent-1 = "󰒃";
+    xdg-desktop-portal-gnome = "";
+
     "com.obsproject.Studio" = "";
     "io.github.ilya_zlobintsev.LACT" = "󰾲";
+    "io.missioncenter.MissionCenter" = "";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
-    "polkit-gnome-authentication-agent-1" = "󰒃";
 
     "moe.launcher.the-honkers-railway-launcher" = "";
     "The Honkers Railway Launcher" = "";
