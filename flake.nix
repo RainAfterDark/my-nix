@@ -56,6 +56,7 @@
       "https://niri.cachix.org"
       "https://walker.cachix.org"
       "https://walker-git.cachix.org"
+      "https://ezkea.cachix.org"
     ];
 
     trusted-public-keys = [
@@ -65,6 +66,7 @@
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
       "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
     ];
   };
 

@@ -3,24 +3,33 @@ let
   mainFont = config.stylix.fonts.monospace.name;
   appMapping = {
     codium = "";
-    imv = "";
+    VSCodium = "";
     jetbrains-idea = "";
     jetbrains-toolbox = "";
+
     kitty = "";
+    imv = "";
     mpv = "";
     nemo = "󰷏";
+
     Spotify = "";
     vesktop = "";
-    VSCodium = "";
     zen-beta = "";
+
     "com.obsproject.Studio" = "";
     "io.github.ilya_zlobintsev.LACT" = "󰾲";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
     "polkit-gnome-authentication-agent-1" = "󰒃";
+
     "moe.launcher.the-honkers-railway-launcher" = "";
     "The Honkers Railway Launcher" = "";
     "starrail.exe" = "";
+
+    "moe.launcher.an-anime-game-launcher" = "󰫣";
+    "An Anime Game Launcher" = "󰫣";
+    "GenshinImpact.exe" = "󰫣";
+
     unknown = "";
   };
 in
