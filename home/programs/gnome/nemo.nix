@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   home.packages = with pkgs; [ nemo ];
-
-  dconf.settings = {
+  dconf.settings = with lib.gvariant; {
     "org/cinnamon/desktop/applications/terminal" = {
       exec = "${pkgs.kitty}/bin/kitty";
     };
@@ -22,7 +21,7 @@
       show-open-in-terminal-toolbar = true;
       show-search-icon-toolbar = false;
       show-show-thumbnails-toolbar = false;
-      thumbnail-limit = 68719476736;
+      thumbnail-limit = mkUint64 68719476736;
       tooltips-in-icon-view = true;
       tooltips-in-list-view = true;
       tooltips-show-file-type = true;
