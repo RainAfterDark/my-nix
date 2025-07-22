@@ -69,8 +69,9 @@ in
 
         # Fullscreen/Dynamic Cast
         "Mod+Tab".action = fullscreen-window;
-        "Mod+Grave".action = set-dynamic-cast-window;
-        "Mod+Shift+Grave".action = clear-dynamic-cast-target;
+        "Mod+Shift+Tab".action = toggle-windowed-fullscreen;
+        "Mod+F8".action = set-dynamic-cast-window;
+        "Mod+Alt+F8".action = clear-dynamic-cast-target;
 
         # Navigation
         "Mod+Space".action = toggle-overview;
@@ -101,27 +102,34 @@ in
       // lib.optionalAttrs (host == "xps7590") {
         "Mod+B".action = sh "bzmenu -l walker";
         "Mod+N".action = spawn "networkmanager_dmenu";
+        "Mod+Shift+F8".action = set-dynamic-cast-monitor "eDP-1";
       };
 
     window-rules = [
       { draw-border-with-background = false; }
       {
-        matches = [ { is-window-cast-target = true; } ];
-        focus-ring = {
-          enable = true;
-          active.color = colors.base0E;
-        };
-        shadow = {
-          enable = true;
-          color = colors.base0E;
-          spread = 6;
-        };
-      }
-      {
         matches = [
           { app-id = "org.pulseaudio.pavucontrol"; }
         ];
         open-floating = true;
+      }
+      {
+        matches = [ { is-window-cast-target = true; } ];
+        focus-ring = {
+          enable = true;
+          active.color = colors.base0E;
+          inactive.color = colors.base0E-rgba 0.75;
+        };
+        shadow = {
+          enable = true;
+          color = colors.base0E-rgba 0.75;
+          spread = 4;
+          softness = 0;
+          offset = {
+            x = 0;
+            y = 0;
+          };
+        };
       }
     ];
 

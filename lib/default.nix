@@ -17,7 +17,7 @@ nixpkgs.lib.extend (
           if n < 10 then
             "base0${toString n}"
           else
-            "base0${builtins.elemAt [ "a" "b" "c" "d" "e" "f" ] (n - 10)}"
+            "base0${builtins.elemAt [ "A" "B" "C" "D" "E" "F" ] (n - 10)}"
         ) 16;
 
         rgbaFunctions = builtins.listToAttrs (
