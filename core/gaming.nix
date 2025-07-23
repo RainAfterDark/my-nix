@@ -1,5 +1,12 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
+  ## TODO: add Steam
+  environment.systemPackages = with pkgs; [
+    gamescope
+    gamemode
+  ];
+
+  ## "Anime Games"
   imports = [ inputs.aagl.nixosModules.default ];
   programs.anime-game-launcher.enable = true;
   # programs.anime-games-launcher.enable = true;

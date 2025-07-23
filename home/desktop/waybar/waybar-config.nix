@@ -25,6 +25,9 @@ let
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
 
+    "org.prismlauncher.PrismLauncher" = "󰍳";
+    "Minecraft* 1.21.8" = "󰍳";
+
     "moe.launcher.the-honkers-railway-launcher" = "";
     "The Honkers Railway Launcher" = "";
     "starrail.exe" = "";

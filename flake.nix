@@ -19,6 +19,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ## Servers
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     ## Desktop
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -101,6 +108,7 @@
 
         nixpkgs = {
           overlays = [
+            inputs.nix-minecraft.overlay
             inputs.niri.overlays.niri
             (import ./pkgs/overlays.nix)
           ];

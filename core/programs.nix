@@ -27,6 +27,7 @@
     coreutils # essentials
     binutils # packaging
     pciutils # lspci, etc.
+    tmux # the one and only
 
     # GPU
     vulkan-tools

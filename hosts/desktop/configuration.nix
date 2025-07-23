@@ -50,6 +50,10 @@
     options = [
       "rw"
       "uid=1000"
+      "gid=100"
+      "umask=007"
+      "windows_names"
+      "big_writes"
     ];
   };
 }

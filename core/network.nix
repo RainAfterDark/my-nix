@@ -1,5 +1,12 @@
-{ pkgs, host, ... }:
 {
+  pkgs,
+  config,
+  host,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
+
   networking = {
     hostName = "${host}";
     networkmanager.enable = true;
@@ -9,15 +16,17 @@
         22
         80
         443
-        59010
-        59011
+        config.services.tailscale.port
       ];
       allowedUDPPorts = [
-        59010
-        59011
+        config.services.tailscale.port
       ];
+      trustedInterfaces = [ config.services.tailscale.interfaceName ];
     };
   };
 
-  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
+  services.tailscale = {
+    enable = true;
+    authKeyFile = config.sops.secrets.tailscale-authkey.path;
+  };
 }
