@@ -40,10 +40,13 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixcord.url = "github:kaylorben/nixcord";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     textfox.url = "github:adriankarlen/textfox";
-    walker.url = "github:abenz1267/walker";
 
     ## Certain Anime Game
     aagl = {
@@ -54,13 +57,11 @@
 
   nixConfig = {
     substituters = [
-      "https://cache.nixos.org?priority=10"
-      "https://nix-community.cachix.org"
-      "https://chaotic-nyx.cachix.org/"
-      "https://niri.cachix.org"
-      "https://walker.cachix.org"
-      "https://walker-git.cachix.org"
-      "https://ezkea.cachix.org"
+      "https://cache.nixos.org?priority=100"
+      "https://nix-community.cachix.org?priority=90"
+      "https://chaotic-nyx.cachix.org?priority=80"
+      "https://niri.cachix.org?priority=10"
+      "https://ezkea.cachix.org?priority=10"
     ];
 
     trusted-public-keys = [
@@ -68,8 +69,6 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
-      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
     ];
   };

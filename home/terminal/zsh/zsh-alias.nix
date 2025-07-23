@@ -30,10 +30,10 @@
       nb = "nom build";
       nhs = "nh search";
       nhc = "notifywrap 'nh clean all --keep 5 && nix-store --optimise' '🧹 Nix Store Clean'";
-      not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} -- --offline' '❄️ NixOS Test'";
-      nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot}' '❄️ NixOS Boot'";
-      nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot}' '❄️ NixOS Switch'";
-      nou = "notifywrap 'sudo nh os switch -u -H ${host} -R ${flakeRoot}' '❄️ NixOS Update'";
+      not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} -- --accept-flake-config --offline' '❄️ NixOS Test'";
+      nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Boot'";
+      nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Switch'";
+      nou = "notifywrap 'sudo nh os boot -u -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Update'";
     };
   };
 }
