@@ -47,7 +47,7 @@
     uncoreOffset = -75; # 100 limit
     gpuOffset = 0; # doesn't do much
     analogioOffset = 0; # should be left 0
-    temp = 70; # above 85 throttles (?)
+    temp = 85; # above 85 throttles (?)
     useTimer = true; # periodically reapply settings
   };
 

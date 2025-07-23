@@ -17,6 +17,14 @@ in
         background-size 0.25s ease;
     }
 
+    tooltip {
+      background: ${base00-rgba 0.9};
+    }
+
+    tooltip label {
+      color: ${base07};
+    }
+
     .modules-left {
       margin-left: 12px;
       padding: 0px 10px 0px 14px;

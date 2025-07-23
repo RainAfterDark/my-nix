@@ -131,6 +131,7 @@ in
 
       "custom/date" = {
         interval = 1;
+        tooltip = false;
         exec = "LC_TIME=ja_JP.UTF-8 date +%m月%d";
       };
 
@@ -160,6 +161,7 @@ in
 
       "custom/day" = {
         interval = 1;
+        tooltip = false;
         exec = "LC_TIME=ja_JP.UTF-8 date +%A";
       };
 
