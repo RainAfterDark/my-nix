@@ -19,5 +19,8 @@
       stress-ng
       # Monitoring
       powerstat
+      # Networking
+      networkmanager_dmenu
+      bzmenu
     ];
 }

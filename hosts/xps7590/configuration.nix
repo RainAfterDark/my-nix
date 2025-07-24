@@ -35,10 +35,6 @@
     };
   };
   services.blueman.enable = true;
-  environment.systemPackages = with pkgs; [
-    networkmanager_dmenu
-    bzmenu
-  ];
 
   # CPU Undervolt
   services.undervolt = {
