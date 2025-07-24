@@ -47,13 +47,33 @@
       defaultSession = "niri";
       sddm = {
         enable = true;
+        theme = "sddm-stray-nixos";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs; [
           kdePackages.qtsvg
           kdePackages.qtmultimedia
         ];
-        wayland.enable = true;
-        theme = "sddm-stray-nixos";
+
+        # wayland is bugged with an external monitor
+        wayland.enable = false;
+        settings = {
+          General = {
+            # disable virtual keyboard
+            InputMethod = "";
+          };
+        };
+
+        # hack to focus primary screen
+        setupScript =
+          let
+            xdotool = "${pkgs.xdotool}/bin/xdotool";
+          in
+          ''
+            (
+              ${xdotool} mousemove --screen 0 0 1080
+              ${xdotool} click --repeat 10 --delay 100 1
+            ) &
+          '';
       };
     };
 
