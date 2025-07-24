@@ -32,7 +32,8 @@ in
         mode = {
           width = 1920;
           height = 1080;
-          refresh = 120.0;
+          # weird bug when plugged desktop vs laptop
+          refresh = if (host == "desktop") then 119.997 else 120.0;
         };
       };
     };
