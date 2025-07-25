@@ -11,6 +11,7 @@ let
     imv = "";
     mpv = "";
     nemo = "󰷏";
+    gamescope = "󰺵";
 
     Spotify = "";
     vesktop = "";
@@ -34,7 +35,7 @@ let
 
     "moe.launcher.an-anime-game-launcher" = "󰫣";
     "An Anime Game Launcher" = "󰫣";
-    "GenshinImpact.exe" = "󰫣";
+    "genshinimpact.exe" = "󰫣";
 
     unknown = "";
   };
