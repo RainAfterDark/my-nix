@@ -42,7 +42,7 @@ in
       warp-mouse-to-focus.enable = true;
       focus-follows-mouse = {
         enable = true;
-        max-scroll-amount = "50%";
+        max-scroll-amount = "0%";
       };
 
       # Make caps lock an additional Mod key

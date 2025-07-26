@@ -17,8 +17,9 @@
       # CPU Test
       geekbench
       stress-ng
-      # Monitoring
+      # Monitoring/Control
       powerstat
+      brightnessctl
       # Networking
       networkmanager_dmenu
       bzmenu

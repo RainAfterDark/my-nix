@@ -177,7 +177,7 @@ in
         ---------------------------- */
 
     .control-center {
-      background: ${base00-rgba 0.85};
+      background: ${base00-rgba 0.95};
       color: ${base05};
       border: 3px solid ${base07};
       box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
