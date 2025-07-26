@@ -84,5 +84,6 @@
     pavucontrol # Audio control
     libreoffice # Documents etc.
     mission-center # GUI resources monitor
+    qbittorrent # torrent client
   ];
 }

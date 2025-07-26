@@ -25,6 +25,7 @@ let
     "io.missioncenter.MissionCenter" = "";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
+    "org.qbittorrent.qBittorrent" = "󰰜";
 
     "org.prismlauncher.PrismLauncher" = "󰍳";
     "Minecraft* 1.21.8" = "󰍳";
