@@ -29,7 +29,7 @@
       nd = "nom develop --command zsh";
       nb = "nom build";
       nhs = "nh search";
-      nhc = "notifywrap 'nh clean all --keep 5 && nix-store --optimise' '🧹 Nix Store Clean'";
+      nhc = "notifywrap 'nh clean all --keep 5' '🧹 Nix Store Clean'";
       not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} -- --accept-flake-config --offline' '❄️ NixOS Test'";
       nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Boot'";
       nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Switch'";
