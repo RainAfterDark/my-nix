@@ -1,8 +1,12 @@
 {
   config,
   pkgs,
+  username,
   ...
 }:
+let
+  mediaGid = 60001;
+in
 {
   ## Packages
   environment.systemPackages = with pkgs; [
@@ -42,6 +46,11 @@
     memoryPercent = 25; # 4GB
   };
 
+  # Create media GID
+  users.groups.media.gid = mediaGid;
+  users.users.jellyfin.extraGroups = [ "media" ];
+  users.users.${username}.extraGroups = [ "media" ];
+
   ## HDD Mount
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems."/mnt/hdd" = {
@@ -50,8 +59,8 @@
     options = [
       "rw"
       "uid=1000"
-      "gid=100"
-      "umask=007"
+      "gid=${toString mediaGid}"
+      "umask=002"
       "windows_names"
       "big_writes"
     ];
