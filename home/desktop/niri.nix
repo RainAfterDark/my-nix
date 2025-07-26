@@ -62,6 +62,7 @@ in
         "Mod+V".action = sh "walker -m clipboard";
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
+        "Mod+P".action = sh "toggle-app pavucontrol";
 
         # Resizing
         "Mod+Z".action = close-window;
@@ -113,6 +114,13 @@ in
           { app-id = "org.pulseaudio.pavucontrol"; }
         ];
         open-floating = true;
+        default-floating-position = {
+          relative-to = "top-right";
+          x = 316;
+          y = 8;
+        };
+        min-width = 800;
+        min-height = 600;
       }
       {
         matches = [ { is-window-cast-target = true; } ];

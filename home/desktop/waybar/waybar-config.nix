@@ -200,7 +200,7 @@ in
         tooltip = false;
         max-length = 6;
         exec = "waybar-pipewire";
-        on-click = "pavucontrol";
+        on-click = "toggle-app pavucontrol";
       };
 
       battery = {
