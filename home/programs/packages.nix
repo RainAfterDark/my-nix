@@ -77,7 +77,6 @@
     openssl
     pamixer # pulseaudio command line mixer
     playerctl # controller for media players
-    poweralertd
     unzip
     wget
 
