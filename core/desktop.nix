@@ -25,7 +25,7 @@ in
     # Display Manager stuff
     wayland-utils
     wl-clipboard
-    xwayland-satellite
+    xwayland-satellite-unstable
 
     # For SDDM/Quickshell
     qt6.full

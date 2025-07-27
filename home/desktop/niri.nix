@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   host,
   colors,
@@ -19,7 +20,7 @@ let
 
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "niri";
-    DISPLAY = ":0";
+    # DISPLAY = ":0"; # Niri sets this for us, don't override
   };
 in
 {
@@ -184,9 +185,10 @@ in
       workspace-shadow.enable = false;
     };
 
-    spawn-at-startup = lib.mkBefore [
-      { command = [ "xwayland-satellite" ]; }
-    ];
+    xwayland-satellite = {
+      enable = true;
+      path = lib.getExe pkgs.xwayland-satellite-unstable;
+    };
 
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
