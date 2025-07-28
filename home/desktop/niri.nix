@@ -61,8 +61,10 @@ in
         "Mod+G".action = spawn "nemo";
         "Mod+F".action = spawn "walker";
         "Mod+V".action = sh "walker -m clipboard";
+        "Mod+B".action = sh "walker --modules emojis,symbols";
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
+        "Mod+O".action = spawn "wallpaper-selector";
         "Mod+P".action = sh "toggle-app pavucontrol";
 
         # Resizing
@@ -103,7 +105,7 @@ in
         "Alt+Shift+Tab".action = focus-window-up-or-column-left;
       }
       // lib.optionalAttrs (host == "xps7590") {
-        "Mod+B".action = sh "bzmenu -l walker";
+        "Mod+M".action = sh "bzmenu -l walker";
         "Mod+N".action = spawn "networkmanager_dmenu";
         "Mod+Shift+F8".action = set-dynamic-cast-monitor "eDP-1";
       };
