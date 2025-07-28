@@ -1,6 +1,0 @@
-{ ... }:
-{
-  services.poweralertd = {
-    enable = true;
-  };
-}

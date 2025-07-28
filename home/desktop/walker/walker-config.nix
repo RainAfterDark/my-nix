@@ -29,6 +29,15 @@
         disable_click_to_close = false;
         force_keyboard_focus = false;
 
+        disabled = [
+          "ai"
+          "bookmarks"
+          "custom_commands"
+          "hyprland_keybinds"
+          "websearch"
+          "xdphpicker"
+        ];
+
         keys = {
           accept_typeahead = [ "tab" ];
           trigger_labels = "lalt";
@@ -205,7 +214,7 @@
           };
 
           symbols = {
-            after_copy = "";
+            after_copy = paste;
             weight = 5;
             name = "symbols";
             placeholder = "Symbols";

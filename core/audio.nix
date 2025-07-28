@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.pulseaudio.enable = false;
   services.pipewire = {
@@ -9,7 +9,4 @@
     # lowLatency.enable = true;
   };
   hardware.alsa.enablePersistence = true;
-  environment.systemPackages = with pkgs; [
-    easyeffects
-  ];
 }

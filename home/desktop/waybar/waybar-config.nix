@@ -21,6 +21,7 @@ let
     xdg-desktop-portal-gnome = "";
 
     "com.obsproject.Studio" = "";
+    "com.github.wwmm.easyeffects" = "󰺢";
     "io.github.ilya_zlobintsev.LACT" = "󰾲";
     "io.missioncenter.MissionCenter" = "";
     "org.gnome.TextEditor" = "󱩼";
