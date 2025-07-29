@@ -59,6 +59,8 @@ in
         "custom/border"
         "niri/workspaces"
         "custom/border"
+        "tray"
+        "custom/border"
         "wlr/taskbar"
         "custom/border"
       ];
@@ -117,6 +119,11 @@ in
           "9" = "i";
           "10" = "j";
         };
+      };
+
+      "tray" = {
+        icon-size = 16;
+        spacing = 4;
       };
 
       "wlr/taskbar" = {

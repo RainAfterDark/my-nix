@@ -94,6 +94,14 @@ in
       background-position: bottom center;
     }
 
+    #tray {
+      margin: 6px 4px 4px 0px;
+      padding: 0px 8px;
+      color: ${base07};
+      background: ${base00};
+      border: 2px solid ${base07};
+    }
+
     #workspaces {
       font-family: "Stray";
       padding-right: 4px;
