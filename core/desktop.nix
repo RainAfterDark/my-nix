@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  systemTheme = "gruvbox-material-dark-medium";
+  systemTheme = "kanagawa-dragon";
 in
 {
   ## System-wide installs for desktop programs

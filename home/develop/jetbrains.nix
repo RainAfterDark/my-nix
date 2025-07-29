@@ -11,9 +11,7 @@
             is-floating = false;
           }
         ];
-        default-column-width = {
-          proportion = 0.75;
-        };
+        open-maximized = true;
         opacity = 0.95;
       }
     ];

@@ -19,14 +19,14 @@ let
       --bg-1: ${base03};
       --bg-2: ${base02};
       --bg-3: ${base01};
-      --bg-4: ${base00}CC;    /* 80% opacity */
+      --bg-4: ${base00-rgba 0.7};
 
       /* ─── Text ─── */
       --text-1: ${base07};
       --text-2: ${base06};
       --text-3: ${base05};
       --text-4: ${base04};
-      --text-5: ${base04}66;  /* 40% opacity */
+      --text-5: ${base04-rgba 0.4};
 
       /* ─── RED ramp (base08 ≈ L=65%) ─── */
       --red-1: color-mix(in srgb, var(--red-base) 95%, white 5%);

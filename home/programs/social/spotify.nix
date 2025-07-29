@@ -63,7 +63,7 @@
         matches = [ { app-id = "Spotify"; } ];
         open-maximized = true;
         open-on-workspace = "a";
-        opacity = 0.95;
+        opacity = 0.9;
       }
     ];
   };
