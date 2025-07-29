@@ -77,6 +77,7 @@ in
         "Mod+Shift+Tab".action = toggle-windowed-fullscreen;
         "Mod+F8".action = set-dynamic-cast-window;
         "Mod+Alt+F8".action = clear-dynamic-cast-target;
+        "Mod+Shift+F8".action = set-dynamic-cast-monitor;
 
         # Navigation
         "Mod+Space".action = toggle-overview;
@@ -107,7 +108,6 @@ in
       // lib.optionalAttrs (host == "xps7590") {
         "Mod+M".action = sh "bzmenu -l walker";
         "Mod+N".action = spawn "networkmanager_dmenu";
-        "Mod+Shift+F8".action = set-dynamic-cast-monitor "eDP-1";
       };
 
     window-rules = [
