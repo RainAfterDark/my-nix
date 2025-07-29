@@ -1,0 +1,114 @@
+{
+  lib,
+  config,
+  host,
+  ...
+}:
+{
+  programs.niri.settings = with config.lib.niri.actions; {
+    binds =
+      let
+        sh = spawn "sh" "-c";
+        onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
+      in
+      ## General Controls
+      {
+        # Apps/Widgets
+        "Mod+T".action = spawn "kitty";
+        "Mod+G".action = spawn "nemo";
+        "Mod+F".action = spawn "walker";
+        "Mod+V".action = sh "walker -m clipboard";
+        "Mod+B".action = sh "walker --modules emojis,symbols";
+        "Mod+R".action = sh "swaync-client -t";
+        "Mod+Shift+R".action = sh "swaync-client -C";
+        "Mod+O".action = spawn "wallpaper-selector";
+        "Mod+P".action = sh "toggle-app pavucontrol";
+        "Mod+Escape".action = onlyOne "wlogout" "-s -b 4";
+
+        # Resizing
+        "Mod+Z".action = close-window;
+        "Mod+X".action = switch-preset-column-width;
+        "Mod+C".action = switch-preset-window-height;
+
+        # Fullscreen/Dynamic Cast
+        "Mod+Tab".action = fullscreen-window;
+        "Mod+Shift+Tab".action = toggle-windowed-fullscreen;
+        "Mod+F8".action = set-dynamic-cast-window;
+        "Mod+Alt+F8".action = clear-dynamic-cast-target;
+        "Mod+Shift+F8".action = set-dynamic-cast-monitor;
+
+        # Navigation
+        "Mod+Space".action = toggle-overview;
+        "Mod+W".action = focus-window-or-workspace-up;
+        "Mod+S".action = focus-window-or-workspace-down;
+        "Mod+A".action = focus-column-or-monitor-left;
+        "Mod+D".action = focus-column-or-monitor-right;
+        "Mod+Q".action = consume-or-expel-window-left;
+        "Mod+E".action = consume-or-expel-window-right;
+
+        # Movement
+        "Mod+Alt+W".action = move-window-up-or-to-workspace-up;
+        "Mod+Alt+S".action = move-window-down-or-to-workspace-down;
+        "Mod+Alt+A".action = swap-window-left;
+        "Mod+Alt+D".action = swap-window-right;
+        "Mod+Alt+Q".action = consume-window-into-column;
+        "Mod+Alt+E".action = expel-window-from-column;
+
+        # PrntScrn
+        "Print".action = screenshot { show-pointer = true; };
+        "Alt+Print".action = screenshot-window { write-to-disk = true; };
+
+        # "Windows" Keybinds
+        "Alt+F4".action = close-window;
+        "Alt+Tab".action = focus-window-down-or-column-right;
+        "Alt+Shift+Tab".action = focus-window-up-or-column-left;
+      }
+      ## Laptop Only
+      // lib.optionalAttrs (host == "xps7590") {
+        "Mod+M".action = sh "bzmenu -l walker";
+        "Mod+N".action = spawn "networkmanager_dmenu";
+      }
+      ## Volume and Brightness Controls
+      // (
+        let
+          volumeStep = "10";
+          brightnessStep = "10";
+
+          mkControlAction = a: {
+            action = spawn "sh" "-c" a;
+            allow-when-locked = true;
+          };
+
+          volume = v: mkControlAction "pamixer ${v}";
+          volumeUp = volume "-i ${volumeStep}";
+          volumeDown = volume "-d ${volumeStep}";
+
+          brightness = v: mkControlAction "brightnessctl set ${v}";
+          brightnessUp = brightness "+${brightnessStep}%";
+          brightnessDown = brightness "${brightnessStep}%-";
+        in
+        {
+          "XF86AudioRaiseVolume" = volumeUp;
+          "XF86AudioLowerVolume" = volumeDown;
+          "Mod+TouchpadScrollDown" = volumeUp;
+          "Mod+TouchpadScrollUp" = volumeDown;
+
+          "XF86MonBrightnessUp" = brightnessUp;
+          "XF86MonBrightnessDown" = brightnessDown;
+          "Mod+Alt+TouchpadScrollDown" = brightnessUp;
+          "Mod+Alt+TouchpadScrollUp" = brightnessDown;
+        }
+      );
+
+    input = {
+      warp-mouse-to-focus.enable = true;
+      focus-follows-mouse = {
+        enable = true;
+        max-scroll-amount = "0%";
+      };
+
+      # Make caps lock an additional Mod key
+      keyboard.xkb.options = "caps:super";
+    };
+  };
+}

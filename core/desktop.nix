@@ -27,17 +27,17 @@ in
     wl-clipboard
     xwayland-satellite-unstable
 
-    # For SDDM/Quickshell
+    # For QT things (SDDM, etc.)
     qt6.full
     kdePackages.qtbase
     kdePackages.qtdeclarative
 
-    # Quickshell
-    (inputs.quickshell.packages.${pkgs.system}.default.override {
-      withX11 = false;
-      withHyprland = false;
-      withI3 = false;
-    })
+    # Quickshell (one day I will use you...)
+    # (inputs.quickshell.packages.${pkgs.system}.default.override {
+    #   withX11 = false;
+    #   withHyprland = false;
+    #   withI3 = false;
+    # })
   ];
 
   qt.enable = true;

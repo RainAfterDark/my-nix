@@ -53,18 +53,4 @@
       };
       wayland = false; # wayland breaks dropdowns somehow
     };
-
-  programs.niri.settings = {
-    spawn-at-startup = [
-      { command = [ "spotify" ]; }
-    ];
-    window-rules = [
-      {
-        matches = [ { app-id = "Spotify"; } ];
-        open-maximized = true;
-        open-on-workspace = "a";
-        opacity = 0.9;
-      }
-    ];
-  };
 }

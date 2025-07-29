@@ -9,17 +9,4 @@
   programs.zen-browser = {
     enable = true;
   };
-
-  programs.niri.settings = {
-    spawn-at-startup = [
-      { command = [ "zen-beta" ]; }
-    ];
-    window-rules = [
-      {
-        matches = [ { app-id = "zen-beta"; } ];
-        open-maximized = true;
-        open-on-workspace = "a";
-      }
-    ];
-  };
 }

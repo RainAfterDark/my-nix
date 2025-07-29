@@ -46,15 +46,4 @@
       start-with-sidebar = true;
     };
   };
-
-  programs.niri.settings = {
-    window-rules = [
-      {
-        matches = [ { app-id = "nemo"; } ];
-        default-column-width = {
-          proportion = 0.5;
-        };
-      }
-    ];
-  };
 }

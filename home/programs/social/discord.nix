@@ -88,17 +88,4 @@ in
       ];
     };
   };
-
-  programs.niri.settings = {
-    spawn-at-startup = [
-      { command = [ "vesktop" ]; }
-    ];
-    window-rules = [
-      {
-        matches = [ { app-id = "vesktop"; } ];
-        open-maximized = true;
-        open-on-workspace = "a";
-      }
-    ];
-  };
 }

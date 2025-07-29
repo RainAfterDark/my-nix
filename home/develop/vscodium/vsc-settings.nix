@@ -20,13 +20,11 @@
       "vsicons.dontShowNewVersionMessage" = true;
       "explorer.confirmDragAndDrop" = false;
       "editor.fontLigatures" = true;
-      # "editor.minimap.enabled" = false;
       "workbench.startupEditor" = "none";
 
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
       "editor.formatOnPaste" = true;
-      # "editor.inlayHints.enabled" = "off";
 
       "workbench.layoutControl.type" = "menu";
       "workbench.editor.limit.enabled" = true;
@@ -34,35 +32,14 @@
       "workbench.editor.limit.perEditorGroup" = true;
       "workbench.editor.showTabs" = "multiple";
       "files.autoSave" = "onWindowChange";
-      # "explorer.openEditors.visible" = 0;
-      # "breadcrumbs.enabled" = false;
       "editor.renderControlCharacters" = false;
-      # "workbench.activityBar.location" = "hidden";
       "workbench.statusBar.visible" = false;
-      # "editor.scrollbar.verticalScrollbarSize" = 2;
-      # "editor.scrollbar.horizontalScrollbarSize" = 2;
-      # "editor.scrollbar.vertical" = "hidden";
-      # "editor.scrollbar.horizontal" = "hidden";
       "workbench.layoutControl.enabled" = false;
 
       "editor.mouseWheelZoom" = true;
       "editor.smoothScrolling" = true;
       "workbench.list.smoothScrolling" = true;
       "terminal.integrated.smoothScrolling" = true;
-
-      # C/C++
-      "clangd.arguments" = [
-        "--clang-tidy"
-        "--inlay-hints=false"
-      ];
-
-      # Zig
-      # "zig.initialSetupDone" = true;
-      # "zig.checkForUpdate" = false;
-      # "zig.zls.path" = "zls";
-      # "zig.path" = "zig";
-      # "zig.revealOutputChannelOnFormattingError" = false;
-      # "zig.zls.enableInlayHints" = false;
 
       # Nix
       "nix.serverPath" = "nixd";

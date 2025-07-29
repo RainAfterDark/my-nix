@@ -1,5 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [ syshud ];
   xdg.configFile."sys64/hud/style.css".text = ''
     #syshud {
     	background: transparent;

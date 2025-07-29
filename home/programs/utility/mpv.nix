@@ -49,13 +49,4 @@
       };
     };
   };
-
-  programs.niri.settings = {
-    window-rules = [
-      {
-        matches = [ { app-id = "mpv"; } ];
-        open-maximized = true;
-      }
-    ];
-  };
 }

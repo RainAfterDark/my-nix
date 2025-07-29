@@ -1,31 +1,5 @@
 { colors, ... }:
-let
-  height = 400;
-  width = 450;
-in
 {
-  # Only applied in windowed mode (not used atm)
-  programs.niri.settings = {
-    window-rules = [
-      {
-        matches = [
-          { app-id = "walker"; }
-          { app-id = "dev.benz.walker"; }
-        ];
-        open-floating = true;
-        default-floating-position = {
-          relative-to = "top-left";
-          x = 16;
-          y = 10;
-        };
-        max-height = height;
-        min-height = height;
-        max-width = width;
-        min-width = width;
-      }
-    ];
-  };
-
   programs.walker.theme.layout = with colors; {
     ui = {
       anchors = {
@@ -41,7 +15,7 @@ in
 
         box = {
           h_align = "center";
-          width = width;
+          width = 450;
 
           # Comment this out in windowed mode
           margins = {

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   programs.wlogout = {
     enable = true;
@@ -29,14 +29,4 @@
       }
     ];
   };
-
-  programs.niri.settings.binds =
-    with config.lib.niri.actions;
-    let
-      sh = spawn "sh" "-c";
-      onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
-    in
-    {
-      "Mod+Escape".action = onlyOne "wlogout" "-s -b 4";
-    };
 }
