@@ -37,6 +37,7 @@
       };
       min-width = 800;
       min-height = 600;
+      opacity = 0.95;
     }
 
     # Nemo
@@ -45,7 +46,7 @@
       default-column-width = {
         proportion = 0.5;
       };
-      opacity = 0.9;
+      opacity = 0.95;
     }
 
     # VS Code
@@ -63,7 +64,7 @@
       default-column-width = {
         proportion = 0.75;
       };
-      opacity = 0.9;
+      opacity = 0.95;
     }
 
     # IntelliJ IDEA
@@ -97,7 +98,7 @@
       matches = [ { app-id = "Spotify"; } ];
       open-maximized = true;
       open-on-workspace = "a";
-      opacity = 0.9;
+      opacity = 0.95;
     }
 
     # MPV

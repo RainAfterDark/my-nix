@@ -19,7 +19,7 @@ let
       --bg-1: ${base03};
       --bg-2: ${base02};
       --bg-3: ${base01};
-      --bg-4: ${base00-rgba 0.7};
+      --bg-4: ${base00-rgba 0.8};
 
       /* ─── Text ─── */
       --text-1: ${base07};
