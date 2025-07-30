@@ -159,13 +159,13 @@ in
             days = "<span color='${base07}'>{}</span>";
             weeks = "<span color='${base0B}'><b>W{}</b></span>";
             weekdays = "<span color='${base0C}'><b>{}</b></span>";
-            today = "<span color='${base0E}'><b>{}</b></span>";
+            today = "<span color='${base08}'><b>{}</b></span>";
           };
         };
         actions = {
           on-click-middle = "shift_reset";
-          on-scroll-up = "shift_up";
-          on-scroll-down = "shift_down";
+          on-scroll-up = "shift_down";
+          on-scroll-down = "shift_up";
         };
       };
 

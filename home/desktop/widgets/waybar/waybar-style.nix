@@ -11,7 +11,7 @@ in
       margin: 0px;
       padding: 0px;
       box-shadow: none;
-      text-shadow: none;
+      text-shadow: inherit;
       transition:
         margin 0.25s ease,
         background-size 0.25s ease;
@@ -68,8 +68,8 @@ in
       color: ${base00};
       margin: 0px 4px 0px 0px;
       background: linear-gradient(to top,
-              ${base07} 0%,
-              ${base07} 100%) no-repeat;
+                  ${base07} 0%,
+                  ${base07} 100%) no-repeat;
       background-size: 100% 100%;
       background-position: top center;
       border: solid ${base07} 2px;
@@ -87,6 +87,8 @@ in
     #custom-notification:hover {
       color: ${base07};
       background-size: 100% 0%;
+      box-shadow: 0px 0px 3px ${base00} inset;
+      text-shadow: 0px 0px 3px ${base00};
     }
 
     #custom-nixos:not(:hover),
@@ -115,10 +117,11 @@ in
       margin: 6px 0px -4px 0px;
       color: ${base07};
       background: linear-gradient(to top,
-              ${base07} 0%,
-              ${base07} 100%) no-repeat;
+                  ${base07} 0%,
+                  ${base07} 100%) no-repeat;
       background-size: 100% 0%;
       background-position: bottom center;
+      text-shadow: 0px 0px 3px ${base00};
     }
 
     #workspaces button.focused {
@@ -127,6 +130,8 @@ in
       margin: 6px 0px 4px 0px;
       color: ${base00};
       background-size: 100% 100%;
+      text-shadow: none;
+      box-shadow: 0px 0px 3px ${base00};
     }
 
     #workspaces button:not(.focused) {
@@ -144,10 +149,11 @@ in
       padding: 0px 4px;
       margin: 6px 0px -6px 0px;
       background: linear-gradient(to top,
-              ${base07} 0%,
-              ${base07} 100%) no-repeat;
+                  ${base07} 0%,
+                  ${base07} 100%) no-repeat;
       background-size: 100% 0%;
       background-position: bottom center;
+      text-shadow: 0px 0px 3px ${base00};
     }
 
     #taskbar button.active,
@@ -158,6 +164,8 @@ in
       margin: 6px 0px 4px 2px;
       color: ${base00};
       background-size: 100% 100%;
+      text-shadow: none;
+      box-shadow: 0px 0px 3px ${base00};
     }
 
     #taskbar button:not(.active) {
@@ -182,6 +190,7 @@ in
       color: ${base07};
       background: ${base00};
       border: 2px solid ${base07};
+      box-shadow: 0px 0px 3px ${base00};
     }
 
     #custom-cpu,
@@ -197,6 +206,7 @@ in
       padding: 0px 4px;
       color: ${base00};
       background: ${base07};
+      box-shadow: 0px 0px 3px ${base00};
     }
 
     #custom-gpu,

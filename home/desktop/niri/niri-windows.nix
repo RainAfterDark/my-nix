@@ -9,12 +9,12 @@
       matches = [ { is-window-cast-target = true; } ];
       focus-ring = {
         enable = true;
-        active.color = colors.base0E;
-        inactive.color = colors.base0E-rgba 0.75;
+        active.color = colors.base08;
+        inactive.color = colors.base08-rgba 0.75;
       };
       shadow = {
         enable = true;
-        color = colors.base0E-rgba 0.75;
+        color = colors.base08-rgba 0.75;
         spread = 4;
         softness = 0;
         offset = {
