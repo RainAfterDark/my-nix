@@ -14,6 +14,7 @@ let
     gamescope = "󰺵";
 
     Spotify = "";
+    steam = "";
     vesktop = "";
     zen-beta = "";
 

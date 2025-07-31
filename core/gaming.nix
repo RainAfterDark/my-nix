@@ -1,10 +1,21 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
-  ## TODO: add Steam
-  environment.systemPackages = with pkgs; [
-    gamescope
-    gamemode
-  ];
+  programs = {
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
+    };
+  };
 
   ## "Anime Games"
   imports = [ inputs.aagl.nixosModules.default ];
