@@ -43,9 +43,7 @@
     # Nemo
     {
       matches = [ { app-id = "nemo"; } ];
-      default-column-width = {
-        proportion = 0.5;
-      };
+      default-column-width.proportion = 0.5;
       opacity = 0.95;
     }
 
@@ -61,9 +59,7 @@
           is-floating = false;
         }
       ];
-      default-column-width = {
-        proportion = 0.75;
-      };
+      default-column-width.proportion = 0.75;
       opacity = 0.95;
     }
 
@@ -79,9 +75,28 @@
       opacity = 0.95;
     }
 
+    # Zen PiP
+    {
+      matches = [
+        {
+          app-id = "zen-beta";
+          title = "^Picture-in-Picture$";
+        }
+      ];
+      default-column-width.fixed = 1280;
+      default-window-height.fixed = 720;
+      open-floating = true;
+      opacity = 0.95;
+    }
+
     # Zen Browser
     {
-      matches = [ { app-id = "zen-beta"; } ];
+      matches = [
+        {
+          app-id = "zen-beta";
+          is-floating = false;
+        }
+      ];
       open-maximized = true;
       open-on-workspace = "a";
     }
