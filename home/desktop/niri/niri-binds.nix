@@ -55,7 +55,10 @@
         "Mod+Alt+E".action = expel-window-from-column;
 
         # PrntScrn
-        "Print".action = screenshot { show-pointer = true; };
+        # FIXME when upstream issue is fixed:
+        # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
+        "Print".action.screenshot-screen = [ ];
+        "Ctrl+Print".action = screenshot { show-pointer = true; };
         "Alt+Print".action = screenshot-window { write-to-disk = true; };
 
         # "Windows" Keybinds
