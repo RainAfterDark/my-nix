@@ -47,12 +47,12 @@
         "Mod+E".action = consume-or-expel-window-right;
 
         # Movement
-        "Mod+Alt+W".action = move-window-up-or-to-workspace-up;
-        "Mod+Alt+S".action = move-window-down-or-to-workspace-down;
-        "Mod+Alt+A".action = swap-window-left;
-        "Mod+Alt+D".action = swap-window-right;
-        "Mod+Alt+Q".action = consume-window-into-column;
-        "Mod+Alt+E".action = expel-window-from-column;
+        "Mod+Shift+W".action = move-window-up-or-to-workspace-up;
+        "Mod+Shift+S".action = move-window-down-or-to-workspace-down;
+        "Mod+Shift+A".action = swap-window-left;
+        "Mod+Shift+D".action = swap-window-right;
+        "Mod+Shift+Q".action = consume-window-into-column;
+        "Mod+Shift+E".action = expel-window-from-column;
 
         # PrntScrn
         # FIXME when upstream issue is fixed:
