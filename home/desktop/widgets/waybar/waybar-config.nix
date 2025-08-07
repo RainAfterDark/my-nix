@@ -12,6 +12,7 @@ let
     mpv = "";
     nemo = "󰷏";
     gamescope = "󰺵";
+    gimp = "";
 
     Spotify = "";
     steam = "";
@@ -41,6 +42,7 @@ let
     "genshinimpact.exe" = "󰫣";
 
     unknown = "";
+    "" = "";
   };
 in
 {

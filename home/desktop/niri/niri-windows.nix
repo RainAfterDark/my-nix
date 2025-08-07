@@ -1,4 +1,7 @@
 { colors, ... }:
+let
+  windowOpacity = 0.95;
+in
 {
   programs.niri.settings.window-rules = [
     # Default
@@ -37,17 +40,46 @@
       };
       min-width = 800;
       min-height = 600;
-      opacity = 0.95;
+      opacity = windowOpacity;
     }
 
-    # Nemo
+    # Zen PiP
     {
-      matches = [ { app-id = "nemo"; } ];
-      default-column-width.proportion = 0.5;
-      opacity = 0.95;
+      matches = [
+        {
+          app-id = "zen-beta";
+          title = "^Picture-in-Picture$";
+        }
+      ];
+      open-floating = true;
+      default-column-width.fixed = 1280;
+      default-window-height.fixed = 720;
+      opacity = windowOpacity;
     }
 
-    # VS Code
+    # Maximized Apps
+    {
+      matches = [
+        {
+          app-id = "gimp";
+          is-floating = false;
+        }
+        {
+          app-id = "jetbrains-idea";
+          is-floating = false;
+        }
+        { app-id = "mpv"; }
+        { app-id = "Spotify"; }
+        { app-id = "vesktop"; }
+        {
+          app-id = "zen-beta";
+          is-floating = false;
+        }
+      ];
+      open-maximized = true;
+    }
+
+    # 3/4-Width Apps
     {
       matches = [
         {
@@ -60,66 +92,26 @@
         }
       ];
       default-column-width.proportion = 0.75;
-      opacity = 0.95;
     }
 
-    # IntelliJ IDEA
+    # Half-Width Apps
     {
       matches = [
-        {
-          app-id = "jetbrains-idea";
-          is-floating = false;
-        }
+        { app-id = "nemo"; }
       ];
-      open-maximized = true;
-      opacity = 0.95;
+      default-column-width.proportion = 0.5;
     }
 
-    # Zen PiP
+    # Transparent Apps
     {
       matches = [
-        {
-          app-id = "zen-beta";
-          title = "^Picture-in-Picture$";
-        }
+        { app-id = "codium"; }
+        { app-id = "VSCodium"; }
+        { app-id = "jetbrains-idea"; }
+        { app-id = "nemo"; }
+        { app-id = "Spotify"; }
       ];
-      default-column-width.fixed = 1280;
-      default-window-height.fixed = 720;
-      open-floating = true;
-      opacity = 0.95;
-    }
-
-    # Zen Browser
-    {
-      matches = [
-        {
-          app-id = "zen-beta";
-          is-floating = false;
-        }
-      ];
-      open-maximized = true;
-      open-on-workspace = "a";
-    }
-
-    # Discord
-    {
-      matches = [ { app-id = "vesktop"; } ];
-      open-maximized = true;
-      open-on-workspace = "a";
-    }
-
-    # Spotify
-    {
-      matches = [ { app-id = "Spotify"; } ];
-      open-maximized = true;
-      open-on-workspace = "a";
-      opacity = 0.95;
-    }
-
-    # MPV
-    {
-      matches = [ { app-id = "mpv"; } ];
-      open-maximized = true;
+      opacity = windowOpacity;
     }
   ];
 }

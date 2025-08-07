@@ -84,6 +84,7 @@
     pavucontrol # Audio control
     libreoffice # Documents etc.
     mission-center # GUI resources monitor
-    qbittorrent # torrent client
+    qbittorrent # Torrent Client
+    gimp3-with-plugins # Image Manipulation
   ];
 }

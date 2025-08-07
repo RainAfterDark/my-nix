@@ -11,12 +11,12 @@ in
       restore-session = false;
       show-grid = false;
       show-line-numbers = true;
-      show-right-margin = false;
+      show-right-margin = true;
       style-scheme = "builder-dark";
       style-variant = "dark";
-      tab-width = "uint32 4";
+      tab-width = "uint32 2";
       use-system-font = false;
-      wrap-text = false;
+      wrap-text = true;
     };
   };
 }
