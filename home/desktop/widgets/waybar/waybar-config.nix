@@ -19,6 +19,15 @@ let
     vesktop = "";
     zen-beta = "";
 
+    soffice = "";
+    libreoffice-startcenter = "";
+    libreoffice-impress = "";
+    libreoffice-writer = "";
+    libreoffice-calc = "";
+    libreoffice-draw = "";
+    libreoffice-math = "";
+    libreoffice-base = "";
+
     polkit-gnome-authentication-agent-1 = "󰒃";
     xdg-desktop-portal-gnome = "";
 
