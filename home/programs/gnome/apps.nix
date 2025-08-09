@@ -10,6 +10,7 @@
       file-roller # archive
       gnome-text-editor # gedit
       gnome-calculator
+      nautilus
     ]
   );
 }

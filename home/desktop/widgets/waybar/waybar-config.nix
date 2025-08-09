@@ -6,6 +6,7 @@ let
     VSCodium = "";
     jetbrains-idea = "";
     jetbrains-toolbox = "";
+    obsidian = "󰠮";
 
     kitty = "";
     imv = "";
@@ -35,6 +36,7 @@ let
     "com.github.wwmm.easyeffects" = "󰺢";
     "io.github.ilya_zlobintsev.LACT" = "󰾲";
     "io.missioncenter.MissionCenter" = "";
+    "org.gnome.Nautilus" = "";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
     "org.qbittorrent.qBittorrent" = "󰰜";

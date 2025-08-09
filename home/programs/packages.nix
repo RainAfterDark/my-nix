@@ -86,5 +86,6 @@
     mission-center # GUI resources monitor
     qbittorrent # Torrent Client
     gimp3-with-plugins # Image Manipulation
+    obsidian # Notes Vault
   ];
 }
