@@ -114,4 +114,5 @@
   systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
 
   system.stateVersion = stateVersion;
+  nixowos.enable = true;
 }

@@ -42,6 +42,7 @@
     # programmer-calculator
 
     ## Monitoring / fetch
+    nitch
     fastfetch
     hyfetch
     onefetch # fetch utility for git repo
