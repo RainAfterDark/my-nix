@@ -110,8 +110,9 @@
         max-scroll-amount = "0%";
       };
 
-      # Make caps lock an additional Mod key
-      keyboard.xkb.options = "caps:super";
+      # Make caps lock an additional escape key
+      # see man xkeyboard-config
+      keyboard.xkb.options = "caps:escape";
     };
   };
 }
