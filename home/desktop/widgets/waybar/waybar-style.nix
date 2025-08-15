@@ -14,7 +14,8 @@ in
       text-shadow: inherit;
       transition:
         margin 0.25s ease,
-        background-size 0.25s ease;
+        background-size 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     tooltip {
