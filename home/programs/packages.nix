@@ -88,5 +88,7 @@
     qbittorrent # Torrent Client
     gimp3-with-plugins # Image Manipulation
     obsidian # Notes Vault
+    warehouse # Flatpak Manager
+    heroic # Game Launcher
   ];
 }

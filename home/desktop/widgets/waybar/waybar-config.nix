@@ -19,6 +19,7 @@ let
     steam = "";
     vesktop = "";
     zen-beta = "";
+    zoom = "󰰷";
 
     soffice = "";
     libreoffice-startcenter = "";
@@ -35,6 +36,7 @@ let
     "com.obsproject.Studio" = "";
     "com.github.wwmm.easyeffects" = "󰺢";
     "io.github.ilya_zlobintsev.LACT" = "󰾲";
+    "io.github.flattool.Warehouse" = "";
     "io.missioncenter.MissionCenter" = "";
     "org.gnome.Nautilus" = "";
     "org.gnome.TextEditor" = "󱩼";
