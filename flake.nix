@@ -48,7 +48,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     walker = {
-      url = "github:abenz1267/walker";
+      # TODO: Use 1.0 version when the flake for it is ready
+      url = "github:abenz1267/walker/0.13.26";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:kaylorben/nixcord";
