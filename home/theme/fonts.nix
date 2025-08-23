@@ -26,6 +26,9 @@ in
     nerd-fonts.caskaydia-cove
     nerd-fonts.hurmit
     nerd-fonts.symbols-only
+    # MS Fonts
+    corefonts
+    vista-fonts
 
     # Emojis
     twemoji-color-font
