@@ -29,15 +29,20 @@ let
     libreoffice-draw = "";
     libreoffice-math = "";
     libreoffice-base = "";
-
     polkit-gnome-authentication-agent-1 = "󰒃";
     xdg-desktop-portal-gnome = "";
 
+    nm-applet = "";
+    nm-connection-editor = "";
+    ".blueman-manager-wrapped" = "󰂯";
+
     "com.obsproject.Studio" = "";
     "com.github.wwmm.easyeffects" = "󰺢";
+
     "io.github.ilya_zlobintsev.LACT" = "󰾲";
     "io.github.flattool.Warehouse" = "";
     "io.missioncenter.MissionCenter" = "";
+
     "org.gnome.Nautilus" = "";
     "org.gnome.TextEditor" = "󱩼";
     "org.pulseaudio.pavucontrol" = "";
@@ -45,6 +50,7 @@ let
 
     "org.prismlauncher.PrismLauncher" = "󰍳";
     "Minecraft* 1.21.8" = "󰍳";
+    "Minecraft* 1.21.7" = "󰍳";
 
     "moe.launcher.the-honkers-railway-launcher" = "";
     "The Honkers Railway Launcher" = "";
@@ -213,8 +219,7 @@ in
       "custom/ping" = {
         interval = 2;
         exec = ''
-          ping -c1 -w1 8.8.8.8 |
-          awk -F"[= ]" '/time=/{print int($10); found=1} END{if (!found) print -1}'
+          ping -c1 -w1 google.com | grep -oP 'time=\K[0-9.]+' | cut -d. -f1 || echo -1
         '';
         format = "󰖩 {:>2}ms";
         tooltip = false;
