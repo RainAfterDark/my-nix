@@ -82,13 +82,14 @@
     wget
 
     ### GUI
-    pavucontrol # Audio control
+    pavucontrol # Audio Control
     libreoffice # Documents etc.
-    mission-center # GUI resources monitor
+    mission-center # GUI Resources Monitor
     qbittorrent # Torrent Client
     gimp3-with-plugins # Image Manipulation
     obsidian # Notes Vault
     warehouse # Flatpak Manager
     heroic # Game Launcher
+    handbrake # Video Remuxer
   ];
 }
