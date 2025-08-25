@@ -35,8 +35,6 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "false";
-    dnsovertls = "true";
     fallbackDns = [
       "8.8.8.8"
       "8.8.4.4"
