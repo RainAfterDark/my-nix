@@ -5,11 +5,19 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
+  environment.systemPackages = with pkgs; [
+    dnsutils
+    networkmanagerapplet
+  ];
 
   networking = {
-    hostName = "${host}";
-    networkmanager.enable = true;
+    hostName = host;
+
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved"; # let NM hand DNS to resolved
+    };
+
     firewall = {
       enable = true;
       allowedTCPPorts = [
@@ -25,8 +33,22 @@
     };
   };
 
+  services.resolved = {
+    enable = true;
+    dnssec = "false";
+    dnsovertls = "true";
+    fallbackDns = [
+      "8.8.8.8"
+      "8.8.4.4"
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+  };
+
   services.tailscale = {
     enable = true;
     authKeyFile = config.sops.secrets.tailscale-authkey.path;
+    # prevent tailscale from overwriting resolv.conf
+    extraUpFlags = [ "--accept-dns=false" ];
   };
 }
