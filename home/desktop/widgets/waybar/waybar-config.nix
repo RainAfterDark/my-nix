@@ -82,6 +82,7 @@ in
         "custom/border"
         "niri/workspaces"
         "custom/border"
+        "idle_inhibitor"
         "tray"
         "custom/border"
         "wlr/taskbar"
@@ -141,6 +142,14 @@ in
           "8" = "h";
           "9" = "i";
           "10" = "j";
+        };
+      };
+
+      "idle_inhibitor" = {
+        format = "{icon}";
+        format-icons = {
+          activated = "";
+          deactivated = "";
         };
       };
 
