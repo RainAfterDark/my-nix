@@ -14,6 +14,7 @@ let
     nemo = "󰷏";
     gamescope = "󰺵";
     gimp = "";
+    heroic = "";
 
     Spotify = "";
     steam = "";
