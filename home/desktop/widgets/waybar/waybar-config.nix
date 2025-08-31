@@ -12,9 +12,11 @@ let
     imv = "";
     mpv = "";
     nemo = "󰷏";
-    gamescope = "󰺵";
     gimp = "";
+
     heroic = "";
+    gamescope = "󰺵";
+    steam_app_0 = "󰺵";
 
     Spotify = "";
     steam = "";
