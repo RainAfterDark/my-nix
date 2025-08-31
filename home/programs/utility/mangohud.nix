@@ -170,10 +170,10 @@
       # engine_version
       # engine_short_names
       # gpu_name
-      # vulkan_driver
-      # wine
+      vulkan_driver
+      wine
       # exec_name
-      # winesync
+      winesync
       # present_mode
 
       ### Display loaded MangoHud architecture
