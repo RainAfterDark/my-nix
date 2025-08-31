@@ -232,7 +232,7 @@ in
       "custom/ping" = {
         interval = 2;
         exec = ''
-          ping -c1 -w1 google.com | grep -oP 'time=\K[0-9.]+' | cut -d. -f1 || echo -1
+          ping -c1 -w1 google.com 2>/dev/null | awk 'match($0, /time=([0-9.]+)/, m) {print int(m[1]); found=1} END{if (!found) print -1}'
         '';
         format = "󰖩 {:>2}ms";
         tooltip = false;
