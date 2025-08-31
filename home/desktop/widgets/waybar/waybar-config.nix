@@ -48,6 +48,7 @@ let
 
     "org.gnome.Nautilus" = "";
     "org.gnome.TextEditor" = "󱩼";
+    "org.gnome.FileRoller" = "";
     "org.pulseaudio.pavucontrol" = "";
     "org.qbittorrent.qBittorrent" = "󰰜";
 
