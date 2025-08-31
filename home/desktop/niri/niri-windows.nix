@@ -113,5 +113,13 @@ in
       ];
       opacity = windowOpacity;
     }
+
+    # Games (Heroic Launcher w/ Steam Runtime)
+    {
+      matches = [ { app-id = "steam_app_0"; } ];
+      open-floating = false;
+      open-maximized = true;
+      open-fullscreen = true;
+    }
   ];
 }
