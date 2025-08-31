@@ -25,4 +25,7 @@
   # programs.honkers-launcher.enable = true;
   # programs.wavey-launcher.enable = true;
   # programs.sleepy-launcher.enable = true;
+
+  # Enable NTSync for games
+  boot.kernelModules = [ "ntsync" ];
 }
