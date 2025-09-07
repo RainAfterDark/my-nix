@@ -2,7 +2,9 @@
 {
   imports = [ inputs.wayland-pipewire-idle-inhibit.homeModules.default ];
   services.wayland-pipewire-idle-inhibit = {
-    enable = true;
+    ## NOTICE: UNUSED
+    ## Inconsistent, prefer to use manual inhibitor (waybar toggle)
+    enable = false;
     systemdTarget = "graphical-session.target";
     settings = {
       verbosity = "INFO";

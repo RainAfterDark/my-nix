@@ -13,21 +13,22 @@ in
 {
   services.swayidle = {
     enable = true;
-    timeouts =
-      [
-        {
-          timeout = 300; # 5:00
-          command = lock;
-        }
-        {
-          timeout = 330; # 5:30
-          command = monitors "off";
-        }
-      ] # Sleep broken on deskop
-      ++ lib.optional (host != "desktop") {
-        timeout = 360; # 6:00
-        command = "${systemdBin} sleep";
-      };
+    timeouts = [
+      {
+        timeout = 300; # 5:00
+        command = monitors "off";
+      }
+    ]
+    # Lock only on laptop
+    ++ lib.optional (host == "xps7590") {
+      timeout = 330; # 5:30
+      command = lock;
+    }
+    # Sleep broken on deskop
+    ++ lib.optional (host != "desktop") {
+      timeout = 360; # 6:00
+      command = "${systemdBin} sleep";
+    };
     events = [
       {
         event = "before-sleep";

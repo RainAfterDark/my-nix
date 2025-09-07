@@ -1,7 +1,10 @@
 {
   inputs,
+  config,
   lib,
   pkgs,
+  host,
+  username,
   stateVersion,
   ...
 }:
@@ -42,11 +45,16 @@
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
 
-    ## SDDM w/ custom theme
+    ## Power Management
+    upower = {
+      enable = true;
+    };
+
+    ## [LAPTOP] SDDM w/ custom theme
     displayManager = {
       defaultSession = "niri";
       sddm = {
-        enable = true;
+        enable = host == "xps7590";
         theme = "sddm-stray-nixos";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs; [
@@ -68,7 +76,7 @@
           let
             xdotool = "${pkgs.xdotool}/bin/xdotool";
           in
-          ''
+          lib.mkIf (host == "xps7590") ''
             (
               ${xdotool} mousemove --screen 0 0 1080
               ${xdotool} click --repeat 10 --delay 100 1
@@ -77,32 +85,27 @@
       };
     };
 
-    ## Power Management
-    upower = {
-      enable = true;
+    ## [DESKTOP] Auto-login setup w/ greetd that starts niri-session
+    displayManager.autoLogin = {
+      enable = host == "desktop";
+      user = "${username}";
     };
-
-    ## Auto-login setup w/ greetd that starts niri-session
-    # displayManager.autoLogin = {
-    #   enable = true;
-    #   user = "${username}";
-    # };
-    # greetd =
-    #   let
-    #     niri-pkg = config.programs.niri.package;
-    #     session = {
-    #       command = "${niri-pkg}/bin/niri-session";
-    #       user = "${username}";
-    #     };
-    #   in
-    #   {
-    #     enable = true;
-    #     settings = {
-    #       terminal.vt = 1;
-    #       default_session = session;
-    #       initial_session = session;
-    #     };
-    #   };
+    greetd =
+      let
+        niri-pkg = config.programs.niri.package;
+        session = {
+          command = "${niri-pkg}/bin/niri-session";
+          user = "${username}";
+        };
+      in
+      {
+        enable = host == "desktop";
+        settings = {
+          terminal.vt = 1;
+          default_session = session;
+          initial_session = session;
+        };
+      };
   };
 
   # Clear cache before SDDM starts (need to apply theme somehow)
