@@ -13,59 +13,37 @@
     man-pages # extra man pages
     ncdu # disk space
     ripgrep # grep replacement
-    tldr
-    bat
+    tldr # zoomer man
+    bat # zoomer cat
 
-    ## Tools / useful cli
-    # aoc-cli                           # Advent of Code command-line tool
-    # asciinema
-    # asciinema-agg
-    # binsider
-    # bitwise                           # cli tool for bit / hex manipulation
-    # broot                             # tree files view
-    # caligula                          # User-friendly, lightweight TUI for disk imaging
-    # hyperfine                         # benchmarking tool
-    # pastel                            # cli to manipulate colors
-    # swappy                            # snapshot editing tool
-    # tdf                               # cli pdf viewer
-    # tokei                             # project line counter
-    # translate-shell                   # cli translator
-    # woomer
-    # yt-dlp-light
-
-    ## TUI
-    # epy                               # ebook reader
-    # gtt                               # google translate TUI
-    # smassh                            # typing test in the terminal
-    # toipe                             # typing test in the terminal
-    # ttyper                            # cli typing test
-    # programmer-calculator
-
-    ## Monitoring / fetch
+    ## Monitoring / Fetch
     nitch
     fastfetch
     hyfetch
     onefetch # fetch utility for git repo
     wavemon # monitoring for wireless network devices
 
-    ## Fun / screensaver
-    # asciiquarium-transparent
-    # cbonsai
-    # cmatrix
-    # countryfetch
-    # cowsay
-    # figlet
-    # fortune
-    # lavat
-    # lolcat
-    # pipes
-    # sl
-    # tty-clock
+    ## Fun / Testing
+    smassh # typing test in the terminal
+    toipe # typing test in the terminal
+    ttyper # cli typing test
+    asciiquarium-transparent
+    cbonsai
+    cmatrix
+    countryfetch
+    cowsay
+    figlet
+    fortune
+    lavat
+    lolcat
+    pipes
+    sl
+    tty-clock
 
     ## Multimedia
-    # ani-cli
+    ani-cli
     imv
-    # lowfi
+    lowfi
 
     ## Utilities
     entr # perform action when file change
