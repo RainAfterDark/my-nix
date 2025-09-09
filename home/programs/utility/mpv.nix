@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  host,
+  ...
+}:
 {
   stylix.targets.mpv.enable = true;
 
@@ -7,6 +12,11 @@
 
     config = {
       hwdec = "auto";
+    }
+    # Use IGPU on Laptop
+    // lib.optionalAttrs (host == "xps7590") {
+      # device is from mpv --vulkan-device=help
+      vulkan-device = "86809b3e-0000-0000-0002-000000000000";
     };
 
     profiles = {
@@ -42,8 +52,8 @@
       videoclip = {
         # https://aegisub.org/docs/3.2/ASS_Tags/#\an
         osd_align = 9; # Top-Right
-        video_width = "auto";
-        video_height = "auto";
+        video_width = -1;
+        video_height = -1;
         video_bitrate = "10M";
         video_quality = 18;
       };
