@@ -56,6 +56,11 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     textfox.url = "github:adriankarlen/textfox";
 
+    ## Dev
+    flox = {
+      url = "github:flox/flox/v1.7.2";
+    };
+
     ## Certain Anime Game
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -76,6 +81,7 @@
       "https://chaotic-nyx.cachix.org?priority=80"
       "https://niri.cachix.org?priority=10"
       "https://ezkea.cachix.org?priority=10"
+      "https://cache.flox.dev?priority=10"
     ];
 
     trusted-public-keys = [
@@ -84,6 +90,7 @@
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+      "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
     ];
   };
 
@@ -121,6 +128,7 @@
           ];
           config.allowUnfree = true;
           config.nvidia.acceptLicense = true;
+          config.android_sdk.accept_license = true;
         };
       };
 

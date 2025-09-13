@@ -3,9 +3,11 @@
   home.packages = with pkgs; [
     ## IDEs
     jetbrains-toolbox
+    android-studio
 
-    ## LSP
-    nixd # nix
+    ## Lang
+    flutter
+    nixd # nix LSP
 
     ## Formating
     shfmt

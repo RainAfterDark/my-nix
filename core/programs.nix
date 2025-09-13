@@ -1,4 +1,9 @@
-{ pkgs, username, ... }:
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
 {
   # GNOME
   programs.dconf.enable = true;
@@ -38,6 +43,9 @@
     nix-output-monitor # nom
     nvd # nix diff tool
 
+    # Flox
+    inputs.flox.packages.${pkgs.system}.default
+
     # Hardware
     wev # input tester
     lm_sensors # motherboard sensors
@@ -63,6 +71,9 @@
 
   # Shebangs ibuprofen
   services.envfs.enable = true;
+
+  # ADB for Android development
+  programs.adb.enable = true;
 
   ## Dynamic libraries needed by some programs
   # https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885

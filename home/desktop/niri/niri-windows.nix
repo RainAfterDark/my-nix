@@ -68,6 +68,10 @@ in
           app-id = "jetbrains-idea";
           is-floating = false;
         }
+        {
+          app-id = "jetbrains-studio";
+          is-floating = false;
+        }
         { app-id = "mpv"; }
         { app-id = "Spotify"; }
         { app-id = "vesktop"; }
@@ -108,6 +112,7 @@ in
         { app-id = "codium"; }
         { app-id = "VSCodium"; }
         { app-id = "jetbrains-idea"; }
+        { app-id = "jetbrains-studio"; }
         { app-id = "nemo"; }
         { app-id = "Spotify"; }
       ];

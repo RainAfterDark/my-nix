@@ -50,6 +50,8 @@ in
       "wheel"
       "docker"
       "networkmanager"
+      "kvm"
+      "adbusers"
     ];
     shell = pkgs.zsh;
   };

@@ -2,70 +2,71 @@
 let
   mainFont = config.stylix.fonts.monospace.name;
   appMapping = {
-    codium = "";
-    VSCodium = "";
-    jetbrains-idea = "";
-    jetbrains-toolbox = "";
-    obsidian = "󰠮";
+    "^codium" = "";
+    "^VSCodium$" = "";
+    "^jetbrains-idea$" = "";
+    "^jetbrains-studio$" = "󰀴";
+    "^jetbrains-toolbox$" = "";
 
-    kitty = "";
-    imv = "";
-    mpv = "";
-    nemo = "󰷏";
-    gimp = "";
+    "^kitty$" = "";
+    "^imv$" = "";
+    "^mpv$" = "";
+    "^nemo$" = "󰷏";
+    "^gimp$" = "";
+    "^obsidian$" = "󰠮";
 
-    heroic = "";
-    gamescope = "󰺵";
-    steam_app_0 = "󰺵";
+    "^heroic$" = "";
+    "^gamescope$" = "󰺵";
+    "^steam_app_0$" = "󰺵";
 
-    Spotify = "";
-    steam = "";
-    vesktop = "";
-    zen-beta = "";
-    zoom = "󰰷";
+    "^Spotify$" = "";
+    "^steam$" = "";
+    "^vesktop$" = "";
+    "^zen-beta$" = "";
+    "^zoom$" = "󰰷";
 
-    soffice = "";
-    libreoffice-startcenter = "";
-    libreoffice-impress = "";
-    libreoffice-writer = "";
-    libreoffice-calc = "";
-    libreoffice-draw = "";
-    libreoffice-math = "";
-    libreoffice-base = "";
-    polkit-gnome-authentication-agent-1 = "󰒃";
-    xdg-desktop-portal-gnome = "";
+    "^soffice$" = "";
+    "^libreoffice-startcenter$" = "";
+    "^libreoffice-impress$" = "";
+    "^libreoffice-writer$" = "";
+    "^libreoffice-calc$" = "";
+    "^libreoffice-draw$" = "";
+    "^libreoffice-math$" = "";
+    "^libreoffice-base$" = "";
+    "^polkit-gnome-authentication-agent-1$" = "󰒃";
+    "^xdg-desktop-portal-gnome$" = "";
 
-    nm-applet = "";
-    nm-connection-editor = "";
-    ".blueman-manager-wrapped" = "󰂯";
+    "^nm-applet$" = "";
+    "^nm-connection-editor$" = "";
+    "^.blueman-manager-wrapped$" = "󰂯";
 
-    "com.obsproject.Studio" = "";
-    "com.github.wwmm.easyeffects" = "󰺢";
+    "^com.obsproject.Studio$" = "";
+    "^com.github.wwmm.easyeffects$" = "󰺢";
 
-    "io.github.ilya_zlobintsev.LACT" = "󰾲";
-    "io.github.flattool.Warehouse" = "";
-    "io.missioncenter.MissionCenter" = "";
+    "^io.github.ilya_zlobintsev.LACT$" = "󰾲";
+    "^io.github.flattool.Warehouse$" = "";
+    "^io.missioncenter.MissionCenter$" = "";
 
-    "org.gnome.Nautilus" = "";
-    "org.gnome.TextEditor" = "󱩼";
-    "org.gnome.FileRoller" = "";
-    "org.pulseaudio.pavucontrol" = "";
-    "org.qbittorrent.qBittorrent" = "󰰜";
+    "^org.gnome.Nautilus$" = "";
+    "^org.gnome.TextEditor$" = "󱩼";
+    "^org.gnome.FileRoller$" = "";
+    "^org.pulseaudio.pavucontrol$" = "";
+    "^org.qbittorrent.qBittorrent$" = "󰰜";
 
-    "org.prismlauncher.PrismLauncher" = "󰍳";
-    "Minecraft* 1.21.8" = "󰍳";
-    "Minecraft* 1.21.7" = "󰍳";
+    "^org.prismlauncher.PrismLauncher$" = "󰍳";
+    "^Minecraft*.*" = "󰍳";
 
-    "moe.launcher.the-honkers-railway-launcher" = "";
-    "The Honkers Railway Launcher" = "";
-    "starrail.exe" = "";
+    "^moe.launcher.the-honkers-railway-launcher$" = "";
+    "^The Honkers Railway Launcher$" = "";
+    "^starrail.exe$" = "";
 
-    "moe.launcher.an-anime-game-launcher" = "󰫣";
-    "An Anime Game Launcher" = "󰫣";
-    "genshinimpact.exe" = "󰫣";
+    "^moe.launcher.an-anime-game-launcher$" = "󰫣";
+    "^An Anime Game Launcher$" = "󰫣";
+    "^genshinimpact.exe$" = "󰫣";
 
-    unknown = "";
-    "" = "";
+    "^com.example..*" = "";
+    "^unknown$" = "";
+    "^$" = "";
   };
 in
 {
@@ -166,7 +167,7 @@ in
         on-click-middle = "close";
         sort-by-app-id = true;
         format = "{app_id}";
-        app_ids-mapping = appMapping;
+        rewrite = appMapping;
         ignore-list = [
           "walker"
           "dev.benz.walker"
