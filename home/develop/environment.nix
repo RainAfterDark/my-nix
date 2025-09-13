@@ -1,14 +1,17 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     ## IDEs
     jetbrains-toolbox
     android-studio
 
-    ## Env/Lang
+    ## Env
     devenv
+    inputs.flox.packages.${pkgs.system}.default
+
+    ## Lang
     flutter332 # FIXME: 3.35 is broken on Android
-    nixd # nix LSP
+    nixd # Nix LSP
 
     ## Formating
     shfmt

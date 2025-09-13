@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   username,
   ...
@@ -42,9 +41,6 @@
     # Nix
     nix-output-monitor # nom
     nvd # nix diff tool
-
-    # Flox
-    inputs.flox.packages.${pkgs.system}.default
 
     # Hardware
     wev # input tester
