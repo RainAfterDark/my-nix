@@ -17,6 +17,8 @@ in
       arrterian.nix-env-selector
       llvm-vs-code-extensions.vscode-clangd
       tamasfe.even-better-toml
+      dart-code.flutter
+      dart-code.dart-code
 
       ## Color scheme
       jonathanharty.gruvbox-material-icon-theme

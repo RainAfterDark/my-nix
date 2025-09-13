@@ -5,8 +5,9 @@
     jetbrains-toolbox
     android-studio
 
-    ## Lang
-    flutter
+    ## Env/Lang
+    devenv
+    flutter332 # FIXME: 3.35 is broken on Android
     nixd # nix LSP
 
     ## Formating

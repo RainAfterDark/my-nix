@@ -60,25 +60,15 @@ in
     # Maximized Apps
     {
       matches = [
-        {
-          app-id = "gimp";
-          is-floating = false;
-        }
-        {
-          app-id = "jetbrains-idea";
-          is-floating = false;
-        }
-        {
-          app-id = "jetbrains-studio";
-          is-floating = false;
-        }
+        { app-id = "gimp"; }
+        { app-id = "jetbrains-idea"; }
         { app-id = "mpv"; }
         { app-id = "Spotify"; }
         { app-id = "vesktop"; }
-        {
-          app-id = "zen-beta";
-          is-floating = false;
-        }
+        { app-id = "zen-beta"; }
+      ];
+      excludes = [
+        { is-floating = true; }
       ];
       open-maximized = true;
     }
@@ -86,14 +76,11 @@ in
     # 3/4-Width Apps
     {
       matches = [
-        {
-          app-id = "codium";
-          is-floating = false;
-        }
-        {
-          app-id = "VSCodium";
-          is-floating = false;
-        }
+        { app-id = "codium"; }
+        { app-id = "VSCodium"; }
+      ];
+      excludes = [
+        { is-floating = true; }
       ];
       default-column-width.proportion = 0.75;
     }
@@ -102,6 +89,9 @@ in
     {
       matches = [
         { app-id = "nemo"; }
+      ];
+      excludes = [
+        { is-floating = true; }
       ];
       default-column-width.proportion = 0.5;
     }
@@ -112,7 +102,6 @@ in
         { app-id = "codium"; }
         { app-id = "VSCodium"; }
         { app-id = "jetbrains-idea"; }
-        { app-id = "jetbrains-studio"; }
         { app-id = "nemo"; }
         { app-id = "Spotify"; }
       ];
@@ -125,6 +114,19 @@ in
       open-floating = false;
       open-maximized = true;
       open-fullscreen = true;
+    }
+
+    # Android Studio
+    {
+      matches = [
+        { app-id = "jetbrains-studio"; }
+      ];
+      excludes = [
+        { is-floating = true; }
+        { title = "^Running Devices - .*"; }
+      ];
+      default-column-width.proportion = 0.75;
+      opacity = windowOpacity;
     }
   ];
 }
