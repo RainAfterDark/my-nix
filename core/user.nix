@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  pkgs-stable,
   config,
   inputs,
   host,
@@ -27,6 +28,7 @@ in
     extraSpecialArgs = {
       inherit
         inputs
+        pkgs-stable
         host
         username
         flakeRoot

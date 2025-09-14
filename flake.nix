@@ -4,6 +4,7 @@
   inputs = {
     ## Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko = {
@@ -70,7 +71,6 @@
     ## >_<
     nixowos = {
       url = "github:yunfachi/nixowos";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
