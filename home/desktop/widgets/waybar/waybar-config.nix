@@ -24,6 +24,7 @@ let
     "^vesktop$" = "";
     "^zen-beta$" = "";
     "^zoom$" = "󰰷";
+    "^chromium-browser$" = "";
 
     "^soffice$" = "";
     "^libreoffice-startcenter$" = "";
@@ -64,9 +65,10 @@ let
     "^An Anime Game Launcher$" = "󰫣";
     "^genshinimpact.exe$" = "󰫣";
 
-    "^com.example..*" = "";
-    "^unknown$" = "";
-    "^$" = "";
+    # match everything that wasn't matched
+    # the tilde is prefixed so this gets ordered
+    # at the very bottom of the JSON
+    "^~*[ 0-9A-Za-z._-]*$" = "";
   };
 in
 {
@@ -167,6 +169,7 @@ in
         on-click-middle = "close";
         sort-by-app-id = true;
         format = "{app_id}";
+        tooltip = false;
         rewrite = appMapping;
         ignore-list = [
           "walker"
