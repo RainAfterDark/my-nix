@@ -1,4 +1,13 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  flox = inputs.flox.packages.${pkgs.system}.default;
+  chrome = pkgs.ungoogled-chromium;
+in
 {
   home.packages = with pkgs; [
     ## IDEs
@@ -7,7 +16,8 @@
 
     ## Env
     devenv
-    inputs.flox.packages.${pkgs.system}.default
+    flox
+    chrome
 
     ## Lang
     flutter332 # FIXME: 3.35 is broken on Android
@@ -18,4 +28,8 @@
     treefmt
     nixfmt-rfc-style
   ];
+
+  home.sessionVariables = {
+    CHROME_EXECUTABLE = lib.getExe chrome;
+  };
 }
