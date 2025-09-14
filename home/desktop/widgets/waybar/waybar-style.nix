@@ -99,9 +99,10 @@ in
 
     #idle_inhibitor {
       margin: 6px 4px 4px 0px;
-      padding: 0px 14px 0px 6px;
-      color: ${base07};
-      background: ${base00};
+      padding: 0px 12px 0px 4px;
+      font-size: 20px;
+      color: ${base00};
+      background: ${base07};
       border: 2px solid ${base07};
     }
 

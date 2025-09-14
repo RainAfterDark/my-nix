@@ -55,7 +55,7 @@ let
     "^org.qbittorrent.qBittorrent$" = "󰰜";
 
     "^org.prismlauncher.PrismLauncher$" = "󰍳";
-    "^Minecraft*.*" = "󰍳";
+    "^Minecraft.*" = "󰍳";
 
     "^moe.launcher.the-honkers-railway-launcher$" = "";
     "^The Honkers Railway Launcher$" = "";
@@ -154,8 +154,8 @@ in
       "idle_inhibitor" = {
         format = "{icon}";
         format-icons = {
-          activated = "";
-          deactivated = "";
+          activated = "󰈈";
+          deactivated = "󰈉";
         };
       };
 
