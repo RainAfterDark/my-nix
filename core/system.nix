@@ -13,6 +13,12 @@
   imports = [ inputs.chaotic.nixosModules.default ];
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
+  ## Needed to allow debugging
+  boot.kernel.sysctl = {
+    "kernel.kptr_restrict" = 0;
+    "kernel.perf_event_paranoid" = 1;
+  };
+
   ## SDDM Stray theme
   environment.systemPackages = [
     inputs.sddm-stray-nixos.packages.${pkgs.system}.default
