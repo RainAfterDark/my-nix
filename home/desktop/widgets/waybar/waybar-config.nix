@@ -4,7 +4,7 @@ let
   appMapping = {
     "^codium" = "";
     "^VSCodium$" = "";
-    "^jetbrains-idea$" = "";
+    "^jetbrains-idea.*" = "";
     "^jetbrains-studio$" = "󰀴";
     "^jetbrains-toolbox$" = "";
 
@@ -51,6 +51,7 @@ let
     "^org.gnome.Nautilus$" = "";
     "^org.gnome.TextEditor$" = "󱩼";
     "^org.gnome.FileRoller$" = "";
+    "^org.gnome.Evince$" = "";
     "^org.pulseaudio.pavucontrol$" = "";
     "^org.qbittorrent.qBittorrent$" = "󰰜";
 

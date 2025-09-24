@@ -44,6 +44,7 @@
     ani-cli
     imv
     lowfi
+    presenterm
 
     ## Utilities
     entr # perform action when file change
