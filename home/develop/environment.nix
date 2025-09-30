@@ -23,6 +23,15 @@ in
     flutter332 # FIXME: 3.35 is broken on Android
     nixd # Nix LSP
 
+    ## Python
+    python313
+    python313Packages.weasyprint
+
+    ## Game Dev
+    godot-mono
+    godot-export-templates-bin
+    aseprite
+
     ## Formating
     shfmt
     treefmt
