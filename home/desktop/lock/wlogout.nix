@@ -4,9 +4,9 @@
     enable = true;
     layout = [
       {
-        label = "suspend";
-        action = "systemctl suspend";
-        text = "Suspend";
+        label = "lock";
+        action = "swaylock";
+        text = "Lock";
         keybind = "1";
       }
       {
