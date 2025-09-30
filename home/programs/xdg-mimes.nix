@@ -3,7 +3,7 @@ with lib;
 let
   defaultApps = {
     browser = [ "zen-beta.desktop" ];
-    text = [ "codium.desktop" ];
+    text = [ "org.gnome.TextEditor.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
@@ -12,7 +12,7 @@ let
     pdf = [ "org.gnome.Evince.desktop" ];
     terminal = [ "kitty.desktop" ];
     archive = [ "org.gnome.FileRoller.desktop" ];
-    # discord = [ "webcord.desktop" ];
+    discord = [ "vesktop.desktop" ];
   };
 
   mimeMap = {
@@ -75,7 +75,7 @@ let
       "application/7z"
       "application/*tar"
     ];
-    # discord = [ "x-scheme-handler/discord" ];
+    discord = [ "x-scheme-handler/discord" ];
   };
 
   associations =
