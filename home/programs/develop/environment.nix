@@ -28,6 +28,7 @@ in
     python313Packages.weasyprint
 
     ## Game Dev
+    godot
     godot-mono
     godot-export-templates-bin
     aseprite
