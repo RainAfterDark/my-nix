@@ -47,8 +47,18 @@
     lm_sensors # motherboard sensors
     compsize # compute BTRFS compression ratio
 
+    # VM
+    virt-manager
+    virt-viewer
+    spice
+    spice-gtk
+    spice-protocol
+    win-virtio
+    win-spice
+
     # Misc.
     freetype # font engine
+    adwaita-icon-theme
   ];
 
   # Init start LACT
@@ -76,6 +86,28 @@
     enable = true;
     binfmt = true;
   };
+
+  # Wireshark
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+    dumpcap.enable = true;
+    usbmon.enable = true;
+  };
+
+  # VM
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
+  services.spice-vdagentd.enable = true;
 
   ## Dynamic libraries needed by some programs
   # https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885

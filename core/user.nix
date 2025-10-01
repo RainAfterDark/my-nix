@@ -54,6 +54,8 @@ in
       "networkmanager"
       "kvm"
       "adbusers"
+      "libvirtd"
+      "wireshark"
     ];
     shell = pkgs.zsh;
   };

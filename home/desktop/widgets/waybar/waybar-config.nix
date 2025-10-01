@@ -40,6 +40,7 @@ let
     "^nm-applet$" = "";
     "^nm-connection-editor$" = "";
     "^.blueman-manager-wrapped$" = "󰂯";
+    "^.virt-manager-wrapped$" = "";
 
     "^com.obsproject.Studio$" = "";
     "^com.github.wwmm.easyeffects$" = "󰺢";
@@ -54,6 +55,7 @@ let
     "^org.gnome.Evince$" = "";
     "^org.pulseaudio.pavucontrol$" = "";
     "^org.qbittorrent.qBittorrent$" = "󰰜";
+    "^org.wireshark.Wireshark$" = "󱙳";
 
     "^org.prismlauncher.PrismLauncher$" = "󰍳";
     "^Minecraft.*" = "󰍳";
