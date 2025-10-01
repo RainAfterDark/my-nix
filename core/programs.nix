@@ -26,12 +26,15 @@
     flake = "/home/${username}/my-nix";
   };
 
+  nixpkgs.config.permittedInsecurePackages = [ "ventoy-gtk3-1.1.07" ];
+
   ## System Utilities
   environment.systemPackages = with pkgs; [
     coreutils # essentials
     binutils # packaging
     pciutils # lspci, etc.
     tmux # the one and only
+    ventoy-full-gtk # USB ISO
 
     # GPU
     vulkan-tools
