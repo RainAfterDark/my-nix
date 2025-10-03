@@ -6,7 +6,9 @@ let
     "^VSCodium$" = "";
     "^jetbrains-idea.*" = "";
     "^jetbrains-studio$" = "󰀴";
+    "^jetbrains-rider$" = "";
     "^jetbrains-toolbox$" = "";
+    "^Godot$" = "";
 
     "^kitty$" = "";
     "^imv$" = "";
