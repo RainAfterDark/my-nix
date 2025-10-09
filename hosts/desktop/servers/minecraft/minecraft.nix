@@ -25,7 +25,7 @@
       group = "users";
       servers.csmc = {
         enable = true;
-        autoStart = true;
+        autoStart = false;
         restart = "no";
         package = fabric-1_21_9;
         symlinks = {
