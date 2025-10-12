@@ -108,9 +108,12 @@ in
       opacity = windowOpacity;
     }
 
-    # Games (Heroic Launcher w/ Steam Runtime)
+    # Games
     {
-      matches = [ { app-id = "steam_app_0"; } ];
+      matches = [
+        { app-id = "steam_app_0"; } # Heroic Launcher w/ Steam Runtime
+        { app-id = "^Minecraft.+"; } # Minecraft
+      ];
       open-floating = false;
       open-maximized = true;
       open-fullscreen = true;
