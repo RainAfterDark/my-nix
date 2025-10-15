@@ -18,7 +18,8 @@
         "Mod+G".action = spawn "nemo";
         "Mod+F".action = spawn "walker";
         "Mod+V".action = sh "walker -m clipboard";
-        "Mod+B".action = sh "walker --modules emojis,symbols";
+        "Mod+B".action = sh "walker -m symbols";
+        "Mod+N".action = sh "walker -m unicode";
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
         "Mod+O".action = spawn "wallpaper-selector";
@@ -66,11 +67,11 @@
         "Alt+Tab".action = focus-window-down-or-column-right;
         "Alt+Shift+Tab".action = focus-window-up-or-column-left;
       }
-      ## Laptop Only
-      // lib.optionalAttrs (host == "xps7590") {
-        "Mod+M".action = sh "bzmenu -l walker";
-        "Mod+N".action = spawn "networkmanager_dmenu";
-      }
+      ## Laptop Only (FIXME: Deprecated?)
+      # // lib.optionalAttrs (host == "xps7590") {
+      #   "Mod+M".action = sh "bzmenu -l walker";
+      #   "Mod+N".action = spawn "networkmanager_dmenu";
+      # }
       ## Volume and Brightness Controls
       // (
         let
@@ -95,11 +96,15 @@
           "XF86AudioLowerVolume" = volumeDown;
           "Mod+TouchpadScrollDown" = volumeUp;
           "Mod+TouchpadScrollUp" = volumeDown;
+          "Mod+WheelScrollUp" = volumeUp;
+          "Mod+WheelScrollDown" = volumeDown;
 
           "XF86MonBrightnessUp" = brightnessUp;
           "XF86MonBrightnessDown" = brightnessDown;
           "Mod+Alt+TouchpadScrollDown" = brightnessUp;
           "Mod+Alt+TouchpadScrollUp" = brightnessDown;
+          "Mod+Alt+WheelScrollUp" = brightnessUp;
+          "Mod+Alt+WheelScrollDown" = brightnessDown;
         }
       );
 

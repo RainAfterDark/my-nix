@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ inputs.walker.homeManagerModules.default ];
   home.packages = with pkgs; [
@@ -6,316 +11,387 @@
     wtype # for clipboard and emoji modules
   ];
 
+  # TODO: Update this if elephant's nix module decides to be sane
+  xdg.configFile =
+    let
+      overrideProviders = [
+        "clipboard"
+        "symbols"
+        "unicode"
+      ];
+      paste = "wl-copy && wtype -M ctrl -M shift v";
+    in
+    builtins.listToAttrs (
+      map (
+        provider:
+        lib.nameValuePair "elephant/${provider}.toml" {
+          source = (pkgs.formats.toml { }).generate "${provider}.toml" {
+            command = paste;
+          };
+        }
+      ) overrideProviders
+    );
+
   programs.walker = {
     enable = true;
-    package = pkgs.walker;
     runAsService = true;
-    config =
-      let
-        paste = "wl-copy && wtype -M ctrl -M shift v";
-      in
-      {
-        # https://github.com/abenz1267/walker/issues/331#issuecomment-3031539042
-        # app_launch_prefix = "systemd-run --user "; # this breaks clipboard
-        app_launch_prefix = "";
-        terminal_title_flag = "";
-        locale = "";
-        close_when_open = true;
-        theme = "nixos"; # set to the custom theme
-        monitor = "";
-        hotreload_theme = true;
-        as_window = false;
-        timeout = 0;
-        disable_click_to_close = false;
-        force_keyboard_focus = false;
 
-        disabled = [
-          "ai"
-          "bookmarks"
-          "custom_commands"
-          "hyprland_keybinds"
-          "websearch"
-          "xdphpicker"
-        ];
+    config = {
+      force_keyboard_focus = false;
+      close_when_open = true;
+      click_to_close = true;
+      selection_wrap = false;
+      global_argument_delimiter = "#";
+      exact_search_prefix = "'";
+      theme = "stylix";
+      disable_mouse = false;
+      debug = false;
 
-        keys = {
-          accept_typeahead = [ "tab" ];
-          trigger_labels = "lalt";
-          next = [ "down" ];
-          prev = [ "up" ];
-          close = [ "esc" ];
-          remove_from_history = [ "shift backspace" ];
-          resume_query = [ "ctrl r" ];
-          toggle_exact_search = [ "ctrl m" ];
+      shell = {
+        anchor_top = true;
+        anchor_bottom = true;
+        anchor_left = true;
+        anchor_right = true;
+      };
 
-          activation_modifiers = {
-            keep_open = "shift";
-            alternate = "alt";
-          };
-
-          ai = {
-            clear_session = [ "ctrl x" ];
-            copy_last_response = [ "ctrl c" ];
-            resume_session = [ "ctrl r" ];
-            run_last_response = [ "ctrl e" ];
-          };
-        };
-
-        events = {
-          on_activate = "";
-          on_selection = "";
-          on_exit = "";
-          on_launch = "";
-          on_query_change = "";
-        };
-
-        list = {
-          dynamic_sub = true;
-          keyboard_scroll_style = "emacs";
-          max_entries = 50;
-          show_initial_entries = true;
-          single_click = true;
-          visibility_threshold = 20;
-          placeholder = "No Results";
-        };
-
-        search = {
-          argument_delimiter = "#";
-          placeholder = "Search...";
-          delay = 0;
-          resume_last_query = false;
-        };
-
-        activation_mode = {
-          labels = "jkl;asdf";
-        };
-
-        builtins = {
-          hyprland_keybinds = {
-            show_sub_when_single = true;
-            path = "~/.config/hypr/hyprland.conf";
-            weight = 5;
-            name = "hyprland_keybinds";
-            placeholder = "Hyprland Keybinds";
-            switcher_only = true;
-          };
-
-          applications = {
-            weight = 5;
-            name = "applications";
-            placeholder = "Applications";
-            prioritize_new = true;
-            hide_actions_with_empty_query = true;
-            context_aware = true;
-            refresh = true;
-            show_sub_when_single = true;
-            show_icon_when_single = true;
-            history = true;
-            show_generic = true;
-            icon = "applications-other";
-
-            actions = {
-              enabled = true;
-              hide_category = false;
-              hide_without_query = true;
-            };
-          };
-
-          bookmarks = {
-            weight = 5;
-            name = "bookmarks";
-            placeholder = "Bookmarks";
-            icon = "bookmark";
-            switcher_only = true;
-
-            entries = [
-              {
-                label = "Walker";
-                url = "https://github.com/abenz1267/walker";
-                keywords = [
-                  "walker"
-                  "github"
-                ];
-              }
-            ];
-          };
-
-          xdphpicker = {
-            hidden = true;
-            weight = 5;
-            name = "xdphpicker";
-            placeholder = "Screen/Window Picker";
-            show_sub_when_single = true;
-            switcher_only = true;
-          };
-
-          ai = {
-            weight = 5;
-            name = "ai";
-            placeholder = "AI";
-            icon = "help-browser";
-            switcher_only = true;
-            show_sub_when_single = true;
-          };
-
-          calc = {
-            require_number = true;
-            weight = 5;
-            name = "calc";
-            icon = "accessories-calculator";
-            placeholder = "Calculator";
-            min_chars = 4;
-          };
-
-          windows = {
-            weight = 5;
-            name = "windows";
-            placeholder = "Windows";
-            icon = "view-restore";
-            show_icon_when_single = true;
-          };
-
-          clipboard = {
-            always_put_new_on_top = true;
-            exec = paste;
-            weight = 5;
-            name = "clipboard";
-            avoid_line_breaks = true;
-            placeholder = "Clipboard";
-            image_height = 300;
-            max_entries = 10;
-            switcher_only = true;
-          };
-
-          commands = {
-            weight = 5;
-            name = "commands";
-            placeholder = "Commands";
-            icon = "utilities-terminal";
-            switcher_only = true;
-          };
-
-          custom_commands = {
-            weight = 5;
-            name = "custom_commands";
-            placeholder = "Custom Commands";
-            icon = "utilities-terminal";
-          };
-
-          emojis = {
-            exec = paste;
-            weight = 5;
-            name = "emojis";
-            placeholder = "Emojis";
-            switcher_only = true;
-            history = true;
-            typeahead = true;
-            show_unqualified = false;
-          };
-
-          symbols = {
-            after_copy = paste;
-            weight = 5;
-            name = "symbols";
-            placeholder = "Symbols";
-            switcher_only = true;
-            history = true;
-            typeahead = true;
-          };
-
-          finder = {
-            use_fd = false;
-            fd_flags = "--ignore-vcs --type file --type directory";
-            cmd_alt = "xdg-open $(dirname ~/%RESULT%)";
-            weight = 5;
-            name = "finder";
-            placeholder = "Finder";
-            switcher_only = true;
-            ignore_gitignore = true;
-            refresh = true;
-            concurrency = 8;
-            show_icon_when_single = true;
-            preview_images = false;
-          };
-
-          runner = {
-            eager_loading = true;
-            weight = 5;
-            name = "runner";
-            icon = "utilities-terminal";
-            placeholder = "Runner";
-            typeahead = true;
-            history = true;
-            generic_entry = false;
-            refresh = true;
-            use_fd = false;
-          };
-
-          ssh = {
-            weight = 5;
-            name = "ssh";
-            placeholder = "SSH";
-            icon = "preferences-system-network";
-            switcher_only = true;
-            history = true;
-            refresh = true;
-          };
-
-          switcher = {
-            weight = 5;
-            name = "switcher";
-            placeholder = "Switcher";
-            prefix = "/";
-          };
-
-          websearch = {
-            keep_selection = true;
-            weight = 5;
-            name = "websearch";
-            placeholder = "Websearch";
-            icon = "applications-internet";
-
-            entries = [
-              {
-                name = "Google";
-                url = "https://www.google.com/search?q=%TERM%";
-              }
-              {
-                name = "DuckDuckGo";
-                url = "https://duckduckgo.com/?q=%TERM%";
-                switcher_only = true;
-              }
-              {
-                name = "Ecosia";
-                url = "https://www.ecosia.org/search?q=%TERM%";
-                switcher_only = true;
-              }
-              {
-                name = "Yandex";
-                url = "https://yandex.com/search/?text=%TERM%";
-                switcher_only = true;
-              }
-            ];
-          };
-
-          dmenu = {
-            hidden = true;
-            weight = 5;
-            name = "dmenu";
-            placeholder = "Dmenu";
-            switcher_only = true;
-            show_icon_when_single = true;
-          };
-
-          translation = {
-            delay = 1000;
-            weight = 5;
-            name = "translation";
-            placeholder = "Translation";
-            switcher_only = true;
-            provider = "googlefree";
-          };
+      placeholders = {
+        "default" = {
+          input = "Search";
+          list = "No Results";
         };
       };
+
+      keybinds = {
+        close = [ "Escape" ];
+        next = [ "Down" ];
+        previous = [ "Up" ];
+        toggle_exact = [ "ctrl e" ];
+        resume_last_query = [ "ctrl r" ];
+        quick_activate = [
+          "F1"
+          "F2"
+          "F3"
+          "F4"
+        ];
+      };
+
+      providers = {
+        default = [
+          "desktopapplications"
+          "calc"
+          "runner"
+          "menus"
+          "websearch"
+        ];
+        empty = [ "desktopapplications" ];
+        max_results = 50;
+
+        sets = { };
+        max_results_provider = { };
+
+        prefixes = [
+          {
+            prefix = ";";
+            provider = "providerlist";
+          }
+          {
+            prefix = ">";
+            provider = "runner";
+          }
+          {
+            prefix = "/";
+            provider = "files";
+          }
+          {
+            prefix = ".";
+            provider = "symbols";
+          }
+          {
+            prefix = "!";
+            provider = "todo";
+          }
+          {
+            prefix = "=";
+            provider = "calc";
+          }
+          {
+            prefix = "@";
+            provider = "websearch";
+          }
+          {
+            prefix = ":";
+            provider = "clipboard";
+          }
+        ];
+
+        clipboard = {
+          time_format = "%d.%m. - %H:%M";
+        };
+
+        actions = {
+          fallback = [
+            {
+              action = "menus:open";
+              label = "open";
+              after = "Nothing";
+            }
+            {
+              action = "erase_history";
+              label = "clear hist";
+              bind = "ctrl h";
+              after = "AsyncReload";
+            }
+          ];
+
+          dmenu = [
+            {
+              action = "select";
+              default = true;
+              bind = "Return";
+            }
+          ];
+
+          providerlist = [
+            {
+              action = "activate";
+              default = true;
+              bind = "Return";
+              after = "ClearReload";
+            }
+          ];
+
+          bluetooth = [
+            {
+              action = "find";
+              global = true;
+              bind = "ctrl f";
+              after = "AsyncClearReload";
+            }
+            {
+              action = "trust";
+              bind = "ctrl t";
+              after = "AsyncReload";
+            }
+            {
+              action = "untrust";
+              bind = "ctrl t";
+              after = "AsyncReload";
+            }
+            {
+              action = "pair";
+              bind = "Return";
+              after = "AsyncReload";
+            }
+            {
+              action = "remove";
+              bind = "ctrl d";
+              after = "AsyncReload";
+            }
+            {
+              action = "connect";
+              bind = "Return";
+              after = "AsyncReload";
+            }
+            {
+              action = "disconnect";
+              bind = "Return";
+              after = "AsyncReload";
+            }
+          ];
+
+          archlinuxpkgs = [
+            {
+              action = "install";
+              bind = "Return";
+              default = true;
+            }
+            {
+              action = "remove";
+              bind = "Return";
+            }
+          ];
+
+          calc = [
+            {
+              action = "copy";
+              default = true;
+              bind = "Return";
+            }
+            {
+              action = "delete";
+              bind = "ctrl d";
+              after = "AsyncReload";
+            }
+            {
+              action = "save";
+              bind = "ctrl s";
+              after = "AsyncClearReload";
+            }
+          ];
+
+          websearch = [
+            {
+              action = "search";
+              default = true;
+              bind = "Return";
+            }
+          ];
+
+          desktopapplications = [
+            {
+              action = "start";
+              default = true;
+              bind = "Return";
+            }
+            {
+              action = "start:keep";
+              label = "open+next";
+              bind = "shift Return";
+              after = "KeepOpen";
+            }
+            {
+              action = "pin";
+              bind = "ctrl p";
+              after = "AsyncReload";
+            }
+            {
+              action = "unpin";
+              bind = "ctrl p";
+              after = "AsyncReload";
+            }
+            {
+              action = "pinup";
+              bind = "ctrl n";
+              after = "AsyncReload";
+            }
+            {
+              action = "pindown";
+              bind = "ctrl m";
+              after = "AsyncReload";
+            }
+          ];
+
+          files = [
+            {
+              action = "open";
+              default = true;
+              bind = "Return";
+            }
+            {
+              action = "opendir";
+              label = "open dir";
+              bind = "ctrl Return";
+            }
+            {
+              action = "copypath";
+              label = "copy path";
+              bind = "ctrl shift c";
+            }
+            {
+              action = "copyfile";
+              label = "copy file";
+              bind = "ctrl c";
+            }
+          ];
+
+          todo = [
+            {
+              action = "save";
+              default = true;
+              bind = "Return";
+              after = "ClearReload";
+            }
+            {
+              action = "delete";
+              bind = "ctrl d";
+              after = "ClearReload";
+            }
+            {
+              action = "active";
+              bind = "Return";
+              after = "ClearReload";
+            }
+            {
+              action = "inactive";
+              bind = "Return";
+              after = "ClearReload";
+            }
+            {
+              action = "done";
+              bind = "ctrl f";
+              after = "ClearReload";
+            }
+            {
+              action = "clear";
+              bind = "ctrl x";
+              after = "ClearReload";
+              global = true;
+            }
+          ];
+
+          runner = [
+            {
+              action = "run";
+              default = true;
+              bind = "Return";
+            }
+            {
+              action = "runterminal";
+              label = "run in terminal";
+              bind = "shift Return";
+            }
+          ];
+
+          symbols = [
+            {
+              action = "run_cmd";
+              label = "select";
+              default = true;
+              bind = "Return";
+            }
+          ];
+
+          unicode = [
+            {
+              action = "run_cmd";
+              label = "select";
+              default = true;
+              bind = "Return";
+            }
+          ];
+
+          clipboard = [
+            {
+              action = "copy";
+              default = true;
+              bind = "Return";
+            }
+            {
+              action = "remove";
+              bind = "ctrl d";
+              after = "ClearReload";
+            }
+            {
+              action = "remove_all";
+              global = true;
+              label = "clear";
+              bind = "ctrl shift d";
+              after = "ClearReload";
+            }
+            {
+              action = "toggle_images";
+              global = true;
+              label = "toggle images";
+              bind = "ctrl i";
+              after = "ClearReload";
+            }
+            {
+              action = "edit";
+              bind = "ctrl o";
+            }
+          ];
+        };
+      };
+    };
   };
 }

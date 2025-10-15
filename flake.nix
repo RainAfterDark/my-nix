@@ -35,14 +35,15 @@
     milk-grub-theme.url = "github:gemakfy/MilkGrub";
     sddm-stray-nixos.url = "github:RainAfterDark/sddm-stray-nixos";
 
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
+
     ## Programs
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    walker = {
-      # TODO: Use 1.0 version when the flake for it is ready
-      url = "github:abenz1267/walker/0.13.26";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:kaylorben/nixcord";
@@ -74,6 +75,8 @@
       "https://niri.cachix.org?priority=10"
       "https://ezkea.cachix.org?priority=10"
       "https://cache.flox.dev?priority=10"
+      "https://walker.cachix.org?priority=10"
+      "https://walker-git.cachix.org?priority=10"
     ];
 
     trusted-public-keys = [
@@ -83,6 +86,8 @@
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
+      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
     ];
   };
 
