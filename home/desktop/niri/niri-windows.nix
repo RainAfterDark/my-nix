@@ -43,6 +43,14 @@ in
       opacity = windowOpacity;
     }
 
+    # Waypaper
+    {
+      matches = [
+        { app-id = "waypaper"; }
+      ];
+      open-floating = true;
+    }
+
     # Zen PiP
     {
       matches = [

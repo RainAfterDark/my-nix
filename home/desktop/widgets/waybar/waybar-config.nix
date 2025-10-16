@@ -39,6 +39,7 @@ let
     "^polkit-gnome-authentication-agent-1$" = "󰒃";
     "^xdg-desktop-portal-gnome$" = "";
 
+    "^waypaper$" = "󰸉";
     "^nm-applet$" = "";
     "^nm-connection-editor$" = "";
     "^.blueman-manager-wrapped$" = "󰂯";

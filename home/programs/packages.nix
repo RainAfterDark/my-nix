@@ -70,5 +70,9 @@
     warehouse # Flatpak Manager
     heroic # Game Launcher
     handbrake # Video Remuxer
+    waypaper # Wallpaper Picker in Python
+
+    ### Custom Packaged
+    hellpaper # Wallpaper Picker in Raylib
   ];
 }

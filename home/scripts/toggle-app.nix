@@ -4,14 +4,13 @@ let
     #!/usr/bin/env bash
 
     # Usage:
-    #   toggle_app app_name [launch_command]
-    # If launch_command is not provided, defaults to app_name
+    #   toggle_app name [args]
 
     APP_NAME="$1"
-    LAUNCH_CMD="''${2:-$APP_NAME}"
+    LAUNCH_CMD="$APP_NAME $2"
 
-    if pgrep -fx "$LAUNCH_CMD" >/dev/null; then
-      pkill -fx "$LAUNCH_CMD"
+    if pgrep $APP_NAME >/dev/null; then
+      pkill $APP_NAME
     else
       setsid $LAUNCH_CMD >/dev/null 2>&1 &
     fi

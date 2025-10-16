@@ -1,15 +1,11 @@
-{
-  lib,
-  config,
-  host,
-  ...
-}:
+{ config, flakeRoot, ... }:
 {
   programs.niri.settings = with config.lib.niri.actions; {
     binds =
       let
         sh = spawn "sh" "-c";
         onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
+        waypaperArgs = "--folder ${flakeRoot}/assets/gif --backend swww";
       in
       ## General Controls
       {
@@ -22,7 +18,7 @@
         "Mod+N".action = sh "walker -m unicode";
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
-        "Mod+O".action = spawn "wallpaper-selector";
+        "Mod+O".action = sh "toggle-app waypaper '${waypaperArgs}'";
         "Mod+P".action = sh "toggle-app pavucontrol";
         "Mod+Escape".action = onlyOne "wlogout" "-s -b 4";
 
@@ -67,11 +63,6 @@
         "Alt+Tab".action = focus-window-down-or-column-right;
         "Alt+Shift+Tab".action = focus-window-up-or-column-left;
       }
-      ## Laptop Only (FIXME: Deprecated?)
-      # // lib.optionalAttrs (host == "xps7590") {
-      #   "Mod+M".action = sh "bzmenu -l walker";
-      #   "Mod+N".action = spawn "networkmanager_dmenu";
-      # }
       ## Volume and Brightness Controls
       // (
         let
