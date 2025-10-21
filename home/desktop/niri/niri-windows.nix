@@ -4,9 +4,10 @@ let
 in
 {
   programs.niri.settings.window-rules = [
-    # Default
+    ## Default Rule
     { draw-border-with-background = false; }
 
+    ## Specific App Rules
     # Dynamic Cast Target
     {
       matches = [ { is-window-cast-target = true; } ];
@@ -43,14 +44,6 @@ in
       opacity = windowOpacity;
     }
 
-    # Waypaper
-    {
-      matches = [
-        { app-id = "waypaper"; }
-      ];
-      open-floating = true;
-    }
-
     # Zen PiP
     {
       matches = [
@@ -63,6 +56,32 @@ in
       default-column-width.fixed = 1280;
       default-window-height.fixed = 720;
       opacity = windowOpacity;
+    }
+
+    # Android Studio
+    {
+      matches = [
+        { app-id = "jetbrains-studio"; }
+      ];
+      excludes = [
+        { is-floating = true; }
+        { title = "^Running Devices - .*"; }
+      ];
+      default-column-width.proportion = 0.75;
+      opacity = windowOpacity;
+    }
+
+    ## General App Rules
+    # Fullscreen Apps
+    {
+      matches = [
+        { app-id = "steam_app_0"; }
+        { app-id = "^Minecraft.+"; }
+        { app-id = "^Terraria.+"; }
+      ];
+      open-floating = false;
+      open-maximized = true;
+      open-fullscreen = true;
     }
 
     # Maximized Apps
@@ -116,28 +135,12 @@ in
       opacity = windowOpacity;
     }
 
-    # Games
+    # Floating Apps
     {
       matches = [
-        { app-id = "steam_app_0"; } # Heroic Launcher w/ Steam Runtime
-        { app-id = "^Minecraft.+"; } # Minecraft
+        { app-id = "waypaper"; }
       ];
-      open-floating = false;
-      open-maximized = true;
-      open-fullscreen = true;
-    }
-
-    # Android Studio
-    {
-      matches = [
-        { app-id = "jetbrains-studio"; }
-      ];
-      excludes = [
-        { is-floating = true; }
-        { title = "^Running Devices - .*"; }
-      ];
-      default-column-width.proportion = 0.75;
-      opacity = windowOpacity;
+      open-floating = true;
     }
   ];
 }
