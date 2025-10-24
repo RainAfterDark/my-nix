@@ -1732,11 +1732,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1760517179,
-        "narHash": "sha256-faaCDZjO96f/Kdhe8OvPeqxD+tFJpQfBgHQBjVTO8Ew=",
+        "lastModified": 1761241160,
+        "narHash": "sha256-d0uoQwBlsacQrhyPLzHupFJdj9rMy2zYqploxZcLEBc=",
         "owner": "abenz1267",
         "repo": "walker",
-        "rev": "f7914312516815263b2451ec747a0ce76e74160f",
+        "rev": "0d36aab74a7f93895a7ab130066799d699399184",
         "type": "github"
       },
       "original": {
