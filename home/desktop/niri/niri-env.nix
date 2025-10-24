@@ -28,8 +28,8 @@ in
       # { command = [ "mpvpaper-loop" ]; }
       { command = [ "syshud" ]; }
       { command = [ "zen-beta" ]; }
-      { command = [ "spotify" ]; }
-      { command = [ "vesktop" ]; }
+      # { command = [ "spotify" ]; }
+      # { command = [ "vesktop" ]; }
     ];
 
     xwayland-satellite = {
