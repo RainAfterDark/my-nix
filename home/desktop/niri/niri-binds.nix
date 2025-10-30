@@ -55,8 +55,12 @@
         # FIXME when upstream issue is fixed:
         # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
         "Print".action.screenshot-screen = [ ];
-        "Ctrl+Print".action = screenshot { show-pointer = true; };
-        "Alt+Print".action = screenshot-window { write-to-disk = true; };
+        "Ctrl+Print".action.screenshot = {
+          show-pointer = true;
+        };
+        "Alt+Print".action.screenshot-window = {
+          write-to-disk = true;
+        };
 
         # "Windows" Keybinds
         "Alt+F4".action = close-window;

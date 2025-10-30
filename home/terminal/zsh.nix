@@ -3,6 +3,7 @@
   pkgs,
   host,
   flakeRoot,
+  secrets,
   ...
 }:
 
@@ -32,7 +33,6 @@ let
     c = "clear";
     cd = "z";
     tt = "gtrash put";
-    cat = "bat";
     code = "codium";
     diff = "delta --diff-so-fancy --side-by-side";
     icat = "kitten icat";
@@ -42,16 +42,27 @@ let
     l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
     ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
     tree = "eza --icons --tree --group-directories-first";
+  }
+  ## NixOS
+  // (
+    let
+      ghToken = secrets.github-access-token.path;
+      nhFlags = "--accept-flake-config --access-tokens github.com=$(cat ${ghToken})";
+      mkNhAlias =
+        cmd: name:
+        "notifywrap 'sudo nh os ${cmd} -H ${host} -R ${flakeRoot} -- ${nhFlags}' '❄️ NixOS ${name}'";
+    in
+    {
+      cx = "cd ${flakeRoot} && codium ${flakeRoot}";
+      nhs = "nh search";
+      nhc = "notifywrap 'nh clean all --keep 5' '🧹 Nix Store Clean'";
 
-    ## NixOS
-    cx = "cd ${flakeRoot} && codium ${flakeRoot}";
-    nhs = "nh search";
-    nhc = "notifywrap 'nh clean all --keep 5' '🧹 Nix Store Clean'";
-    not = "notifywrap 'sudo nh os test -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Test'";
-    nob = "notifywrap 'sudo nh os boot -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Boot'";
-    nos = "notifywrap 'sudo nh os switch -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Switch'";
-    nou = "notifywrap 'sudo nh os boot -u -H ${host} -R ${flakeRoot} -- --accept-flake-config' '❄️ NixOS Update'";
-  };
+      not = mkNhAlias "test" "Test";
+      nob = mkNhAlias "boot" "Boot";
+      nos = mkNhAlias "switch" "Switch";
+      nou = mkNhAlias "boot -u" "Boot Update";
+    }
+  );
 in
 {
   programs.zsh = {

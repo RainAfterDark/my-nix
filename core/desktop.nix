@@ -28,7 +28,6 @@ in
     xwayland-satellite-unstable
 
     # For QT things (SDDM, etc.)
-    qt6.full
     kdePackages.qtbase
     kdePackages.qtdeclarative
 

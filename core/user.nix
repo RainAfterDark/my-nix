@@ -14,6 +14,7 @@ let
   inherit (lib) findModules extendedColors;
   fromStylix = config.lib.stylix.colors.withHashtag;
   colors = extendedColors fromStylix;
+  secrets = config.sops.secrets;
 in
 {
   imports = [
@@ -33,6 +34,7 @@ in
         username
         flakeRoot
         colors
+        secrets
         ;
     };
 
