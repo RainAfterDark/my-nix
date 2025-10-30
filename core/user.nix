@@ -61,4 +61,6 @@ in
     ];
     shell = pkgs.zsh;
   };
+
+  environment.pathsToLink = [ "/share/zsh" ];
 }

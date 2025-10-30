@@ -1,14 +1,15 @@
 {
   config,
+  lib,
   pkgs,
   host,
   flakeRoot,
   secrets,
   ...
 }:
-
 let
   cachePath = "${config.xdg.cacheHome or "${pkgs.lib.getEnv "HOME"}/.cache"}/zsh";
+
   notifyWrap = ''
     notifywrap() {
       local cmd="$1"
@@ -28,6 +29,7 @@ let
       return $exit_code
     }
   '';
+
   shellAliases = {
     ## Utils
     c = "clear";
@@ -47,7 +49,7 @@ let
   // (
     let
       ghToken = secrets.github-access-token.path;
-      nhFlags = "--accept-flake-config --access-tokens github.com=$(cat ${ghToken})";
+      nhFlags = "--accept-flake-config --access-tokens github.com=$(sudo cat ${ghToken})";
       mkNhAlias =
         cmd: name:
         "notifywrap 'sudo nh os ${cmd} -H ${host} -R ${flakeRoot} -- ${nhFlags}' '❄️ NixOS ${name}'";
@@ -63,12 +65,25 @@ let
       nou = mkNhAlias "boot -u" "Boot Update";
     }
   );
+
+  completionsPath = "zsh/completions";
+  mkZshCompletion = name: pkg: {
+    xdg.configFile."${completionsPath}/_${name}".text = builtins.readFile (
+      pkgs.runCommand "${name}-zsh-completions" { } ''
+        ${lib.getExe pkg} completions zsh > $out
+      ''
+    );
+  };
 in
 {
+  imports = [
+    (mkZshCompletion "niri" pkgs.niri-unstable)
+  ];
+
   programs.zsh = {
     enable = true;
-
     inherit shellAliases;
+    enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -96,6 +111,9 @@ in
     '';
 
     initContent = ''
+      # add completions
+      fpath=($HOME/.config/${completionsPath} $fpath)
+
       # history behaviour
       setopt sharehistory
       setopt hist_ignore_space
