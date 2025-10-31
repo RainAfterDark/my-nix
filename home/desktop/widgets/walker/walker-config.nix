@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     libqalculate # for calc module
     wtype # for clipboard and emoji modules
-    imagemagick # for clipboard
+    imagemagick # for image previews
   ];
 
   # TODO: Update this if elephant's nix module decides to be sane
@@ -85,7 +85,6 @@
           "desktopapplications"
           "calc"
           "runner"
-          "menus"
           "websearch"
         ];
         empty = [ "desktopapplications" ];
@@ -126,6 +125,10 @@
           {
             prefix = ":";
             provider = "clipboard";
+          }
+          {
+            prefix = "$";
+            provider = "windows";
           }
         ];
 
