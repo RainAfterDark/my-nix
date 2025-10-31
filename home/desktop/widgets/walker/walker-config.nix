@@ -9,28 +9,33 @@
   home.packages = with pkgs; [
     libqalculate # for calc module
     wtype # for clipboard and emoji modules
+    imagemagick # for clipboard
   ];
 
   # TODO: Update this if elephant's nix module decides to be sane
   xdg.configFile =
     let
-      overrideProviders = [
-        "clipboard"
-        "symbols"
-        "unicode"
-      ];
-      paste = "wl-copy && wtype -M ctrl -M shift v";
+      toToml = name: value: (pkgs.formats.toml { }).generate "${name}.toml" value;
+      mkProviderCfg =
+        providers: value:
+        builtins.listToAttrs (
+          map (
+            provider:
+            lib.nameValuePair "elephant/${provider}.toml" {
+              source = toToml provider value;
+            }
+          ) providers
+        );
     in
-    builtins.listToAttrs (
-      map (
-        provider:
-        lib.nameValuePair "elephant/${provider}.toml" {
-          source = (pkgs.formats.toml { }).generate "${provider}.toml" {
-            command = paste;
-          };
-        }
-      ) overrideProviders
-    );
+    mkProviderCfg [
+      "clipboard"
+      "symbols"
+      "unicode"
+    ] { command = "wl-copy && wtype -M ctrl -M shift v"; }
+    // mkProviderCfg [ "desktopapplications" ] {
+      launch_prefix = "";
+      wm_integration = true;
+    };
 
   programs.walker = {
     enable = true;
