@@ -59,6 +59,7 @@
     playerctl # controller for media players
     unzip
     wget
+    md-tui
 
     ### GUI
     pavucontrol # Audio Control
