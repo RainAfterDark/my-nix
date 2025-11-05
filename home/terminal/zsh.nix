@@ -48,8 +48,8 @@ let
   ## NixOS
   // (
     let
-      ghToken = secrets.github-access-token.path;
-      nhFlags = "--accept-flake-config --access-tokens github.com=$(sudo cat ${ghToken})";
+      # ghToken = secrets.github-access-token.path;
+      nhFlags = "--accept-flake-config";
       mkNhAlias =
         cmd: name:
         "notifywrap 'sudo nh os ${cmd} -H ${host} -R ${flakeRoot} -- ${nhFlags}' '❄️ NixOS ${name}'";
