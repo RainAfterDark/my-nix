@@ -11,9 +11,9 @@
 
   # Hardware Acceleration for Intel iGPU
   hardware.graphics.extraPackages = with pkgs; [
-    vaapiIntel
-    vaapiVdpau
+    libva-vdpau-driver
     libvdpau-va-gl
+    intel-vaapi-driver
     intel-media-driver
     nvidia-vaapi-driver
   ];

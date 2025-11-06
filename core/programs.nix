@@ -26,8 +26,6 @@
     flake = "/home/${username}/my-nix";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [ "ventoy-gtk3-1.1.07" ];
-
   ## System Utilities
   environment.systemPackages = with pkgs; [
     coreutils # essentials
@@ -38,7 +36,7 @@
 
     # GPU
     vulkan-tools
-    glxinfo
+    mesa-demos
     lact # GPU OC/UV
 
     # Nix
@@ -56,7 +54,7 @@
     spice
     spice-gtk
     spice-protocol
-    win-virtio
+    virtio-win
     win-spice
 
     # Misc.

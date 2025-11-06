@@ -123,9 +123,17 @@
             inputs.niri.overlays.niri
             (import ./pkgs/overlays.nix)
           ];
-          config.allowUnfree = true;
-          config.nvidia.acceptLicense = true;
-          config.android_sdk.accept_license = true;
+          config = {
+            permittedInsecurePackages = [
+              # This version of Gradle no longer
+              # receives security updates...
+              "gradle-7.6.6"
+              "ventoy-gtk3-1.1.07"
+            ];
+            allowUnfree = true;
+            nvidia.acceptLicense = true;
+            android_sdk.accept_license = true;
+          };
         };
       };
 

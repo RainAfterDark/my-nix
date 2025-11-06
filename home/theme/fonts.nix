@@ -32,7 +32,7 @@ in
 
     # Emojis
     twemoji-color-font
-    noto-fonts-emoji
+    noto-fonts-color-emoji
 
     # Mono
     mainFont.package
