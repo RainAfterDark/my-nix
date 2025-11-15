@@ -27,6 +27,10 @@ in
     python313
     python313Packages.weasyprint
 
+    ## Database
+    pgcli
+    pgmodeler
+
     ## Game Dev
     godot
     godot-mono
