@@ -38,7 +38,8 @@ in
 {
   home.packages = with pkgs; [
     prismlauncher
-    mcaselector
+    ## FIXME: broken openjfx dep
+    # mcaselector
   ];
   # We do a little sneaky
   home.activation.createPrismLauncherAccounts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

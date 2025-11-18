@@ -12,16 +12,13 @@
     in
     [
       # GPU Test
-      unigine-superposition
-      superposWrapper
+      # unigine-superposition
+      # superposWrapper
       # CPU Test
       geekbench
       stress-ng
       # Monitoring/Control
       powerstat
       brightnessctl
-      # Networking
-      networkmanager_dmenu
-      bzmenu
     ];
 }
