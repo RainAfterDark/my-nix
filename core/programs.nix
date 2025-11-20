@@ -32,8 +32,7 @@
     binutils # packaging
     pciutils # lspci, etc.
     tmux # the one and only
-    ## FIXME: cannot download
-    # ventoy-full-gtk # USB ISO
+    ventoy-full-gtk # USB ISO
 
     # GPU
     vulkan-tools
