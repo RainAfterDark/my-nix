@@ -28,8 +28,8 @@
         "Mod+C".action = switch-preset-window-height;
 
         # Fullscreen/Dynamic Cast
-        "Mod+Tab".action = fullscreen-window;
-        "Mod+Shift+Tab".action = toggle-windowed-fullscreen;
+        "Mod+L".action = fullscreen-window;
+        "Mod+Shift+L".action = toggle-windowed-fullscreen;
         "Mod+F8".action = set-dynamic-cast-window;
         "Mod+Alt+F8".action = clear-dynamic-cast-target;
         "Mod+Shift+F8".action = set-dynamic-cast-monitor;
@@ -61,11 +61,6 @@
         "Alt+Print".action.screenshot-window = {
           write-to-disk = true;
         };
-
-        # "Windows" Keybinds
-        "Alt+F4".action = close-window;
-        "Alt+Tab".action = focus-window-down-or-column-right;
-        "Alt+Shift+Tab".action = focus-window-up-or-column-left;
       }
       ## Volume and Brightness Controls
       // (
