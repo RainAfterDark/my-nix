@@ -56,6 +56,7 @@
     spice-protocol
     virtio-win
     win-spice
+    libguestfs-with-appliance
 
     # Misc.
     freetype # font engine
