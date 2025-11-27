@@ -106,6 +106,10 @@
       };
     };
     spiceUSBRedirection.enable = true;
+    docker = {
+      enable = true;
+      autoPrune.enable = true;
+    };
   };
   services.spice-vdagentd.enable = true;
 
