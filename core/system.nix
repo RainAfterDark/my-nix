@@ -38,9 +38,6 @@
       enable = true;
     };
 
-    ## Preload
-    preload.enable = true;
-
     ## GNOME stuff
     dbus.packages = with pkgs; [
       gcr
