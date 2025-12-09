@@ -47,6 +47,7 @@
     wev # input tester
     lm_sensors # motherboard sensors
     compsize # compute BTRFS compression ratio
+    via # keyboard remapper
 
     # VM
     virt-manager
@@ -73,6 +74,8 @@
     };
     enable = true;
   };
+
+  services.udev.packages = with pkgs; [ via ];
 
   # Enable Flatpaks
   services.flatpak.enable = true;
