@@ -42,6 +42,8 @@
   services.blueman.enable = true;
 
   # CPU Undervolt
+  # if this breaks just follow:
+  # https://www.reddit.com/r/Dell/comments/fzv599/
   services.undervolt = {
     enable = true;
     coreOffset = -125; # 150 limit
