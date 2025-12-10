@@ -4,7 +4,7 @@ let
     let
       cpuTempPath =
         if host == "xps7590" then
-          "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input"
+          "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"
         else
           "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input";
       cpuPowerQuery =
