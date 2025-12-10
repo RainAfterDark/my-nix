@@ -9,9 +9,15 @@
   ...
 }:
 {
+  ## DEPRECATED!
   ## Use the CachyOS patched kernel
-  imports = [ inputs.chaotic.nixosModules.default ];
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  # imports = [ inputs.chaotic.nixosModules.default ];
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+
+  ## TODO: Go back to CachyOS whhen this gets a binary cache...
+  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   ## Needed to allow debugging
   boot.kernel.sysctl = {
@@ -25,7 +31,7 @@
   ];
 
   services = {
-    ## CachyOS sched-ext
+    ## sched-ext
     # by default uses scx_rustland scheduler
     scx.enable = true;
 

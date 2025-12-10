@@ -19,9 +19,7 @@ in
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixowos.nixosModules.default
   ];
-  nixowos.enable = true;
 
   home-manager = {
     useUserPackages = true;
