@@ -2,11 +2,12 @@
 let
   waybarCpu =
     let
-      cpuTempPath =
+      cpuTempGlob =
         if host == "xps7590" then
-          "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input"
+          "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
         else
-          "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input";
+          "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input";
+
       cpuPowerQuery =
         if host == "xps7590" then
           ''
@@ -56,12 +57,14 @@ let
       fi
 
       # CPU Temp (°C)
-      if [[ -r "${cpuTempPath}" ]]; then
-        t=$(<"${cpuTempPath}")
-        temp=$((t / 1000))
-      else
-        temp=0
-      fi
+      temp=0
+      for path in ${cpuTempGlob}; do
+        if [[ -r "$path" ]]; then
+          t=$(<"$path")
+          temp=$((t / 1000))
+          break # Stop after finding the first valid temp file
+        fi
+      done
 
       # CPU Power (Watts)
       ${cpuPowerQuery}
