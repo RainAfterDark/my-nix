@@ -19,7 +19,7 @@
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
         "Mod+O".action = sh "toggle-app waypaper '${waypaperArgs}'";
-        "Mod+P".action = sh "toggle-app pavucontrol";
+        "Mod+I".action = sh "toggle-app pavucontrol";
         "Mod+Escape".action = onlyOne "wlogout" "-s -b 4";
 
         # Resizing
@@ -55,10 +55,17 @@
         # FIXME when upstream issue is fixed:
         # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
         "Print".action.screenshot-screen = [ ];
+        "Mod+P".action.screenshot-screen = [ ];
         "Ctrl+Print".action.screenshot = {
           show-pointer = true;
         };
+        "Mod+Ctrl+P".action.screenshot = {
+          show-pointer = true;
+        };
         "Alt+Print".action.screenshot-window = {
+          write-to-disk = true;
+        };
+        "Mod+Alt+P".action.screenshot-window = {
           write-to-disk = true;
         };
       }
