@@ -3,21 +3,16 @@
   config,
   lib,
   pkgs,
-  host,
   username,
   stateVersion,
   ...
 }:
+let
+  autoLogin = true;
+in
 {
-  ## DEPRECATED!
-  ## Use the CachyOS patched kernel
-  # imports = [ inputs.chaotic.nixosModules.default ];
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
-
-  ## TODO: Go back to CachyOS whhen this gets a binary cache...
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
-
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   ## Needed to allow debugging
   boot.kernel.sysctl = {
@@ -63,7 +58,7 @@
     displayManager = {
       defaultSession = "niri";
       sddm = {
-        enable = host == "xps7590";
+        enable = !autoLogin;
         theme = "sddm-stray-nixos";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs; [
@@ -85,7 +80,7 @@
           let
             xdotool = "${pkgs.xdotool}/bin/xdotool";
           in
-          lib.mkIf (host == "xps7590") ''
+          lib.mkIf (!autoLogin) ''
             (
               ${xdotool} mousemove --screen 0 0 1080
               ${xdotool} click --repeat 10 --delay 100 1
@@ -96,7 +91,7 @@
 
     ## [DESKTOP] Auto-login setup w/ greetd that starts niri-session
     displayManager.autoLogin = {
-      enable = host == "desktop";
+      enable = autoLogin;
       user = "${username}";
     };
     greetd =
@@ -108,7 +103,7 @@
         };
       in
       {
-        enable = host == "desktop";
+        enable = autoLogin;
         settings = {
           terminal.vt = 1;
           default_session = session;
