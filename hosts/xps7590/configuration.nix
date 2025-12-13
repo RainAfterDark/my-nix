@@ -46,9 +46,9 @@
   # if this breaks just follow:
   # https://www.reddit.com/r/Dell/comments/fzv599/
   services.undervolt = {
-    enable = false;
-    coreOffset = -125; # 150 limit
-    uncoreOffset = -75; # 100 limit
+    enable = true;
+    coreOffset = -100; # 150 limit
+    uncoreOffset = -50; # 100 limit
     gpuOffset = 0; # doesn't do much
     analogioOffset = 0; # should be left 0
     temp = 85; # above 85 throttles (?)
