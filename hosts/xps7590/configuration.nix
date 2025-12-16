@@ -9,6 +9,22 @@
   # Default config with NVIDIA Prime
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
 
+  # The nixos-hardware defaults this to S3 (deep)
+  # S3 sleep has been more unreliable lately....
+  boot.kernelParams = lib.mkAfter [
+    "mem_sleep_default=s2idle"
+    "nohibernate"
+  ];
+
+  # Do not use hibernate!
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+  services.logind.settings.Login = {
+    KillUserProcesses = false;
+    SleepOperation = "suspend";
+    HandleLidSwitch = "suspend";
+  };
+
   # Hardware Acceleration for Intel iGPU
   hardware.graphics.extraPackages = with pkgs; [
     libva-vdpau-driver
