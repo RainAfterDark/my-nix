@@ -25,6 +25,17 @@
     HandleLidSwitch = "suspend";
   };
 
+  # Disable USB devices from being to wakeup the laptop
+  systemd.services.disable-usb-wakeup = {
+    description = "Disable USB controller wakeup (XHC) on XPS 7590";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c 'if grep -q \"XHC.*enabled\" /proc/acpi/wakeup; then echo XHC > /proc/acpi/wakeup; fi'";
+    };
+  };
+
   # Hardware Acceleration for Intel iGPU
   hardware.graphics.extraPackages = with pkgs; [
     libva-vdpau-driver
