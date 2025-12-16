@@ -64,14 +64,15 @@
 
   nixConfig = {
     substituters = [
-      "https://cache.nixos.org?priority=100"
-      "https://nix-community.cachix.org?priority=90"
-      "https://cache.garnix.io?priority=80"
-      "https://cache.flox.dev?priority=70"
-      "https://niri.cachix.org?priority=10"
-      "https://ezkea.cachix.org?priority=10"
-      "https://walker.cachix.org?priority=10"
-      "https://walker-git.cachix.org?priority=10"
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+      "https://cache.garnix.io"
+      "https://cache.flox.dev"
+      "https://attic.xuyh0120.win/lantian"
+      "https://niri.cachix.org"
+      "https://ezkea.cachix.org"
+      "https://walker.cachix.org"
+      "https://walker-git.cachix.org"
     ];
 
     trusted-public-keys = [
@@ -79,6 +80,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="

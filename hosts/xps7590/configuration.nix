@@ -45,9 +45,6 @@
     nvidia-vaapi-driver
   ];
   hardware.graphics.enable32Bit = true;
-  ## FIXME: Go back to latest when this is fixed
-  # https://github.com/NixOS/nixpkgs/issues/467814#issuecomment-3620802561
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   # WiFi/Bluetooth
   boot.kernelModules = [

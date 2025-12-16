@@ -11,12 +11,32 @@ in
 
   programs.niri = {
     enable = true;
-    package = pkgs.niri-unstable.overrideAttrs (oldAttrs: {
-      # silence the "Calling import environment without a list of variable names is deprecated" warning
-      postInstall = (oldAttrs.postInstall or "") + ''
-        sed -i 's|systemctl --user import-environment|systemctl --user import-environment 2> /dev/null|' $out/bin/niri-session
-      '';
-    });
+    package =
+      let
+        niri-base = pkgs.niri-unstable;
+        # Silence the deprecated import-environment warning
+        niri-patched = pkgs.symlinkJoin {
+          inherit (niri-base)
+            meta
+            pname
+            version
+            passthru
+            cargoBuildFeatures
+            cargoBuildNoDefaultFeatures
+            ;
+
+          name = "niri-patched";
+          paths = [ niri-base ];
+          buildInputs = [ pkgs.makeWrapper ];
+          postBuild = ''
+            rm $out/bin/niri-session
+            cp ${niri-base}/bin/niri-session $out/bin/niri-session
+            sed -i 's|systemctl --user import-environment|systemctl --user import-environment 2> /dev/null|' $out/bin/niri-session
+            chmod +x $out/bin/niri-session
+          '';
+        };
+      in
+      niri-patched;
   };
 
   stylix = {
