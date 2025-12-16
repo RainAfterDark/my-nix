@@ -11,7 +11,12 @@ in
 
   programs.niri = {
     enable = true;
-    package = pkgs.niri-unstable;
+    package = pkgs.niri-unstable.overrideAttrs (oldAttrs: {
+      # silence the "Calling import environment without a list of variable names is deprecated" warning
+      postInstall = (oldAttrs.postInstall or "") + ''
+        sed -i 's|systemctl --user import-environment|systemctl --user import-environment 2> /dev/null|' $out/bin/niri-session
+      '';
+    });
   };
 
   stylix = {
