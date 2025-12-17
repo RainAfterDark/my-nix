@@ -75,6 +75,14 @@
     gpuOffset = 0; # doesn't do much
     analogioOffset = 0; # should be left 0
     temp = 85; # above 85 throttles (?)
+    p1 = {
+      limit = 45;
+      window = 28;
+    };
+    p2 = {
+      limit = 65;
+      window = 10;
+    };
     useTimer = true; # periodically reapply settings
   };
 
