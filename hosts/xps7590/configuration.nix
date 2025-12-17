@@ -22,7 +22,6 @@
   services.logind.settings.Login = {
     KillUserProcesses = false;
     SleepOperation = "suspend";
-    HandleLidSwitch = "suspend";
   };
 
   # Disable USB devices from being to wakeup the laptop
