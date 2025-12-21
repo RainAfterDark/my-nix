@@ -27,8 +27,11 @@ in
 
   services = {
     ## sched-ext
-    # by default uses scx_rustland scheduler
-    scx.enable = true;
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
+      extraArgs = [ "--autopower" ];
+    };
 
     ## Input
     xserver = {

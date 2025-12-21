@@ -83,6 +83,7 @@
       limit = 65;
       window = 10;
     };
+    turbo = 0;
     useTimer = true; # periodically reapply settings
   };
 
