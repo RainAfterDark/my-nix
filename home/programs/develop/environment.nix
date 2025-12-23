@@ -5,7 +5,7 @@
   ...
 }:
 let
-  flox = inputs.flox.packages.${pkgs.system}.default;
+  flox = inputs.flox.packages.${pkgs.stdenv.hostPlatform.system}.default;
   chrome = pkgs.ungoogled-chromium;
 in
 {

@@ -22,7 +22,7 @@ in
 
   ## SDDM Stray theme
   environment.systemPackages = [
-    inputs.sddm-stray-nixos.packages.${pkgs.system}.default
+    inputs.sddm-stray-nixos.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   services = {

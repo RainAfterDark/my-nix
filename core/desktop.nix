@@ -57,7 +57,7 @@ in
     kdePackages.qtdeclarative
 
     # Quickshell (one day I will use you...)
-    # (inputs.quickshell.packages.${pkgs.system}.default.override {
+    # (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
     #   withX11 = false;
     #   withHyprland = false;
     #   withI3 = false;
