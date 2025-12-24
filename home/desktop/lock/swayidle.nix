@@ -5,7 +5,7 @@
   ...
 }:
 let
-  lock = "${pkgs.swaylock-effects}/bin/swaylock";
+  lock = "${pkgs.swaylock-effects}/bin/swaylock -f";
   niriBin = "/run/current-system/sw/bin/niri";
   systemdBin = "/run/current-system/sw/bin/systemctl";
   monitors = status: "${niriBin} msg action power-${status}-monitors";
