@@ -76,11 +76,11 @@
     analogioOffset = 0; # should be left 0
     temp = 85; # above 85 throttles (?)
     p1 = {
-      limit = 45;
+      limit = 30;
       window = 28;
     };
     p2 = {
-      limit = 65;
+      limit = 50;
       window = 10;
     };
     turbo = 0;
