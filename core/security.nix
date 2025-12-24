@@ -44,8 +44,6 @@
       ];
     };
 
-    # For realtime scheduling
-    rtkit.enable = true;
     # Unlock GPG keyring on login for greetd
     pam.services.greetd.enableGnomeKeyring = true;
     # For swaylock login

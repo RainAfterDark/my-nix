@@ -111,6 +111,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    powertop # power usage monitor
+  ];
+
   ## Swap
   zramSwap = {
     enable = true;

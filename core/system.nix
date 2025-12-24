@@ -29,11 +29,13 @@ in
     ## sched-ext
     scx = {
       enable = true;
-      scheduler = "scx_bpfland";
+      scheduler = "scx_flash";
       extraArgs = [
         "-m"
         "performance"
         "-w"
+        "-C"
+        "0"
       ];
     };
 
