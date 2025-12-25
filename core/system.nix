@@ -29,13 +29,9 @@ in
     ## sched-ext
     scx = {
       enable = true;
-      scheduler = "scx_flash";
+      scheduler = "scx_lavd";
       extraArgs = [
-        "-m"
-        "performance"
-        "-w"
-        "-C"
-        "0"
+        "--autopower"
       ];
     };
 
