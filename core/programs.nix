@@ -48,6 +48,7 @@
     lm_sensors # motherboard sensors
     compsize # compute BTRFS compression ratio
     via # keyboard remapper
+    smartmontools # drive S.M.A.R.T
 
     # VM
     virt-manager
@@ -75,6 +76,7 @@
     enable = true;
   };
 
+  # Allow VIA through udev
   services.udev.packages = with pkgs; [ via ];
 
   # Enable Flatpaks
@@ -82,6 +84,9 @@
 
   # Shebangs ibuprofen
   services.envfs.enable = true;
+
+  # Enable smartd service from smartmontools
+  services.smartd.enable = true;
 
   # ADB for Android development
   programs.adb.enable = true;
