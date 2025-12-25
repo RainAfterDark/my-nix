@@ -72,6 +72,7 @@
     heroic # Game Launcher
     handbrake # Video Remuxer
     waypaper # Wallpaper Picker in Python
+    hardinfo2 # Hardware Info
 
     ### Custom Packaged
     hellpaper # Wallpaper Picker in Raylib
