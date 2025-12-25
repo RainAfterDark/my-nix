@@ -11,6 +11,7 @@
     enable = true;
 
     config = {
+      osc = "no";
       hwdec = "auto";
     }
     # Use IGPU on Laptop
@@ -44,8 +45,12 @@
       };
     };
 
-    scripts = [
-      pkgs.mpvScripts.videoclip
+    scripts = with pkgs; [
+      mpvScripts.videoclip
+      mpvScripts.thumbfast
+      mpvScripts.mpv-discord
+      mpvScripts.mpv-cheatsheet
+      mpvScripts.modernx-zydezu
     ];
 
     scriptOpts = {
