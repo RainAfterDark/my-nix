@@ -10,11 +10,9 @@
   boot.kernelParams = [
     "nohibernate"
   ];
-
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
-  services.logind.settings = {
+  services.logind.settings.Login = {
     KillUserProcesses = false;
     SleepOperation = "suspend";
   };
