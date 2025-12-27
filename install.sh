@@ -139,8 +139,6 @@ echo -e "Key placed at: ${GREEN}/mnt/home/${TARGET_USER}/.config/sops/age/keys.t
 # ==========================================
 if [ "$DEBUG_MODE" = true ]; then
     echo -e "\n${YELLOW}:: DEBUG MODE :: Skipping nixos-install and user setup.${NC}"
-    echo -e "You can now check /mnt to verify partitions and keys exist."
-    echo -e "Inspect .sops.yaml and secrets.yaml to verify encryption updates."
     exit 0
 fi
 
