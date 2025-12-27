@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  host,
+  ...
+}:
 let
   fontFamily = config.stylix.fonts.monospace.name;
 in
@@ -16,7 +21,7 @@ in
       ignore-empty-password = true;
       datestr = "lock tf in";
       font = fontFamily;
-      font-size = 80;
+      font-size = if (host == "t14") then 120 else 80;
 
       screenshots = true;
       clock = true;
