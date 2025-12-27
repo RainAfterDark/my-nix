@@ -28,8 +28,8 @@ in
         command = monitors "off";
       }
     ]
-    # Lock only on laptop
-    ++ lib.optional (host == "xps7590") {
+    # Lock only on laptops
+    ++ lib.optional (host != "desktop") {
       timeout = 330; # 5:30
       command = lock;
     }
