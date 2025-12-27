@@ -14,10 +14,6 @@
       # GPU Test
       unigine-superposition
       superposWrapper
-      # CPU Test
-      geekbench
-      stress-ng
-      s-tui
       # Monitoring/Control
       powerstat
       powertop

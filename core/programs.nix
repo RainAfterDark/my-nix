@@ -60,6 +60,11 @@
     win-spice
     libguestfs-with-appliance
 
+    # Benchmark
+    geekbench
+    stress-ng
+    s-tui
+
     # Misc.
     freetype # font engine
     adwaita-icon-theme
