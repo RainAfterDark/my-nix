@@ -104,7 +104,7 @@ if [ -f "$SOPS_CONFIG_PATH" ]; then
         # Re-encrypt all secrets.yaml files found in the repo
         find . -name "secrets.yaml" -print0 | while IFS= read -r -d '' secret_file; do
             echo "Updating keys for $secret_file..."
-            nix-shell -p sops --run "sops updatekeys -y \"$secret_file\""
+            nix-shell -p sops --run "sops --config \"$SOPS_CONFIG_PATH\" updatekeys -y \"$secret_file\""
         done
     fi
 else
