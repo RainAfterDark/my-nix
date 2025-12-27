@@ -82,24 +82,28 @@ else
 fi
 
 PUBLIC_KEY=$(grep "public key: age1" "$KEY_FILE" | awk '{print $4}')
-echo "Public Key: $PUBLIC_KEY"
 
 if [ -f "$SOPS_CONFIG_PATH" ]; then
+    # Check if key already exists in config
     if grep -q "$PUBLIC_KEY" "$SOPS_CONFIG_PATH"; then
-        echo "Key already in .sops.yaml."
+        echo "Key already exists in .sops.yaml."
     else
         echo "Injecting key into $SOPS_CONFIG_PATH..."
         cp "$SOPS_CONFIG_PATH" "${SOPS_CONFIG_PATH}.bak"
         
-        # Inject Key Definition (Assumes 2-space indent)
-        perl -i -pe "s/^keys:/keys:\n  - &${HOST} $PUBLIC_KEY/" "$SOPS_CONFIG_PATH"
+        # 1. Inject the key definition
+        # Matches "keys:" at the start of the line and appends the new key on the next line
+        sed -i "s/^keys:/keys:\\n  - &${HOST} ${PUBLIC_KEY}/" "$SOPS_CONFIG_PATH"
         
-        # Inject Key Reference (Assumes previous key ends with newline)
-        perl -i -pe "s/(- \*[a-zA-Z0-9_]+)$/\$1\n          - *${HOST}/" "$SOPS_CONFIG_PATH"
+        # 2. Inject the key reference
+        # Matches any line ending with "- *something" and appends the new host reference
+        sed -i -E "s/(- \*[a-zA-Z0-9_]+)$/\1\\n          - *${HOST}/" "$SOPS_CONFIG_PATH"
         
-        echo "Re-encrypting secrets..."
+        echo "Key injected. Re-encrypting secrets..."
+        
+        # Re-encrypt all secrets.yaml files found in the repo
         find . -name "secrets.yaml" -print0 | while IFS= read -r -d '' secret_file; do
-            echo "Updating $secret_file..."
+            echo "Updating keys for $secret_file..."
             nix-shell -p sops --run "sops updatekeys -y \"$secret_file\""
         done
     fi
