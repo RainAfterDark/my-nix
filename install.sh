@@ -68,12 +68,12 @@ fi
 echo -e "\n${BLUE}:: Running Disko Partitioning... ::${NC}"
 echo "You will now be asked to enter the LUKS password for encryption."
 # Note: This requires disko to be in your flake inputs or run via github
-sudo nix run github:nix-community/disko -- --mode disko --flake ".#${HOST}"
+sudo nix run --extra-experimental-features "nix-command flakes" github:nix-community/disko -- --mode disko --flake ".#${HOST}"
 
 # 5. Install NixOS
 echo -e "\n${BLUE}:: Installing NixOS... ::${NC}"
 # --no-root-passwd: We set passwords manually later
-sudo nixos-install --flake ".#${HOST}" --no-root-passwd
+sudo nixos-install --flake ".#${HOST}" --no-root-passwd --option experimental-features "nix-command flakes"
 
 # 6. Copy Config to Target
 echo -e "\n${BLUE}:: Cloning configuration to target machine... ::${NC}"
