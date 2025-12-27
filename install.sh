@@ -54,7 +54,7 @@ else
     DEBUG_MODE=false
 fi
 
-# 3. Capture Password (Skip in debug if you want, but good to test variable capture)
+# 3. Capture Password
 echo -e "\n${GREEN}Set password for user '${TARGET_USER}':${NC}"
 while true; do
     read -s -p "Enter password: " USER_PASS
@@ -64,12 +64,6 @@ while true; do
     [ "$USER_PASS" = "$USER_PASS_CONFIRM" ] && break
     echo -e "${RED}Mismatch. Try again.${NC}"
 done
-
-# 4. Confirmation
-echo -e "\n${RED}WARNING: This will WIPE ALL DATA on the target drive.${NC}"
-read -p "Are you sure you want to proceed? (y/N): " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 1; fi
 
 # ==========================================
 # SOPS Automation
@@ -112,6 +106,12 @@ if [ -f "$SOPS_CONFIG_PATH" ]; then
 else
     echo -e "${RED}Warning: $SOPS_CONFIG_PATH not found.${NC}"
 fi
+
+# 4. Confirmation
+echo -e "\n${RED}WARNING: This will WIPE ALL DATA on the target drive.${NC}"
+read -p "Are you sure you want to proceed? (y/N): " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 1; fi
 
 # ==========================================
 # Disko & Mount
