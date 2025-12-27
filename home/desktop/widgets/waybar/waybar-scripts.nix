@@ -5,6 +5,8 @@ let
       cpuTempGlob =
         if host == "xps7590" then
           "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
+        else if host == "t14" then
+          "/sys/class/hwmon/hwmon*/temp1_input"
         else
           "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input";
 
@@ -22,6 +24,26 @@ let
             else
               watts="N/A"
             fi
+          ''
+        else if host == "t14" then
+          ''
+            watts="N/A"
+
+            # Find the hwmon directory for the APU or zenpower
+            for hwmon in /sys/class/hwmon/hwmon*; do
+              # Check if this hwmon has a power input
+              if [[ -r "$hwmon/power1_average" ]]; then
+                 # power1_average is common on AMDGPU for slow-moving average power
+                 p=$(<"$hwmon/power1_average")
+                 # Microwatts to Watts
+                 watts=$(awk -v p="$p" 'BEGIN { printf "%04.1f", p / 1000000 }')
+                 break
+              elif [[ -r "$hwmon/power1_input" ]]; then
+                 p=$(<"$hwmon/power1_input")
+                 watts=$(awk -v p="$p" 'BEGIN { printf "%04.1f", p / 1000000 }')
+                 break
+              fi
+            done
           ''
         else
           ''
@@ -77,30 +99,68 @@ let
       '{text: $text, tooltip: $tooltip, percentage: $percentage}'
     '';
 
-  waybarGpu = pkgs.writeShellScriptBin "waybar-gpu" ''
-    #!/usr/bin/env bash
+  waybarGpu = pkgs.writeShellScriptBin "waybar-gpu" (
+    if host == "t14" then
+      ''
+        #!/usr/bin/env bash
+        # AMD iGPU (ThinkPad) Logic
+        # The integrated GPU usage is found in /sys/class/drm/card0/device/gpu_busy_percent
+        # or via cmd line tools. Sysfs is fastest.
 
-    # Query GPU Stats
-    IFS=',' read -r usage clock temp power <<< "$(
-      nvidia-smi --query-gpu=utilization.gpu,clocks.gr,temperature.gpu,power.draw \
-        --format=csv,noheader,nounits 2>/dev/null
-    )"
+        usage="0"
+        if [[ -r "/sys/class/drm/card0/device/gpu_busy_percent" ]]; then
+          usage=$(<"/sys/class/drm/card0/device/gpu_busy_percent")
+        fi
 
-    # Trim Whitespace
-    usage=$(echo "$usage" | xargs)
-    clock=$(echo "$clock" | xargs)
-    temp=$(echo "$temp" | xargs)
+        # Frequency (pp_dpm_sclk is complex, simplest is often usually implicit or hard to parse)
+        # We skip frequency for iGPU unless we parse /sys/class/drm/card0/device/pp_dpm_sclk
+        clock="N/A"
 
-    # Format Power
-    watts=$(awk -v p="$power" 'BEGIN { printf "%04.1f", p }')
+        # Temp usually same as CPU for APU, but check amdgpu hwmon
+        temp="0"
+        for hwmon in /sys/class/hwmon/hwmon*; do
+          if grep -q "amdgpu" "$hwmon/name" 2>/dev/null; then
+               if [[ -r "$hwmon/temp1_input" ]]; then
+                  t=$(<"$hwmon/temp1_input")
+                  temp=$((t / 1000))
+               fi
+               break
+          fi
+        done
 
-    # JSON Output
-    jq --unbuffered --compact-output -n \
-      --arg text "''${usage}%" \
-      --argjson percentage "$usage" \
-      --arg tooltip "@''${clock}MHz ''${temp}°C ''${watts}W" \
-      '{text: $text, percentage: $percentage, tooltip: $tooltip}'
-  '';
+        # Output
+        jq --unbuffered --compact-output -n \
+          --arg text "''${usage}%" \
+          --argjson percentage "$usage" \
+          --arg tooltip "''${temp}°C" \
+          '{text: $text, percentage: $percentage, tooltip: $tooltip}'
+      ''
+    else
+      ''
+        #!/usr/bin/env bash
+
+        # Query GPU Stats
+        IFS=',' read -r usage clock temp power <<< "$(
+          nvidia-smi --query-gpu=utilization.gpu,clocks.gr,temperature.gpu,power.draw \
+            --format=csv,noheader,nounits 2>/dev/null
+        )"
+
+        # Trim Whitespace
+        usage=$(echo "$usage" | xargs)
+        clock=$(echo "$clock" | xargs)
+        temp=$(echo "$temp" | xargs)
+
+        # Format Power
+        watts=$(awk -v p="$power" 'BEGIN { printf "%04.1f", p }')
+
+        # JSON Output
+        jq --unbuffered --compact-output -n \
+          --arg text "''${usage}%" \
+          --argjson percentage "$usage" \
+          --arg tooltip "@''${clock}MHz ''${temp}°C ''${watts}W" \
+          '{text: $text, percentage: $percentage, tooltip: $tooltip}'
+      ''
+  );
 
   waybarPipewire = pkgs.writeShellScriptBin "waybar-pipewire" ''
     #!/usr/bin/env bash
