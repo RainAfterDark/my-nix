@@ -98,6 +98,3 @@ echo -e "\n${BLUE}:: Setting user password... ::${NC}"
 sudo nixos-enter --root /mnt -- bash -c "echo '${TARGET_USER}:${USER_PASS}' | chpasswd"
 
 echo -e "\n${GREEN}:: Installation Complete! ::${NC}"
-echo -e "1. The system is installed."
-echo -e "2. Your config is at: ~/nixos-config"
-echo -e "3. You can now reboot."
