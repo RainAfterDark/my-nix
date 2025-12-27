@@ -91,13 +91,16 @@ if [ -f "$SOPS_CONFIG_PATH" ]; then
         echo "Injecting key into $SOPS_CONFIG_PATH..."
         cp "$SOPS_CONFIG_PATH" "${SOPS_CONFIG_PATH}.bak"
         
-        # 1. Inject the key definition
-        # Matches "keys:" at the start of the line and appends the new key on the next line
-        sed -i "s/^keys:/keys:\\n  - &${HOST} ${PUBLIC_KEY}/" "$SOPS_CONFIG_PATH"
-        
-        # 2. Inject the key reference
-        # Matches any line ending with "- *something" and appends the new host reference
-        sed -i -E "s/(- \*[a-zA-Z0-9_]+)$/\1\\n          - *${HOST}/" "$SOPS_CONFIG_PATH"
+        # We run perl inside nix-shell to ensure it's available
+        nix-shell -p perl --run "perl -0777 -i -pe '
+            # 1. Inject Key Definition (Global Keys)
+            s/^keys:/keys:\n  - &${HOST} ${PUBLIC_KEY}/m;
+            
+            # 2. Inject Key Reference (Under \"- age:\")
+            # Matches \"- age:\" and inserts the new key on the next line
+            # \$1 captures the indentation of \"- age:\". We add 4 spaces for the new item.
+            s/^(\s+)- age:/\$&\n\$1    - *${HOST}/mg;
+        ' \"$SOPS_CONFIG_PATH\""
         
         echo "Key injected. Re-encrypting secrets..."
         
