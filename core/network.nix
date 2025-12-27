@@ -45,7 +45,7 @@
 
   services.tailscale = {
     enable = true;
-    authKeyFile = config.sops.secrets.tailscale-authkey.path;
+    # authKeyFile = config.sops.secrets.tailscale-authkey.path;
     # prevent tailscale from overwriting resolv.conf
     extraUpFlags = [ "--accept-dns=false" ];
   };
