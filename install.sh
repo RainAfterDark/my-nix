@@ -93,13 +93,10 @@ if [ -f "$SOPS_CONFIG_PATH" ]; then
         
         # We run perl inside nix-shell to ensure it's available
         nix-shell -p perl --run "perl -0777 -i -pe '
-            # 1. Inject Key Definition (Global Keys)
+            # 1. Inject Key Definition
             s/^keys:/keys:\n  - &${HOST} ${PUBLIC_KEY}/m;
-            
-            # 2. Inject Key Reference (Under \"- age:\")
-            # Matches \"- age:\" and inserts the new key on the next line
-            # \$1 captures the indentation of \"- age:\". We add 4 spaces for the new item.
-            s/^(\s+)- age:/\$&\n\$1    - *${HOST}/mg;
+            # 2. Inject Key Reference
+            s/^(\s+)- age:/\$&\n\$1  - *${HOST}/mg;
         ' \"$SOPS_CONFIG_PATH\""
         
         echo "Key injected. Re-encrypting secrets..."
