@@ -28,11 +28,11 @@ echo -e "${BLUE}:: NixOS Installer ::${NC}"
 echo -e "\n${GREEN}Which host config do you want to install?${NC}"
 PS3="Select host (number): "
 # Update this when adding new hosts!
-options=("desktop" "thinkpad" "xps" "Quit")
+options=("desktop" "t14" "xps7590" "Quit")
 select HOST in "${options[@]}"
 do
     case $HOST in
-        "desktop"|"thinkpad"|"xps")
+        "desktop"|"t14"|"xps7590")
             echo -e "Selected Host: ${BLUE}${HOST}${NC}"
             break
             ;;
