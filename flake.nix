@@ -97,6 +97,7 @@
       stateVersion = "25.11";
       hosts = [
         "desktop"
+        "t14"
         "xps7590"
       ];
 
