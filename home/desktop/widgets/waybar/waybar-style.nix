@@ -185,10 +185,13 @@ in
     #clock {
       font-family: "${mainFont}";
       font-weight: bold;
-      font-size: 24px;
+      font-size: 20px;
+      margin: 4px 4px 4px;
       padding: 0px 6px;
-      color: ${base00};
-      background: ${base07};
+      color: ${base07};
+      background: ${base00};
+      border: 2px solid ${base07};
+      box-shadow: 0px 0px 3px ${base00};
     }
 
     #custom-date,
@@ -211,7 +214,7 @@ in
     #battery {
       font-family: "${mainFont}";
       font-weight: bold;
-      font-size: 16px;
+      font-size: 15px;
       margin: 6px 4px 4px 0px;
       padding: 0px 4px;
       color: ${base00};

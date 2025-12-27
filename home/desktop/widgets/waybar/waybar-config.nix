@@ -103,9 +103,9 @@ in
 
       modules-center = [
         "custom/border2"
-        "custom/date"
+        # "custom/date"
         "clock"
-        "custom/day"
+        # "custom/day"
         "custom/border2"
       ];
 
