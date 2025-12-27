@@ -49,6 +49,8 @@
     compsize # compute BTRFS compression ratio
     via # keyboard remapper
     smartmontools # drive S.M.A.R.T
+    usbutils # lsusb
+    libinput # Input devices
 
     # VM
     virt-manager

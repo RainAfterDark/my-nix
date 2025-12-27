@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  host,
   ...
 }:
 let
@@ -36,6 +37,9 @@ in
       enable = true;
       path = lib.getExe pkgs.xwayland-satellite-unstable;
     };
+
+    # Make touch display work for Thinkpad
+    input.touch.map-to-output = lib.mkIf (host == "t14") "eDP-1";
 
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
