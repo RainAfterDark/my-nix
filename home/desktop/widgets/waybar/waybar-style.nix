@@ -77,11 +77,11 @@ in
     }
 
     #custom-nixos {
-      padding: 0px 16px 0px 6px;
+      padding: 0px 15px 0px 6px;
     }
 
     #custom-notification {
-      padding: 0px 16px 0px 8px;
+      padding: 0px 15px 0px 8px;
     }
 
     #custom-nixos:hover,
