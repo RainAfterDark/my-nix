@@ -64,6 +64,9 @@
   environment.systemPackages = with pkgs; [
     amdgpu_top
     radeontop
+    powerstat
+    powertop
+    brightnessctl
   ];
 
   ## Firmware updates
