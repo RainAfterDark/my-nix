@@ -3,7 +3,7 @@ let
   cursor = {
     name = "Aventurine";
     package = pkgs.aventurine-cursor;
-    size = 24;
+    size = 64;
   };
 in
 {
