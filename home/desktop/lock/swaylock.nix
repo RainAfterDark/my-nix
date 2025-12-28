@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  host,
   ...
 }:
 let
@@ -18,10 +17,10 @@ in
     package = pkgs.swaylock-effects;
     settings = {
       daemonize = true;
-      ignore-empty-password = true;
-      datestr = "lock tf in";
+      ignore-empty-password = false;
+      datestr = "";
       font = fontFamily;
-      font-size = if (host == "t14") then 120 else 80;
+      font-size = 80;
 
       screenshots = true;
       clock = true;
