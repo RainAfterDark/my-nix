@@ -20,8 +20,10 @@ let
   sleepOnBat = "${suspendScript}";
 in
 {
+  ## DEPRECATED! in favor of hypridle
+
   services.swayidle = {
-    enable = true;
+    enable = false;
     timeouts = [
       {
         timeout = 300; # 5:00
