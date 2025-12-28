@@ -78,6 +78,8 @@ in
         { app-id = "steam_app_0"; }
         { app-id = "^Minecraft.+"; }
         { app-id = "^Terraria.+"; }
+        { app-id = "^starrail.exe$"; }
+        { app-id = "^genshinimpact.exe$"; }
       ];
       open-floating = false;
       open-maximized = true;

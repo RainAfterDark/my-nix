@@ -29,7 +29,7 @@
 
         # Fullscreen/Dynamic Cast
         "Mod+L".action = fullscreen-window;
-        "Mod+Shift+L".action = toggle-windowed-fullscreen;
+        "Mod+Shift+L".action = toggle-window-floating;
         "Mod+F8".action = set-dynamic-cast-window;
         "Mod+Alt+F8".action = clear-dynamic-cast-target;
         "Mod+Shift+F8".action = set-dynamic-cast-monitor;
