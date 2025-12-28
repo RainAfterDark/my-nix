@@ -54,6 +54,11 @@
     };
   };
 
+  ## Fingerprint Scanner
+  services.fprintd.enable = true;
+  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services.swaylock.fprintAuth = true;
+
   ## Swap
   zramSwap = {
     enable = true;
