@@ -7,13 +7,15 @@ let
   fontFamily = config.stylix.fonts.monospace.name;
 in
 {
+  ## DEPRECATED, using hyprlock now
+
   stylix.targets.swaylock = {
     enable = true;
     useWallpaper = false;
   };
 
   programs.swaylock = {
-    enable = true;
+    enable = false;
     package = pkgs.swaylock-effects;
     settings = {
       daemonize = true;
