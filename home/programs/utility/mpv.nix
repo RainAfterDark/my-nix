@@ -20,6 +20,12 @@
       vulkan-device = "86809b3e-0000-0000-0002-000000000000";
     };
 
+    # Rebinding these since modernx overrides them
+    bindings = {
+      "Ctrl+LEFT" = "sub-seek -1";
+      "Ctrl+RIGHT" = "sub-seek 1";
+    };
+
     profiles = {
       mpvpaper = {
         audio = "no";
