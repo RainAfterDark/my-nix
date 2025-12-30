@@ -41,6 +41,11 @@ in
     # Make touch display work for Thinkpad
     input.touch.map-to-output = lib.mkIf (host == "t14") "eDP-1";
 
+    debug = {
+      # This acts as a compatibility shim for Firefox/Zen focus issues
+      honor-xdg-activation-with-invalid-serial = true;
+    };
+
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
   };
