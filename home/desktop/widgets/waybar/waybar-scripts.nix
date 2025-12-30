@@ -4,7 +4,7 @@ let
     if host == "xps7590" then
       "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
     else if host == "t14" then
-      "/sys/class/hwmon/hwmon*/temp1_input"
+      "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon*/temp1_input"
     else
       "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input";
 
