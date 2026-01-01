@@ -59,7 +59,7 @@ in
       enable = true;
     };
 
-    ## [LAPTOP] SDDM w/ custom theme
+    ## SDDM w/ custom theme (not used)
     displayManager = {
       defaultSession = "niri";
       sddm = {
@@ -94,7 +94,7 @@ in
       };
     };
 
-    ## [DESKTOP] Auto-login setup w/ greetd that starts niri-session
+    ## Auto-login setup w/ greetd that starts niri-session
     displayManager.autoLogin = {
       enable = autoLogin;
       user = "${username}";
