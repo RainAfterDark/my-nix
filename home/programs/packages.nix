@@ -67,6 +67,7 @@
     mission-center # GUI Resources Monitor
     qbittorrent # Torrent Client
     gimp3-with-plugins # Image Manipulation
+    krita # Drawing
     obsidian # Notes Vault
     warehouse # Flatpak Manager
     heroic # Game Launcher
