@@ -21,7 +21,7 @@ in
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     nvidia = {
-      forceFullCompositionPipeline = true;
+      forceFullCompositionPipeline = false;
       modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
@@ -31,6 +31,7 @@ in
     };
     graphics = {
       enable = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         libvdpau-va-gl
         nvidia-vaapi-driver
