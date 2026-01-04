@@ -29,10 +29,7 @@ in
     ## sched-ext
     scx = {
       enable = true;
-      scheduler = "scx_lavd";
-      extraArgs = [
-        "--performance"
-      ];
+      scheduler = "scx_bpfland";
     };
 
     ## Input
