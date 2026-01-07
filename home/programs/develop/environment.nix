@@ -35,7 +35,7 @@ in
     godot
     godot-mono
     godot-export-templates-bin
-    aseprite
+    pixelorama
 
     ## Formating
     shfmt

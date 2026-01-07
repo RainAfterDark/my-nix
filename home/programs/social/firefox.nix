@@ -12,7 +12,7 @@
 
   textfox = {
     enable = false;
-    profile = "default";
+    profiles = [ "default" ];
     config = with colors; {
       tabs = {
         horizontal.enable = false;

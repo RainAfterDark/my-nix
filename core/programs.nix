@@ -33,6 +33,7 @@
     pciutils # lspci, etc.
     tmux # the one and only
     ventoy-full-gtk # USB ISO
+    android-tools # ADB, etc.
 
     # GPU
     vulkan-tools
@@ -94,9 +95,6 @@
 
   # Enable smartd service from smartmontools
   services.smartd.enable = true;
-
-  # ADB for Android development
-  programs.adb.enable = true;
 
   # Allow running AppImage
   programs.appimage = {

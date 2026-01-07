@@ -35,9 +35,9 @@
     milk-grub-theme.url = "github:gemakfy/MilkGrub";
     sddm-stray-nixos.url = "github:RainAfterDark/sddm-stray-nixos";
 
-    elephant.url = "github:abenz1267/elephant";
+    elephant.url = "github:abenz1267/elephant/dev";
     walker = {
-      url = "github:abenz1267/walker";
+      url = "github:abenz1267/walker/dev";
       inputs.elephant.follows = "elephant";
     };
 
@@ -124,10 +124,7 @@
           ];
           config = {
             permittedInsecurePackages = [
-              # This version of Gradle no longer
-              # receives security updates...
-              "gradle-7.6.6"
-              "ventoy-gtk3-1.1.07"
+              "ventoy-gtk3-1.1.10"
             ];
             allowUnfree = true;
             nvidia.acceptLicense = true;
