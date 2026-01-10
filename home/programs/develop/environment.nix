@@ -30,7 +30,7 @@ in
     ## Formating
     shfmt
     treefmt
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   home.sessionVariables = {
