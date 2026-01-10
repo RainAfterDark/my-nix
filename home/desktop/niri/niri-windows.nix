@@ -96,6 +96,7 @@ in
         { app-id = "Spotify"; }
         { app-id = "vesktop"; }
         { app-id = "zen-beta"; }
+        { app-id = "REAPER"; }
       ];
       excludes = [
         { is-floating = true; }

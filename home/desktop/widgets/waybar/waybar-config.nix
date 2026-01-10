@@ -16,6 +16,7 @@ let
     "^nemo$" = "󰷏";
     "^gimp$" = "";
     "^obsidian$" = "󰠮";
+    "^REAPER$" = "󰣲";
 
     "^heroic$" = "";
     "^gamescope$" = "󰺵";
