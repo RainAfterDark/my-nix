@@ -20,13 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ## Servers
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     ## Desktop
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -48,7 +41,6 @@
     };
     nixcord.url = "github:kaylorben/nixcord";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    textfox.url = "github:adriankarlen/textfox";
 
     ## Dev
     flox = {
@@ -118,7 +110,6 @@
         nixpkgs = {
           overlays = [
             inputs.nix-cachyos-kernel.overlay
-            inputs.nix-minecraft.overlay
             inputs.niri.overlays.niri
             (import ./pkgs/overlays.nix)
           ];

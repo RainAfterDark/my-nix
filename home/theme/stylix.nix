@@ -16,7 +16,7 @@ in
       qt.enable = true;
     };
 
-    iconTheme = {
+    icons = {
       enable = true;
       dark = "Papirus-Dark";
       package = pkgs.papirus-icon-theme.override { color = "black"; };
