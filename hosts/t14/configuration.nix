@@ -71,7 +71,6 @@
     radeontop
     powerstat
     powertop
-    brightnessctl
   ];
 
   ## Firmware updates
