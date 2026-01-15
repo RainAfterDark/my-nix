@@ -62,7 +62,7 @@
   ## Swap
   zramSwap = {
     enable = true;
-    memoryPercent = 25; # 4GB
+    memoryPercent = 25;
   };
 
   ## Utility
