@@ -225,25 +225,25 @@ in
         interval = 2;
         exec = "waybar-cpu";
         return-type = "json";
-        format = ''<span bgcolor='${base00}' fgcolor='${base07}'>┇ </span> {percentage:0>2}%'';
+        format = "<span bgcolor='${base00}' fgcolor='${base07}'>┇ </span> {percentage:0>2}%";
       };
 
       "custom/gpu" = {
         interval = 2;
         exec = "waybar-gpu";
         return-type = "json";
-        format = ''<span fgcolor='${base00}' bgcolor='${base07}'>┇󰮄 </span> {percentage:0>2}%'';
+        format = "<span fgcolor='${base00}' bgcolor='${base07}'>┇󰮄 </span> {percentage:0>2}%";
       };
 
       memory = {
         interval = 2;
-        format = ''<span bgcolor='${base00}' fgcolor='${base07}'>┇ </span> {percentage:0>2}%'';
+        format = "<span bgcolor='${base00}' fgcolor='${base07}'>┇ </span> {percentage:0>2}%";
       };
 
       "custom/ping" = {
         interval = 2;
         exec = ''
-          ping -c1 -w1 google.com 2>/dev/null | awk 'match($0, /time=([0-9.]+)/, m) {print int(m[1]); found=1} END{if (!found) print -1}'
+          ping -c1 -w1 8.8.8.8 2>/dev/null | awk 'match($0, /time=([0-9.]+)/, m) {print int(m[1]); found=1} END{if (!found) print -1}'
         '';
         format = "󰖩 {:>2}ms";
         tooltip = false;
