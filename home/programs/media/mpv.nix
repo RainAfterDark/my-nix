@@ -22,8 +22,8 @@
 
     # Rebinding these since modernx overrides them
     bindings = {
-      "Ctrl+LEFT" = "sub-seek -1";
-      "Ctrl+RIGHT" = "sub-seek 1";
+      "Shift+LEFT" = "sub-seek -1";
+      "Shift+RIGHT" = "sub-seek 1";
     };
 
     profiles = {
