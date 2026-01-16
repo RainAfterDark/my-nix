@@ -57,6 +57,7 @@
       mpvScripts.mpv-discord
       mpvScripts.mpv-cheatsheet
       mpvScripts.modernx-zydezu
+      mpvScripts.webtorrent-mpv-hook
     ];
 
     scriptOpts = {
@@ -67,6 +68,9 @@
         video_height = -1;
         video_bitrate = "10M";
         video_quality = 18;
+      };
+      webtorrent = {
+        path = "memory";
       };
     };
   };
