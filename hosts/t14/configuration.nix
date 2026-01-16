@@ -10,6 +10,7 @@
   boot.kernelParams = [
     "nohibernate"
   ];
+
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
   services.logind.settings.Login = {
@@ -24,7 +25,12 @@
     extraPackages = with pkgs; [
       libvdpau-va-gl
       libva-vdpau-driver
+      mesa.opencl # Enables Rusticl (OpenCL) support
     ];
+  };
+
+  environment.variables = {
+    RUSTICL_ENABLE = "radeonsi";
   };
 
   ## WiFi / Bluetooth

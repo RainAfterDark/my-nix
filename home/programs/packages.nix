@@ -74,6 +74,7 @@
     handbrake # Video Remuxer
     waypaper # Wallpaper Picker in Python
     hardinfo2 # Hardware Info
+    davinci-resolve # Video Editing
 
     ### Custom Packaged
     hellpaper # Wallpaper Picker in Raylib
