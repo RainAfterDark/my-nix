@@ -70,7 +70,7 @@
         video_quality = 18;
       };
       webtorrent = {
-        path = "memory";
+        path = "~/Torrents";
       };
     };
   };
