@@ -51,25 +51,18 @@
       };
     };
 
-    scripts = with pkgs; [
-      mpvScripts.videoclip
-      mpvScripts.thumbfast
-      mpvScripts.mpv-discord
-      mpvScripts.mpv-cheatsheet
-      mpvScripts.modernx-zydezu
-      mpvScripts.webtorrent-mpv-hook
+    scripts = with pkgs.mpvScripts; [
+      autosub # Auto download subtitles
+      autosubsync-mpv # Sync subtitles with 'n'
+      mpv-discord # Show mpv in Discord RPC
+      mpv-cheatsheet # Show hotkeys with '?'
+      modernx-zydezu # Modern OSC
+      thumbfast # Thumbnail backend
+      videoclip # For video trimming
+      webtorrent-mpv-hook # Stream torrents
     ];
 
     scriptOpts = {
-      videoclip = {
-        # https://aegisub.org/docs/3.2/ASS_Tags/#\an
-        osd_align = 9; # Top-Right
-        video_width = -1;
-        video_height = -1;
-        video_bitrate = "10M";
-        video_quality = 18;
-      };
-
       modernx = {
         compact_mode = false;
         info_button = true;
@@ -79,6 +72,15 @@
 
       thumbfast = {
         network = true; # Enable on remote files.
+      };
+
+      videoclip = {
+        # https://aegisub.org/docs/3.2/ASS_Tags/#\an
+        osd_align = 9; # Top-Right
+        video_width = -1;
+        video_height = -1;
+        video_bitrate = "10M";
+        video_quality = 18;
       };
 
       webtorrent = {
