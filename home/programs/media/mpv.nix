@@ -11,7 +11,7 @@
     enable = true;
 
     config = {
-      osc = "no";
+      osc = "no"; # required by modernx
       hwdec = "auto";
     }
     # Use IGPU on Laptop
@@ -26,33 +26,16 @@
       "Shift+RIGHT" = "sub-seek 1";
     };
 
-    profiles = {
-      mpvpaper = {
-        audio = "no";
-        loop = "inf";
-
-        cache = "no";
-        demuxer-max-bytes = "10M";
-        demuxer-max-back-bytes = "10M";
-
-        deband = "no";
-        interpolation = "no";
-
-        hwdec = "auto";
-        gpu-api = "vulkan";
-
-        vd-lavc-fast = true;
-        vd-lavc-threads = 1;
-        vd-lavc-skiploopfilter = "all";
-
-        no-embeddedfonts = "";
-        sub-shaper = "simple";
-        sub-auto = "fuzzy";
-      };
-    };
-
     scripts = with pkgs.mpvScripts; [
-      autosub # Auto download subtitles
+      # Auto download subs
+      (autosub.overrideAttrs (old: {
+        # make it manual (hotkey is 'b')
+        preInstall = (old.preInstall or "") + ''
+          substituteInPlace autosub.lua --replace-fail \
+          "auto = true" \
+          "auto = false"
+        '';
+      }))
       autosubsync-mpv # Sync subtitles with 'n'
       mpv-discord # Show mpv in Discord RPC
       mpv-cheatsheet # Show hotkeys with '?'
@@ -85,6 +68,33 @@
 
       webtorrent = {
         path = "~/Torrents";
+      };
+    };
+
+    profiles = {
+      # Optimized config for wallpapers
+      # (even though currently has no use)
+      mpvpaper = {
+        audio = "no";
+        loop = "inf";
+
+        cache = "no";
+        demuxer-max-bytes = "10M";
+        demuxer-max-back-bytes = "10M";
+
+        deband = "no";
+        interpolation = "no";
+
+        hwdec = "auto";
+        gpu-api = "vulkan";
+
+        vd-lavc-fast = true;
+        vd-lavc-threads = 1;
+        vd-lavc-skiploopfilter = "all";
+
+        no-embeddedfonts = "";
+        sub-shaper = "simple";
+        sub-auto = "fuzzy";
       };
     };
   };
