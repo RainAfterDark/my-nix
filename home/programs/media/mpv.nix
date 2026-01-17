@@ -69,6 +69,18 @@
         video_bitrate = "10M";
         video_quality = 18;
       };
+
+      modernx = {
+        compact_mode = false;
+        info_button = true;
+        loop_button = true;
+        show_on_pause = false;
+      };
+
+      thumbfast = {
+        network = true; # Enable on remote files.
+      };
+
       webtorrent = {
         path = "~/Torrents";
       };
