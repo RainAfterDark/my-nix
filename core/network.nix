@@ -35,12 +35,16 @@
 
   services.resolved = {
     enable = true;
-    fallbackDns = [
-      "8.8.8.8"
-      "8.8.4.4"
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
+    settings = {
+      Resolve = {
+        FallbackDNS = [
+          "8.8.8.8"
+          "8.8.4.4"
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+      };
+    };
   };
 
   services.tailscale = {
