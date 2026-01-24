@@ -18,26 +18,46 @@ in
   powerManagement.cpuFreqGovernor = "performance";
 
   ## GPU
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "nvidia"
+  ];
+
   hardware = {
     nvidia = {
-      forceFullCompositionPipeline = false;
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
+      modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        # NVIDIA GTX 750 Ti
+        nvidiaBusId = "PCI:1:0:0";
+        # AMD Radeon Vega (Renoir)
+        amdgpuBusId = "PCI:8:0:0";
+      };
     };
+
     graphics = {
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
         libvdpau-va-gl
-        nvidia-vaapi-driver
         libva-vdpau-driver
+        nvidia-vaapi-driver
       ];
     };
+
     enableRedistributableFirmware = true;
   };
 
