@@ -38,8 +38,8 @@ in
 {
   home.packages = with pkgs; [
     prismlauncher
-    mcaselector
   ];
+
   # We do a little sneaky
   home.activation.createPrismLauncherAccounts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     accounts_file="''${XDG_DATA_HOME:-''$HOME/.local/share}/PrismLauncher/accounts.json"

@@ -1,14 +1,17 @@
 { inputs, ... }:
 {
+  ## Steam
   programs = {
     gamescope = {
       enable = true;
       capSysNice = true;
     };
+
     gamemode = {
       enable = true;
       enableRenice = true;
     };
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true;

@@ -2,82 +2,79 @@
 {
   home.packages = with pkgs; [
     ### TUI
-    ## Better core utils
+    ## Utilities
     duf # disk information
     eza # ls replacement
     fd # find replacement
     gping # ping with a graph
-    gtrash # rm replacement, put deleted files in system trash
-    hevi # hex viewer
-    hexyl # hex viewer
+    gtrash # put deleted files in system trash
     man-pages # extra man pages
     ncdu # disk space
     ripgrep # grep replacement
     tldr # zoomer man
     bat # zoomer cat
+    entr # perform action when file change
+    file # Show file information
+    jq # JSON processor
+    killall # process killer
+    libnotify # send notifications to daemon
+    libcanberra-gtk3 # system sounds
+    openssl # SSL and TLS
+    unzip # archives
+    wget # downloader
 
     ## Monitoring / Fetch
-    nitch
-    fastfetch
-    hyfetch
+    nitch # nice fetch
+    fastfetch # not very fast, actually
+    hyfetch # flagsssssssss
     onefetch # fetch utility for git repo
     wavemon # monitoring for wireless network devices
 
     ## Fun / Testing
-    smassh # typing test in the terminal
-    toipe # typing test in the terminal
-    ttyper # cli typing test
-    asciiquarium-transparent
-    cbonsai
-    cmatrix
-    countryfetch
-    cowsay
-    figlet
-    fortune
-    lavat
-    lolcat
-    pipes
-    sl
-    tty-clock
+    smassh # monkeytype
+    toipe # typing test
+    asciiquarium-transparent # fish
+    cbonsai # tree
+    cmatrix # 1337 haxor
+    cowsay # moo
+    figlet # ascii text
+    fortune # pseudorandom
+    lavat # laval lamp
+    pipes # plumbing
+    sl # choo choo
+    tty-clock # ncurses clock
 
     ## Multimedia
-    ani-cli
-    imv
-    lowfi
-    presenterm
-
-    ## Utilities
-    entr # perform action when file change
-    ffmpeg-full
-    file # Show file information
-    jq # JSON processor
-    killall
-    libnotify
-    libcanberra-gtk3
-    openssl
+    ani-cli # watch anime
+    imv # image viewer
+    lowfi # lo-fi beats
+    presenterm # md presentation
+    md-tui # markdown parser
+    ffmpeg-full # video manipulation
+    playerctl # for MRPIS players
     pamixer # pulseaudio command line mixer
-    playerctl # controller for media players
-    unzip
-    wget
-    md-tui
 
     ### GUI
-    pavucontrol # Audio Control
-    libreoffice # Documents etc.
-    mission-center # GUI Resources Monitor
-    qbittorrent # Torrent Client
-    gimp3-with-plugins # Image Manipulation
-    krita # Drawing
-    obsidian # Notes Vault
-    warehouse # Flatpak Manager
-    heroic # Game Launcher
-    handbrake # Video Remuxer
-    waypaper # Wallpaper Picker in Python
-    hardinfo2 # Hardware Info
-    davinci-resolve # Video Editing
-    qdirstat # Visualize Disk Usage
+    pavucontrol # audio control
+    libreoffice # documents and office
+    mission-center # resources monitor
+    qbittorrent # torrent client
+    hardinfo2 # hardware info
+    qdirstat # visualize disk usage
+
+    gimp3-with-plugins # image manipulation
+    krita # drawing and painting
+    handbrake # video remuxer
+    davinci-resolve # video editor
+
+    obsidian # notes vault
+    warehouse # flatpak manager
+    heroic # game launcher
+    protonplus # wine and proton manager
+    mcaselector # minecraft worlds util
+    waypaper # wallpaper picker in python
 
     ### Custom Packaged
-    hellpaper # Wallpaper Picker in Raylib
+    hellpaper # wallpaper picker in C (raylib)
   ];
 }
