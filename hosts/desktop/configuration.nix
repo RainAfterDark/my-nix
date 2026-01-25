@@ -10,7 +10,7 @@ in
 {
   ## Packages
   environment.systemPackages = with pkgs; [
-    ntfs3g # for HDD mount
+    ntfs3g # for ntfsfix
     compose2nix # docker yml to nix
   ];
 
@@ -73,17 +73,20 @@ in
   users.users.${username}.extraGroups = [ "media" ];
 
   ## HDD Mount
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs3" ];
   fileSystems."/mnt/hdd" = {
     device = "/dev/disk/by-uuid/01DB3464A12349E0";
-    fsType = "ntfs-3g";
+    fsType = "ntfs3";
     options = [
       "rw"
       "uid=1000"
       "gid=${toString mediaGid}"
       "umask=002"
+      "iocharset=utf8"
+      "prealloc"
+      "noatime"
+      "nocase"
       "windows_names"
-      "big_writes"
     ];
   };
 }
