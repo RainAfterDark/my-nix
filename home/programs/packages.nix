@@ -75,6 +75,7 @@
     waypaper # Wallpaper Picker in Python
     hardinfo2 # Hardware Info
     davinci-resolve # Video Editing
+    qdirstat # Visualize Disk Usage
 
     ### Custom Packaged
     hellpaper # Wallpaper Picker in Raylib
