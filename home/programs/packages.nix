@@ -28,21 +28,19 @@
     fastfetch # not very fast, actually
     hyfetch # flagsssssssss
     onefetch # fetch utility for git repo
-    wavemon # monitoring for wireless network devices
+    wavemon # wireless network monitor
 
-    ## Fun / Testing
+    ## Fun
     smassh # monkeytype
     toipe # typing test
     asciiquarium-transparent # fish
     cbonsai # tree
     cmatrix # 1337 haxor
-    cowsay # moo
     figlet # ascii text
     fortune # pseudorandom
     lavat # laval lamp
     pipes # plumbing
     sl # choo choo
-    tty-clock # ncurses clock
 
     ## Multimedia
     ani-cli # watch anime
