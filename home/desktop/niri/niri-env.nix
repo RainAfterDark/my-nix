@@ -2,6 +2,7 @@
   lib,
   pkgs,
   host,
+  config,
   ...
 }:
 let
@@ -19,8 +20,9 @@ let
 in
 {
   home.sessionVariables = environment;
+
   programs.niri.settings = {
-    inherit environment;
+    environment = lib.mapAttrs (k: v: toString v) config.home.sessionVariables;
 
     spawn-at-startup = [
       { command = [ "syshud" ]; }
