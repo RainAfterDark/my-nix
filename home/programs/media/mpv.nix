@@ -36,10 +36,22 @@
           "auto = false"
         '';
       }))
+
+      # Modern OSC
+      (modernx-zydezu.overrideAttrs (old: {
+        # bind sub cycling to x (avoid conflicts w/ videoclip)
+        # z and x by default bind to + and - sub delay ms,
+        # which we won't hopefully have to do with sub syncing
+        preInstall = (old.preInstall or "") + ''
+          substituteInPlace modernx.lua --replace-fail \
+          '"c", "cyclecaptions"' \
+          '"x", "cyclecaptions"'
+        '';
+      }))
+
       autosubsync-mpv # Sync subtitles with 'n'
       mpv-discord # Show mpv in Discord RPC
       mpv-cheatsheet # Show hotkeys with '?'
-      modernx-zydezu # Modern OSC
       thumbfast # Thumbnail backend
       videoclip # For video trimming
       webtorrent-mpv-hook # Stream torrents
