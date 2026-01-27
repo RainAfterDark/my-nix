@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  systemTheme = "tomorrow-night";
+  systemTheme = "kanagawa-dragon";
 in
 {
   ## System-wide installs for desktop programs

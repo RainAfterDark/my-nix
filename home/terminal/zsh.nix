@@ -138,7 +138,7 @@ in
       ${notifyWrap}
 
       # system info
-      nitch
+      pfetch
     '';
   };
 
