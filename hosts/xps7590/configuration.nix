@@ -9,16 +9,14 @@
   # Default config with NVIDIA Prime
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
 
-  # The nixos-hardware defaults this to S3 (deep)
-  # S3 sleep has been more unreliable lately....
+  # No hibernate!
   boot.kernelParams = lib.mkAfter [
-    "mem_sleep_default=s2idle"
     "nohibernate"
   ];
 
-  # Do not use hibernate!
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
+
   services.logind.settings.Login = {
     KillUserProcesses = false;
     SleepOperation = "suspend";
@@ -43,6 +41,7 @@
     intel-media-driver
     nvidia-vaapi-driver
   ];
+
   hardware.graphics.enable32Bit = true;
 
   # WiFi/Bluetooth
@@ -50,6 +49,7 @@
     "iwlwifi"
     "iwlmvm"
   ];
+
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
@@ -62,6 +62,7 @@
       };
     };
   };
+
   services.blueman.enable = true;
 
   ## CPU Undervolt
@@ -70,21 +71,14 @@
   # https://www.reddit.com/r/Dell/comments/fzv599/
   services.undervolt = {
     enable = true;
-    coreOffset = 0; # 150 limit
-    uncoreOffset = 0; # 100 limit
+    temp = 85; # above 85 throttles (?)
+    turbo = 0; # 0 enabled, 1 disabled
+    useTimer = true; # periodically reapply settings
+
+    coreOffset = 0; # -150 limit
+    uncoreOffset = 0; # -100 limit
     gpuOffset = 0; # doesn't do much
     analogioOffset = 0; # should be left 0
-    temp = 85; # above 85 throttles (?)
-    p1 = {
-      limit = 35;
-      window = 28;
-    };
-    p2 = {
-      limit = 55;
-      window = 10;
-    };
-    turbo = 0;
-    useTimer = true; # periodically reapply settings
   };
 
   # TLP
@@ -97,6 +91,8 @@
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "balanced";
+      START_CHARGE_THRESH_BAT0 = 75;
+      STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
 
