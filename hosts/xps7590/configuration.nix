@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   inputs,
   ...
 }:
@@ -111,13 +110,5 @@
   zramSwap = {
     enable = true;
     memoryPercent = 25; # 8GB
-  };
-
-  ## FIXME: this is a bit of a hack to get systemctl sleep to run properly again
-  systemd.services."nvidia-suspend" = {
-    serviceConfig.ExecStart = lib.mkForce "${pkgs.bash}/bin/bash ${config.hardware.nvidia.package}/bin/nvidia-sleep.sh suspend";
-  };
-  systemd.services."nvidia-resume" = {
-    serviceConfig.ExecStart = lib.mkForce "${pkgs.bash}/bin/bash ${config.hardware.nvidia.package}/bin/nvidia-sleep.sh resume";
   };
 }
