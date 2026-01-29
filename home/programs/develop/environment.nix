@@ -6,7 +6,7 @@
 }:
 let
   flox = inputs.flox.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  chrome = pkgs.ungoogled-chromium;
+  chrome = pkgs.google-chrome;
 in
 {
   home.packages = with pkgs; [

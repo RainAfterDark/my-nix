@@ -15,21 +15,28 @@
 
     networkmanager = {
       enable = true;
-      dns = "systemd-resolved"; # let NM hand DNS to resolved
+      # let NM hand DNS to resolved
+      dns = "systemd-resolved";
     };
 
     firewall = {
       enable = true;
+      checkReversePath = "loose";
+
       allowedTCPPorts = [
         22
         80
         443
         config.services.tailscale.port
       ];
+
       allowedUDPPorts = [
         config.services.tailscale.port
       ];
-      trustedInterfaces = [ config.services.tailscale.interfaceName ];
+
+      trustedInterfaces = [
+        config.services.tailscale.interfaceName
+      ];
     };
   };
 
@@ -43,14 +50,38 @@
           "1.1.1.1"
           "1.0.0.1"
         ];
+        # let avahi handle mDNS
+        MulticastDNS = "off";
       };
     };
   };
 
+  # mDNS
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+    nssmdns4 = true;
+    nssmdns6 = true;
+
+    publish = {
+      enable = true;
+      userServices = true;
+      addresses = true;
+    };
+  };
+
+  # TailNet
   services.tailscale = {
     enable = true;
-    # authKeyFile = config.sops.secrets.tailscale-authkey.path;
     # prevent tailscale from overwriting resolv.conf
     extraUpFlags = [ "--accept-dns=false" ];
+  };
+
+  # Stream host for Moonlight
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
   };
 }

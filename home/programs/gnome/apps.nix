@@ -3,14 +3,14 @@
   home.packages = (
     with pkgs;
     [
-      dconf-editor
-      gnome-disk-utility
-      gnome-power-manager
-      evince # pdf
+      dconf-editor # gnome config
       file-roller # archive
+      evince # pdf
+      nautilus # file explorer
+
+      gnome-disk-utility # disks/partitions
       gnome-text-editor # gedit
-      gnome-calculator
-      nautilus
+      gnome-calculator # calc
     ]
   );
 }

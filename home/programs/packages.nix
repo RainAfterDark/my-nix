@@ -64,6 +64,7 @@
     krita # drawing and painting
     handbrake # video remuxer
     davinci-resolve # video editor
+    vlc # media player
 
     obsidian # notes vault
     warehouse # flatpak manager
