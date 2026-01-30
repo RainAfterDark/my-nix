@@ -77,8 +77,25 @@ in
   programs.nixcord = {
     enable = true;
     discord.enable = false;
-    vesktop.enable = true;
     quickCss = customTheme;
+
+    vesktop = {
+      enable = true;
+      settings = with colors; {
+        appBadge = false;
+        arRPC = true;
+        checkUpdates = false;
+        customTitleBar = false;
+        disableMinSize = true;
+        minimizeToTray = false;
+        splashColor = "${base07-rgba 1.0}";
+        splashBackground = "${base00-rgba 0.95}";
+        tray = false;
+        hardwareAcceleration = false;
+        discordBranch = "canary";
+      };
+    };
+
     config = {
       frameless = true;
       transparent = true;
