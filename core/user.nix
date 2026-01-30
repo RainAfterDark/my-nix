@@ -43,6 +43,8 @@ in
       home.stateVersion = stateVersion;
       programs.home-manager.enable = true;
     };
+
+    backupFileExtension = "hmbak";
   };
 
   users.users.${username} = {

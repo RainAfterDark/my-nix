@@ -83,6 +83,7 @@ in
       frameless = true;
       transparent = true;
       useQuickCss = true;
+      enableReactDevtools = true;
       themeLinks = [
         "https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/system24-vencord.theme.css"
       ];
