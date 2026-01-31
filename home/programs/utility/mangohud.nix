@@ -100,7 +100,7 @@
       # gpu_load_value=60,90
       # gpu_load_color=39F900,FDFD09,B22222
       ## GPU fan in rpm on AMD, FAN in percent on NVIDIA
-      gpu_fan
+      # gpu_fan
       ## gpu_voltage only works on AMD GPUs
       # gpu_voltage
       ## Select list of GPUs to display
@@ -110,7 +110,7 @@
       ### Display the current CPU information
       cpu_stats
       cpu_temp
-      # cpu_power
+      cpu_power
       # cpu_text=
       cpu_mhz
       # cpu_load_change
@@ -393,7 +393,7 @@
       # toggle_preset=Shift_R+F10
       # toggle_fps_limit=Shift_L+F1
       # toggle_logging=Shift_L+F2
-      reload_cfg=Shift_L+F4
+      reload_cfg=Shift_R+F4
       # upload_log=Shift_L+F3
       reset_fps_metrics=Shift_R+f9
 
