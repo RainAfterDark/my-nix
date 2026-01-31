@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   ## Steam
   programs = {
@@ -29,6 +29,11 @@
   # programs.wavey-launcher.enable = true;
   # programs.sleepy-launcher.enable = true;
 
-  # Enable NTSync for games
+  ## Enable NTSync for games
   boot.kernelModules = [ "ntsync" ];
+
+  ## winediscordipcbridge-steam.sh
+  environment.systemPackages = with pkgs; [
+    pkgsCross.mingw32.wine-discord-ipc-bridge
+  ];
 }
