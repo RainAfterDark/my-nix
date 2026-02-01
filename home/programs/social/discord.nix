@@ -81,15 +81,13 @@ in
 
     vesktop = {
       enable = true;
-      settings = with colors; {
+      settings = {
         appBadge = false;
         arRPC = true;
-        checkUpdates = false;
         customTitleBar = false;
-        disableMinSize = true;
+        disableMinSize = false;
+        enableSplashScreen = false;
         minimizeToTray = false;
-        splashColor = "${base07-rgba 1.0}";
-        splashBackground = "${base00-rgba 0.95}";
         tray = false;
         hardwareAcceleration = false;
         discordBranch = "canary";
