@@ -76,9 +76,27 @@ in
 
   programs.nixcord = {
     enable = true;
-    discord.enable = false;
-    quickCss = customTheme;
 
+    # Theming
+    quickCss = customTheme;
+    config = {
+      frameless = true;
+      transparent = true;
+      useQuickCss = true;
+      enableReactDevtools = true;
+      themeLinks = [
+        "https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/system24-vencord.theme.css"
+      ];
+    };
+
+    # Vanilla discord has better RPC
+    discord = {
+      enable = true;
+      branch = "canary";
+      openASAR.enable = true;
+    };
+
+    # Can probably be removed...
     vesktop = {
       enable = true;
       settings = {
@@ -92,16 +110,6 @@ in
         hardwareAcceleration = false;
         discordBranch = "canary";
       };
-    };
-
-    config = {
-      frameless = true;
-      transparent = true;
-      useQuickCss = true;
-      enableReactDevtools = true;
-      themeLinks = [
-        "https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/system24-vencord.theme.css"
-      ];
     };
   };
 }

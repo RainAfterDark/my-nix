@@ -24,6 +24,7 @@ let
 
     "^Spotify$" = "";
     "^steam$" = "";
+    "^discord$" = "";
     "^vesktop$" = "";
     "^zen-beta$" = "";
     "^zoom$" = "󰰷";

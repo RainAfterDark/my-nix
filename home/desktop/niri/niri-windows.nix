@@ -94,6 +94,7 @@ in
         { app-id = "jetbrains-rider"; }
         { app-id = "mpv"; }
         { app-id = "Spotify"; }
+        { app-id = "discord"; }
         { app-id = "vesktop"; }
         { app-id = "zen-beta"; }
         { app-id = "REAPER"; }
@@ -109,6 +110,7 @@ in
       matches = [
         { app-id = "codium"; }
         { app-id = "VSCodium"; }
+        { app-id = "heroic"; }
       ];
       excludes = [
         { is-floating = true; }
