@@ -1,10 +1,8 @@
 {
   config,
-  lib,
   pkgs,
   host,
   flakeRoot,
-  secrets,
   ...
 }:
 let
@@ -65,21 +63,8 @@ let
       nou = mkNhAlias "boot -u" "Boot Update";
     }
   );
-
-  completionsPath = "zsh/completions";
-  mkZshCompletion = name: pkg: {
-    xdg.configFile."${completionsPath}/_${name}".text = builtins.readFile (
-      pkgs.runCommand "${name}-zsh-completions" { } ''
-        ${lib.getExe pkg} completions zsh > $out
-      ''
-    );
-  };
 in
 {
-  imports = [
-    (mkZshCompletion "niri" pkgs.niri-unstable)
-  ];
-
   programs.zsh = {
     enable = true;
     inherit shellAliases;
@@ -111,9 +96,6 @@ in
     '';
 
     initContent = ''
-      # add completions
-      fpath=($HOME/.config/${completionsPath} $fpath)
-
       # history behaviour
       setopt sharehistory
       setopt hist_ignore_space
