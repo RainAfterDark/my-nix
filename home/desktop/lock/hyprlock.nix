@@ -23,18 +23,6 @@ in
         };
       };
 
-      animations = {
-        enabled = true;
-        fade_in = {
-          duration = 250;
-          bezier = "easeOutQuint";
-        };
-        fade_out = {
-          duration = 250;
-          bezier = "easeOutQuint";
-        };
-      };
-
       background = {
         path = "screenshot";
         blur_passes = 2;
@@ -45,7 +33,7 @@ in
         {
           monitor = "";
           text = ''cmd[update:1000] echo -e "$(LC_TIME=ja_JP.UTF-8 date +%m月%d)"'';
-          color = "rgb(${colors.base0D})";
+          color = colors.base0D-rgb;
           font_family = fontFamily;
           font_size = 47;
           position = "0, 80";
@@ -54,7 +42,7 @@ in
         {
           monitor = "";
           text = ''cmd[update:1000] echo "<span>$(date +%H:%M:%S)</span>"'';
-          color = "rgb(${colors.base0C}";
+          color = colors.base07-rgb;
           font_family = fontFamily;
           font_size = 67;
           position = "0, 0";
@@ -67,7 +55,6 @@ in
         size = "220, 60";
         position = "0, -90";
         font_family = fontFamily;
-        font_size = 67;
         placeholder_text = "󰦝 認証";
         fail_text = " 失敗";
         fade_on_empty = false;

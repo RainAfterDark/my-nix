@@ -20,20 +20,27 @@ nixpkgs.lib.extend (
             "base0${builtins.elemAt [ "A" "B" "C" "D" "E" "F" ] (n - 10)}"
         ) 16;
 
-        rgbaFunctions = builtins.listToAttrs (
-          builtins.map (
+        extensions = builtins.listToAttrs (
+          builtins.concatMap (
             base:
             let
               inherit (final.strings) removePrefix;
               c = n: removePrefix "#" (builtins.getAttr "${base}-rgb-${n}" colors);
+              rgb = "${c "r"}, ${c "g"}, ${c "b"}";
             in
-            {
-              name = "${base}-rgba";
-              value = alpha: "rgba(${c "r"}, ${c "g"}, ${c "b"}, ${toString alpha})";
-            }
+            [
+              {
+                name = "${base}-rgb";
+                value = "rgb(${rgb})";
+              }
+              {
+                name = "${base}-rgba";
+                value = a: "rgba(${rgb}, ${toString a})";
+              }
+            ]
           ) baseKeys
         );
       in
-      colors // rgbaFunctions;
+      colors // extensions;
   }
 )

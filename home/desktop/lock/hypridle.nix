@@ -2,16 +2,13 @@
   lib,
   pkgs,
   host,
+  config,
   ...
 }:
 let
-  hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
-  niri = "/run/current-system/sw/bin/niri";
   sleepOnBat = pkgs.writeShellScript "sleep-on-bat" ''
-    # Check if AC is online (1 = plugged in, 0 = battery)
-    ac_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/AC/online)   
-    if [ "$ac_status" = "0" ]; then
-      /run/current-system/sw/bin/systemctl suspend
+    if grep -q "Discharging" /sys/class/power_supply/BAT*/status 2>/dev/null; then
+      systemctl suspend
     fi
   '';
 in
@@ -22,16 +19,16 @@ in
     settings = {
       general = {
         # Avoid starting multiple hyprlock instances
-        lock_cmd = "pidof hyprlock || ${hyprlock}";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "${niri} msg action power-on-monitors";
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session; sleep 1";
+        after_sleep_cmd = "niri msg action power-on-monitors";
       };
 
       listener = [
         {
           timeout = 300; # 5:00
-          on-timeout = "${niri} msg action power-off-monitors";
-          on-resume = "${niri} msg action power-on-monitors";
+          on-timeout = "niri msg action power-off-monitors";
+          on-resume = "niri msg action power-on-monitors";
         }
       ]
       # Laptop-only rules
@@ -48,11 +45,18 @@ in
     };
   };
 
-  # Fix hyprlock ran in hypridle not being able to call date
+  # For commands needed in hyprlock
   systemd.user.services.hypridle.Service.Environment = lib.mkForce "PATH=${
-    lib.makeBinPath [
-      pkgs.coreutils
-      pkgs.bash
-    ]
-  }:/run/current-system/sw/bin";
+    lib.makeBinPath (
+      with pkgs;
+      [
+        bash
+        procps
+        coreutils
+        systemd
+        hyprlock
+        config.programs.niri.package
+      ]
+    )
+  }";
 }
