@@ -11,7 +11,7 @@
     man-pages # extra man pages
     ncdu # disk space
     ripgrep # grep replacement
-    tldr # zoomer man
+    tlrc # zoomer man
     bat # zoomer cat
     entr # perform action when file change
     file # Show file information
