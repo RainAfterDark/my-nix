@@ -2,7 +2,6 @@
   self,
   nixpkgs,
   inputs,
-  universal,
   system,
   username,
   flakeRoot,
@@ -37,7 +36,7 @@ let
           coreModules = findModules ./core;
           hostModules = findModules ./hosts/${host};
         in
-        [ universal ] ++ coreModules ++ hostModules;
+        [ ./nixos.nix ] ++ coreModules ++ hostModules;
     };
 in
 {

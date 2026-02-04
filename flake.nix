@@ -87,42 +87,12 @@
       username = "ame";
       flakeRoot = "/home/${username}/my-nix";
       stateVersion = "25.11";
+
       hosts = [
         "desktop"
         "t14"
         "xps7590"
       ];
-
-      universal = {
-        nix = {
-          settings = {
-            sandbox = true;
-            auto-optimise-store = true;
-            trusted-users = [ username ];
-            allowed-users = [ username ];
-            experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
-          };
-        };
-
-        nixpkgs = {
-          overlays = [
-            inputs.nix-cachyos-kernel.overlay
-            inputs.niri.overlays.niri
-            (import ./pkgs/overlays.nix)
-          ];
-          config = {
-            permittedInsecurePackages = [
-              "ventoy-gtk3-1.1.10"
-            ];
-            allowUnfree = true;
-            nvidia.acceptLicense = true;
-            android_sdk.accept_license = true;
-          };
-        };
-      };
 
     in
     import ./outputs.nix {
@@ -130,7 +100,6 @@
         self
         nixpkgs
         inputs
-        universal
         system
         username
         flakeRoot
