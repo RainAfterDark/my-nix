@@ -1,17 +1,14 @@
-{
-  lib,
-  host,
-  flakeRoot,
-  ...
-}:
+{ lib, ... }:
 {
   stylix.targets.vscode.enable = true;
 
   programs.vscode.profiles.default = {
     userSettings = {
       "update.mode" = "none";
-      "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
-      "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
+      # This stuff fixes vscode freaking out when theres an update
+      "extensions.autoUpdate" = false;
+      # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
+      "window.titleBarStyle" = "custom";
 
       "window.menuBarVisibility" = "toggle";
       "editor.fontSize" = lib.mkForce 13;
@@ -40,33 +37,6 @@
       "editor.smoothScrolling" = true;
       "workbench.list.smoothScrolling" = true;
       "terminal.integrated.smoothScrolling" = true;
-
-      # Nix
-      "nix.serverPath" = "nixd";
-      "nix.enableLanguageServer" = true;
-      "nix.serverSettings" = {
-        "nixd" =
-          let
-            flake = "(builtins.getFlake \"${flakeRoot}\")";
-            nixosOptions = "${flake}.nixosConfigurations.${host}.options";
-          in
-          {
-            "nixpkgs" = {
-              "expr" = "${flake}.inputs.nixpkgs { }";
-            };
-            "formatting" = {
-              "command" = [ "nixfmt" ];
-            };
-            "options" = {
-              "nixos" = {
-                "expr" = nixosOptions;
-              };
-              "home-manager" = {
-                "expr" = "${nixosOptions}.home-manager.users.type.getSubOptions []";
-              };
-            };
-          };
-      };
     };
   };
 }
