@@ -9,7 +9,10 @@
 			},
 			"formatting": {
 				"command": [
-					"nixfmt"
+					"nixfmt",
+					"-sv",
+					"-w",
+					"80"
 				]
 			},
 			"options": {

@@ -9,9 +9,7 @@
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
 
   # No hibernate!
-  boot.kernelParams = lib.mkAfter [
-    "nohibernate"
-  ];
+  boot.kernelParams = lib.mkAfter [ "nohibernate" ];
 
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;

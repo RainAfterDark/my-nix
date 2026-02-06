@@ -21,9 +21,7 @@
       "/home/ame/.shoko-config:/home/shoko/.shoko:rw"
       "/mnt/hdd/_Anime:/mnt/anime:ro"
     ];
-    ports = [
-      "8111:8111/tcp"
-    ];
+    ports = [ "8111:8111/tcp" ];
     log-driver = "journald";
     extraOptions = [
       "--network-alias=shoko_server"
@@ -38,18 +36,10 @@
       RestartSec = lib.mkOverride 90 "100ms";
       RestartSteps = lib.mkOverride 90 9;
     };
-    after = [
-      "docker-network-shoko_default.service"
-    ];
-    requires = [
-      "docker-network-shoko_default.service"
-    ];
-    partOf = [
-      "docker-compose-shoko-root.target"
-    ];
-    wantedBy = [
-      "docker-compose-shoko-root.target"
-    ];
+    after = [ "docker-network-shoko_default.service" ];
+    requires = [ "docker-network-shoko_default.service" ];
+    partOf = [ "docker-compose-shoko-root.target" ];
+    wantedBy = [ "docker-compose-shoko-root.target" ];
   };
 
   # Networks

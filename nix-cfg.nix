@@ -30,9 +30,7 @@
     ];
 
     config = {
-      permittedInsecurePackages = [
-        "ventoy-gtk3-1.1.10"
-      ];
+      permittedInsecurePackages = [ "ventoy-gtk3-1.1.10" ];
       allowUnfree = true;
       nvidia.acceptLicense = true;
       android_sdk.accept_license = true;

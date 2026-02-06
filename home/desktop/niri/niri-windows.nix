@@ -30,9 +30,7 @@ in
 
     # Pavucontrol
     {
-      matches = [
-        { app-id = "org.pulseaudio.pavucontrol"; }
-      ];
+      matches = [ { app-id = "org.pulseaudio.pavucontrol"; } ];
       open-floating = true;
       default-floating-position = {
         relative-to = "top-right";
@@ -60,9 +58,7 @@ in
 
     # Android Studio
     {
-      matches = [
-        { app-id = "jetbrains-studio"; }
-      ];
+      matches = [ { app-id = "jetbrains-studio"; } ];
       excludes = [
         { is-floating = true; }
         { title = "^Running Devices - .*"; }
@@ -99,9 +95,7 @@ in
         { app-id = "zen-beta"; }
         { app-id = "REAPER"; }
       ];
-      excludes = [
-        { is-floating = true; }
-      ];
+      excludes = [ { is-floating = true; } ];
       open-maximized = true;
     }
 
@@ -112,20 +106,14 @@ in
         { app-id = "VSCodium"; }
         { app-id = "heroic"; }
       ];
-      excludes = [
-        { is-floating = true; }
-      ];
+      excludes = [ { is-floating = true; } ];
       default-column-width.proportion = 0.75;
     }
 
     # Half-Width Apps
     {
-      matches = [
-        { app-id = "nemo"; }
-      ];
-      excludes = [
-        { is-floating = true; }
-      ];
+      matches = [ { app-id = "nemo"; } ];
+      excludes = [ { is-floating = true; } ];
       default-column-width.proportion = 0.5;
     }
 
@@ -144,9 +132,7 @@ in
 
     # Floating Apps
     {
-      matches = [
-        { app-id = "waypaper"; }
-      ];
+      matches = [ { app-id = "waypaper"; } ];
       open-floating = true;
     }
   ];

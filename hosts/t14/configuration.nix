@@ -1,15 +1,9 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
   imports = [ inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1 ];
 
   ## Don't hibernate!
-  boot.kernelParams = [
-    "nohibernate"
-  ];
+  boot.kernelParams = [ "nohibernate" ];
 
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;

@@ -1,5 +1,4 @@
 excludes = [
-  "LICENSE",
   "*.png",
   "*.jpg",
   "*.md",
@@ -8,6 +7,8 @@ excludes = [
   "*.css",
   "*.json",
   "*.zsh",
+  "LICENSE",
+  "justfile",
 ]
 
 [formatter.nix]
@@ -19,11 +20,6 @@ options = ["-sv", "-w", "80"]
 command = "shfmt"
 includes = ["*.sh"]
 options = ["-l", "-w", "-ci", "-sr", "-i", "2"]
-
-[formatter.just]
-command = "just"
-includes = ["justfile", "*.just"]
-options = ["--unstable", "--fmt", "--justfile"]
 
 [formatter.toml]
 command = "taplo"

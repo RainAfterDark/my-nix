@@ -30,13 +30,9 @@
         config.services.tailscale.port
       ];
 
-      allowedUDPPorts = [
-        config.services.tailscale.port
-      ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
 
-      trustedInterfaces = [
-        config.services.tailscale.interfaceName
-      ];
+      trustedInterfaces = [ config.services.tailscale.interfaceName ];
     };
   };
 

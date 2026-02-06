@@ -186,8 +186,6 @@ let
 in
 {
   programs.walker.themes = {
-    "stylix" = {
-      inherit style;
-    };
+    "stylix" = { inherit style; };
   };
 }

@@ -5,7 +5,7 @@
 # ==========================================
 
 # --- Configuration ---
-TARGET_USER="ame" 
+TARGET_USER="ame"
 CONFIG_DIR_NAME="my-nix"
 
 # Colors
@@ -18,8 +18,8 @@ set -e # Exit immediately if a command exits with a non-zero status
 
 # Ensure we are running from the git repo root
 if [ ! -f "flake.nix" ]; then
-    echo -e "${RED}Error: flake.nix not found. Please run this script from the root of your repository.${NC}"
-    exit 1
+  echo -e "${RED}Error: flake.nix not found. Please run this script from the root of your repository.${NC}"
+  exit 1
 fi
 
 echo -e "${BLUE}:: NixOS Installer ::${NC}"
@@ -29,29 +29,28 @@ echo -e "\n${GREEN}Which host config do you want to install?${NC}"
 PS3="Select host (number): "
 # Update this when adding new hosts!
 options=("desktop" "t14" "xps7590" "Quit")
-select HOST in "${options[@]}"
-do
-    case $HOST in
-        "desktop"|"t14"|"xps7590")
-            echo -e "Selected Host: ${BLUE}${HOST}${NC}"
-            break
-            ;;
-        "Quit")
-            exit 0
-            ;;
-        *) echo "Invalid option $REPLY";;
-    esac
+select HOST in "${options[@]}"; do
+  case $HOST in
+    "desktop" | "t14" | "xps7590")
+      echo -e "Selected Host: ${BLUE}${HOST}${NC}"
+      break
+      ;;
+    "Quit")
+      exit 0
+      ;;
+    *) echo "Invalid option $REPLY" ;;
+  esac
 done
 
 # 2. Capture User Password
 echo -e "\n${GREEN}Set password for user '${TARGET_USER}':${NC}"
 while true; do
-    read -s -p "Enter password: " USER_PASS
-    echo
-    read -s -p "Confirm password: " USER_PASS_CONFIRM
-    echo
-    [ "$USER_PASS" = "$USER_PASS_CONFIRM" ] && break
-    echo -e "${RED}Passwords do not match. Try again.${NC}"
+  read -s -p "Enter password: " USER_PASS
+  echo
+  read -s -p "Confirm password: " USER_PASS_CONFIRM
+  echo
+  [ "$USER_PASS" = "$USER_PASS_CONFIRM" ] && break
+  echo -e "${RED}Passwords do not match. Try again.${NC}"
 done
 
 # 3. Confirmation
@@ -60,7 +59,7 @@ echo -e "You will be prompted for the LUKS (Disk Encryption) password during the
 read -p "Are you sure you want to proceed? (y/N): " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    exit 1
+  exit 1
 fi
 
 # 4. Run Disko

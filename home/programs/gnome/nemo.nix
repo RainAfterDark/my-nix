@@ -1,8 +1,6 @@
 { lib, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    nemo-with-extensions
-  ];
+  home.packages = with pkgs; [ nemo-with-extensions ];
 
   dconf.settings = with lib.gvariant; {
     "org/cinnamon/desktop/applications/terminal" = {

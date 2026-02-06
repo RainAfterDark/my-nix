@@ -5,9 +5,7 @@
   flakeRoot,
 }:
 let
-  lib = import ./lib-ext.nix {
-    inherit (inputs) nixpkgs;
-  };
+  lib = import ./lib-ext.nix { inherit (inputs) nixpkgs; };
 
   hosts =
     let

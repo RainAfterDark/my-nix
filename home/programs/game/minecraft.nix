@@ -36,17 +36,17 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [
-    prismlauncher
-  ];
+  home.packages = with pkgs; [ prismlauncher ];
 
   # We do a little sneaky
-  home.activation.createPrismLauncherAccounts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    accounts_file="''${XDG_DATA_HOME:-''$HOME/.local/share}/PrismLauncher/accounts.json"
-    if [ ! -e "$accounts_file" ]; then
-      mkdir -p "$(dirname "$accounts_file")"
-      json='${accountJson}'
-      echo "$json" > "$accounts_file"
-    fi
-  '';
+  home.activation.createPrismLauncherAccounts =
+    lib.hm.dag.entryAfter [ "writeBoundary" ]
+      ''
+        accounts_file="''${XDG_DATA_HOME:-''$HOME/.local/share}/PrismLauncher/accounts.json"
+        if [ ! -e "$accounts_file" ]; then
+          mkdir -p "$(dirname "$accounts_file")"
+          json='${accountJson}'
+          echo "$json" > "$accounts_file"
+        fi
+      '';
 }

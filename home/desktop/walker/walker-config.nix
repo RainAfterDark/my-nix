@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   imports = [ inputs.walker.homeManagerModules.default ];
   home.packages = with pkgs; [
