@@ -25,12 +25,6 @@ in
   ];
 
   services = {
-    ## sched-ext
-    scx = {
-      enable = true;
-      scheduler = "scx_bpfland";
-    };
-
     ## Input
     xserver = {
       enable = true;
