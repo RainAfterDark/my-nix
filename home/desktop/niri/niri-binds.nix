@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  lib,
+  config,
+  host,
+  ...
+}:
 {
   programs.niri.settings = with config.lib.niri.actions; {
     binds =
@@ -6,6 +11,18 @@
         sh = spawn "sh" "-c";
         onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
         waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend swww";
+
+        # FIXME when upstream issue is fixed:
+        # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
+        screenshot-screen = {
+          screenshot-screen = [ ];
+        };
+        screenshot = {
+          screenshot.show-pointer = true;
+        };
+        screenshot-window = {
+          screenshot-window.write-to-disk = true;
+        };
       in
       ## General Controls
       {
@@ -52,22 +69,12 @@
         "Mod+Shift+E".action = expel-window-from-column;
 
         # PrntScrn
-        # FIXME when upstream issue is fixed:
-        # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
-        "Print".action.screenshot-screen = [ ];
-        "Mod+P".action.screenshot-screen = [ ];
-        "Ctrl+Print".action.screenshot = {
-          show-pointer = true;
-        };
-        "Mod+Ctrl+P".action.screenshot = {
-          show-pointer = true;
-        };
-        "Alt+Print".action.screenshot-window = {
-          write-to-disk = true;
-        };
-        "Mod+Alt+P".action.screenshot-window = {
-          write-to-disk = true;
-        };
+        "Print".action = screenshot-screen;
+        "Mod+P".action = screenshot-screen;
+        "Ctrl+Print".action = screenshot;
+        "Mod+Ctrl+P".action = screenshot;
+        "Alt+Print".action = screenshot-window;
+        "Mod+Alt+P".action = screenshot-window;
       }
       ## Volume and Brightness Controls
       // (
@@ -75,8 +82,8 @@
           volumeStep = "10";
           brightnessStep = "10";
 
-          mkControlAction = a: {
-            action = spawn "sh" "-c" a;
+          mkControlAction = action: {
+            action = sh action;
             allow-when-locked = true;
           };
 
@@ -102,6 +109,16 @@
           "Mod+Alt+TouchpadScrollUp" = brightnessDown;
           "Mod+Alt+WheelScrollUp" = brightnessUp;
           "Mod+Alt+WheelScrollDown" = brightnessDown;
+        }
+      )
+      ## Allow toggling internal display for laptops
+      // lib.optionalAttrs (host != "desktop") (
+        let
+          eDP = state: "{ niri msg output eDP-1 ${state}; }";
+          toggle-eDP = "niri msg outputs | grep -n2 eDP | grep -q Disabled && ${eDP "on"} || ${eDP "off"}";
+        in
+        {
+          "Mod+M".action = sh toggle-eDP;
         }
       );
 
