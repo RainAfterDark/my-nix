@@ -1,7 +1,7 @@
-{ pkgs, flakeRoot, ... }:
+{ pkgs, ... }:
 let
   bg = "clementine.mp4";
-  bgPath = "${flakeRoot}/assets/mp4/${bg}";
+  bgPath = "$FLAKE_ROOT/assets/mp4/${bg}";
   initMem = toString (100 * 1024); # ~100MB
   maxMem = toString (1024 * 1024); # ~1GB
 

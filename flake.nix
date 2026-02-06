@@ -1,6 +1,14 @@
 {
   description = "My Nix";
 
+  outputs =
+    { self, ... }@inputs:
+    import ./outputs.nix rec {
+      inherit self inputs;
+      username = "ame";
+      flakeRoot = "/home/${username}/my-nix";
+    };
+
   inputs = {
     ## Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -79,12 +87,4 @@
       "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
     ];
   };
-
-  outputs =
-    { self, ... }@inputs:
-    import ./outputs.nix rec {
-      inherit self inputs;
-      username = "ame";
-      flakeRoot = "/home/${username}/my-nix";
-    };
 }

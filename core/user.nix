@@ -13,7 +13,6 @@ let
   inherit (lib) findModules extendedColors;
   fromStylix = config.lib.stylix.colors.withHashtag;
   colors = extendedColors fromStylix;
-  secrets = config.sops.secrets;
 in
 {
   imports = [
@@ -23,27 +22,29 @@ in
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
+    backupFileExtension = "hmbak";
+
     extraSpecialArgs = {
       inherit
         inputs
         pkgs-stable
         host
         username
-        flakeRoot
         colors
-        secrets
         ;
     };
 
     users.${username} = {
       imports = findModules ./../home;
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
-      home.stateVersion = config.system.stateVersion;
-      programs.home-manager.enable = true;
+      home = {
+        username = "${username}";
+        homeDirectory = "/home/${username}";
+        stateVersion = config.system.stateVersion;
+        sessionVariables = {
+          FLAKE_ROOT = flakeRoot;
+        };
+      };
     };
-
-    backupFileExtension = "hmbak";
   };
 
   users.users.${username} = {

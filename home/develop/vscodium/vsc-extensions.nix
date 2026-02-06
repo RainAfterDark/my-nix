@@ -16,6 +16,7 @@ in
       jnoortheen.nix-ide
       arrterian.nix-env-selector
       tamasfe.even-better-toml
+      skellock.just
 
       ## Color scheme
       jonathanharty.gruvbox-material-icon-theme

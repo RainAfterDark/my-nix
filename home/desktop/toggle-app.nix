@@ -7,12 +7,12 @@ let
     #   toggle_app name [args]
 
     APP_NAME="$1"
-    LAUNCH_CMD="$APP_NAME $2"
+    shift
 
     if pgrep $APP_NAME >/dev/null; then
       pkill $APP_NAME
     else
-      setsid $LAUNCH_CMD >/dev/null 2>&1 &
+      setsid "$APP_NAME" "$@" >/dev/null 2>&1 &
     fi
   '';
 in

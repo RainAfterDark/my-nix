@@ -16,6 +16,7 @@ in
     ## Env
     devenv
     flox
+    just
     chrome
 
     ## Lang
@@ -28,9 +29,10 @@ in
     pixelorama
 
     ## Formating
-    shfmt
     treefmt
+    shfmt
     nixfmt
+    taplo
   ];
 
   home.sessionVariables = {
