@@ -7,7 +7,6 @@
   host,
   username,
   flakeRoot,
-  stateVersion,
   ...
 }:
 let
@@ -40,7 +39,7 @@ in
       imports = findModules ./../home;
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
-      home.stateVersion = stateVersion;
+      home.stateVersion = config.system.stateVersion;
       programs.home-manager.enable = true;
     };
 

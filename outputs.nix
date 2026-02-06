@@ -1,42 +1,42 @@
 {
   self,
-  nixpkgs,
   inputs,
-  system,
   username,
   flakeRoot,
-  stateVersion,
-  hosts,
 }:
 let
-  lib = import ./lib { inherit nixpkgs; };
-  inherit (lib) findModules;
+  lib = import ./lib-ext.nix {
+    inherit (inputs) nixpkgs;
+  };
+
+  hosts =
+    let
+      isDir = name: type: type == "directory";
+      hostDir = builtins.readDir ./hosts;
+    in
+    lib.attrNames (lib.filterAttrs isDir hostDir);
 
   mkSystemConfig =
     host:
-    nixpkgs.lib.nixosSystem {
-      inherit system;
+    lib.nixosSystem {
       specialArgs = {
         inherit
           self
-          lib
           inputs
+          lib
           host
           username
           flakeRoot
-          stateVersion
           ;
-        pkgs-stable = import inputs.nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
       };
+
       modules =
         let
+          inherit (lib) findModules;
           coreModules = findModules ./core;
           hostModules = findModules ./hosts/${host};
         in
-        [ ./nixos.nix ] ++ coreModules ++ hostModules;
+        [ ./nix-cfg.nix ] ++ coreModules ++ hostModules;
     };
 in
 {

@@ -7,6 +7,6 @@ self: super: {
 
   # from: https://github.com/iynaix/dotfiles/blob/02e3fce049588e0cc2fb3fd5f24b67fe180bd6fb/overlays/nitch-nix-pkgs-count.patch
   nitch = super.nitch.overrideAttrs (o: {
-    patches = (o.patches or [ ]) ++ [ ./nitch-nix-pkgs-count.patch ];
+    patches = (o.patches or [ ]) ++ [ ./nitch/nitch-nix-pkgs-count.patch ];
   });
 }

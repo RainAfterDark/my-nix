@@ -4,7 +4,6 @@
   lib,
   pkgs,
   username,
-  stateVersion,
   ...
 }:
 let
@@ -122,5 +121,5 @@ in
   # To prevent getting stuck at shutdown
   systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
 
-  system.stateVersion = stateVersion;
+  system.stateVersion = "25.11";
 }

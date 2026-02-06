@@ -81,30 +81,10 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
-    let
-      system = "x86_64-linux";
+    { self, ... }@inputs:
+    import ./outputs.nix rec {
+      inherit self inputs;
       username = "ame";
       flakeRoot = "/home/${username}/my-nix";
-      stateVersion = "25.11";
-
-      hosts = [
-        "desktop"
-        "t14"
-        "xps7590"
-      ];
-
-    in
-    import ./outputs.nix {
-      inherit
-        self
-        nixpkgs
-        inputs
-        system
-        username
-        flakeRoot
-        stateVersion
-        hosts
-        ;
     };
 }

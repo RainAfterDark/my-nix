@@ -1,4 +1,10 @@
-{ inputs, username, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  username,
+  ...
+}:
 {
   nix = {
     settings = {
@@ -31,5 +37,10 @@
       nvidia.acceptLicense = true;
       android_sdk.accept_license = true;
     };
+  };
+
+  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
+    inherit (pkgs) system;
+    inherit (config.nixpkgs) config;
   };
 }
