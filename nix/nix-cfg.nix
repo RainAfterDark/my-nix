@@ -27,7 +27,7 @@
     overlays = [
       inputs.nix-cachyos-kernel.overlay
       inputs.niri.overlays.niri
-      (import ./pkgs/overlays.nix)
+      (import ../pkgs/overlays.nix)
     ];
 
     config =
@@ -38,7 +38,6 @@
         allowInsecurePredicate = pkgPred [ "ventoy-gtk3" ];
         # using predicate here would be nice, but there's way too much...
         allowUnfree = true;
-
         nvidia.acceptLicense = true;
         android_sdk.accept_license = true;
       };

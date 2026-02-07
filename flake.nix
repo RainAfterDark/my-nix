@@ -3,7 +3,7 @@
 
   outputs =
     { self, ... }@inputs:
-    import ./outputs.nix rec {
+    import ./nix/outputs.nix rec {
       inherit self inputs;
       username = "ame";
       flakeRoot = "/home/${username}/my-nix";

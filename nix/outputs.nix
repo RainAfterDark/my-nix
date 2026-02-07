@@ -10,7 +10,7 @@ let
   hosts =
     let
       isDir = name: type: type == "directory";
-      hostDir = builtins.readDir ./hosts;
+      hostDir = builtins.readDir ../hosts;
     in
     lib.attrNames (lib.filterAttrs isDir hostDir);
 
@@ -31,8 +31,8 @@ let
       modules =
         let
           inherit (lib) findModules;
-          coreModules = findModules ./core;
-          hostModules = findModules ./hosts/${host};
+          coreModules = findModules ../core;
+          hostModules = findModules ../hosts/${host};
         in
         [ ./nix-cfg.nix ] ++ coreModules ++ hostModules;
     };
