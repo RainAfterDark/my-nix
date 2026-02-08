@@ -96,9 +96,9 @@ in
       openASAR.enable = true;
     };
 
-    # Can probably be removed...
+    # Unused for now
     vesktop = {
-      enable = true;
+      enable = false;
       settings = {
         appBadge = false;
         arRPC = true;
