@@ -51,11 +51,12 @@ in
     extraGroups = [
       "wheel"
       "docker"
-      "networkmanager"
       "kvm"
       "adbusers"
       "libvirtd"
       "wireshark"
+      "networkmanager"
+      "gamemode"
     ];
     shell = pkgs.zsh;
   };
