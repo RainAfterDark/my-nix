@@ -60,6 +60,9 @@
       bindkey '^[[A' up-line-or-beginning-search
       bindkey '^[[B' down-line-or-beginning-search
 
+      # cheatsheet widget (bound to Ctrl+G)
+      eval "$(navi widget zsh)"
+
       # system info
       pfetch
     '';

@@ -22,6 +22,7 @@
     openssl # SSL and TLS
     unzip # archives
     wget # downloader
+    navi # interactive cheatsheet
 
     ## Monitoring / Fetch
     nitch # nice fetch
