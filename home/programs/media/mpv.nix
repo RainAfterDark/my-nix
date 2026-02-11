@@ -15,7 +15,7 @@
       hwdec = "auto";
     }
     # Use IGPU on Laptop
-    // lib.optionalAttrs (host == "xps7590") {
+    // lib.optionalAttrs (host == "xps-7590") {
       # device is from mpv --vulkan-device=help
       vulkan-device = "86809b3e-0000-0000-0002-000000000000";
     };

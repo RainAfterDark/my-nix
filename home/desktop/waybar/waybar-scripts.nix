@@ -1,7 +1,7 @@
 { pkgs, host, ... }:
 let
   cpuTempGlob =
-    if host == "xps7590" then
+    if host == "xps-7590" then
       "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
     else if host == "t14-gen1" then
       "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon*/temp1_input"
@@ -9,7 +9,7 @@ let
       "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input";
 
   cpuPowerQuery =
-    if host == "xps7590" then
+    if host == "xps-7590" then
       ''
         rapl_path="/sys/class/powercap/intel-rapl:0/energy_uj"
         if [[ -r "$rapl_path" ]]; then

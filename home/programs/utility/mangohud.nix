@@ -6,7 +6,7 @@
 
   xdg.configFile."MangoHud/MangoHud.conf".text =
     let
-      gpuPciDev = if host == "xps7590" then "pci_dev=0000:01:00.0" else "";
+      gpuPciDev = if host == "xps-7590" then "pci_dev=0000:01:00.0" else "";
     in
     ''
       ### MangoHud configuration file
