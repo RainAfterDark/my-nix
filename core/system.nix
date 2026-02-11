@@ -10,9 +10,6 @@ let
   autoLogin = true;
 in
 {
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-
   ## Needed to allow debugging
   boot.kernel.sysctl = {
     "kernel.kptr_restrict" = 0;

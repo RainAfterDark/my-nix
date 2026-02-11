@@ -5,6 +5,9 @@
   ...
 }:
 {
+  boot.kernelPackages =
+    pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+
   # Default config with NVIDIA Prime
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
 

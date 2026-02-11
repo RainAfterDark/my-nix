@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 {
+  boot.kernelPackages =
+    pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+
   imports = [ inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1 ];
 
   ## Don't hibernate!

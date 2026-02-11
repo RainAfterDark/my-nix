@@ -8,6 +8,9 @@ let
   mediaGid = 60001;
 in
 {
+  boot.kernelPackages =
+    pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+
   ## Packages
   environment.systemPackages = with pkgs; [
     ntfs3g # for ntfsfix
