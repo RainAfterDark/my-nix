@@ -118,4 +118,11 @@
     enable = true;
     memoryPercent = 25; # 8GB
   };
+
+  ## Utility
+  environment.systemPackages = with pkgs; [
+    powerstat
+    powertop
+    brightnessctl
+  ];
 }
