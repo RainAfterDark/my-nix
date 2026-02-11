@@ -3,7 +3,7 @@ let
   cpuTempGlob =
     if host == "xps7590" then
       "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
-    else if host == "t14" then
+    else if host == "t14-gen1" then
       "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon*/temp1_input"
     else
       "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input";
@@ -23,7 +23,7 @@ let
           watts="N/A"
         fi
       ''
-    else if host == "t14" then
+    else if host == "t14-gen1" then
       ''
         watts="N/A"
         for hwmon in /sys/class/hwmon/hwmon*; do
@@ -98,7 +98,7 @@ let
   '';
 
   waybarGpu = pkgs.writeShellScriptBin "waybar-gpu" (
-    if host == "t14" then
+    if host == "t14-gen1" then
       ''
         #!/usr/bin/env bash
         # AMD iGPU

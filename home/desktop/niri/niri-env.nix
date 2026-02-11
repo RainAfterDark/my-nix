@@ -35,7 +35,7 @@ in
     };
 
     # Make touch display work for Thinkpad
-    input.touch.map-to-output = lib.mkIf (host == "t14") "eDP-1";
+    input.touch.map-to-output = lib.mkIf (host == "t14-gen1") "eDP-1";
 
     debug = {
       # This acts as a compatibility shim for Firefox/Zen focus issues
