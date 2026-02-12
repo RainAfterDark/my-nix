@@ -44,7 +44,7 @@
   };
 
   _module.args.pkgs-stable = import inputs.nixpkgs-stable {
-    inherit (pkgs) system;
+    system = pkgs.stdenv.hostPlatform.system;
     inherit (config.nixpkgs) config;
   };
 }
