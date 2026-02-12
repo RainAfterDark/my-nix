@@ -14,10 +14,10 @@
       settings = {
         general = {
           renice = 10;
+          ioprio = 0;
         };
 
         gpu = {
-          apply_gpu_optimisations = "accept-responsibility";
           gpu_device = 0;
           nv_powermizer_mode = 1;
           amd_performance_level = "high";
@@ -42,11 +42,27 @@
   # programs.wavey-launcher.enable = true;
   # programs.sleepy-launcher.enable = true;
 
-  ## Enable NTSync for games
-  boot.kernelModules = [ "ntsync" ];
-
-  ## winediscordipcbridge-steam.sh
   environment.systemPackages = with pkgs; [
+    # GPU
+    vulkan-tools
+    mesa-demos # glxgears, etc.
+    lact # GPU OC/UV
+
+    # winediscordipcbridge-steam.sh
     pkgsCross.mingw32.wine-discord-ipc-bridge
   ];
+
+  # Init start LACT
+  systemd.services.lact = {
+    description = "GPU Control Daemon";
+    after = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
+
+  ## Enable NTSync for games
+  boot.kernelModules = [ "ntsync" ];
 }

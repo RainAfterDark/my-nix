@@ -9,7 +9,6 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    # pinentryFlavor = "";
   };
 
   # Nix CLI Tool
@@ -30,11 +29,6 @@
     tmux # the one and only
     ventoy-full-gtk # USB ISO
     android-tools # ADB, etc.
-
-    # GPU
-    vulkan-tools
-    mesa-demos
-    lact # GPU OC/UV
 
     # Nix
     nix-output-monitor # nom
@@ -69,17 +63,6 @@
     adwaita-icon-theme
   ];
 
-  # Init start LACT
-  systemd.services.lact = {
-    description = "GPU Control Daemon";
-    after = [ "multi-user.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.lact}/bin/lact daemon";
-    };
-    enable = true;
-  };
-
   # Allow VIA through udev
   services.udev.packages = with pkgs; [ via ];
 
@@ -96,14 +79,6 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
-  };
-
-  # Wireshark
-  programs.wireshark = {
-    enable = true;
-    package = pkgs.wireshark;
-    dumpcap.enable = true;
-    usbmon.enable = true;
   };
 
   # VM

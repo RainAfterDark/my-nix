@@ -13,16 +13,20 @@
     ## Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    flox.url = "github:flox/flox/latest";
+
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,12 +37,20 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    milk-grub-theme.url = "github:gemakfy/MilkGrub";
-    sddm-stray-nixos.url = "github:RainAfterDark/sddm-stray-nixos";
 
-    elephant.url = "github:abenz1267/elephant/dev";
+    milk-grub-theme = {
+      url = "github:gemakfy/MilkGrub";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sddm-stray-nixos = {
+      url = "github:RainAfterDark/sddm-stray-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    elephant.url = "github:abenz1267/elephant";
     walker = {
-      url = "github:abenz1267/walker/dev";
+      url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
     };
 
@@ -46,16 +58,20 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixcord.url = "github:kaylorben/nixcord";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
-    ## Dev
-    flox = {
-      url = "github:flox/flox/v1.7.2";
+      inputs.home-manager.follows = "home-manager";
     };
 
-    ## Certain Anime Game
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ## Certain "Anime Games"...
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
