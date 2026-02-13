@@ -76,7 +76,7 @@
   # Stream host for Moonlight
   services.sunshine = {
     enable = true;
-    autoStart = true;
+    autoStart = false;
     capSysAdmin = true;
     openFirewall = true;
   };
@@ -87,5 +87,17 @@
     package = pkgs.wireshark;
     dumpcap.enable = true;
     usbmon.enable = true;
+  };
+
+  # Telemetry blocking
+  # (might be better to use something like Blocky/Adguard)
+  networking.hosts = {
+    "0.0.0.0" = [
+      "data-p.gryphline.com"
+      "native-log-collect.gryphline.com"
+      "eventlog.gryphline.com"
+      "event-log-api-ipv6.gryphline.com"
+      "event-log-api-data-platform-data-lake-prod.gryphline.com"
+    ];
   };
 }
