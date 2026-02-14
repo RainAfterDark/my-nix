@@ -97,7 +97,7 @@
 
   # sched-ext
   services.scx = {
-    enable = true;
+    enable = false;
     scheduler = "scx_lavd";
     extraArgs = [ "--autopower" ];
   };
