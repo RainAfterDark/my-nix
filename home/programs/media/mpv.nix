@@ -49,6 +49,7 @@
         '';
       }))
 
+      autoload # loads playlist entries from dir
       autosubsync-mpv # Sync subtitles with 'n'
       mpv-discord # Show mpv in Discord RPC
       mpv-cheatsheet # Show hotkeys with '?'
