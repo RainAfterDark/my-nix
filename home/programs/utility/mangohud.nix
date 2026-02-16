@@ -145,8 +145,8 @@
       # battery_icon
       # device_battery=gamepad,mouse
       # device_battery_icon
-      battery_watt
-      battery_time
+      # battery_watt
+      # battery_time
 
       ### Display FPS and frametime
       fps
