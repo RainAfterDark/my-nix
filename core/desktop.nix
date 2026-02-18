@@ -148,6 +148,12 @@ in
       };
   };
 
+  # Clear cache before SDDM starts (need to apply theme somehow)
+  systemd.services.sddm.serviceConfig.ExecStartPre = lib.mkAfter [
+    "${pkgs.coreutils}/bin/rm -rf /var/lib/sddm/.cache"
+  ];
+
+  # Portals for screenshare/cast
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
