@@ -1,15 +1,10 @@
-{ pkgs, username, ... }:
+{ pkgs, flakeRoot, ... }:
 {
-  # GNOME
-  programs.dconf.enable = true;
-
-  # Enable zsh system-wide so it can be set for user
-  programs.zsh.enable = true;
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  environment.systemPackages = with pkgs; [
+    nix-output-monitor # nom
+    nvd # nix diff tool
+    nix-tree # browse store path deps
+  ];
 
   # Nix CLI Tool
   programs.nh = {
@@ -18,84 +13,8 @@
       enable = true;
       extraArgs = "--keep-since 7d --keep 5";
     };
-    flake = "/home/${username}/my-nix";
+    flake = flakeRoot;
   };
-
-  ## System Utilities
-  environment.systemPackages = with pkgs; [
-    coreutils # essentials
-    binutils # packaging
-    pciutils # lspci, etc.
-    tmux # the one and only
-    ventoy-full-gtk # USB ISO
-    android-tools # ADB, etc.
-
-    # Nix
-    nix-output-monitor # nom
-    nvd # nix diff tool
-
-    # Hardware
-    wev # input tester
-    lm_sensors # motherboard sensors
-    compsize # compute BTRFS compression ratio
-    via # keyboard remapper
-    smartmontools # drive S.M.A.R.T
-    usbutils # lsusb
-    libinput # Input devices
-
-    # VM
-    virt-manager
-    virt-viewer
-    spice
-    spice-gtk
-    spice-protocol
-    virtio-win
-    win-spice
-    libguestfs-with-appliance
-
-    # Benchmark
-    geekbench
-    stress-ng
-    s-tui
-
-    # Misc.
-    freetype # font engine
-    adwaita-icon-theme
-  ];
-
-  # Allow VIA through udev
-  services.udev.packages = with pkgs; [ via ];
-
-  # Enable Flatpaks
-  services.flatpak.enable = true;
-
-  # Shebangs ibuprofen
-  services.envfs.enable = true;
-
-  # Enable smartd service from smartmontools
-  services.smartd.enable = true;
-
-  # Allow running AppImage
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
-
-  # VM
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-      };
-    };
-    spiceUSBRedirection.enable = true;
-    docker = {
-      enable = true;
-      autoPrune.enable = true;
-    };
-  };
-  services.spice-vdagentd.enable = true;
 
   ## Dynamic libraries needed by some programs
   # https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885

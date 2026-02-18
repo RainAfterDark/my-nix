@@ -10,6 +10,7 @@
       "tl_PH.UTF-8/UTF-8"
       "ja_JP.UTF-8/UTF-8"
     ];
+
     extraLocaleSettings = {
       LC_ADDRESS = "en_PH.UTF-8";
       LC_IDENTIFICATION = "en_PH.UTF-8";

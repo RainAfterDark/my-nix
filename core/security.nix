@@ -28,7 +28,7 @@
               ];
             in
             builtins.concatLists (
-              builtins.map mkNoPassPair [
+              map mkNoPassPair [
                 "nh"
                 "nix"
                 "nixos-rebuild"
