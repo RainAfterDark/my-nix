@@ -141,6 +141,7 @@ in
         format = "";
         tooltip = false;
         on-click = "walker";
+        on-click-right = "wlogout -s -b 4";
       };
 
       "niri/workspaces" = {
