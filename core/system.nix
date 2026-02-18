@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   # Needed to allow debugging
   boot.kernel.sysctl = {
