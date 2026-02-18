@@ -64,7 +64,7 @@
     gimp3-with-plugins # image manipulation
     krita # drawing and painting
     handbrake # video remuxer
-    davinci-resolve # video editor
+    kdePackages.kdenlive # video editor
     vlc # media player
 
     obsidian # notes vault
