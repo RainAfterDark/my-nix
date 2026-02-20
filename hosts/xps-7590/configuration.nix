@@ -93,7 +93,7 @@
   # https://www.reddit.com/r/Dell/comments/fzv599/
   services.undervolt = {
     enable = true;
-    temp = 90; # note that GPU throttles around 85
+    temp = 85; # note that GPU throttles around 85
     turbo = 0; # 0 enabled, 1 disabled
     useTimer = true; # periodically reapply settings
 
