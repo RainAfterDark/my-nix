@@ -42,6 +42,9 @@
     nvidia-vaapi-driver
   ];
 
+  # Build packages with CUDA support
+  nixpkgs.config.cudaSupport = true;
+
   # For Wine etc.
   hardware.graphics.enable32Bit = true;
 
