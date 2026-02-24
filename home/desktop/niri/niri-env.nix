@@ -24,10 +24,7 @@ in
   programs.niri.settings = {
     environment = lib.mapAttrs (k: v: toString v) config.home.sessionVariables;
 
-    spawn-at-startup = [
-      { command = [ "syshud" ]; }
-      { command = [ "zen-beta" ]; }
-    ];
+    spawn-at-startup = [ { command = [ "syshud" ]; } ];
 
     xwayland-satellite = {
       enable = true;
