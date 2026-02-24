@@ -22,13 +22,17 @@
     extraPackages = with pkgs; [
       libvdpau-va-gl
       libva-vdpau-driver
-      mesa.opencl # Enables Rusticl (OpenCL) support
+      mesa.opencl
     ];
   };
 
+  # Enable Rusticl (OpenCL) support
   environment.variables = {
     RUSTICL_ENABLE = "radeonsi";
   };
+
+  # Build packages with ROCM support
+  nixpkgs.config.rocmSupport = true;
 
   ## WiFi / Bluetooth
   hardware = {
