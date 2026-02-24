@@ -48,10 +48,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    elephant.url = "github:abenz1267/elephant";
+    elephant.url = "github:abenz1267/elephant"; # Cached
     walker = {
       url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
+    };
+
+    awww = {
+      url = "git+https://codeberg.org/LGFae/awww";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ## Programs
@@ -72,10 +77,7 @@
     };
 
     ## Certain "Anime Games"...
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix"; # Cached
   };
 
   nixConfig = {

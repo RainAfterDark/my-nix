@@ -10,7 +10,7 @@
       let
         sh = spawn "sh" "-c";
         onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
-        waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend swww";
+        waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend awww";
 
         # FIXME when upstream issue is fixed:
         # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779

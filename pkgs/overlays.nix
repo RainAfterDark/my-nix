@@ -9,4 +9,15 @@ self: super: {
   nitch = super.nitch.overrideAttrs (o: {
     patches = (o.patches or [ ]) ++ [ ./nitch/nitch-nix-pkgs-count.patch ];
   });
+
+  # FIXME: remove when upstreamed to support awww
+  waypaper = super.waypaper.overrideAttrs (oldAttrs: {
+    version = "unstable-2026-17f60be";
+    src = super.fetchFromGitHub {
+      owner = "anufrievroman";
+      repo = "waypaper";
+      rev = "17f60be4c6abc5ab9c5d4837d930015661ccdd3d";
+      hash = "sha256-HkWsffcK/FjXeyzp948xhvMbrdrBcGwkuTI9O16OWbo=";
+    };
+  });
 }
