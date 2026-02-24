@@ -18,8 +18,9 @@ in
 
     icons = {
       enable = true;
-      dark = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override { color = "black"; };
+      light = "Vimix-white";
+      dark = "Vimix-white-dark";
+      package = pkgs.vimix-icon-theme;
     };
   };
 
