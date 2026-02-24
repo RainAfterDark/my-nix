@@ -20,6 +20,11 @@
       ];
     };
 
+    # Allow system to be more responsive
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    daemonIOSchedPriority = 7;
+
     registry.nixpkgs.flake = inputs.nixpkgs;
   };
 
