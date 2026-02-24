@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   config,
   host,
   ...
@@ -79,14 +80,16 @@
     autoStart = false;
     capSysAdmin = true;
     openFirewall = true;
+    # FIXME: broken build on unstable
+    package = pkgs-stable.sunshine;
   };
 
   # Wireshark
   programs.wireshark = {
     enable = true;
-    package = pkgs.wireshark;
     dumpcap.enable = true;
     usbmon.enable = true;
+    package = pkgs.wireshark;
   };
 
   # Telemetry blocking

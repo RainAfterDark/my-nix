@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 {
   home.packages = with pkgs; [
     ### TUI
@@ -62,7 +62,8 @@
     qdirstat # visualize disk usage
 
     gimp3-with-plugins # image manipulation
-    krita # drawing and painting
+    # FIXME: https://github.com/NixOS/nixpkgs/issues/493431
+    pkgs-stable.krita # drawing and painting
     handbrake # video remuxer
     kdePackages.kdenlive # video editor
     vlc # media player

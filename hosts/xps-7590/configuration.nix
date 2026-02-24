@@ -2,34 +2,11 @@
   lib,
   pkgs,
   inputs,
-  config,
   ...
 }:
 {
   boot.kernelPackages =
     pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
-
-  # FIXME: This patch is needed for kernel 6.19+ (for now?)
-  hardware.nvidia = {
-    open = true;
-    package =
-      let
-        base = config.boot.kernelPackages.nvidiaPackages.latest;
-        cachyos-nvidia-patch = pkgs.fetchpatch {
-          url = "https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/nvidia/nvidia-utils/kernel-6.19.patch";
-          sha256 = "sha256-YuJjSUXE6jYSuZySYGnWSNG5sfVei7vvxDcHx3K+IN4=";
-        };
-
-        # Patch the appropriate driver based on config.hardware.nvidia.open
-        driverAttr = if config.hardware.nvidia.open then "open" else "bin";
-      in
-      base
-      // {
-        ${driverAttr} = base.${driverAttr}.overrideAttrs (oldAttrs: {
-          patches = (oldAttrs.patches or [ ]) ++ [ cachyos-nvidia-patch ];
-        });
-      };
-  };
 
   # Default config with NVIDIA Prime
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
@@ -65,6 +42,7 @@
     nvidia-vaapi-driver
   ];
 
+  # For Wine etc.
   hardware.graphics.enable32Bit = true;
 
   # WiFi/Bluetooth
