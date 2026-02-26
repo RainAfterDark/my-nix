@@ -2,6 +2,7 @@
 let
   toggle-app = pkgs.writeShellScriptBin "toggle-app" ''
     #!/usr/bin/env bash
+    # bash
 
     # Usage:
     #   toggle_app name [args]

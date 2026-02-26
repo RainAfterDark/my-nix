@@ -5,6 +5,7 @@
     package = pkgs.vscodium.overrideAttrs (old: {
       # Remove annoying warnings
       postFixup = (old.postFixup or "") + ''
+        # bash
         echo "Patching codium launcher to remove auto Wayland flags..."
         sed -i \
           -e 's/--ozone-platform-hint=auto//g' \

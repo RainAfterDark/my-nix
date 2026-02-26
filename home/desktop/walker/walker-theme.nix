@@ -2,6 +2,7 @@
 let
   fontFamily = config.stylix.fonts.monospace.name;
   style = with colors; ''
+    /* css */
     @define-color window_bg_color ${base00-rgba 0.975};
     @define-color accent_bg_color ${base0E};
     @define-color theme_fg_color ${base04};

@@ -4,6 +4,7 @@ let
 in
 {
   programs.waybar.style = with colors; ''
+    /* css */
     * {
       border: none;
       border-radius: 0px;

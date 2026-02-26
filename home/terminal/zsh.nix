@@ -29,6 +29,7 @@
         cachePath = "${config.xdg.cacheHome or "${pkgs.lib.getEnv "HOME"}/.cache"}/zsh";
       in
       ''
+        # bash
         autoload -U colors && colors
         autoload -U compinit && compinit -u
         _comp_options+=(globdots)
@@ -45,6 +46,7 @@
       '';
 
     initContent = ''
+      # bash
       # history behaviour
       setopt sharehistory
       setopt hist_ignore_space

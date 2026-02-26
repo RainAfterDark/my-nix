@@ -7,6 +7,7 @@
 }:
 let
   sleepOnBat = pkgs.writeShellScript "sleep-on-bat" ''
+    # bash
     if grep -q "Discharging" /sys/class/power_supply/BAT*/status 2>/dev/null; then
       systemctl suspend
     fi

@@ -10,6 +10,7 @@ let
     ];
 
     text = ''
+      # bash
       # Configuration
       TIMEOUT=5
       DEVICE="tpacpi::kbd_backlight"

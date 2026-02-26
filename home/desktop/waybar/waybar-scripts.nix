@@ -11,6 +11,7 @@ let
   cpuPowerQuery =
     if host == "xps-7590" then
       ''
+        # bash
         rapl_path="/sys/class/powercap/intel-rapl:0/energy_uj"
         if [[ -r "$rapl_path" ]]; then
           e1=$(<"$rapl_path")
@@ -25,6 +26,7 @@ let
       ''
     else if host == "t14-gen1" then
       ''
+        # bash
         watts="N/A"
         for hwmon in /sys/class/hwmon/hwmon*; do
           if [[ -r "$hwmon/name" ]]; then
@@ -45,11 +47,13 @@ let
       ''
     else
       ''
+        # bash
         watts="N/A"
       '';
 
   waybarCpu = pkgs.writeShellScriptBin "waybar-cpu" ''
     #!/usr/bin/env bash
+    # bash
 
     # CPU Usage (%)
     read cpu user nice system idle rest < /proc/stat
@@ -101,6 +105,7 @@ let
     if host == "t14-gen1" then
       ''
         #!/usr/bin/env bash
+        # bash
         # AMD iGPU
 
         # Detect the card path (card0 or card1) that has the clock file
@@ -145,6 +150,7 @@ let
     else
       ''
         #!/usr/bin/env bash
+        # bash
         # NVIDIA GPU
 
         # Query GPU Stats
@@ -172,6 +178,7 @@ let
 
   waybarPipewire = pkgs.writeShellScriptBin "waybar-pipewire" ''
     #!/usr/bin/env bash
+    # bash
     set -e
 
     # https://blog.dhampir.no/content/sleeping-without-a-subprocess-in-bash-and-how-to-sleep-forever

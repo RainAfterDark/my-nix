@@ -7,6 +7,7 @@
 let
   fontFamily = config.stylix.fonts.monospace.name;
   customTheme = with colors; ''
+    /* css */
     :root {
       /* ─── Base16 accents ─── */
       --red-base:    ${base08};

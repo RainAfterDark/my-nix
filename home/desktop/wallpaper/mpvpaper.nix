@@ -8,6 +8,7 @@ let
   # This script is a hacky fix to the memory leak
   mpvpaperLoop = pkgs.writeShellScriptBin "mpvpaper-loop" ''
     #!/usr/bin/env bash
+    # bash
     set -euo pipefail
     ml="[mpvpaper-loop]"
 

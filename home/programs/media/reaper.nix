@@ -6,6 +6,7 @@
       paths = [ reaper ];
       buildInputs = [ makeWrapper ];
       postBuild = ''
+        # bash
         wrapProgram $out/bin/reaper \
           --set GDK_BACKEND x11 \
           --set GDK_SCALE 1

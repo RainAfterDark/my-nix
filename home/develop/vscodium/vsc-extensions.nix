@@ -10,18 +10,28 @@ let
           hash = "sha256-86UWUuWKT6adx4hw4OJw3cSZxWZKLH4uLTO+Ssg75gY=";
         };
       };
+
+  atomicspirit.nix-embedded-highlighter =
+    pkgs.vscode-utils.buildVscodeMarketplaceExtension
+      {
+        mktplcRef = {
+          name = "nix-embedded-highlighter";
+          publisher = "atomicspirit";
+          version = "0.0.1";
+          hash = "sha256-KZfUaPjReHQH0XCCiejAs+0Go8WEeGiOuxjkTfSnku0=";
+        };
+      };
 in
 {
   programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-extensions; [
-      ## Languages
       jnoortheen.nix-ide
       arrterian.nix-env-selector
       tamasfe.even-better-toml
       skellock.just
 
-      ## Color scheme
       jonathanharty.gruvbox-material-icon-theme
+      atomicspirit.nix-embedded-highlighter
     ];
   };
 }

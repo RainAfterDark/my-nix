@@ -4,6 +4,7 @@ let
 in
 {
   services.swaync.style = with colors; ''
+    /* css */
     * {
      border-radius: 0px;
      font-family: "${fontFamily}";
