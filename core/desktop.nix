@@ -20,7 +20,9 @@ in
     enable = true;
     package =
       let
-        niri-base = pkgs.niri-unstable;
+        # TODO: switch back to unstable branch when blur branch is merged
+        niri-base = inputs.niri-wip.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+
         # Silence the deprecated import-environment warning
         niri-patched = pkgs.symlinkJoin {
           inherit (niri-base)
@@ -36,6 +38,7 @@ in
           paths = [ niri-base ];
           buildInputs = [ pkgs.makeWrapper ];
           postBuild = ''
+            # bash
             rm $out/bin/niri-session
             cp ${niri-base}/bin/niri-session $out/bin/niri-session
             sed -i 's|systemctl --user import-environment|systemctl --user import-environment 2> /dev/null|' $out/bin/niri-session

@@ -1,6 +1,7 @@
 { config, colors, ... }:
 let
   fontFamily = config.stylix.fonts.monospace.name;
+  popupsAlpha = config.stylix.opacity.popups;
 in
 {
   services.swaync.style = with colors; ''
@@ -31,7 +32,7 @@ in
       margin-right: 12px;
       margin-left: 12px;
       padding: 0;
-      background: ${base02-rgba 0.95};
+      background: ${base02-rgba popupsAlpha};
       box-shadow:
         0 0 0 1px ${base01-rgba 0.3},
         0 1px 3px 1px ${base01-rgba 0.7},
@@ -178,7 +179,7 @@ in
         ---------------------------- */
 
     .control-center {
-      background: ${base00-rgba 0.95};
+      background: ${base00-rgba popupsAlpha};
       color: ${base05};
       border: 3px solid ${base07};
       box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);

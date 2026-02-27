@@ -1,6 +1,8 @@
-{ colors, ... }:
+{ config, colors, ... }:
 let
-  windowOpacity = 0.95;
+  cfg = config.stylix.opacity;
+  appAlpha = cfg.applications;
+  popupAlpha = cfg.popups;
 in
 {
   programs.niri.settings.window-rules = [
@@ -39,7 +41,7 @@ in
       };
       min-width = 800;
       min-height = 600;
-      opacity = windowOpacity;
+      opacity = popupAlpha;
     }
 
     # Zen PiP
@@ -53,7 +55,7 @@ in
       open-floating = true;
       default-column-width.fixed = 1280;
       default-window-height.fixed = 720;
-      opacity = windowOpacity;
+      opacity = appAlpha;
     }
 
     # Android Studio
@@ -64,7 +66,7 @@ in
         { title = "^Running Devices - .*"; }
       ];
       default-column-width.proportion = 0.75;
-      opacity = windowOpacity;
+      opacity = appAlpha;
     }
 
     ## General App Rules
@@ -127,7 +129,7 @@ in
         { app-id = "nemo"; }
         { app-id = "Spotify"; }
       ];
-      opacity = windowOpacity;
+      opacity = appAlpha;
     }
 
     # Floating Apps

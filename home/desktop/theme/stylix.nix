@@ -22,6 +22,12 @@ in
       dark = "Vimix-white-dark";
       package = pkgs.vimix-icon-theme;
     };
+
+    opacity = {
+      applications = 0.85;
+      terminal = 0.85;
+      popups = 0.85;
+    };
   };
 
   programs.niri.settings = {

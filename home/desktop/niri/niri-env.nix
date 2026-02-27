@@ -3,6 +3,7 @@
   pkgs,
   host,
   config,
+  flakeRoot,
   ...
 }:
 let
@@ -42,4 +43,9 @@ in
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
   };
+
+  # Workaround for hot-relod / experimental features
+  xdg.configFile."niri/config.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "${flakeRoot}/home/desktop/niri/config.kdl";
+  xdg.configFile.niri-config.target = lib.mkForce "niri/nix-generated-config.kdl";
 }

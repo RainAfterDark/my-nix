@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   stylix.targets.kitty.enable = true;
   programs.kitty = {
@@ -6,7 +6,6 @@
 
     settings = {
       confirm_os_window_close = 0;
-      background_opacity = lib.mkForce 0.95;
       scrollback_lines = 10000;
       enable_audio_bell = false;
       mouse_hide_wait = 60;

@@ -6,6 +6,7 @@
 }:
 let
   fontFamily = config.stylix.fonts.monospace.name;
+  bgAlpha = config.stylix.opacity.applications - 0.20;
   customTheme = with colors; ''
     /* css */
     :root {
@@ -20,7 +21,7 @@ let
       --bg-1: ${base03};
       --bg-2: ${base02};
       --bg-3: ${base01};
-      --bg-4: ${base00-rgba 0.8};
+      --bg-4: ${base00-rgba bgAlpha};
 
       /* ─── Text ─── */
       --text-1: ${base07};

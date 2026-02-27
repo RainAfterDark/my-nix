@@ -29,6 +29,7 @@ in
         host
         username
         colors
+        flakeRoot
         ;
     };
 

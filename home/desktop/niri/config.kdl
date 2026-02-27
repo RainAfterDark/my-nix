@@ -1,0 +1,11 @@
+include "nix-generated-config.kdl"
+
+// Everything below are overrides to the final nix config
+// or experimental features not supported by niri.settings
+
+window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+}

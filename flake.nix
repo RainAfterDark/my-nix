@@ -38,6 +38,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # WIP blur branch: https://github.com/niri-wm/niri/pull/3483.
+    niri-wip = {
+      url = "github:niri-wm/niri/wip/branch";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # can be omitted for end-users
+      inputs.rust-overlay.follows = "";
+    };
+
     milk-grub-theme = {
       url = "github:gemakfy/MilkGrub";
       inputs.nixpkgs.follows = "nixpkgs";
