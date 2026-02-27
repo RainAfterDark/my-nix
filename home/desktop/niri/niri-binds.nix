@@ -10,7 +10,7 @@
       let
         sh = spawn "sh" "-c";
         onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
-        waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend awww";
+        # waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend awww";
 
         # FIXME when upstream issue is fixed:
         # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
@@ -29,13 +29,15 @@
         # Apps/Widgets
         "Mod+T".action = spawn "kitty";
         "Mod+G".action = spawn "nemo";
-        "Mod+F".action = spawn "walker";
-        "Mod+V".action = sh "walker -m clipboard";
-        "Mod+B".action = sh "walker -m symbols";
-        "Mod+N".action = sh "walker -m unicode";
+        "Mod+F".action = sh "vicinae toggle";
+        "Mod+V".action = sh "vicinae vicinae://extensions/vicinae/clipboard/history";
+        "Mod+B".action = sh "vicinae vicinae://extensions/vicinae/core/search-emojis";
         "Mod+R".action = sh "swaync-client -t";
         "Mod+Shift+R".action = sh "swaync-client -C";
-        "Mod+O".action = sh "toggle-app waypaper ${waypaperArgs}";
+        "Mod+O".action =
+          sh "vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid";
+        "Mod+Shift+O".action =
+          sh "vicinae vicinae://extensions/sovereign/awww-switcher/wprandom";
         "Mod+I".action = sh "toggle-app pavucontrol";
         "Mod+Escape".action = onlyOne "wlogout" "-s -b 4";
 

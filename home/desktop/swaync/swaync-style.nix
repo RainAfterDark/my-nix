@@ -1,7 +1,7 @@
 { config, colors, ... }:
 let
   fontFamily = config.stylix.fonts.monospace.name;
-  popupsAlpha = config.stylix.opacity.popups;
+  popupsAlpha = config.stylix.opacity.popups * 1.3;
 in
 {
   services.swaync.style = with colors; ''

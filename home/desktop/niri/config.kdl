@@ -9,3 +9,19 @@ window-rule {
     xray false
   }
 }
+
+layer-rule {
+  match namespace="vicinae"
+  shadow {
+    on
+    softness 30
+    spread 10
+    offset x=0 y=0
+    draw-behind-window true
+    color "#00000064"
+  }
+  background-effect {
+    blur true
+    xray false
+  }
+}

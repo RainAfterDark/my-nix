@@ -8,7 +8,8 @@
   ];
 
   programs.walker = {
-    enable = true;
+    # Potentially deprecated in favor of vicinae
+    enable = false;
     runAsService = true;
     config = {
       theme = "stylix";

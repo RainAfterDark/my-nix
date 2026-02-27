@@ -62,6 +62,13 @@
       inputs.elephant.follows = "elephant";
     };
 
+    vicinae.url = "github:vicinaehq/vicinae"; # Cached
+    vicinae-extensions = {
+      url = "github:vicinaehq/extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.vicinae.follows = "vicinae";
+    };
+
     awww = {
       url = "git+https://codeberg.org/LGFae/awww";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -99,6 +106,7 @@
       "https://ezkea.cachix.org"
       "https://walker.cachix.org"
       "https://walker-git.cachix.org"
+      "https://vicinae.cachix.org"
     ];
 
     trusted-public-keys = [
@@ -111,6 +119,7 @@
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
       "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
     ];
   };
 }
