@@ -5,7 +5,7 @@
     settings = {
       positionY = "top";
       positionX = "right";
-      layer = "top";
+      layer = "overlay";
 
       control-center-margin-top = 6;
       control-center-margin-right = 12;

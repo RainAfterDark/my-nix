@@ -18,7 +18,10 @@ in
 
       launcher_window = {
         opacity = config.stylix.opacity.popups;
-        layer_shell.enabled = true;
+        layer_shell = {
+          enabled = true;
+          layer = "overlay";
+        };
         client_side_decorations = {
           enabled = true;
           rounding = 0;
@@ -38,6 +41,7 @@ in
       };
 
       pop_to_root_on_close = true;
+      consider_preedit = true;
       favorites = [ ];
     };
 
