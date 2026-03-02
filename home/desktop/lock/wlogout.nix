@@ -5,13 +5,13 @@
     layout = [
       {
         label = "lock";
-        action = "hyprlock";
+        action = "loginctl lock-session";
         text = "Lock";
         keybind = "1";
       }
       {
         label = "suspend";
-        action = "systemctl suspend";
+        action = "loginctl lock-session; sleep 1 && systemctl suspend";
         text = "Suspend";
         keybind = "2";
       }
