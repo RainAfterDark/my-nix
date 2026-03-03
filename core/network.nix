@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   config,
   host,
   ...
@@ -80,8 +79,6 @@
     autoStart = false;
     capSysAdmin = true;
     openFirewall = true;
-    # FIXME: broken build on unstable
-    package = pkgs-stable.sunshine;
   };
 
   # Wireshark

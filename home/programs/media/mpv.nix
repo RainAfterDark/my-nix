@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-stable,
   host,
   ...
 }:
@@ -27,41 +26,36 @@
       "Shift+RIGHT" = "sub-seek 1";
     };
 
-    scripts =
-      with pkgs.mpvScripts;
-      [
-        # Auto download subs
-        (autosub.overrideAttrs (old: {
-          # make it manual (hotkey is 'b')
-          preInstall = (old.preInstall or "") + ''
-            substituteInPlace autosub.lua --replace-fail \
-            "auto = true" \
-            "auto = false"
-          '';
-        }))
+    scripts = with pkgs.mpvScripts; [
+      # Auto download subs
+      (autosub.overrideAttrs (old: {
+        # make it manual (hotkey is 'b')
+        preInstall = (old.preInstall or "") + ''
+          substituteInPlace autosub.lua --replace-fail \
+          "auto = true" \
+          "auto = false"
+        '';
+      }))
 
-        # Modern OSC
-        (modernx-zydezu.overrideAttrs (old: {
-          # bind sub cycling to x (avoid conflicts w/ videoclip)
-          # z and x by default bind to + and - sub delay ms,
-          # which we won't hopefully have to do with sub syncing
-          preInstall = (old.preInstall or "") + ''
-            substituteInPlace modernx.lua --replace-fail \
-            '"c", "cyclecaptions"' \
-            '"x", "cyclecaptions"'
-          '';
-        }))
+      # Modern OSC
+      (modernx-zydezu.overrideAttrs (old: {
+        # bind sub cycling to x (avoid conflicts w/ videoclip)
+        # z and x by default bind to + and - sub delay ms,
+        # which we won't hopefully have to do with sub syncing
+        preInstall = (old.preInstall or "") + ''
+          substituteInPlace modernx.lua --replace-fail \
+          '"c", "cyclecaptions"' \
+          '"x", "cyclecaptions"'
+        '';
+      }))
 
-        autoload # loads playlist entries from dir
-        autosubsync-mpv # Sync subtitles with 'n'
-        thumbfast # Thumbnail backend
-        videoclip # For video trimming
-        webtorrent-mpv-hook # Stream torrents
-      ]
-      ## FIXME: should be removed soon
-      ++ (with pkgs-stable.mpvScripts; [
-        mpv-cheatsheet # Show hotkeys with '?'
-      ]);
+      autoload # loads playlist entries from dir
+      autosubsync-mpv # Sync subtitles with 'n'
+      mpv-cheatsheet-ng # Show hotkeys with '?'
+      thumbfast # Thumbnail backend
+      videoclip # For video trimming
+      webtorrent-mpv-hook # Stream torrents
+    ];
 
     scriptOpts = {
       modernx = {
