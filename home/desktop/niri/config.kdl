@@ -8,6 +8,8 @@ window-rule {
     blur true
     xray false
   }
+  geometry-corner-radius 12
+  clip-to-geometry true
 }
 
 layer-rule {

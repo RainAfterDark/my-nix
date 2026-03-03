@@ -4,6 +4,7 @@ let
 in
 {
   imports = [ vicinae-module ];
+  stylix.targets.vicinae.enable = true;
 
   services.vicinae = {
     enable = true;
@@ -24,19 +25,8 @@ in
         };
         client_side_decorations = {
           enabled = true;
-          rounding = 0;
-          border-width = 1;
-        };
-      };
-
-      theme = {
-        light = {
-          name = "vicinae-light";
-          icon_theme = "default";
-        };
-        dark = {
-          name = "kanagawa";
-          icon_theme = "default";
+          rounding = 12;
+          border-width = 2;
         };
       };
 

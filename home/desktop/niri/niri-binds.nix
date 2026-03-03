@@ -9,7 +9,7 @@
     binds =
       let
         sh = spawn "sh" "-c";
-        onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
+        # onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
         # waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend awww";
 
         # FIXME when upstream issue is fixed:
@@ -32,14 +32,14 @@
         "Mod+F".action = sh "vicinae toggle";
         "Mod+V".action = sh "vicinae vicinae://extensions/vicinae/clipboard/history";
         "Mod+B".action = sh "vicinae vicinae://extensions/vicinae/core/search-emojis";
-        "Mod+R".action = sh "swaync-client -t";
-        "Mod+Shift+R".action = sh "swaync-client -C";
+        "Mod+R".action = sh "noctalia-shell ipc call notifications toggleHistory";
+        "Mod+Shift+R".action = sh "noctalia-shell ipc call notifications clear";
         "Mod+O".action =
           sh "vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid";
         "Mod+Shift+O".action =
           sh "vicinae vicinae://extensions/sovereign/awww-switcher/wprandom";
         "Mod+I".action = sh "toggle-app pavucontrol";
-        "Mod+Escape".action = onlyOne "wlogout" "-s -b 4";
+        "Mod+Escape".action = sh "noctalia-shell ipc call sessionMenu toggle";
 
         # Resizing
         "Mod+Z".action = close-window;
@@ -125,7 +125,7 @@
       );
 
     input = {
-      warp-mouse-to-focus.enable = true;
+      warp-mouse-to-focus.enable = false;
       focus-follows-mouse = {
         enable = true;
         max-scroll-amount = "0%";

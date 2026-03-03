@@ -39,7 +39,7 @@
       focus-ring = {
         enable = true;
         width = 2;
-        active.color = colors.base07;
+        active.color = colors.base05;
       };
     };
 
