@@ -25,7 +25,7 @@ in
         client_side_decorations = {
           enabled = true;
           rounding = 0;
-          border-width = 4;
+          border-width = 1;
         };
       };
 
@@ -48,9 +48,6 @@ in
     systemd = {
       enable = true;
       autoStart = true;
-      environment = {
-        EMOJI_FONT = ''"Noto Color Emoji"'';
-      };
     };
   };
 }

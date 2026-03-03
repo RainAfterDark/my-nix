@@ -23,10 +23,10 @@
         proportion = 0.25;
       };
 
-      gaps = 16;
+      gaps = 8;
       struts = {
-        left = 14;
-        right = 14;
+        left = 0;
+        right = 0;
         top = 0;
         bottom = 0;
       };
@@ -38,7 +38,7 @@
 
       focus-ring = {
         enable = true;
-        width = 4;
+        width = 2;
         active.color = colors.base07;
       };
     };

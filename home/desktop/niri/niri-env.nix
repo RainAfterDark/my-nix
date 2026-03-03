@@ -18,6 +18,8 @@ let
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "niri";
   };
+
+  ln = config.lib.file.mkOutOfStoreSymlink;
 in
 {
   home.sessionVariables = environment;
@@ -25,7 +27,7 @@ in
   programs.niri.settings = {
     environment = lib.mapAttrs (k: v: toString v) config.home.sessionVariables;
 
-    spawn-at-startup = [ { command = [ "syshud" ]; } ];
+    # spawn-at-startup = [ { command = [ "syshud" ]; } ];
 
     xwayland-satellite = {
       enable = true;
@@ -46,6 +48,6 @@ in
 
   # Workaround for hot-relod / experimental features
   xdg.configFile."niri/config.kdl".source =
-    config.lib.file.mkOutOfStoreSymlink "${flakeRoot}/home/desktop/niri/config.kdl";
+    ln "${flakeRoot}/home/desktop/niri/config.kdl";
   xdg.configFile.niri-config.target = lib.mkForce "niri/nix-generated-config.kdl";
 }

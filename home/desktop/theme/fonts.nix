@@ -26,12 +26,12 @@ in
     nerd-fonts.caskaydia-cove
     nerd-fonts.hurmit
     nerd-fonts.symbols-only
+
     # MS Fonts
     corefonts
     vista-fonts
 
-    # Emojis
-    twemoji-color-font
+    # Emojis (use only one!)
     noto-fonts-color-emoji
 
     # Mono

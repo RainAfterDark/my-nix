@@ -81,7 +81,7 @@ let
 in
 {
   programs.waybar = {
-    enable = true;
+    enable = false;
     systemd.enable = true;
     settings.mainBar = with colors; {
       ## Config
