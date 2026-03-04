@@ -85,7 +85,7 @@
                     "occupiedColor": "secondary",
                     "pillSize": 0.6,
                     "showApplications": false,
-                    "showBadge": true,
+                    "showBadge": false,
                     "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
                 }
@@ -93,12 +93,37 @@
             "left": [
                 {
                     "colorizeSystemIcon": "none",
-                    "customIconPath": "",
-                    "enableColorization": true,
-                    "icon": "rocket",
-                    "iconColor": "none",
-                    "id": "Launcher",
-                    "useDistroLogo": true
+                    "enableColorization": false,
+                    "generalTooltipText": "Open Launcher",
+                    "hideMode": "alwaysExpanded",
+                    "icon": "moon-2",
+                    "id": "CustomButton",
+                    "ipcIdentifier": "",
+                    "leftClickExec": "vicinae toggle",
+                    "leftClickUpdateText": true,
+                    "maxTextLength": {
+                        "horizontal": 10,
+                        "vertical": 10
+                    },
+                    "middleClickExec": "",
+                    "middleClickUpdateText": false,
+                    "parseJson": false,
+                    "rightClickExec": "",
+                    "rightClickUpdateText": false,
+                    "showExecTooltip": false,
+                    "showIcon": false,
+                    "showTextTooltip": false,
+                    "textCollapse": "",
+                    "textCommand": "",
+                    "textIntervalMs": 3000,
+                    "textStream": false,
+                    "wheelDownExec": "",
+                    "wheelDownUpdateText": false,
+                    "wheelExec": "",
+                    "wheelMode": "unified",
+                    "wheelUpExec": "",
+                    "wheelUpUpdateText": false,
+                    "wheelUpdateText": false
                 },
                 {
                     "clockColor": "none",
@@ -297,7 +322,7 @@
         "groupContextMenuMode": "extended",
         "groupIndicatorStyle": "dots",
         "inactiveIndicators": false,
-        "indicatorColor": "primary",
+        "indicatorColor": "none",
         "indicatorOpacity": 0.6,
         "indicatorThickness": 3,
         "launcherIconColor": "none",
@@ -469,13 +494,14 @@
         }
     },
     "osd": {
-        "autoHideMs": 2000,
+        "autoHideMs": 1000,
         "backgroundOpacity": 1,
         "enabled": true,
         "enabledTypes": [
             0,
             1,
-            2
+            2,
+            3
         ],
         "location": "bottom",
         "monitors": [

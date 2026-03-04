@@ -26,7 +26,7 @@ in
     opacity = {
       applications = 0.85;
       terminal = 0.85;
-      popups = 0.7;
+      popups = 0.85;
     };
   };
 

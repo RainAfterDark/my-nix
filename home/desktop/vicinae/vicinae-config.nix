@@ -20,7 +20,7 @@ in
       launcher_window = {
         opacity = config.stylix.opacity.popups;
         layer_shell = {
-          enabled = true;
+          enabled = false;
           layer = "overlay";
         };
         client_side_decorations = {

@@ -39,7 +39,11 @@
       focus-ring = {
         enable = true;
         width = 2;
-        active.color = colors.base05;
+        active.gradient = {
+          from = colors.base0D;
+          to = colors.base0E;
+          angle = 90;
+        };
       };
     };
 

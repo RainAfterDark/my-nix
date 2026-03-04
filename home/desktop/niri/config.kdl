@@ -6,7 +6,7 @@ include "nix-generated-config.kdl"
 window-rule {
   background-effect {
     blur true
-    xray false
+    xray true
   }
   geometry-corner-radius 12
   clip-to-geometry true
@@ -24,14 +24,14 @@ layer-rule {
   }
   background-effect {
     blur true
-    xray false
+    xray true
   }
 }
 
 layer-rule {
   match namespace="^noctalia-background.*"
-  background-effect {
+    background-effect {
     blur true
-    xray false
+    xray true
   }
 }

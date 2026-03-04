@@ -27,8 +27,6 @@ in
   programs.niri.settings = {
     environment = lib.mapAttrs (k: v: toString v) config.home.sessionVariables;
 
-    # spawn-at-startup = [ { command = [ "syshud" ]; } ];
-
     xwayland-satellite = {
       enable = true;
       path = lib.getExe pkgs.xwayland-satellite-unstable;
@@ -44,6 +42,7 @@ in
 
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
+    gestures.hot-corners.enable = false;
   };
 
   # Workaround for hot-relod / experimental features
