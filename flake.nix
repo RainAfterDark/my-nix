@@ -86,6 +86,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    linux-wallpaper-engine.url = "github:jagrat7/linux-wallpaper-engine";
+
     ## Programs
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

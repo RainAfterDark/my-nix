@@ -52,6 +52,7 @@
         matches = [
           { namespace = "mpvpaper"; }
           { namespace = "awww-daemon"; }
+          { namespace = "linux-wallpaperengine"; }
         ];
         place-within-backdrop = true;
       }
