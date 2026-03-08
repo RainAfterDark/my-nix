@@ -1,5 +1,14 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  home.sessionVariables = {
+    SHELL = "${lib.getExe pkgs.zsh}";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
