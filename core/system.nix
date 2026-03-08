@@ -31,6 +31,7 @@
     spice-protocol
     virtio-win
     win-spice
+    distrobox
 
     # Benchmark
     geekbench
