@@ -91,25 +91,24 @@ in
       ];
     };
 
-    # Vanilla discord has better RPC
+    # Vanilla audio is broken
     discord = {
-      enable = true;
+      enable = false;
       branch = "canary";
       openASAR.enable = true;
     };
 
-    # Unused for now
     vesktop = {
-      enable = false;
+      enable = true;
       settings = {
         appBadge = false;
         arRPC = true;
         customTitleBar = false;
         disableMinSize = false;
         enableSplashScreen = false;
-        minimizeToTray = false;
-        tray = false;
-        hardwareAcceleration = false;
+        minimizeToTray = true;
+        tray = true;
+        hardwareAcceleration = true;
         discordBranch = "canary";
       };
     };
