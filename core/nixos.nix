@@ -2,8 +2,9 @@
 {
   environment.systemPackages = with pkgs; [
     nix-output-monitor # nom
+    nix-tree # browse store
+    nurl # fetch hashes
     nvd # nix diff tool
-    nix-tree # browse store path deps
   ];
 
   # Nix CLI Tool
