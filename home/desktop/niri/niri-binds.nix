@@ -81,7 +81,7 @@
       ## Volume and Brightness Controls
       // (
         let
-          volumeStep = "10";
+          volumeStep = "2";
           brightnessStep = "10";
 
           mkControlAction = action: {
