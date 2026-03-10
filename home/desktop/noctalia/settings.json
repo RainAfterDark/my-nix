@@ -35,7 +35,7 @@
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
-        "volumeStep": 5
+        "volumeStep": 2
     },
     "bar": {
         "autoHideDelay": 500,
@@ -603,7 +603,7 @@
     "ui": {
         "boxBorderEnabled": false,
         "fontDefault": "Maple Mono Normal NF CN",
-        "fontDefaultScale": 0.9,
+        "fontDefaultScale": 0.85,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.65,
