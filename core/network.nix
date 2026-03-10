@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   host,
@@ -16,7 +17,11 @@
     networkmanager = {
       enable = true;
       # let NM hand DNS to resolved
-      dns = "systemd-resolved";
+      dns = lib.mkForce "none";
+      connectionConfig = {
+        "ipv4.ignore-auto-dns" = true;
+        "ipv6.ignore-auto-dns" = true;
+      };
     };
 
     firewall = {
@@ -31,7 +36,6 @@
       ];
 
       allowedUDPPorts = [ config.services.tailscale.port ];
-
       trustedInterfaces = [ config.services.tailscale.interfaceName ];
     };
   };
@@ -40,14 +44,23 @@
     enable = true;
     settings = {
       Resolve = {
-        FallbackDNS = [
+        DNS = [
+          "2001:4860:4860::8888"
           "8.8.8.8"
-          "8.8.4.4"
+          "2606:4700:4700::1111"
           "1.1.1.1"
-          "1.0.0.1"
         ];
+
+        FallbackDNS = [
+          "1.0.0.1"
+          "8.8.4.4"
+          "9.9.9.9"
+        ];
+
         # let avahi handle mDNS
         MulticastDNS = "off";
+        DNSOverTLS = "opportunistic";
+        Domains = [ "~." ];
       };
     };
   };
