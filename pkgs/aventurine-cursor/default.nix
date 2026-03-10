@@ -6,6 +6,7 @@
   imagemagick,
   python3,
   file,
+  ...
 }:
 
 stdenvNoCC.mkDerivation {
@@ -23,7 +24,9 @@ stdenvNoCC.mkDerivation {
   ];
 
   buildPhase = ''
+    # bash
     cat > multisize.py <<EOF
+    # python
     import os, subprocess, shutil, glob, sys, stat
 
     SCALES  = [2.0, 3.0]
@@ -142,6 +145,7 @@ stdenvNoCC.mkDerivation {
 
     EOF
 
+    # bash
     python3 multisize.py
 
     rm -rf cursors
@@ -149,6 +153,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   installPhase = ''
+    # bash
     mkdir -p $out/share/icons/Aventurine
     cp -r * $out/share/icons/Aventurine/
     chmod -R 644 $out/share/icons/Aventurine/cursors/*

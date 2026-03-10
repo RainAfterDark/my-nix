@@ -1,25 +1,21 @@
 {
   lib,
   stdenv,
-  fetchFromGitHub,
   makeWrapper,
   raylib,
+  inputs,
+  ...
 }:
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "hellpaper";
-  version = "unstable-2025-09-24";
-
-  src = fetchFromGitHub {
-    owner = "danihek";
-    repo = "hellpaper";
-    rev = "d8af3ff83b567869c11ba31e39c3c10e4bee53e6";
-    hash = "sha256-1vX1hC4RVNmmIn0j7giAqrzGV12zk2FMesUOX/iI1eY=";
-  };
+  src = inputs.hellpaper;
+  version = "0-unstable-${src.shortRev}";
 
   buildInputs = [ raylib ];
   nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
+    # bash
     install -Dm755 hellpaper -t $out/bin
   '';
 

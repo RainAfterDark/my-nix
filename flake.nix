@@ -86,8 +86,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    linux-wallpaper-engine.url = "github:jagrat7/linux-wallpaper-engine";
-
     ## Programs
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -107,6 +105,19 @@
 
     ## Certain "Anime Games"...
     aagl.url = "github:ezKEa/aagl-gtk-on-nix"; # Cached
+
+    ## Misc.
+    linux-wallpaper-engine.url = "github:RainAfterDark/linux-wallpaper-engine/fix/nix-shell";
+    linux-wallpaperengine = {
+      # FIXME (submodules workaround): https://github.com/NixOS/nix/issues/14982
+      url = "git+https://github.com/Almamu/linux-wallpaperengine?submodules=1";
+      flake = false;
+    };
+
+    hellpaper = {
+      url = "github:danihek/hellpaper";
+      flake = false;
+    };
   };
 
   nixConfig = {

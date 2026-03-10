@@ -8,6 +8,7 @@ stdenvNoCC.mkDerivation {
   dontBuild = true;
 
   installPhase = ''
+    # bash
     mkdir -p $out/share/fonts
     cp $src/*.ttf $out/share/fonts
   '';

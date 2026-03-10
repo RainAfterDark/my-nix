@@ -5,7 +5,9 @@
   flakeRoot,
 }:
 let
+  systems = [ "x86_64-linux" ];
   lib = import ./lib-ext.nix { inherit (inputs) nixpkgs; };
+  forEachSystem = f: lib.genAttrs systems (system: f system);
 
   hosts =
     let
@@ -34,10 +36,26 @@ let
           coreModules = findModules ../core;
           hostModules = findModules ../hosts/${host};
         in
-        [ ./nix-cfg.nix ] ++ coreModules ++ hostModules;
+        [
+          ./nix-daemon.nix
+          ./nixpkgs.nix
+        ]
+        ++ coreModules
+        ++ hostModules;
     };
 in
 {
+  overlays.default = import ./overlays.nix { inherit inputs lib; };
+
+  packages = forEachSystem (
+    system:
+    let
+      pkgsOpts = import ./pkgs-opts.nix { inherit lib self; };
+      pkgs = import inputs.nixpkgs (pkgsOpts // { inherit system; });
+    in
+    import ../pkgs { inherit pkgs inputs; }
+  );
+
   nixosConfigurations = builtins.listToAttrs (
     map (host: {
       name = host;

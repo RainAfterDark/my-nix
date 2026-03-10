@@ -525,6 +525,22 @@
         "type": "gitlab"
       }
     },
+    "hellpaper": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1758734214,
+        "narHash": "sha256-1vX1hC4RVNmmIn0j7giAqrzGV12zk2FMesUOX/iI1eY=",
+        "owner": "danihek",
+        "repo": "hellpaper",
+        "rev": "d8af3ff83b567869c11ba31e39c3c10e4bee53e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danihek",
+        "repo": "hellpaper",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -567,17 +583,36 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1772955015,
-        "narHash": "sha256-+Vehi73/XHvABcVuSw1fJu+2H9qAIgiOzN2eZgpgRng=",
-        "owner": "jagrat7",
+        "lastModified": 1773059454,
+        "narHash": "sha256-euU5RQvODLWZr260Yor8xaR3uf3WHItib2G1XWMZK+0=",
+        "owner": "RainAfterDark",
         "repo": "linux-wallpaper-engine",
-        "rev": "a6e06990ebdeba8af5b5684128fa8dd47e0a973b",
+        "rev": "c2e1f81bed8e352753906327ac0b98fa4da32010",
         "type": "github"
       },
       "original": {
-        "owner": "jagrat7",
+        "owner": "RainAfterDark",
+        "ref": "fix/nix-shell",
         "repo": "linux-wallpaper-engine",
         "type": "github"
+      }
+    },
+    "linux-wallpaperengine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773065749,
+        "narHash": "sha256-5us4MMpsJrg0iabrOw6fvCfEiUNLo6R8ZPpqEMYGsT0=",
+        "ref": "refs/heads/main",
+        "rev": "cb0a0f6e1e9a77f93ac702e15a5bd38acf931a88",
+        "revCount": 594,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/Almamu/linux-wallpaperengine"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/Almamu/linux-wallpaperengine"
       }
     },
     "milk-grub-theme": {
@@ -1076,8 +1111,10 @@
         "disko": "disko",
         "elephant": "elephant",
         "flox": "flox",
+        "hellpaper": "hellpaper",
         "home-manager": "home-manager",
         "linux-wallpaper-engine": "linux-wallpaper-engine",
+        "linux-wallpaperengine": "linux-wallpaperengine",
         "milk-grub-theme": "milk-grub-theme",
         "niri": "niri",
         "niri-wip": "niri-wip",
