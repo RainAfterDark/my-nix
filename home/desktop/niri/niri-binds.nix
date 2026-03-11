@@ -82,7 +82,7 @@
       // (
         let
           volumeStep = "2";
-          brightnessStep = "10";
+          brightnessStep = "5";
 
           mkControlAction = action: {
             action = sh action;
