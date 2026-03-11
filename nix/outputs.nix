@@ -36,12 +36,7 @@ let
           coreModules = findModules ../core;
           hostModules = findModules ../hosts/${host};
         in
-        [
-          ./nix-daemon.nix
-          ./nixpkgs.nix
-        ]
-        ++ coreModules
-        ++ hostModules;
+        [ ./nix-cfg.nix ] ++ coreModules ++ hostModules;
     };
 in
 {

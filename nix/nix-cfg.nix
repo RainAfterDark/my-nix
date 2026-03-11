@@ -1,4 +1,12 @@
-{ inputs, username, ... }:
+{
+  lib,
+  self,
+  pkgs,
+  config,
+  inputs,
+  username,
+  ...
+}:
 {
   nix = {
     settings = {
@@ -20,5 +28,12 @@
 
     # Use the same nixpkgs as in the system  flake
     registry.nixpkgs.flake = inputs.nixpkgs;
+  };
+
+  nixpkgs = import ./pkgs-opts.nix { inherit lib self; };
+
+  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
+    system = pkgs.stdenv.hostPlatform.system;
+    inherit (config.nixpkgs) config;
   };
 }
