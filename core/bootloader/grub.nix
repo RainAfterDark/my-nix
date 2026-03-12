@@ -43,5 +43,7 @@
         (adi1090x-plymouth-themes.override { selected_themes = [ "square_hud" ]; })
       ];
     };
+
+    kernelParams = [ "plymouth.use-simpledrm" ];
   };
 }

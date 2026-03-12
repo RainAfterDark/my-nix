@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
   boot.kernelPackages =
     pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
@@ -12,8 +7,6 @@
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia ];
 
   # No hibernate!
-  boot.kernelParams = lib.mkAfter [ "nohibernate" ];
-
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
@@ -33,14 +26,19 @@
     };
   };
 
-  # Hardware Acceleration for Intel iGPU
-  hardware.graphics.extraPackages = with pkgs; [
-    libva-vdpau-driver
-    libvdpau-va-gl
-    intel-vaapi-driver
-    intel-media-driver
-    nvidia-vaapi-driver
+  # Intel iGPU
+  boot.kernelParams = [
+    "i915.enable_guc=2"
+    "i915.enable_fbc=1"
+    "i915.fastboot=1"
   ];
+
+  hardware.intelgpu = {
+    driver = "i915";
+    loadInInitrd = true;
+    computeRuntime = "legacy";
+    vaapiDriver = "intel-media-driver";
+  };
 
   # Build packages with CUDA support
   nixpkgs.config.cudaSupport = true;

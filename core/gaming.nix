@@ -44,7 +44,8 @@
 
   environment.systemPackages = with pkgs; [
     # GPU
-    vulkan-tools
+    vulkan-tools # verify video
+    libva-utils # verify vaapi
     mesa-demos # glxgears, etc.
     lact # GPU OC/UV
 
