@@ -1,6 +1,6 @@
 {
-  stdenvNoCC,
   lib,
+  stdenvNoCC,
   xcur2png,
   xcursorgen,
   imagemagick,
@@ -14,6 +14,9 @@ stdenvNoCC.mkDerivation {
   version = "1.0";
 
   src = ./Aventurine.tar.gz;
+  outputHashAlgo = "sha256";
+  outputHashMode = "recursive";
+  outputHash = "sha256-pd2OaK/wqMectm6lwAIG3v3STPCC8sC9Hp7GTKzkiTw=";
 
   nativeBuildInputs = [
     xcur2png
