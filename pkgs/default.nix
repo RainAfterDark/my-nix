@@ -7,7 +7,8 @@
 let
   # Every directory here is a package definition
   dirContents = builtins.readDir ./.;
-  pkgDirs = lib.filterAttrs (name: type: type == "directory") dirContents;
+  isDir = _: type: type == "directory";
+  pkgDirs = lib.filterAttrs isDir dirContents;
 in
 lib.mapAttrs (
   name: _:

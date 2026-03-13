@@ -2,6 +2,7 @@
 lib.composeManyExtensions [
   inputs.nix-cachyos-kernel.overlays.pinned
   inputs.niri.overlays.niri
+
   (
     final: prev:
     import ../pkgs {

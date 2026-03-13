@@ -12,6 +12,8 @@
     settings = {
       sandbox = true;
       auto-optimise-store = true;
+      use-xdg-base-directories = true;
+
       trusted-users = [ username ];
       allowed-users = [ username ];
 
@@ -19,7 +21,8 @@
         "nix-command"
         "flakes"
       ];
-    };
+    }
+    // (import ../flake.nix).nixConfig;
 
     # Allow system to be more responsive
     daemonCPUSchedPolicy = "idle";
