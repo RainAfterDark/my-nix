@@ -22,6 +22,7 @@
         "flakes"
       ];
     }
+    # Blasphemy
     // (import ../flake.nix).nixConfig;
 
     # Allow system to be more responsive
