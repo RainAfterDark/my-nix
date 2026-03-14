@@ -89,6 +89,11 @@ in
       useQuickCss = true;
       enableReactDevtools = true;
       themeLinks = [ system24 ];
+
+      plugins = {
+        disableCameras.enable = true;
+        youtubeAdblock.enable = true;
+      };
     };
 
     # Vanilla RPC works better, but audio is broken
