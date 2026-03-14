@@ -7,7 +7,9 @@
 let
   fontFamily = config.stylix.fonts.monospace.name;
   bgAlpha = config.stylix.opacity.applications * 0.75;
-  customTheme = with colors; ''
+
+  system24 = "https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/system24-vencord.theme.css";
+  system24Colors = with colors; ''
     /* css */
     :root {
       /* ─── Base16 accents ─── */
@@ -80,37 +82,43 @@ in
     enable = true;
 
     # Theming
-    quickCss = customTheme;
+    quickCss = system24Colors;
     config = {
       frameless = true;
       transparent = true;
       useQuickCss = true;
       enableReactDevtools = true;
-      themeLinks = [
-        "https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/system24-vencord.theme.css"
-      ];
+      themeLinks = [ system24 ];
     };
 
-    # Vanilla audio is broken
+    # Vanilla RPC works better, but audio is broken
     discord = {
       enable = false;
       branch = "canary";
       openASAR.enable = true;
     };
 
-    vesktop = {
+    # Vesktop fork
+    equibop = {
       enable = true;
+      state.firstLaunch = false;
+
+      # https://github.com/Equicord/Equibop/blob/main/src/shared/settings.d.ts
       settings = {
-        appBadge = false;
         arRPC = true;
-        customTitleBar = false;
-        disableMinSize = false;
-        enableSplashScreen = false;
-        minimizeToTray = true;
-        tray = true;
-        hardwareAcceleration = true;
         discordBranch = "canary";
+        enableSplashScreen = false;
+        hardwareAcceleration = true;
+        hardwareVideoAcceleration = false;
       };
+    };
+
+    # https://github.com/Equicord/Equicord/blob/main/src/api/Settings.ts
+    # https://github.com/Equicord/Equibop/blob/main/src/renderer/components/settings/Settings.tsx
+    equibopConfig = {
+      enableOnlineThemes = true;
+      enabledThemeLinks = [ system24 ];
+      enabledThemes = [ "system24-vencord.theme.css" ];
     };
   };
 }

@@ -87,13 +87,14 @@ in
     # Maximized Apps
     {
       matches = [
+        { app-id = "mpv"; }
         { app-id = "gimp"; }
         { app-id = "jetbrains-idea"; }
         { app-id = "jetbrains-rider"; }
-        { app-id = "mpv"; }
         { app-id = "Spotify"; }
         { app-id = "discord"; }
         { app-id = "vesktop"; }
+        { app-id = "equibop"; }
         { app-id = "zen-beta"; }
         { app-id = "REAPER"; }
       ];
