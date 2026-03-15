@@ -120,7 +120,10 @@
           toggle-eDP = "niri msg outputs | grep -n2 eDP | grep -q Disabled && ${eDP "on"} || ${eDP "off"}";
         in
         {
-          "Mod+M".action = sh toggle-eDP;
+          "Mod+M" = {
+            action = sh toggle-eDP;
+            allow-when-locked = true;
+          };
         }
       );
 
