@@ -10,13 +10,8 @@
 {
   nix = {
     settings = {
-      sandbox = true;
-      auto-optimise-store = true;
-      use-xdg-base-directories = true;
-
       trusted-users = [ username ];
       allowed-users = [ username ];
-
       experimental-features = [
         "nix-command"
         "flakes"

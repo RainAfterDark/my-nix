@@ -146,5 +146,8 @@
       "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
     ];
+
+    auto-optimise-store = true;
+    use-xdg-base-directories = true;
   };
 }
