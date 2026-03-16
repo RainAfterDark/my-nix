@@ -24,7 +24,6 @@ stdenv.mkDerivation rec {
     description = "A wallpaper picker for Linux, built with Raylib.";
     license = lib.licenses.mit;
     platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ danihek ];
-    mainProgram = "hallpaper";
+    mainProgram = "hellpaper";
   };
 }

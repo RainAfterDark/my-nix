@@ -3,6 +3,7 @@
   inputs,
   username,
   flakeRoot,
+  ...
 }:
 let
   systems = [ "x86_64-linux" ];
@@ -45,10 +46,11 @@ in
   packages = forEachSystem (
     system:
     let
-      pkgsOpts = import ./pkgs-opts.nix { inherit lib self; };
-      pkgs = import inputs.nixpkgs (pkgsOpts // { inherit system; });
+      opts = import ./pkgs-opts.nix { inherit lib self; };
+      pkgs = import inputs.nixpkgs ({ inherit system; } // opts);
+      names = (import ../pkgs { inherit inputs lib; }).names;
     in
-    import ../pkgs { inherit pkgs inputs; }
+    lib.genAttrs names (name: pkgs.${name})
   );
 
   nixosConfigurations = builtins.listToAttrs (

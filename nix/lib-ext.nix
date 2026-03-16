@@ -1,4 +1,4 @@
-{ nixpkgs }:
+{ nixpkgs, ... }:
 nixpkgs.lib.extend (
   final: prev: {
     findModules =
