@@ -14,7 +14,7 @@ let
         # If a package depends on itself (presumably to override)
         # then that dependency has to point to the prev version
         # (example: nitch pkg is an override that applies a patch)
-        // (final.lib.optionalAttrs (builtins.hasAttr name prev) {
+        // (lib.optionalAttrs (builtins.hasAttr name prev) {
           "${name}" = prev.${name};
         })
       )
