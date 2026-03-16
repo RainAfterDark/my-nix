@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   host,
@@ -13,40 +12,20 @@
 
   networking = {
     hostName = host;
+    networkmanager.enable = true;
 
-    networkmanager = {
-      enable = true;
-      # let NM hand DNS to resolved
-      dns = lib.mkForce "none";
-      connectionConfig = {
-        "ipv4.ignore-auto-dns" = true;
-        "ipv6.ignore-auto-dns" = true;
-      };
-    };
-
-    getaddrinfo = {
-      enable = true;
-      precedence = {
-        # Prefer IPv4
-        "::ffff:0:0/96" = 100;
-        "::1/128" = 50;
-        "::/0" = 40;
-        "2002::/16" = 30;
-        "::/96" = 20;
-      };
-    };
+    search = [ "~." ];
+    nameservers = [
+      "2001:4860:4860::8888"
+      "8.8.8.8"
+      "2606:4700:4700::1111"
+      "1.1.1.1"
+    ];
 
     firewall = {
       enable = true;
       checkReversePath = "loose";
-
-      allowedTCPPorts = [
-        22
-        80
-        443
-        config.services.tailscale.port
-      ];
-
+      allowedTCPPorts = [ config.services.tailscale.port ];
       allowedUDPPorts = [ config.services.tailscale.port ];
       trustedInterfaces = [ config.services.tailscale.interfaceName ];
     };
@@ -56,23 +35,14 @@
     enable = true;
     settings = {
       Resolve = {
-        DNS = [
-          "2001:4860:4860::8888"
-          "8.8.8.8"
-          "2606:4700:4700::1111"
-          "1.1.1.1"
-        ];
-
+        DNSOverTLS = "opportunistic";
         FallbackDNS = [
           "1.0.0.1"
           "8.8.4.4"
           "9.9.9.9"
         ];
-
         # let avahi handle mDNS
         MulticastDNS = "off";
-        DNSOverTLS = "opportunistic";
-        Domains = [ "~." ];
       };
     };
   };
@@ -83,7 +53,6 @@
     openFirewall = true;
     nssmdns4 = true;
     nssmdns6 = true;
-
     publish = {
       enable = true;
       userServices = true;
@@ -91,7 +60,7 @@
     };
   };
 
-  # TailNet
+  # Tailscale
   services.tailscale = {
     enable = true;
     # prevent tailscale from overwriting resolv.conf
