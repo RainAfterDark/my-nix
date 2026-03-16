@@ -27,16 +27,6 @@
     };
 
     scripts = with pkgs.mpvScripts; [
-      # Auto download subs
-      (autosub.overrideAttrs (old: {
-        # make it manual (hotkey is 'b')
-        preInstall = (old.preInstall or "") + ''
-          substituteInPlace autosub.lua --replace-fail \
-          "auto = true" \
-          "auto = false"
-        '';
-      }))
-
       # Modern OSC
       (modernx-zydezu.overrideAttrs (old: {
         # bind sub cycling to x (avoid conflicts w/ videoclip)
@@ -46,6 +36,16 @@
           substituteInPlace modernx.lua --replace-fail \
           '"c", "cyclecaptions"' \
           '"x", "cyclecaptions"'
+        '';
+      }))
+
+      # Auto download subs
+      (autosub.overrideAttrs (old: {
+        # make it manual (hotkey is 'b')
+        preInstall = (old.preInstall or "") + ''
+          substituteInPlace autosub.lua --replace-fail \
+          "auto = true" \
+          "auto = false"
         '';
       }))
 
@@ -63,6 +63,7 @@
         info_button = true;
         loop_button = true;
         show_on_pause = false;
+        persistent_progress_toggle = false;
       };
 
       thumbfast = {
