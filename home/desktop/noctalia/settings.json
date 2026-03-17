@@ -55,7 +55,7 @@
         "frameThickness": 8,
         "hideOnOverview": false,
         "marginHorizontal": 8,
-        "marginVertical": 4,
+        "marginVertical": 6,
         "middleClickAction": "none",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
@@ -366,7 +366,7 @@
         "enableLockScreenMediaControls": false,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 0,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -400,7 +400,7 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": false,
-        "radiusRatio": 1,
+        "radiusRatio": 0,
         "reverseScroll": false,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
