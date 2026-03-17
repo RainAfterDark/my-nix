@@ -25,7 +25,7 @@ in
         };
         client_side_decorations = {
           enabled = true;
-          rounding = 12;
+          rounding = 0;
           border-width = 2;
         };
       };
