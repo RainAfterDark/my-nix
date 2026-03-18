@@ -9,6 +9,7 @@
           # weird bug when plugged desktop vs laptop
           refresh = if (host == "desktop") then 119.997 else 120.0;
         };
+        variable-refresh-rate = true;
       };
     };
 
