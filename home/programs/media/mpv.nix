@@ -64,6 +64,7 @@
         loop_button = true;
         show_on_pause = false;
         persistent_progress_toggle = false;
+        window_controls_title = "\${filename}";
       };
 
       thumbfast = {
