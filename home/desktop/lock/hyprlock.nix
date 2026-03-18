@@ -60,6 +60,8 @@ in
         fail_text = " 失敗";
         fade_on_empty = false;
         outline_thickness = 5;
+        dots_rounding = 0;
+        rounding = 0;
         shadow_passes = 2;
       };
     };
