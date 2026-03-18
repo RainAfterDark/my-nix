@@ -24,7 +24,7 @@
       # fps_limit=0
 
       ### early = wait before present, late = wait after present
-      # fps_limit_method=
+      fps_limit_method=late
 
       ### VSync [0-3] 0 = adaptive; 1 = off; 2 = mailbox; 3 = on
       # vsync=-1
@@ -72,9 +72,9 @@
       # custom_text_center=
 
       ### Display the current system time
-      time
+      # time
       ## removes the time label
-      time_no_label
+      # time_no_label
 
       ### Time formatting examples
       ## %H:%M
@@ -125,8 +125,8 @@
       # core_type
 
       ### Display IO read and write for the app (not system)
-      # io_read
-      # io_write
+      io_read
+      io_write
 
       ### Display system vram / ram / swap space usage
       vram
@@ -155,26 +155,26 @@
       # fps_value=30,60
       # fps_color=B22222,FDFD09,39F900
       # fps_text=""
-      frametime
+      # frametime
       # frame_count
       ## fps_metrics takes a list of decimal values or the value avg
       fps_metrics=avg,0.01
 
       ### Display GPU throttling status based on Power, current, temp or "other"
       ## Only shows if throttling is currently happening
-      throttling_status
+      # throttling_status
       ## Same as throttling_status but displays throttling on the frametime graph
-      #throttling_status_graph
+      throttling_status_graph
 
       ### Display miscellaneous information
       # engine_version
       # engine_short_names
       # gpu_name
-      vulkan_driver
-      wine
+      # vulkan_driver
+      # wine
       # exec_name
       winesync
-      # present_mode
+      present_mode
 
       ### Display loaded MangoHud architecture
       # arch
@@ -216,13 +216,13 @@
       # fan
 
       ### Display current FPS limit
-      # show_fps_limit
+      show_fps_limit
 
       ### Display the current resolution
       # resolution
 
       ### Display current display session
-      # display_server
+      display_server
 
       ### Display temperature in fahrenheit
       # temp_fahrenheit
