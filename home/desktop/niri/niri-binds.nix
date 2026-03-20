@@ -8,20 +8,8 @@
   programs.niri.settings = with config.lib.niri.actions; {
     binds =
       let
-        sh = spawn "sh" "-c";
-        # onlyOne = c: f: sh "flock -n /tmp/${c}.lock sh -c '${c} ${f}'";
-        # waypaperArgs = "--folder $FLAKE_ROOT/assets/gif --backend awww";
-
-        # FIXME when upstream issue is fixed:
-        # https://github.com/sodiboo/niri-flake/issues/922#issuecomment-2729519779
-        screenshot-screen = {
-          screenshot-screen = [ ];
-        };
-        screenshot = {
-          screenshot.show-pointer = true;
-        };
-        screenshot-window = {
-          screenshot-window.write-to-disk = true;
+        scArgs = {
+          show-pointer = true;
         };
       in
       ## General Controls
@@ -29,17 +17,19 @@
         # Apps/Widgets
         "Mod+T".action = spawn "kitty";
         "Mod+G".action = spawn "nemo";
-        "Mod+F".action = sh "vicinae toggle";
-        "Mod+V".action = sh "vicinae vicinae://extensions/vicinae/clipboard/history";
-        "Mod+B".action = sh "vicinae vicinae://extensions/vicinae/core/search-emojis";
-        "Mod+R".action = sh "noctalia-shell ipc call notifications toggleHistory";
-        "Mod+Shift+R".action = sh "noctalia-shell ipc call notifications clear";
+        "Mod+F".action = spawn-sh "vicinae toggle";
+        "Mod+V".action =
+          spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history";
+        "Mod+B".action =
+          spawn-sh "vicinae vicinae://extensions/vicinae/core/search-emojis";
+        "Mod+R".action = spawn-sh "noctalia-shell ipc call notifications toggleHistory";
+        "Mod+Shift+R".action = spawn-sh "noctalia-shell ipc call notifications clear";
         "Mod+O".action =
-          sh "vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid";
+          spawn-sh "vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid";
         "Mod+Shift+O".action =
-          sh "vicinae vicinae://extensions/sovereign/awww-switcher/wprandom";
-        "Mod+I".action = sh "toggle-app pavucontrol";
-        "Mod+Escape".action = sh "noctalia-shell ipc call sessionMenu toggle";
+          spawn-sh "vicinae vicinae://extensions/sovereign/awww-switcher/wprandom";
+        "Mod+I".action = spawn-sh "toggle-app pavucontrol";
+        "Mod+Escape".action = spawn-sh "noctalia-shell ipc call sessionMenu toggle";
 
         # Resizing
         "Mod+Z".action = close-window;
@@ -71,12 +61,12 @@
         "Mod+Shift+E".action = expel-window-from-column;
 
         # PrntScrn
-        "Print".action = screenshot-screen;
-        "Mod+P".action = screenshot-screen;
-        "Ctrl+Print".action = screenshot;
-        "Mod+Ctrl+P".action = screenshot;
-        "Alt+Print".action = screenshot-window;
-        "Mod+Alt+P".action = screenshot-window;
+        "Print".action.screenshot-screen = scArgs;
+        "Mod+P".action.screenshot-screen = scArgs;
+        "Ctrl+Print".action.screenshot = scArgs;
+        "Mod+Ctrl+P".action.screenshot = scArgs;
+        "Alt+Print".action.screenshot-window = scArgs;
+        "Mod+Alt+P".action.screenshot-window = scArgs;
       }
       ## Volume and Brightness Controls
       // (
@@ -85,7 +75,7 @@
           brightnessStep = "5";
 
           mkControlAction = action: {
-            action = sh action;
+            action = spawn-sh action;
             allow-when-locked = true;
           };
 
@@ -121,7 +111,7 @@
         in
         {
           "Mod+M" = {
-            action = sh toggle-eDP;
+            action = spawn-sh toggle-eDP;
             allow-when-locked = true;
           };
         }

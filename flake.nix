@@ -33,8 +33,9 @@
     };
 
     ## Desktop
-    niri = {
-      url = "github:sodiboo/niri-flake";
+    niri-flake = {
+      # TODO: point to main branch when this gets merged
+      url = "github:sodiboo/niri-flake/very-refactor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

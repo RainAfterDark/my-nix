@@ -12,9 +12,12 @@ let
 in
 {
   imports = [
-    inputs.niri.nixosModules.niri
+    inputs.niri-flake.nixosModules.niri
     inputs.stylix.nixosModules.stylix
   ];
+
+  # This is already explicitly handled
+  niri-flake.cache.enable = false;
 
   programs.niri = {
     enable = true;

@@ -42,7 +42,13 @@ in
 
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
-    gestures.hot-corners.enable = false;
+
+    gestures.hot-corners = {
+      top-left = false;
+      top-right = false;
+      bottom-left = false;
+      bottom-right = false;
+    };
   };
 
   # Workaround for hot-relod / experimental features
