@@ -40,7 +40,7 @@
         "Mod+L".action = fullscreen-window;
         "Mod+Shift+L".action = toggle-window-floating;
         "Mod+F8".action = set-dynamic-cast-window;
-        "Mod+Alt+F8".action = clear-dynamic-cast-target;
+        "Mod+Ctrl+F8".action = clear-dynamic-cast-target;
         "Mod+Shift+F8".action = set-dynamic-cast-monitor;
 
         # Navigation
@@ -65,8 +65,8 @@
         "Mod+P".action.screenshot-screen = scArgs;
         "Ctrl+Print".action.screenshot = scArgs;
         "Mod+Ctrl+P".action.screenshot = scArgs;
-        "Alt+Print".action.screenshot-window = scArgs;
-        "Mod+Alt+P".action.screenshot-window = scArgs;
+        "Shift+Print".action.screenshot-window = scArgs;
+        "Mod+Shift+P".action.screenshot-window = scArgs;
       }
       ## Volume and Brightness Controls
       // (
@@ -97,10 +97,10 @@
 
           "XF86MonBrightnessUp" = brightnessUp;
           "XF86MonBrightnessDown" = brightnessDown;
-          "Mod+Alt+TouchpadScrollDown" = brightnessUp;
-          "Mod+Alt+TouchpadScrollUp" = brightnessDown;
-          "Mod+Alt+WheelScrollUp" = brightnessUp;
-          "Mod+Alt+WheelScrollDown" = brightnessDown;
+          "Mod+Shift+TouchpadScrollDown" = brightnessUp;
+          "Mod+Shift+TouchpadScrollUp" = brightnessDown;
+          "Mod+Shift+WheelScrollUp" = brightnessUp;
+          "Mod+Shift+WheelScrollDown" = brightnessDown;
         }
       )
       ## Allow toggling internal display for laptops
