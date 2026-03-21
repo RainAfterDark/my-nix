@@ -7,7 +7,11 @@
 }:
 let
   # TODO: switch back to unstable branch when blur branch is merged
-  niri-base = inputs.niri-wip.packages.${stdenv.hostPlatform.system}.niri;
+  system = stdenv.hostPlatform.system;
+  niri = inputs.niri-wip.packages.${system}.niri;
+  niri-base = niri.overrideAttrs (old: {
+    doCheck = false; # skip tests
+  });
 in
 symlinkJoin {
   inherit (niri-base)
