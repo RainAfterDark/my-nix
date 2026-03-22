@@ -583,15 +583,16 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1773992331,
-        "narHash": "sha256-lau3eudKunQ9nQv3F1O8F3WF5cFpT6SfbMd389iboMA=",
+        "lastModified": 1774174697,
+        "narHash": "sha256-obTKSgY3Qx0OYyjOI6I08PfSsGma4xTm9fFJBGRmG+o=",
         "owner": "jagrat7",
         "repo": "linux-wallpaper-engine",
-        "rev": "ae5a463633e3e388d43a5f47309b160b792ae6a5",
+        "rev": "e0f388df9c6bf3508456cfc84d9a71a77ff2c28a",
         "type": "github"
       },
       "original": {
         "owner": "jagrat7",
+        "ref": "fix/shell-and-tray",
         "repo": "linux-wallpaper-engine",
         "type": "github"
       }
