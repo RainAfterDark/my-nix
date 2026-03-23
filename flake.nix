@@ -108,7 +108,7 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix"; # Cached
 
     ## Misc.
-    linux-wallpaper-engine.url = "github:jagrat7/linux-wallpaper-engine/fix/shell-and-tray";
+    linux-wallpaper-engine.url = "github:jagrat7/linux-wallpaper-engine";
     linux-wallpaperengine = {
       # FIXME (submodules workaround): https://github.com/NixOS/nix/issues/14982
       url = "git+https://github.com/Almamu/linux-wallpaperengine?submodules=1";
