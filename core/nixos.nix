@@ -17,6 +17,9 @@
     flake = flakeRoot;
   };
 
+  # Nix develop
+  programs.direnv.enable = true;
+
   ## Dynamic libraries needed by some programs
   # https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885
   programs.nix-ld.enable = true;
