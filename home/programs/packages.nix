@@ -7,7 +7,7 @@
     eza # ls replacement
     fd # find replacement
     gping # ping with a graph
-    gtrash # put deleted files in system trash
+    gtrash # rm to system trash
     man-pages # extra man pages
     ncdu # disk space
     ripgrep # grep replacement
@@ -65,16 +65,11 @@
     krita # drawing and painting
     handbrake # video remuxer
     kdePackages.kdenlive # video editor
-    vlc # media player
 
     obsidian # notes vault
     warehouse # flatpak manager
     heroic # game launcher
     protonplus # wine and proton manager
     mcaselector # minecraft worlds util
-    waypaper # wallpaper picker in python
-
-    ### Custom Packaged
-    hellpaper # wallpaper picker in C (raylib)
   ];
 }

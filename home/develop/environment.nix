@@ -10,17 +10,16 @@ let
 in
 {
   home.packages = with pkgs; [
+    ## Lang
+    nixd # Nix LSP
+
     ## IDEs
     jetbrains-toolbox
 
     ## Env
-    devenv
     flox
     just
     chrome
-
-    ## Lang
-    nixd # Nix LSP
 
     ## Game Dev
     godot

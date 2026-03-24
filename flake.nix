@@ -43,8 +43,7 @@
     niri-wip = {
       url = "github:niri-wm/niri/wip/branch";
       inputs.nixpkgs.follows = "nixpkgs";
-      # can be omitted for end-users
-      inputs.rust-overlay.follows = "";
+      inputs.rust-overlay.follows = ""; # can be omitted for end-users
     };
 
     milk-grub-theme = {
@@ -66,13 +65,6 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.noctalia-qs.follows = "noctalia-qs";
-    };
-
-    # TODO: Deprecated
-    elephant.url = "github:abenz1267/elephant"; # Cached
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
     };
 
     vicinae.url = "github:vicinaehq/vicinae"; # Cached
@@ -110,13 +102,8 @@
     ## Misc.
     linux-wallpaper-engine.url = "github:jagrat7/linux-wallpaper-engine";
     linux-wallpaperengine = {
-      # FIXME (submodules workaround): https://github.com/NixOS/nix/issues/14982
+      # submodules workaround: https://github.com/NixOS/nix/issues/14982
       url = "git+https://github.com/Almamu/linux-wallpaperengine?submodules=1";
-      flake = false;
-    };
-
-    hellpaper = {
-      url = "github:danihek/hellpaper";
       flake = false;
     };
   };
@@ -130,8 +117,6 @@
       "https://attic.xuyh0120.win/lantian"
       "https://niri.cachix.org"
       "https://ezkea.cachix.org"
-      "https://walker.cachix.org"
-      "https://walker-git.cachix.org"
       "https://vicinae.cachix.org"
     ];
 
@@ -143,8 +128,6 @@
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
-      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
     ];
 
