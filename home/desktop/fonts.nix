@@ -41,9 +41,6 @@ in
     # CJK
     mplus-outline-fonts.githubRelease
     wqy_zenhei
-
-    # Custom fonts
-    stray-font
   ];
 
   fonts.fontconfig.enable = true;
