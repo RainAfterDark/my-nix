@@ -28,7 +28,7 @@
           spawn-sh "vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid";
         "Mod+Shift+O".action =
           spawn-sh "vicinae vicinae://extensions/sovereign/awww-switcher/wprandom";
-        "Mod+I".action = spawn-sh "toggle-app pavucontrol";
+        "Mod+I".action = spawn-sh "noctalia-shell ipc call volume togglePanel";
         "Mod+Escape".action = spawn-sh "noctalia-shell ipc call sessionMenu toggle";
 
         # Resizing
