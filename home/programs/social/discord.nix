@@ -108,25 +108,6 @@ in
     equibop = {
       enable = true;
 
-      # FIXME: https://github.com/FlameFlag/nixcord/issues/174#issue-3910865328
-      package =
-        (pkgs.equibop.override { electron = pkgs.electron_40; }).overrideAttrs
-          (old: {
-            postFixup =
-              let
-                libPath =
-                  with pkgs;
-                  lib.makeLibraryPath [
-                    libva
-                    stdenv.cc.cc.lib
-                  ];
-              in
-              (old.postFixup or "")
-              + ''
-                wrapProgram $out/bin/equibop --prefix LD_LIBRARY_PATH : "${libPath}"
-              '';
-          });
-
       # https://github.com/Equicord/Equibop/blob/main/src/shared/settings.d.ts
       settings = {
         arRPC = true;
