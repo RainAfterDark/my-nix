@@ -32,6 +32,7 @@
                 name = "cryptroot";
                 settings = {
                   allowDiscards = true; # enable TRIM
+                  bypassWorkqueues = true; # enables both perf-no_* options
                 };
 
                 content = {
@@ -75,12 +76,5 @@
         };
       };
     };
-  };
-
-  boot.initrd.luks.devices.cryptroot = {
-    device = "/dev/disk/by-partlabel/luks";
-    name = "cryptroot";
-    allowDiscards = true; # enable TRIM
-    bypassWorkqueues = true; # enables both perf-no_* options
   };
 }
