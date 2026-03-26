@@ -1,5 +1,12 @@
-{ pkgs, flakeRoot, ... }:
 {
+  inputs,
+  pkgs,
+  flakeRoot,
+  ...
+}:
+{
+  imports = [ inputs.nix-index-database.nixosModules.default ];
+
   environment.systemPackages = with pkgs; [
     nix-output-monitor # nom
     nix-tree # browse store
@@ -7,18 +14,23 @@
     nvd # nix diff tool
   ];
 
-  # Nix CLI Tool
-  programs.nh = {
-    enable = true;
-    clean = {
+  programs = {
+    # Nix CLI Tool
+    nh = {
       enable = true;
-      extraArgs = "--keep-since 7d --keep 5";
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 7d --keep 5";
+      };
+      flake = flakeRoot;
     };
-    flake = flakeRoot;
-  };
 
-  # Nix develop
-  programs.direnv.enable = true;
+    # Nix develop
+    direnv.enable = true;
+
+    # Run nixpkgs anywhere with ','
+    nix-index-database.comma.enable = true;
+  };
 
   ## Dynamic libraries needed by some programs
   # https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885
