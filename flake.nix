@@ -124,6 +124,7 @@
       "https://niri.cachix.org"
       "https://ezkea.cachix.org"
       "https://vicinae.cachix.org"
+      "https://noctalia.cachix.org"
     ];
 
     trusted-public-keys = [
@@ -135,6 +136,7 @@
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
 
     auto-optimise-store = true;
