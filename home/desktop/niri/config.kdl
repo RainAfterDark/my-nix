@@ -25,11 +25,3 @@ layer-rule {
     xray true
   }
 }
-
-layer-rule {
-  match namespace="^noctalia-background.*"
-    background-effect {
-    blur true
-    xray true
-  }
-}
