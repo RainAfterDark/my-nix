@@ -4,12 +4,12 @@ let
 in
 {
   stylix.targets.hyprlock = {
-    enable = true;
+    enable = false;
     image.enable = false;
   };
 
   programs.hyprlock = {
-    enable = true;
+    enable = false;
     settings = {
       general = {
         hide_cursor = false;

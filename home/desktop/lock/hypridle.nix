@@ -15,7 +15,7 @@ let
 in
 {
   services.hypridle = {
-    enable = true;
+    enable = false;
 
     settings = {
       general = {
@@ -47,17 +47,17 @@ in
   };
 
   # For commands needed in hyprlock
-  systemd.user.services.hypridle.Service.Environment = lib.mkForce "PATH=${
-    lib.makeBinPath (
-      with pkgs;
-      [
-        bash
-        procps
-        coreutils
-        systemd
-        hyprlock
-        config.programs.niri.package
-      ]
-    )
-  }";
+  # systemd.user.services.hypridle.Service.Environment = lib.mkForce "PATH=${
+  #   lib.makeBinPath (
+  #     with pkgs;
+  #     [
+  #       bash
+  #       procps
+  #       coreutils
+  #       systemd
+  #       hyprlock
+  #       config.programs.niri.package
+  #     ]
+  #   )
+  # }";
 }

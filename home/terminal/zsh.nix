@@ -16,7 +16,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ls = "eza -lo --no-permissions --no-user --group-directories-first --total-size --git";
+      ls = "eza -lo --no-permissions --no-user --group-directories-first --git";
     };
 
     plugins = [
