@@ -71,5 +71,8 @@
     heroic # game launcher
     protonplus # wine and proton manager
     mcaselector # minecraft worlds util
+
+    ### Custom Packaged
+    my-scripts # Utility
   ];
 }

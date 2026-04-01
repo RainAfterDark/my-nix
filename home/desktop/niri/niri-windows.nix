@@ -108,6 +108,7 @@ in
         { app-id = "codium"; }
         { app-id = "VSCodium"; }
         { app-id = "heroic"; }
+        { app-id = "io.missioncenter.MissionCenter"; }
       ];
       excludes = [ { is-floating = true; } ];
       default-column-width.proportion = 0.75;

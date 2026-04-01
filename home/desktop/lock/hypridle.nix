@@ -5,14 +5,6 @@
   config,
   ...
 }:
-let
-  sleepOnBat = pkgs.writeShellScript "sleep-on-bat" ''
-    # bash
-    if grep -q "Discharging" /sys/class/power_supply/BAT*/status 2>/dev/null; then
-      systemctl suspend
-    fi
-  '';
-in
 {
   services.hypridle = {
     enable = false;
@@ -40,24 +32,28 @@ in
         }
         {
           timeout = 360; # 6:00
-          on-timeout = "${sleepOnBat}";
+          on-timeout = "sleep-on-bat";
         }
       ];
     };
   };
 
   # For commands needed in hyprlock
-  # systemd.user.services.hypridle.Service.Environment = lib.mkForce "PATH=${
-  #   lib.makeBinPath (
-  #     with pkgs;
-  #     [
-  #       bash
-  #       procps
-  #       coreutils
-  #       systemd
-  #       hyprlock
-  #       config.programs.niri.package
-  #     ]
-  #   )
-  # }";
+  systemd.user.services.hypridle.Service.Environment =
+    lib.mkIf config.services.hypridle.enable (
+      lib.mkForce "PATH=${
+        lib.makeBinPath (
+          with pkgs;
+          [
+            bash
+            procps
+            coreutils
+            systemd
+            hyprlock
+            my-scripts
+            config.programs.niri.package
+          ]
+        )
+      }"
+    );
 }

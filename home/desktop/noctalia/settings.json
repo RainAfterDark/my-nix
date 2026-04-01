@@ -437,11 +437,11 @@
         "lockCommand": "",
         "lockTimeout": 660,
         "resumeLockCommand": "",
-        "resumeScreenOffCommand": "",
+        "resumeScreenOffCommand": "niri msg action power-on-monitors",
         "resumeSuspendCommand": "",
-        "screenOffCommand": "",
+        "screenOffCommand": "niri msg action power-off-monitors",
         "screenOffTimeout": 600,
-        "suspendCommand": "",
+        "suspendCommand": "sleep-on-bat",
         "suspendTimeout": 1800
     },
     "location": {

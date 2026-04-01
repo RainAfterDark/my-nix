@@ -50,12 +50,21 @@
 
     layer-rules = [
       {
+        # Render in backdrop so they are shown in overview
         matches = [
-          { namespace = "mpvpaper"; }
-          { namespace = "awww-daemon"; }
-          { namespace = "linux-wallpaperengine"; }
+          { namespace = "^mpvpaper$"; }
+          { namespace = "^awww-daemon$"; }
+          { namespace = "^linux-wallpaperengine$"; }
         ];
         place-within-backdrop = true;
+      }
+      {
+        # Disable idle noctalia's fade-in and built-in wallpaper
+        matches = [
+          { namespace = "^noctalia-fade-overlay$"; }
+          { namespace = "^noctalia-wallpaper-.*$"; }
+        ];
+        opacity = 0.0;
       }
     ];
 
