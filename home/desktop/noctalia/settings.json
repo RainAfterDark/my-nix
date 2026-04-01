@@ -549,7 +549,7 @@
             },
             {
                 "action": "suspend",
-                "command": "loginctl lock-session; sleep 1 && systemctl suspend",
+                "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "W"
