@@ -26,7 +26,6 @@ in
   programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
-      arrterian.nix-env-selector
       tamasfe.even-better-toml
       skellock.just
 
