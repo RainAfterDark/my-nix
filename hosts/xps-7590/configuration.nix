@@ -43,6 +43,9 @@
   # Build packages with CUDA support
   nixpkgs.config.cudaSupport = true;
 
+  # Enable dynamic CDI configuration (for docker)
+  hardware.nvidia-container-toolkit.enable = true;
+
   # For Wine etc.
   hardware.graphics.enable32Bit = true;
 
