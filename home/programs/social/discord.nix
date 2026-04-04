@@ -113,8 +113,8 @@ in
         arRPC = true;
         discordBranch = "stable";
         enableSplashScreen = false;
-        hardwareAcceleration = true;
-        hardwareVideoAcceleration = true;
+        hardwareAcceleration = false;
+        hardwareVideoAcceleration = false;
       };
     };
 
