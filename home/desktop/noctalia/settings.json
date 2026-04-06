@@ -573,15 +573,15 @@
                 "action": "logout",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": false,
-                "keybind": ""
+                "enabled": true,
+                "keybind": "R"
             },
             {
                 "action": "shutdown",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "R"
+                "keybind": "T"
             },
             {
                 "action": "rebootToUefi",

@@ -2,7 +2,6 @@
   inputs,
   config,
   colors,
-  pkgs,
   ...
 }:
 let
