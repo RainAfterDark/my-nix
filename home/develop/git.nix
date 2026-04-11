@@ -15,7 +15,7 @@
     settings = {
       user = {
         name = "Ame";
-        email = "rainafterd4rk@gmail.com";
+        email = "42061128+RainAfterDark@users.noreply.github.com";
       };
       init.defaultBranch = "main";
       merge.conflictstyle = "diff3";

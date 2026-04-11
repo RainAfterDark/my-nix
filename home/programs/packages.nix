@@ -23,6 +23,7 @@
     unzip # archives
     wget # downloader
     navi # interactive cheatsheet
+    dex # util for desktop entries
 
     ## Monitoring / Fetch
     nitch # nice fetch

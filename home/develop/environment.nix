@@ -27,6 +27,9 @@ in
     godot-export-templates-bin
     pixelorama
 
+    # LLM
+    lmstudio
+
     ## Formating
     treefmt
     shfmt

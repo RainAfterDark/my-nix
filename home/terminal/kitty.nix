@@ -5,6 +5,7 @@
     enable = true;
 
     settings = {
+      allow_remote_control = true;
       confirm_os_window_close = 0;
       scrollback_lines = 10000;
       enable_audio_bell = false;

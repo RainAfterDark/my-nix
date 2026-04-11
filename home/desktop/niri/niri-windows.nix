@@ -91,6 +91,7 @@ in
         { app-id = "gimp"; }
         { app-id = "jetbrains-idea"; }
         { app-id = "jetbrains-rider"; }
+        { app-id = "jetbrains-pycharm"; }
         { app-id = "Spotify"; }
         { app-id = "discord"; }
         { app-id = "vesktop"; }
@@ -128,6 +129,7 @@ in
         { app-id = "VSCodium"; }
         { app-id = "jetbrains-idea"; }
         { app-id = "jetbrains-rider"; }
+        { app-id = "jetbrains-pycharm"; }
         { app-id = "nemo"; }
         { app-id = "Spotify"; }
       ];

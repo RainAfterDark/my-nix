@@ -26,7 +26,16 @@
     };
 
     # Nix develop
-    direnv.enable = true;
+    direnv = {
+      enable = true;
+      settings = {
+        global = {
+          strict_env = true;
+          warn_timeout = 0;
+          hide_env_diff = true;
+        };
+      };
+    };
 
     # Run nixpkgs anywhere with ','
     nix-index-database.comma.enable = true;
