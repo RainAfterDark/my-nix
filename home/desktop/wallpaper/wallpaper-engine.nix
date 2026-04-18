@@ -11,8 +11,10 @@ let
   lweGui = lweGuiPkg.override { linux-wallpaperengine = lwe; };
 in
 {
+  # These are expensive to build and I just don't use them anymore
+  # also bun packages require setting ulimit -n 65536
   home.packages = [
-    lwe
-    lweGui
+    # lwe
+    # lweGui
   ];
 }

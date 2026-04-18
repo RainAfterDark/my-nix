@@ -45,9 +45,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # WIP blur branch: https://github.com/niri-wm/niri/pull/3483.
-    niri-wip = {
-      url = "github:niri-wm/niri/wip/branch";
+    niri = {
+      url = "github:niri-wm/niri"; # Cached, hopefully?
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = ""; # can be omitted for end-users
     };
