@@ -185,6 +185,12 @@
                     ]
                 },
                 {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Network",
+                    "textColor": "none"
+                },
+                {
                     "applyToAllMonitors": false,
                     "displayMode": "onhover",
                     "iconColor": "none",
@@ -451,7 +457,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Davao City",
+        "name": "",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
