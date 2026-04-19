@@ -3,7 +3,7 @@ with lib;
 let
   defaultApps = {
     browser = [ "zen-beta.desktop" ];
-    text = [ "org.gnome.TextEditor.desktop" ];
+    text = [ "sublime_text.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];

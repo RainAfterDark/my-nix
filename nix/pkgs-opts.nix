@@ -1,6 +1,9 @@
 { lib, self, ... }:
 let
-  insecurePkgs = [ "ventoy-gtk3" ];
+  insecurePkgs = [
+    "ventoy-gtk3"
+    "openssl"
+  ];
   pkgPred = list: (pkg: builtins.elem (lib.getName pkg) list);
 in
 {

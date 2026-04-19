@@ -67,6 +67,7 @@
     handbrake # video remuxer
     kdePackages.kdenlive # video editor
 
+    sublime4 # text edit
     obsidian # notes vault
     warehouse # flatpak manager
     heroic # game launcher
