@@ -68,6 +68,7 @@
     kdePackages.kdenlive # video editor
 
     sublime4 # text edit
+    visidata # dataviz
     obsidian # notes vault
     warehouse # flatpak manager
     heroic # game launcher
