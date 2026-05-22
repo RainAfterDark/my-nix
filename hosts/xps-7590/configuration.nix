@@ -123,4 +123,10 @@
     powertop
     brightnessctl
   ];
+
+  ## Nix Build Limits
+  nix.settings = {
+    cores = 6;
+    max-jobs = 1;
+  };
 }
