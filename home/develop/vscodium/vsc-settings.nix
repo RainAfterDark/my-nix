@@ -1,7 +1,5 @@
 { lib, ... }:
 {
-  stylix.targets.vscode.enable = true;
-
   programs.vscode.profiles.default = {
     userSettings = {
       update.mode = "none";
@@ -28,6 +26,7 @@
       workbench.editor.limit.value = 10;
       workbench.editor.limit.perEditorGroup = true;
       workbench.editor.showTabs = "multiple";
+      workbench.secondarySideBar.defaultVisibility = "hidden";
       files.autoSave = "onWindowChange";
       editor.renderControlCharacters = false;
       workbench.statusBar.visible = false;
@@ -37,6 +36,9 @@
       editor.smoothScrolling = true;
       workbench.list.smoothScrolling = true;
       terminal.integrated.smoothScrolling = true;
+
+      # Fuck this shit
+      chat.disableAIFeatures = true;
     };
   };
 }

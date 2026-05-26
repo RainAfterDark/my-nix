@@ -58,27 +58,28 @@ in
     };
   };
 
+  # TODO: stylix no longer uses xdg.configFile for these settings
   # Patch stylix's .kvconfig with transparecny + blur
-  xdg.configFile."Kvantum/Base16KvantumPatched".source =
-    let
-      stylixTheme = config.xdg.configFile."Kvantum/Base16Kvantum".source;
-    in
-    pkgs.runCommand "patched-kvantum-theme" { } ''
-      # bash
-      mkdir -p $out
-      cp ${stylixTheme}/Base16Kvantum.svg $out/Base16KvantumPatched.svg
-      cp ${stylixTheme}/Base16Kvantum.kvconfig $out/Base16KvantumPatched.kvconfig
+  # xdg.configFile."Kvantum/Base16KvantumPatched".source =
+  #   let
+  #     stylixTheme = config.xdg.configFile."Kvantum/Base16Kvantum".source;
+  #   in
+  #   pkgs.runCommand "patched-kvantum-theme" { } ''
+  #     # bash
+  #     mkdir -p $out
+  #     cp ${stylixTheme}/Base16Kvantum.svg $out/Base16KvantumPatched.svg
+  #     cp ${stylixTheme}/Base16Kvantum.kvconfig $out/Base16KvantumPatched.kvconfig
 
-      sed -i 's|^translucent_windows=.*|translucent_windows=true|' \
-        $out/Base16KvantumPatched.kvconfig
-        
-      sed -i 's|^blurring=.*|blurring=true|' \
-        $out/Base16KvantumPatched.kvconfig
-    '';
+  #     sed -i 's|^translucent_windows=.*|translucent_windows=true|' \
+  #       $out/Base16KvantumPatched.kvconfig
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = lib.mkForce (
-    (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
-      General.theme = "Base16KvantumPatched";
-    }
-  );
+  #     sed -i 's|^blurring=.*|blurring=true|' \
+  #       $out/Base16KvantumPatched.kvconfig
+  #   '';
+
+  # xdg.configFile."Kvantum/kvantum.kvconfig".source = lib.mkForce (
+  #   (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
+  #     General.theme = "Base16KvantumPatched";
+  #   }
+  # );
 }

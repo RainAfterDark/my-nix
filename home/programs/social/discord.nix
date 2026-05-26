@@ -106,7 +106,6 @@ in
     # Vesktop fork
     equibop = {
       enable = true;
-
       # https://github.com/Equicord/Equibop/blob/main/src/shared/settings.d.ts
       settings = {
         arRPC = true;
