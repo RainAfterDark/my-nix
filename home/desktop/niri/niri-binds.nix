@@ -127,6 +127,18 @@
       # Make caps lock an additional escape key
       # see man xkeyboard-config
       keyboard.xkb.options = "caps:escape";
+    }
+
+    # Enable touch on Thinkpad
+    // lib.optionalAttrs (host == "t14-gen1") { touch.map-to-output = "eDP-1"; }
+
+    # Enable touchpad on laptops
+    // lib.optionalAttrs (host != "desktop") {
+      touchpad = {
+        tap = true;
+        natural-scroll = true;
+        tap-button-map = "left-right-middle";
+      };
     };
   };
 }
