@@ -13,6 +13,7 @@
     pciutils # lspci, etc.
     android-tools # ADB, etc.
     tmux # terminal multiplexer
+    lsof # list open files
 
     # Hardware
     wev # input tester

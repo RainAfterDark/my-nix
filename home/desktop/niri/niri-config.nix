@@ -35,6 +35,13 @@ in
     debug = {
       # This acts as a compatibility shim for Firefox/Zen focus issues
       honor-xdg-activation-with-invalid-serial = true;
+    }
+    # Only use the iGPU on the XPS
+    // lib.optionalAttrs (host == "xps-7590") {
+      # Explicitly bind Niri's rendering to your Intel iGPU
+      render-drm-device = "/dev/dri/by-path/pci-0000:00:02.0-render";
+      # Completely block Niri from probing or opening the NVIDIA dGPU
+      ignore-drm-device = "/dev/dri/by-path/pci-0000:01:00.0-render";
     };
 
     prefer-no-csd = true;

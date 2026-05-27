@@ -9,20 +9,22 @@
   # No hibernate!
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
   services.logind.settings.Login = {
     KillUserProcesses = false;
     SleepOperation = "suspend";
   };
 
-  # Disable USB devices from being to wakeup the laptop
-  systemd.services.disable-usb-wakeup = {
-    description = "Disable USB controller wakeup (XHC) on XPS 7590";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${pkgs.bash}/bin/bash -c 'if grep -q \"XHC.*enabled\" /proc/acpi/wakeup; then echo XHC > /proc/acpi/wakeup; fi'";
+  # Use the closed NVIDIA drivers to disable GSP (for D3cold on idle)
+  hardware.nvidia = {
+    open = false;
+    gsp.enable = false;
+    powerManagement = {
+      enable = false; # Disable persistent allocation for suspend
+      finegrained = true;
+    };
+    moduleParams = {
+      # This is still necessary: https://github.com/NixOS/nixpkgs/issues/465310
+      nvidia.NVreg_EnableGpuFirmware = 0;
     };
   };
 
@@ -89,14 +91,21 @@
   services.tlp = {
     enable = true;
     settings = {
+      # Power profiles
       CPU_SCALING_GOVERNOR_ON_AC = "powersave";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "balanced";
+
+      # Charge thresholds
       START_CHARGE_THRESH_BAT0 = 75;
       STOP_CHARGE_THRESH_BAT0 = 80;
+
+      # Allow dGPU to be in D3cold on AC
+      RUNTIME_PM_ON_AC = "auto";
+      RUNTIME_PM_ON_BAT = "auto";
     };
   };
 
@@ -111,6 +120,17 @@
     };
   };
 
+  # Disable USB devices from being to wakeup the laptop
+  systemd.services.disable-usb-wakeup = {
+    description = "Disable USB controller wakeup (XHC) on XPS 7590";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c 'if grep -q \"XHC.*enabled\" /proc/acpi/wakeup; then echo XHC > /proc/acpi/wakeup; fi'";
+    };
+  };
+
   ## Swap
   zramSwap = {
     enable = true;
@@ -122,6 +142,7 @@
     powerstat
     powertop
     brightnessctl
+    nvtopPackages.nvidia
   ];
 
   ## Nix Build Limits
