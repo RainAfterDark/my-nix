@@ -1,4 +1,10 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  host,
+  ...
+}:
 {
   ## Steam
   programs = {
@@ -30,6 +36,16 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       gamescopeSession.enable = true;
+    }
+    # Don't use dGPU and force iGPU for XPS
+    // lib.optionalAttrs (host == "xps-7590") {
+      package = pkgs.steam.override {
+        extraEnv = {
+          UD_NV_DISABLE = "1";
+          VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json";
+          GAMEMODERUNEXEC = "env UD_NV_DISABLE=0 VK_ICD_FILENAMES= nvidia-offload mangohud";
+        };
+      };
     };
   };
 

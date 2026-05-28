@@ -73,7 +73,7 @@ in
     # Fullscreen Apps
     {
       matches = [
-        { app-id = "steam_app_0"; }
+        { app-id = "^steam_app_.+"; }
         { app-id = "^Minecraft.+"; }
         { app-id = "^Terraria.+"; }
         { app-id = "^starrail.exe$"; }
