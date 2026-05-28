@@ -18,16 +18,14 @@
         "Mod+T".action = spawn "kitty";
         "Mod+G".action = spawn "nemo";
         "Mod+F".action = spawn-sh "vicinae toggle";
-        "Mod+V".action =
-          spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history";
-        "Mod+B".action =
-          spawn-sh "vicinae vicinae://extensions/vicinae/core/search-emojis";
+        "Mod+V".action = spawn-sh "vicinae vicinae://launch/clipboard/history";
+        "Mod+B".action = spawn-sh "vicinae vicinae://launch/core/search-emojis";
         "Mod+R".action = spawn-sh "noctalia-shell ipc call notifications toggleHistory";
         "Mod+Shift+R".action = spawn-sh "noctalia-shell ipc call notifications clear";
         "Mod+O".action =
-          spawn-sh "vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid";
+          spawn-sh "vicinae vicinae://launch/@sovereign/vicinae-extension-awww-switcher-0/wpgrid";
         "Mod+Shift+O".action =
-          spawn-sh "vicinae vicinae://extensions/sovereign/awww-switcher/wprandom";
+          spawn-sh "vicinae vicinae://launch/@sovereign/vicinae-extension-awww-switcher-0/wprandom";
         "Mod+I".action = spawn-sh "noctalia-shell ipc call volume togglePanel";
         "Mod+Escape".action = spawn-sh "noctalia-shell ipc call sessionMenu toggle";
 
