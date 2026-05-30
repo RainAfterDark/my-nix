@@ -106,6 +106,7 @@ in
     # 3/4-Width Apps
     {
       matches = [
+        { app-id = "code"; }
         { app-id = "codium"; }
         { app-id = "VSCodium"; }
         { app-id = "heroic"; }
