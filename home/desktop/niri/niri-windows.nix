@@ -89,9 +89,7 @@ in
       matches = [
         { app-id = "mpv"; }
         { app-id = "gimp"; }
-        { app-id = "jetbrains-idea"; }
-        { app-id = "jetbrains-rider"; }
-        { app-id = "jetbrains-pycharm"; }
+        { app-id = "jetbrains-.*"; }
         { app-id = "Spotify"; }
         { app-id = "discord"; }
         { app-id = "vesktop"; }
@@ -126,11 +124,10 @@ in
     # Transparent Apps
     {
       matches = [
+        { app-id = "code"; }
         { app-id = "codium"; }
         { app-id = "VSCodium"; }
-        { app-id = "jetbrains-idea"; }
-        { app-id = "jetbrains-rider"; }
-        { app-id = "jetbrains-pycharm"; }
+        { app-id = "jetbrains-.*"; }
         { app-id = "nemo"; }
         { app-id = "Spotify"; }
       ];

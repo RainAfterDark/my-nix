@@ -17,8 +17,8 @@ in
     jetbrains-toolbox
 
     ## Env
-    flox
     just
+    flox
     chrome
 
     ## Game Dev

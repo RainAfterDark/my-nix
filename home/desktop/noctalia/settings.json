@@ -188,6 +188,12 @@
                 {
                     "displayMode": "onhover",
                     "iconColor": "none",
+                    "id": "Bluetooth",
+                    "textColor": "none"
+                },
+                {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
                     "id": "Network",
                     "textColor": "none"
                 },
@@ -473,8 +479,8 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
-        "bluetoothRssiPollingEnabled": false,
-        "disableDiscoverability": false,
+        "bluetoothRssiPollingEnabled": true,
+        "disableDiscoverability": true,
         "networkPanelView": "wifi",
         "wifiDetailsViewMode": "grid"
     },
