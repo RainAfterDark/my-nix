@@ -21,6 +21,7 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "hmbak";
+    overwriteBackup = true;
 
     extraSpecialArgs = {
       inherit

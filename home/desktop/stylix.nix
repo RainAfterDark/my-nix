@@ -16,10 +16,6 @@ let
   rounding = 0;
 in
 {
-  # Silence warning and keep legacy behavior
-  # TODO: investigate compatibility for this
-  gtk.gtk4.theme = config.gtk.theme;
-
   stylix = {
     inherit cursor;
 

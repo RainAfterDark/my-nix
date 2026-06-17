@@ -40,13 +40,13 @@
 
     ## Desktop
     niri-flake = {
-      # TODO: point to main branch when this gets merged
+      # TODO: seems no longer updated, probably use something else
       url = "github:sodiboo/niri-flake/very-refactor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
-      url = "github:niri-wm/niri"; # Cached, hopefully?
+      url = "github:niri-wm/niri";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = ""; # can be omitted for end-users
     };
@@ -61,15 +61,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # noctalia-qs = {
+    #   url = "github:noctalia-dev/noctalia-qs";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # noctalia = {
+    #   url = "github:RainAfterDark/noctalia-shell/feat/lock-screencopy-blur";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.noctalia-qs.follows = "noctalia-qs";
+    # };
 
     noctalia = {
-      url = "github:RainAfterDark/noctalia-shell/feat/lock-screencopy-blur";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qs.follows = "noctalia-qs";
     };
 
     vicinae.url = "github:vicinaehq/vicinae"; # Cached

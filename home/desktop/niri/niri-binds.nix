@@ -20,14 +20,15 @@
         "Mod+F".action = spawn-sh "vicinae toggle";
         "Mod+V".action = spawn-sh "vicinae vicinae://launch/clipboard/history";
         "Mod+B".action = spawn-sh "vicinae vicinae://launch/core/search-emojis";
-        "Mod+R".action = spawn-sh "noctalia-shell ipc call notifications toggleHistory";
-        "Mod+Shift+R".action = spawn-sh "noctalia-shell ipc call notifications clear";
+        "Mod+R".action =
+          spawn-sh "noctalia msg panel-toggle control-center notifications";
+        "Mod+Shift+R".action = spawn-sh "noctalia msg notification-clear-active";
         "Mod+O".action =
           spawn-sh "vicinae vicinae://launch/@sovereign/vicinae-extension-awww-switcher-0/wpgrid";
         "Mod+Shift+O".action =
           spawn-sh "vicinae vicinae://launch/@sovereign/vicinae-extension-awww-switcher-0/wprandom";
         "Mod+I".action = spawn-sh "noctalia-shell ipc call volume togglePanel";
-        "Mod+Escape".action = spawn-sh "noctalia-shell ipc call sessionMenu toggle";
+        "Mod+Escape".action = spawn-sh "noctalia msg panel-toggle session";
 
         # Resizing
         "Mod+Z".action = close-window;

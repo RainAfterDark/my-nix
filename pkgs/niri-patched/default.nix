@@ -7,10 +7,10 @@
 }:
 let
   system = stdenv.hostPlatform.system;
-  niri-base = inputs.niri.packages.${system}.niri;
-  # niri-base = niri.overrideAttrs (old: {
-  #   doCheck = false; # skip tests
-  # });
+  niri = inputs.niri.packages.${system}.niri;
+  niri-base = niri.overrideAttrs (old: {
+    doCheck = false; # skip tests
+  });
 in
 symlinkJoin {
   inherit (niri-base)
