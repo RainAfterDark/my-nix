@@ -14,6 +14,9 @@ enabled = false
 [dock]
 radius = 0
 
+[location]
+auto_locate = true
+
 [lockscreen]
 blurred_desktop = true
 
@@ -24,7 +27,8 @@ widget_order = [
     "lockscreen-login-box@eDP-1",
     "lockscreen-login-box@DP-3",
     "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002"
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003"
 ]
 
     [lockscreen_widgets.grid]
@@ -75,14 +79,37 @@ widget_order = [
     rotation = 0.0
     type = "clock"
 
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_radius = 0.0
+        clock_style = "digital"
+        format = "{:%H:%M:%S}"
+
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 48.0
-    box_width = 160.0
-    cx = 960.0
-    cy = 628.0
+    box_height = 80.0
+    box_width = 176.0
+    cx = 1056.0
+    cy = 636.0
     output = "DP-3"
     rotation = 0.0
     type = "weather"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background_padding = 10.0
+        background_radius = 0.0
+        show_forecast = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 96.0
+    box_width = 160.0
+    cx = 864.0
+    cy = 396.0
+    output = "DP-3"
+    rotation = 0.0
+    type = "sysmon"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background_radius = 0.0
+        stat2 = "cpu_temp"
 
 [notification]
 offset_x = 4
@@ -111,6 +138,9 @@ builtin = "Kanagawa"
 
 [wallpaper]
 enabled = false
+
+[weather]
+refresh_minutes = 5
 
 [widget.Vicinae]
 command = "vicinae toggle"
