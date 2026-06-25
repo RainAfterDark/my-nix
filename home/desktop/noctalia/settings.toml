@@ -75,7 +75,7 @@ widget_order = [
     box_width = 272.0
     cx = 960.0
     cy = 524.0
-    output = "DP-3"
+    output = "eDP-1"
     rotation = 0.0
     type = "clock"
 
@@ -89,7 +89,7 @@ widget_order = [
     box_width = 176.0
     cx = 1056.0
     cy = 636.0
-    output = "DP-3"
+    output = "eDP-1"
     rotation = 0.0
     type = "weather"
 
@@ -100,10 +100,10 @@ widget_order = [
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
     box_height = 96.0
-    box_width = 160.0
-    cx = 864.0
-    cy = 396.0
-    output = "DP-3"
+    box_width = 176.0
+    cx = 856.0
+    cy = 404.0
+    output = "eDP-1"
     rotation = 0.0
     type = "sysmon"
 
@@ -135,6 +135,10 @@ screen_time_enabled = true
 
 [theme]
 builtin = "Kanagawa"
+
+    [theme.templates]
+    enable_builtin_templates = false
+    enable_community_templates = false
 
 [wallpaper]
 enabled = false

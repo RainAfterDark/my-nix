@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
   boot.kernelPackages =
     pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
@@ -144,10 +143,4 @@
     brightnessctl
     nvtopPackages.nvidia
   ];
-
-  ## Nix Build Limits
-  nix.settings = {
-    cores = 6;
-    max-jobs = 1;
-  };
 }
