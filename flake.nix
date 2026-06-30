@@ -48,7 +48,6 @@
     niri = {
       url = "github:niri-wm/niri";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = ""; # can be omitted for end-users
     };
 
     milk-grub-theme = {

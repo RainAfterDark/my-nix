@@ -6,7 +6,7 @@ in
   imports = [ vicinae-module ];
   stylix.targets.vicinae.enable = true;
 
-  services.vicinae = {
+  programs.vicinae = {
     enable = true;
 
     settings = {

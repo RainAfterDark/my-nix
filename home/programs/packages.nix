@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     ### TUI
     ## Utilities
@@ -67,7 +66,7 @@
     handbrake # video remuxer
     kdePackages.kdenlive # video editor
 
-    sublime4 # text edit
+    sublime3 # text edit
     visidata # dataviz
     obsidian # notes vault
     warehouse # flatpak manager
