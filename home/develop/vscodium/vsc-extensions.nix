@@ -28,6 +28,7 @@ in
       jnoortheen.nix-ide
       tamasfe.even-better-toml
       skellock.just
+      danielgavin.ols
 
       jonathanharty.gruvbox-material-icon-theme
       atomicspirit.nix-embedded-highlighter
