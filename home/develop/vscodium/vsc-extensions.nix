@@ -25,10 +25,12 @@ in
 {
   programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-extensions; [
+      github.vscode-github-actions
       jnoortheen.nix-ide
-      tamasfe.even-better-toml
-      skellock.just
+      vadimcn.vscode-lldb
       danielgavin.ols
+      skellock.just
+      tamasfe.even-better-toml
 
       jonathanharty.gruvbox-material-icon-theme
       atomicspirit.nix-embedded-highlighter
