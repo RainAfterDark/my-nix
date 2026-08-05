@@ -102,7 +102,8 @@
       START_CHARGE_THRESH_BAT0 = 75;
       STOP_CHARGE_THRESH_BAT0 = 80;
 
-      # Allow dGPU to be in D3cold on AC
+      # Exclude dGPU from power management
+      RUNTIME_PM_DENYLIST = "01:00.0";
       RUNTIME_PM_ON_AC = "auto";
       RUNTIME_PM_ON_BAT = "auto";
     };
