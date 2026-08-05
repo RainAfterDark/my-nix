@@ -1,3 +1,5 @@
+config_version = 12
+
 [bar.default]
 background_opacity = 0.79999998211860657
 center = [ "workspaces" ]
@@ -147,9 +149,11 @@ enabled = false
 refresh_minutes = 5
 
 [widget.Vicinae]
-command = "vicinae toggle"
 glyph = "apps"
 type = "custom_button"
+
+    [widget.Vicinae.actions]
+    left = "exec vicinae toggle"
 
 [widget.active_window]
 capsule = true
@@ -168,5 +172,5 @@ show_label = false
 drawer = true
 
 [widget.workspaces]
-display = "none"
 empty_color = "tertiary"
+show_labels = false

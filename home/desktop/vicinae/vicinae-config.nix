@@ -10,13 +10,6 @@ in
     enable = true;
 
     settings = {
-      font = {
-        normal = {
-          size = 12;
-          family = config.stylix.fonts.monospace.name;
-        };
-      };
-
       launcher_window = {
         opacity = config.stylix.opacity.popups;
         layer_shell = {
