@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Needed to allow debugging
   boot.kernel.sysctl = {
     "kernel.kptr_restrict" = 0;
@@ -35,7 +34,6 @@
     distrobox
 
     # Benchmark
-    geekbench
     stress-ng
     s-tui
 

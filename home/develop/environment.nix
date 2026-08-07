@@ -21,12 +21,6 @@ in
     flox
     chrome
 
-    ## Game Dev
-    godot
-    godot-mono
-    godot-export-templates-bin
-    pixelorama
-
     # LLM
     lmstudio
 

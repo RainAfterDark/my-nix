@@ -29,24 +29,10 @@
     fastfetch # not very fast, actually
     hyfetch # flagsssssssss
     onefetch # fetch utility for git repo
-    wavemon # wireless network monitor
-
-    ## Fun
-    smassh # monkeytype
-    toipe # typing test
-    asciiquarium-transparent # fish
-    cbonsai # tree
-    cmatrix # 1337 haxor
-    figlet # ascii text
-    fortune # pseudorandom
-    lavat # laval lamp
-    pipes # plumbing
-    sl # choo choo
 
     ## Multimedia
     ani-cli # watch anime
     imv # image viewer
-    lowfi # lo-fi beats
     presenterm # md presentation
     md-tui # markdown parser
     ffmpeg-full # video manipulation
@@ -61,18 +47,12 @@
     hardinfo2 # hardware info
     qdirstat # visualize disk usage
 
-    gimp3-with-plugins # image manipulation
-    krita # drawing and painting
     handbrake # video remuxer
-    kdePackages.kdenlive # video editor
-
     sublime3 # text edit
-    visidata # dataviz
     obsidian # notes vault
     warehouse # flatpak manager
     heroic # game launcher
     protonplus # wine and proton manager
-    mcaselector # minecraft worlds util
 
     ### Custom Packaged
     my-scripts # Utility
