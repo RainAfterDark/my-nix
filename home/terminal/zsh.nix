@@ -16,6 +16,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+      code = "codium";
       ls = "eza -lo --no-permissions --no-user --group-directories-first --git";
     };
 
