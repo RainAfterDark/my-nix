@@ -45,6 +45,7 @@
   # https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    gtk3
     SDL
     SDL2
     SDL2_image
