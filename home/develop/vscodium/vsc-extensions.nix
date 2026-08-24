@@ -18,7 +18,7 @@ let
           name = "nix-embedded-highlighter";
           publisher = "atomicspirit";
           version = "0.1.3";
-          hash = "sha256-KZfUaPjReHQH0XCCiejAs+0Go8WEeGiOuxjkTfSnku0=";
+          hash = "sha256-h864VdBXr9RTcFF++K0e6JcGWC2ffK0Phh2Zlqvzmro=";
         };
       };
 
