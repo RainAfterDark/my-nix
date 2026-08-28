@@ -21,6 +21,11 @@ in
     flox
     chrome
 
+    ## Create
+    godot
+    blender
+    pixelorama
+
     # LLM
     lmstudio
 
