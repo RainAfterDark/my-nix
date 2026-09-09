@@ -1,5 +1,22 @@
 { lib, pkgs, ... }:
 let
+  prismlauncher =
+    (import (fetchGit {
+      name = "prismlauncher-9.4";
+      url = "https://github.com/NixOS/nixpkgs/";
+      ref = "refs/heads/nixpkgs-unstable";
+      rev = "e6f23dc08d3624daab7094b701aa3954923c6bbb";
+      shallow = true;
+    }) { inherit (pkgs.stdenv.hostPlatform) system; }).prismlauncher.override
+      {
+        jdks = with pkgs; [
+          jdk25
+          jdk21
+          jdk17
+          jdk8
+        ];
+      };
+
   accountJson = ''
     {
       "accounts": [
@@ -23,7 +40,7 @@ let
           "type": "MSA",
           "ygg": {
             "extra": {
-              "clientToken": "0",
+              # "clientToken": "0",
               "userName": ""
             },
             "iat": 0,
@@ -36,7 +53,7 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [ prismlauncher ];
+  home.packages = [ prismlauncher ];
 
   # We do a little sneaky
   home.activation.createPrismLauncherAccounts =
