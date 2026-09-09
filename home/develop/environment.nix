@@ -23,7 +23,7 @@ in
 
     ## Create
     godot
-    blender
+    # blender # currently broken on 5.2.1
     pixelorama
 
     # LLM
