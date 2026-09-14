@@ -40,7 +40,9 @@ in
       danielgavin.ols
       skellock.just
       tamasfe.even-better-toml
+      geequlim.godot-tools
 
+      # Not in nixpkgs:
       jonathanharty.gruvbox-material-icon-theme
       atomicspirit.nix-embedded-highlighter
       emeraldwalk.RunOnSave
