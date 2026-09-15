@@ -66,6 +66,17 @@
         "Mod+Ctrl+P".action.screenshot = scArgs;
         "Shift+Print".action.screenshot-window = scArgs;
         "Mod+Shift+P".action.screenshot-window = scArgs;
+
+        # Niri Zoom
+        "Ctrl+Mod+WheelScrollUp" = {
+          action = spawn-sh "niri-zoomctl in";
+          cooldown-ms = 0;
+        };
+        "Ctrl+Mod+WheelScrollDown" = {
+          action = spawn-sh "niri-zoomctl out";
+          cooldown-ms = 0;
+        };
+        "Ctrl+Mod+Space".action = spawn-sh "niri-zoomctl reset";
       }
       ## Volume and Brightness Controls
       // (

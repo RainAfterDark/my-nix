@@ -25,6 +25,8 @@ in
     godot
     blender
     pixelorama
+    gimp-with-plugins
+    krita
 
     # LLM
     lmstudio

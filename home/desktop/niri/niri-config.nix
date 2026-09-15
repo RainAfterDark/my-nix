@@ -27,6 +27,8 @@ in
   programs.niri.settings = {
     environment = lib.mapAttrs (k: v: toString v) config.home.sessionVariables;
 
+    spawn-at-startup = [ { sh = "niri-zoomd"; } ];
+
     xwayland-satellite = {
       enable = true;
       path = lib.getExe pkgs.xwayland-satellite-unstable;

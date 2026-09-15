@@ -56,5 +56,6 @@
 
     ### Custom Packaged
     my-scripts # Utility
+    niri-zoom # Wayland zoom
   ];
 }
