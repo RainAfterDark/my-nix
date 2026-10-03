@@ -1,5 +1,4 @@
-{ lib, pkgs, ... }:
-{
+{ lib, pkgs, ... }: {
   home.packages = with pkgs; [ nemo-with-extensions ];
 
   dconf.settings = with lib.gvariant; {

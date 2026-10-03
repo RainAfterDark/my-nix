@@ -41,7 +41,13 @@
     freetype # font engine
     adwaita-icon-theme # "default" icons
     ventoy-full-gtk # USB ISO
+
+    # Video thumbnails
+    ffmpeg-headless
+    ffmpegthumbnailer
   ];
+
+  environment.pathsToLink = [ "share/thumbnailers" ];
 
   programs = {
     # GNOME settings
