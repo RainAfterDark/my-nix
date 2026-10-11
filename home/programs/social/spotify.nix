@@ -21,7 +21,7 @@
 
         history
         songStats
-        betterGenres
+        # betterGenres
         copyToClipboard
         volumePercentage
         sectionMarker

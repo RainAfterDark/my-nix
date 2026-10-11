@@ -14,7 +14,8 @@ in
     nixd # Nix LSP
 
     ## IDEs
-    jetbrains-toolbox
+    # TODO: wait for fix https://nixpk.gs/pr-tracker.html?pr=571448
+    # jetbrains-toolbox
 
     ## Env
     just

@@ -1,4 +1,9 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 let
   vicinae-module = inputs.vicinae.homeManagerModules.default;
 in
@@ -8,6 +13,9 @@ in
 
   programs.vicinae = {
     enable = true;
+    # use nixpkgs version for now as the flake seems to be broken
+    # https://github.com/vicinaehq/vicinae/issues/2040
+    package = pkgs.vicinae;
 
     settings = {
       launcher_window = {
