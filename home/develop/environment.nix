@@ -23,6 +23,7 @@ in
 
     ## Create
     godot
+    godot-export-templates-bin
     blender
     pixelorama
     gimp-with-plugins
