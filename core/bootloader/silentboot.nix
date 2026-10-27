@@ -2,8 +2,7 @@
 # This took forever to figure out
 # Some settings probably unneeded
 
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   boot = {
     kernelParams = [
       "quiet"
@@ -31,8 +30,9 @@
     ];
 
     consoleLogLevel = 0;
-    initrd.verbose = false;
-    initrd.systemd.enable = true;
+    # No longer valid opts
+    # initrd.verbose = false;
+    # initrd.systemd.enable = true;
 
     # Console mute fallback
     kernel.sysctl."kernel.printk" = "0 0 0 0";

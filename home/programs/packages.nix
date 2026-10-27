@@ -47,7 +47,8 @@
     hardinfo2 # hardware info
     qdirstat # visualize disk usage
 
-    handbrake # video remuxer
+    # TODO: https://nixpk.gs/pr-tracker.html?pr=576407
+    # handbrake # video remuxer
     sublime3 # text edit
     obsidian # notes vault
     warehouse # flatpak manager
