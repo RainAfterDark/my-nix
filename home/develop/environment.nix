@@ -19,7 +19,6 @@ in
     ## Env
     just
     flox
-    chrome
 
     ## Create
     godot
@@ -38,6 +37,19 @@ in
     nixfmt
     taplo
   ];
+
+  programs.google-chrome = {
+    enable = true;
+    package = chrome;
+    commandLineArgs = [
+      "--enable-logging=stderr"
+      # WebGPU requirements
+      "--ignore-gpu-blocklist"
+      "--ozone-platform=x11"
+      "--use-vulkan"
+      "--enable-features=Vulkan,VulkanFromANGLE,DefaultANGLEVulkan"
+    ];
+  };
 
   home.sessionVariables = {
     CHROME_EXECUTABLE = lib.getExe chrome;
