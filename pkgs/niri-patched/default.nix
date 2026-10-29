@@ -1,16 +1,20 @@
 {
-  inputs,
-  stdenv,
+  # inputs,
+  # stdenv,
   symlinkJoin,
   makeWrapper,
+  niri,
   ...
 }:
 let
-  system = stdenv.hostPlatform.system;
-  niri = inputs.niri.packages.${system}.niri;
-  niri-base = niri.overrideAttrs (old: {
-    doCheck = false; # skip tests
-  });
+  # system = stdenv.hostPlatform.system;
+  # niri = inputs.niri.packages.${system}.niri;
+  # niri-base = niri.overrideAttrs (old: {
+  #   doCheck = false; # skip tests
+  # });
+
+  # Use nixpkgs niri instead of flake input
+  niri-base = niri;
 in
 symlinkJoin {
   inherit (niri-base)

@@ -100,7 +100,7 @@
     libjpeg
     libmikmod
     libogg
-    libpng12
+    libpng # 'libpng12' has been removed as it was suceptible to various security issues and long superseded by the libpng 1.6 ABI."
     libpulseaudio
     librsvg
     libsamplerate
